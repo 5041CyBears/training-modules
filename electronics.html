@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>5041 Electronics Training</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="electronics-additions.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<section data-background-image="assets/5041teamlogo.png" data-background-size="contain" data-background-opacity="0.18" class="center elec-hero">
+  <h1 class="cytitle">Electronics Training Module</h1>
+</section>
+
+<section class="elec-slide">
+  <span class="tag">Module Goals</span>
+  <h2>By the end, students should be able to:</h2>
+  <div class="bar"></div>
+  <ul>
+    <li>Identify the major electrical and control system components on an FRC robot.</li>
+    <li>Explain basic wire choices: material, gauge, insulation, protection, and breaker/fuse sizing.</li>
+    <li>Make, inspect, tug-test, and label reliable electrical connections.</li>
+    <li>Route wires away from moving parts, sharp edges, pinch points, and impact zones.</li>
+    <li>Explain what the CAN bus does and why CAN documentation matters.</li>
+    <li>Recognize common causes of brownouts and voltage problems.</li>
+    <li>Use a systematic troubleshooting process during build season and in the pit.</li>
+    <li>Create useful electrical documentation for inspection, repair, and future students.</li>
+  </ul>
+</section>
+
+<section class="elec-slide">
+  <span class="tag">Big Electronics Checklist</span>
+  <h2>Ask these before inspection, practice, and every event</h2>
+  <div class="two">
+    <ul class="checklist">
+      <li>Are all wires secure?</li>
+      <li>Are all crimps tug-tested?</li>
+      <li>Are wires protected from moving parts?</li>
+      <li>Is the battery secure?</li>
+      <li>Is the main breaker easy to reach?</li>
+      <li>Are electronics mounted firmly?</li>
+    </ul>
+    <ul class="checklist">
+      <li>Are CAN IDs documented?</li>
+      <li>Are breakers and fuses correct?</li>
+      <li>Are wires labeled?</li>
+      <li>Can we replace or repair this quickly in the pit?</li>
+      <li>Does everything follow the current FRC rules?</li>
+      <li>Can a new student trace the system from the documentation?</li>
+    </ul>
+  </div>
+</section>
+
+
+<section class="wiring-structure-slide image-focus-slide">
+  <div class="image-focus-header">
+    <span class="tag">Wiring An FRC Robot</span>
+  </div>
+  <img 
+    class="wiring-layout-main"
+    src="assets/wiring-layout-rev.svg" 
+    alt="FRC robot wiring layout example with REV power distribution hub"
+  >    
+  <p class="wiring-structure-intro">
+      Above is an example of a fully wired FRC robot system. 
+      This module will take you through all the major components and the basics of wiring.
+    </p>
+</section>
+
+<section class="elec-vertical">
+  <span class="tag">Major Electronic Components</span>
+  <p class="elec-callout">Click a component to learn more.</p>
+
+  <div class="component-grid">
+<button class="component-card" type="button" data-component="battery">
+  <h3>Battery</h3>
+  <p>Main 12V robot power source.</p>
+</button>
+
+    <button class="component-card" type="button" data-component="mainBreaker">
+      <h3>Main Breaker</h3>
+      <p>Robot's primary power shutoff and a critical safety access point.</p>
+    </button>
+
+    <button class="component-card" type="button" data-component="powerDistribution">
+      <h3>Power Distribution</h3>
+      <p>PDP sends power to circuits through correct breakers and fuses.</p>
+    </button>
+
+    <button class="component-card" type="button" data-component="roboRio">
+      <h3>roboRIO/SystemCore</h3>
+      <p>Main robot controller that runs code.</p>
+    </button>
+
+    <button class="component-card" type="button" data-component="radio">
+      <h3>Radio</h3>
+      <p>Connects the robot to the field and Driver Station.</p>
+    </button>
+
+    <button class="component-card" type="button" data-component="motorControllers">
+      <h3>Motor Controllers</h3>
+      <p>Control motors based on commands from code.</p>
+    </button>
+
+    <button class="component-card" type="button" data-component="canBus">
+      <h3>CAN Bus</h3>
+      <p>Onboard communication network.</p>
+    </button>
+
+    <button class="component-card" type="button" data-component="pneumatics">
+      <h3>Pneumatics</h3>
+      <p>If used, a pneumatics control module is used to control a compressor, pressure switch, and solenoids.</p>
+    </button>
+
+    <button class="component-card" type="button" data-component="sensors">
+      <h3>Sensors</h3>
+      <p>Encoders, limit switches, gyros, cameras, and others.</p>
+    </button>
+  </div>
+  <p class="small center"> Image sources: REV Robotics, AndyMark, WPILib, CTR Electronics </p>
+</section>
+
+<section class="component-match-slide">
+  <span class="tag">Matching Activity</span>
+  <p class="match-intro">Drag each component image from the left into the correct definition box.</p>
+  <div class="match-layout">
+    <div class="match-bank-panel">
+      <h3>Component Images</h3>
+      <div class="match-bank drop-bank">
+        <div class="match-card" draggable="true" data-match="powerDistribution" data-order="1" aria-label="Power Distribution">
+          <img src="assets/Components/drag-and-drop/PDP.png" alt="Power Distribution">
+        </div>
+
+        <div class="match-card" draggable="true" data-match="mainBreaker" data-order="2" aria-label="Main Breaker">
+          <img src="assets/Components/drag-and-drop/breaker.png" alt="Main Breaker">
+        </div>
+
+        <div class="match-card" draggable="true" data-match="roboRio" data-order="3" aria-label="roboRIO or SystemCore">
+          <img src="assets/Components/drag-and-drop/controller.png" alt="roboRIO or SystemCore">
+        </div>
+
+        <div class="match-card" draggable="true" data-match="motorControllers" data-order="4" aria-label="Motor Controllers">
+          <img src="assets/Components/drag-and-drop/motor-controller.png" alt="Motor Controllers">
+        </div>
+
+        <div class="match-card" draggable="true" data-match="radio" data-order="5" aria-label="Radio">
+          <img src="assets/Components/drag-and-drop/radio.png" alt="Radio">
+        </div>
+
+        <div class="match-card" draggable="true" data-match="pneumatics" data-order="6" aria-label="Pneumatics">
+          <img src="assets/Components/drag-and-drop/PCM.png" alt="Pneumatics">
+        </div>
+
+        <div class="match-card" draggable="true" data-match="battery" data-order="7" aria-label="Battery">
+          <img src="assets/Components/drag-and-drop/battery.png" alt="Battery">
+        </div>
+
+        <div class="match-card" draggable="true" data-match="canBus" data-order="8" aria-label="CAN Bus">
+          <img src="assets/Components/drag-and-drop/can.png" alt="CAN Bus">
+        </div>
+
+        <div class="match-card" draggable="true" data-match="sensors" data-order="9" aria-label="Sensors">
+          <img src="assets/Components/drag-and-drop/sensors.png" alt="Sensors">
+        </div>
+      </div>
+    </div>
+    <div class="definition-grid-panel">
+      <h3>Definitions</h3>
+<div class="definition-grid">
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="powerDistribution">
+      <p class="definition-text">Sends power to circuits through breakers.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="mainBreaker">
+      <p class="definition-text">Robot's primary power shutoff.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="roboRio">
+      <p class="definition-text">Main robot controller.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="motorControllers">
+      <p class="definition-text">Controls power to motors.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="radio">
+      <p class="definition-text">Connects robot to field and Driver Station.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="pneumatics">
+      <p class="definition-text">Controls compressor and solenoids.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="battery">
+      <p class="definition-text">Main robot power source.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="canBus">
+      <p class="definition-text">Onboard communication network.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <div class="drop-slot" data-accept="sensors">
+      <p class="definition-text">Encoders, limit switches, gyros, cameras, etc.</p>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <div class="match-controls">
+    <button type="button" class="match-check-btn">Check Matches</button>
+    <button type="button" class="match-reset-btn">Reset</button>
+    <span class="match-feedback" aria-live="polite"></span>
+  </div>
+</section>
+
+<section>
+  <section class="elec-vertical">
+    <span class="tag">Component Placement</span>
+    <h2>Mount parts where they can survive and be serviced</h2>
+    <div class="elec-grid-3">
+      <div class="elec-card"><h3>Protected</h3><p>Keep electronics away from direct impact zones, game pieces, metal chips, and moving mechanisms.</p></div>
+      <div class="elec-card"><h3>Accessible</h3><p>Leave room for hands, tools, connectors, status lights, and replacement parts.</p></div>
+      <div class="elec-card"><h3>Firmly Mounted</h3><p>Use a belly pan or electronics panel with bolts, rivets, or strong mounting hardware.</p></div>
+    </div>
+    <div class="elec-callout"><p>A clean robot is not the same as a reliable robot. 
+      Reliability comes from secure mounting, protected routing, good connections, and clear documentation.</p></div>
+  </section>
+  <section class="elec-vertical">
+    <span class="tag">Mounting Dos and Donts</span>
+    <div class="two">
+      <div class="panel do"><h3>Do</h3>
+        <ul>
+          <li>Use a dedicated electronics panel or belly pan.</li>
+          <li>Use bolts, rivets, or strong mounting hardware.</li>
+          <li>Keep electronics away from direct impact zones.</li>
+          <li>Keep metal chips away from electronics.</li>
+          <li>Keep fans, vents, ports, and status LEDs visible when possible.</li>
+        </ul>
+      </div>
+      <div class="panel warn"><h3>Avoid</h3>
+        <ul>
+          <li>Relying only on adhesive for critical electronics.</li>
+          <li>Mounting electronics where game pieces or mechanisms can crush them.</li>
+          <li>Hiding status lights behind panels.</li>
+          <li>Mounting components where wires must bend sharply.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="elec-vertical">
+    <span class="tag">Component Specific Factors</span>
+    <div class="elec-grid-2">
+      <div class="elec-card"><h3>Main Breaker</h3><p>The robot's primary shutoff must be easy to reach, <b>clearly labeled</b>, and protected from accidental impact.</p></div>
+      <div class="elec-card"><h3>Battery</h3><p>The battery must be firmly secured so it cannot fall out, pull wires loose, or shift during impacts.</p></div>
+    </div>
+    <div class="elec-grid-2">
+      <div class="elec-card"><h3>Robot Signal Light</h3><p>The light must be <b>visible from all sides</b> and scurely attached.</p></div>
+      <div class="elec-card"><h3>roboRIO/SystemCore</h3><p>By far the most important component on the robot, it should be kept in a covered area and kept from debris and impact.</p></div>
+    </div>
+      <div class="elec-grid-2">
+      <div class="elec-card"><h3>Radio</h3><p>The radio should be away from motors and mounted high out of enclosed metal areas.</p></div>
+      <div class="elec-card"><h3>PDP</h3><p>The PDP should be located near the battery and all the breakers and outputs should be accessible.</p></div>
+    </div>
+  </section>
+  </section>
+
+<section>
+  <section class="elec-vertical">
+    <span class="tag">Wiring Basics</span>
+    <h2>Wire Choice and Connections Matter</h2>
+    <div class="elec-grid-3">
+      <div class="elec-card"><h3>Material</h3><p>Know what the wire is made of. Most robot wiring uses copper conductors; use legal, appropriate wire for the circuit.</p></div>
+      <div class="elec-card"><h3>Gauge</h3><p>Wire gauge must match the circuit current and breaker or fuse protection.</p></div>
+      <div class="elec-card"><h3>Connections</h3><p>Wires can be connected in a variety of ways and those connections are often critical points of possible failure.</p></div>
+    </div>
+    <div class="elec-callout"><p><strong>Rule of thumb:</strong> The larger the current, the more careful you must be about wire size, connections, strain relief, and protection.</p></div>
+  </section>
+  <section class="wire-materials-slide">
+  <span class="tag">What Wires Are Made Of Matters</span>
+  <p class="wire-materials-intro">
+    The metal inside the wire and the insulation around it affect current capacity, flexibility, durability, and heat resistance.
+  </p>
+  <div class="wire-materials-grid">
+    <div class="wire-material-card conductor">
+      <h3>Conductor Material</h3>
+      <p>
+        The conductor is the metal inside the wire that carries electricity.
+      </p>
+      <ul>
+        <li><strong>Copper:</strong> common for FRC wiring because it conducts well and is flexible when stranded.</li>
+        <li><strong>Tinned copper:</strong> copper coated with tin to resist corrosion and make soldering easier.</li>
+        <li><strong>Aluminum:</strong> lighter but not allowed for robot wiring.</li>
+      </ul>
+    </div>
+    <div class="wire-material-card strand">
+      <h3>Solid vs. Stranded</h3>
+      <p>
+        FRC robots move, vibrate, and take impacts, so flexibility is important.
+      </p>
+      <ul>
+        <li><strong>Stranded wire</strong> bends better and is usually better for robots.</li>
+        <li><strong>Solid wire</strong> can fatigue and break more easily when repeatedly bent.</li>
+        <li>Moving mechanisms need extra slack, strain relief, and protected routing.</li>
+      </ul>
+    </div>
+    <div class="wire-material-card insulation">
+      <h3>Insulation Material</h3>
+      <p>
+        Insulation protects the conductor from shorts and damage.
+      </p>
+      <ul>
+        <li><strong>PVC:</strong> common, inexpensive, and acceptable for general use.</li>
+        <li><strong>Silicone:</strong> very flexible and heat resistant; useful where wires need to bend.</li>
+        <li><strong>High-temp insulation:</strong> useful near motors or other warm areas.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wire-importance-grid">
+    <div class="importance-box">
+      <h3>Why it matters in FRC</h3>
+      <ul>
+        <li>Too-small wire can heat up or cause voltage drop.</li>
+        <li>Stiff wire can break on arms, elevators, and intakes.</li>
+        <li>Damaged insulation can cause shorts and robot failures.</li>
+      </ul>
+    </div>
+    <div class="importance-box gray">
+      <h3>Good team habits</h3>
+      <ul>
+        <li>Use the correct gauge for the circuit and breaker.</li>
+        <li>Use flexible stranded wire for robot wiring.</li>
+        <li>Check current FRC rules and device documentation before final wiring.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="awg-explainer-slide awg-vertical-slide">
+  <span class="tag">AWG and Wire Gauge</span>
+  <div class="awg-image-wrap">
+    <img 
+      src="assets/AWG-FRC.png" 
+      alt="American Wire Gauge use examples in FRC"
+      class="awg-main-image"
+    >
+  </div>
+  <div class="awg-text-panel">
+    <h2>What does AWG mean?</h2>
+    <p>
+      <strong>AWG</strong> stands for <strong>American Wire Gauge</strong>. It is a sizing system for wire.
+      The smaller the AWG number, the thicker the wire.
+    </p>
+    <div class="awg-rule-box">
+      <strong>Important pattern:</strong> Lower number = thicker wire = more current capacity.
+    </div>
+  </div>
+  <p class="small center awg-note">
+    Always confirm exact wire gauge and breaker requirements with the current FRC rules and device documentation.
+  </p>
+</section>
+
+<section class="connector-slide">
+  <span class="tag">Wire Connectors</span>
+  <p class="connector-intro">
+    In FRC, the connector type should match the current level, the device, and how often the connection may need to be serviced.
+  </p>
+  <div class="connector-grid two-up">
+    <div class="connector-card">
+      <img src="assets/Anderson-Connector.png" alt="Anderson style battery connector">
+      <h3>Anderson Connector</h3>
+      <p>
+        Used for the main robot battery connection. This is a high-current connector and is part of
+        the robot’s main power path.
+      </p>
+      <ul>
+        <li>Used on battery leads</li>
+        <li>Must be crimped well</li>
+        <li>Loose power connections cause major failures</li>
+      </ul>
+    </div>
+    <div class="connector-card">
+      <img src="assets/PWM-CAN.png" alt="PWM and CAN style cables">
+      <h3>PWM/Signal/CAN Connectors</h3>
+      <p>
+        Small 2 and 3 wire or specialized connectors used for CAN devices, sensors, and low-current connections.
+      </p>
+      <ul>
+        <li>Carry signal and low power</li>
+        <li>CAN wires are usually yellow/green twisted pair</li>
+        <li>Easy to unplug if not secured with clips</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="connector-slide">
+  <span class="tag">Wire Connectors</span>
+  <div class="connector-grid two-up">
+    <div class="connector-card">
+      <img src="assets/crimped-terminals.png" alt="Crimp terminals">
+      <h3>Crimp Terminals</h3>
+      <p>
+        Crimp terminals are commonly used for connecting wires to screw terminals, motor controllers,
+        breakers, grounding points, and other electrical hardware.
+      </p>
+      <ul>
+        <li>Available in different sizes for different wire gauges</li>
+        <li>Must match both the wire size and terminal shape</li>
+        <li>Need a proper crimping tool</li>
+        <li>A bad crimp can pull out or heat up</li>
+      </ul>
+    </div>
+    <div class="connector-card">
+      <img src="assets/wago.png" alt="Wago lever connectors">
+      <h3>Lever/Wago Connectors</h3>
+      <p>
+        Lever-style connectors are useful in many electrical contexts because they are fast and easy to
+        service. Always verify whether a given connector is appropriate for the current level and current FRC rules.
+      </p>
+      <ul>
+        <li>Quick to connect and disconnect</li>
+        <li>Helpful for low-current service or test connections</li>
+        <li>Should not replace proper high-current terminals</li>
+        <li>Always check rules and manufacturer ratings</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="connector-slide">
+  <span class="tag">Strip and Crimp Wires Correctly</span>
+  <div class="strip-crimp-layout">
+    <div class="diagram-card">
+      <h3>1. Strip correctly</h3>
+       <img src="assets/stripping-lengths.png" alt="Stripped Wires">
+      <ul>
+        <li>Use the correct stripping slot for the wire gauge</li>
+        <li>Be careful to only remove insulation</li>
+        <li>Twist strands lightly only if needed to keep them together</li>
+      </ul>
+    </div>
+    <div class="diagram-card">
+      <h3>2. Crimp correctly</h3>
+      <img src="assets/crimping.png" alt="Crimping Terminal">
+      <ul>
+        <li>Match terminal size to the wire gauge</li>
+        <li>Place the crimp tool <b>on the metal barrel</b>, not just the plastic sleeve</li>
+        <li>Tug-test every crimped connection</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout connector-callout">
+    <p>
+      <strong>Good Practice:</strong> A clean strip and a solid crimp make the connection safer, stronger, and more reliable.
+      Good wiring makes connections that survive vibration, impacts, and repeated maintenance.<b>Many robot failures in FRC are caused by wiring issues.</b>
+    </p>
+  </div>
+</section>
+  <section class="elec-vertical">
+    <span class="tag">Standard Connection Process</span>
+    <img src="assets/connection-process.png" alt="Connection Process">
+    <div class="process-strip">
+      <div class="process-step">1. Strip </div>
+      <div class="process-step dark">2. Crimp/Connect</div>
+      <div class="process-step gray">3. Inspect/Tug Test</div>
+      <div class="process-step dark">4. Label</div>
+    </div>
+    <div class="elec-callout"><p>Every crimp should survive a firm tug test. A connection that fails in your hand will fail faster on a moving robot.</p></div>
+  </section>
+</section>
+
+<section>
+    <section class="elec-vertical">
+    <span class="tag">Power Path and Wire Routing</span>
+    <p class="elec-intro">Wires should be documented, labeled, and routed such that you can trace the main electrical path from the battery to the components on the robot.</p>
+  <img class="poster-img" src="assets/Electrical-Power-Path-Flow-Chart.png" alt="Electrical-Power-Path-Flow-Chart">
+    <div class="elec-callout"><p>If you can trace where power goes, you can troubleshoot it quicker.</p></div>
+  </section>
+  <section class="elec-vertical">
+    <span class="tag">Wire Routing Rules</span>
+    <h2>Keep wires safe before the robot moves</h2>
+    <div class="two">
+      <div class="panel do"><h3>Do</h3>
+        <ul>
+          <li>Use the correct wire gauge for the circuit and breaker.</li>
+          <li>Keep battery cables short, protected, and secured.</li>
+          <li>Use strain relief so wires do not pull out during impacts.</li>
+          <li>Protect wires with grommets or edge protection.</li>
+        </ul>
+      </div>
+      <div class="panel warn"><h3>Avoid</h3>
+        <ul>
+          <li>Chains, gears, belts, shooters, and intakes.</li>
+          <li>Sharp metal edges and pinch points.</li>
+          <li>Wires crossing pivots without slack or protection.</li>
+          <li>Loose wiring near wheels or the floor.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="elec-vertical">
+    <span class="tag">Wire Organization</span>
+    <h2>Organize wiring so people can understand it</h2>
+    <div class="elec-grid-3">
+      <div class="elec-card"><h3>Traceable</h3><p>Bundle wires neatly, but do not make them impossible to follow.</p></div>
+      <div class="elec-card"><h3>Labeled</h3><p>Label both ends of important wires and use consistent wire colors.</p></div>
+      <div class="elec-card"><h3>Accessible</h3><p>Keep electronics, motor controllers, status lights, and ports reachable.</p></div>
+    </div>
+    <div class="elec-callout"><p>Design for the pit: someone should be able to diagnose a problem under time pressure without cutting every zip tie off the robot.</p></div>
+  </section>
+<section class="wire-slide">
+  <span class="tag">Wire Protection</span>
+  <p class="wire-intro">
+    Wire covering helps prevent shorts, abrasion, snags, and damage from impacts or repeated motion.
+    In FRC, wire protection is especially important anywhere wires run near sharp edges, mechanisms,
+    bumpers, game pieces, or moving subsystems.
+  </p>
+  <div class="wire-grid five-up">
+    <div class="wire-card">
+      <img src="assets/Wiring/spilt-tube.jpg" alt="Split loom tubing">
+      <h3>Split Loom</h3>
+      <p>Corrugated plastic tubing used to protect bundles from rubbing and impact.</p>
+    </div>
+    <div class="wire-card">
+      <img src="assets/Wiring/braided.png" alt="Braided wire sleeving">
+      <h3>Braided Sleeve</h3>
+      <p>Flexible woven sleeve that gives long wire runs a clean, protected finish.</p>
+    </div>
+    <div class="wire-card">
+      <img src="assets/Wiring/heat-shrink.jpg" alt="Heat shrink tubing">
+      <h3>Heat Shrink</h3>
+      <p>Used on joints, labels, terminal ends, and other small protected areas.</p>
+    </div>
+    <div class="wire-card">
+      <img src="assets/Wiring/electrical-tape.png" alt="Electrical tape">
+      <h3>Electrical Tape</h3>
+      <p>Useful for temporary labeling or minor insulation, but not ideal as the main long-term wire bundle solution.</p>
+    </div>
+    <div class="wire-card">
+      <img src="assets/Wiring/grommet.jpg" alt="Rubber grommet">
+      <h3>Grommets</h3>
+      <p>Protect wires when they pass through holes in metal, polycarbonate, or other panels.</p>
+    </div>
+  </div>
+  <div class="callout wire-callout">
+    <p>
+      <strong>Goal:</strong> Covering should protect wires without making them impossible to inspect, trace, or repair.
+    </p>
+  </div>
+</section>
+<section class="wire-slide">
+  <span class="tag">Wire Protection</span>
+  <div class="wire-grid two-up">
+    <div class="wire-panel">
+      <h3>Best uses</h3>
+      <ul>
+        <li><strong>Split loom:</strong> good for general wire bundles exposed to rubbing or impacts.</li>
+        <li><strong>Braided sleeving:</strong> good for longer visible wire runs where a clean look matters.</li>
+        <li><strong>Heat shrink:</strong> best for small exposed spots, labels, joints, and terminal strain relief.</li>
+        <li><strong>Grommets:</strong> required wherever wires pass through sharp-edged holes.</li>
+        <li><strong>Electrical tape:</strong> okay for temporary marking or light-duty insulation, not as the main protection system.</li>
+      </ul>
+    </div>
+
+    <div class="wire-panel">
+      <h3>Key FRC reminders</h3>
+      <ul>
+        <li>Protection should prevent rubbing on metal, bumpers, belts, chains, wheels, and gears.</li>
+        <li>Do not bury important wires so deeply that students cannot troubleshoot them in the pit.</li>
+        <li>Use protection that still allows you to service the robot quickly.</li>
+        <li>Moving mechanisms usually need both protection and controlled routing.</li>
+        <li>Good protection reduces failures from vibration, impacts, and repeated maintenance.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wire-grid three-up small-top">
+    <div class="wire-card mini-card">
+      <img src="assets/Wiring/grommet.jpg" alt="Grommet example">
+      <h3>Passing through a panel</h3>
+      <p>Use a grommet or edge protection.</p>
+    </div>
+    <div class="wire-card mini-card">
+      <img src="assets/Wiring/heat-shrink.jpg" alt="Heat shrink tubing example">
+      <h3>At a terminal or joint</h3>
+      <p>Use heat shrink for insulation and strain relief.</p>
+    </div>
+    <div class="wire-card mini-card">
+      <img src="assets/Wiring/braided.png" alt="Braided sleeve example">
+      <h3>For long visible runs</h3>
+      <p>Use braided sleeve or split loom.</p>
+    </div>
+  </div>
+</section>
+<section class="wire-slide">
+  <span class="tag">Wire Management</span>
+  <div class="wire-grid five-up">
+    <div class="wire-card">
+      <img src="assets/Wiring/zip-tie.jpg" alt="Zip tie">
+      <h3>Zip Ties</h3>
+      <p>Most common way to secure wires to the frame or in bundles.</p>
+    </div>
+    <div class="wire-card">
+      <img src="assets/Wiring/velcro.jpg" alt="Reusable Velcro tie">
+      <h3>Velcro Ties</h3>
+      <p>Better where wires need to be reopened often for service or troubleshooting.</p>
+    </div>
+    <div class="wire-card">
+      <img src="assets/Wiring/clamp.png" alt="Cable clamp or P-clamp">
+      <h3>P-Clamps</h3>
+      <p>Stronger, screw-mounted support for heavy wire bundles or important power runs.</p>
+    </div>
+    <div class="wire-card">
+      <img src="assets/Wiring/drag-chain.jpg" alt="Cable chain">
+      <h3>Cable Chain</h3>
+      <p>Controls the bend path for moving wires on elevators, arms, intakes, or turrets.</p>
+    </div>
+    <div class="wire-card">
+      <img src="assets/Wiring/spiral-wrap.png" alt="Spiral wrap">
+      <h3>Spiral Wrap</h3>
+      <p>Protects bundles while still letting you break out individual wires.</p>
+    </div>
+  </div>
+  <div class="wire-grid two-up small-top">
+    <div class="wire-panel">
+      <h3>Good habits</h3>
+      <ul>
+        <li>Bundle wires so they are neat and traceable.</li>
+        <li>Support heavier power wiring more strongly than light signal wiring.</li>
+        <li>Do not crush small wires or pinch CAN pairs with overtightened zip ties.</li>
+        <li>Keep connectors accessible for repairs.</li>
+      </ul>
+    </div>
+    <div class="wire-panel">
+      <h3>Common mistakes</h3>
+      <ul>
+        <li>Wires crossing messy paths between mechanisms.</li>
+        <li>Loose loops that can snag in motion systems.</li>
+        <li>No support near connectors.</li>
+        <li>Using only adhesive mounts in high-vibration areas.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="wire-slide">
+  <span class="tag">Wire Management For Movement</span>
+  <div class="wire-grid two-up">
+    <div class="wire-panel">
+      <h3>Why slack matters</h3>
+      <ul>
+        <li>Wires need enough slack to allow full mechanism motion without pulling on connectors.</li>
+        <li>Service loops make it easier to remove a motor controller, radio, or controller for repairs.</li>
+        <li>Without slack, vibration and motion can loosen terminals or break conductors over time.</li>
+        <li>Too much slack is also a problem because it can snag in belts, chains, gears, wheels, or intakes.</li>
+      </ul>
+    </div>
+    <div class="wire-panel">
+      <h3>Best practice for slack</h3>
+      <ul>
+        <li>Leave a small, controlled service loop near important devices.</li>
+        <li>On moving subsystems, route slack through a predictable bend path.</li>
+        <li>Use cable chain, loom, or guided routing where motion repeats often.</li>
+        <li>Secure the wire before and after the moving section so the connector itself is not the stress point.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slack-diagram-row">
+    <div class="slack-box bad">
+       <img src="assets/Wiring/slack-tight.png" alt="Tight Slack">
+    </div>
+    <div class="slack-box good">
+       <img src="assets/Wiring/slack-controlled.png" alt="Controlled Slack">
+    </div>
+    <div class="slack-box warn">
+       <img src="assets/Wiring/slack-loose.png" alt="Loose Slack">
+    </div>
+  </div>
+  <div class="callout wire-callout">
+    <p>
+      <strong>Student rule:</strong> Leave enough slack for motion and service, but not enough to become a hazard.
+    </p>
+  </div>
+</section>
+<section class="wire-slide final-wire-slide">
+  <span class="tag">Wire Management Checklist</span>
+  <h2>What Good Wiring Looks Like</h2>
+
+  <div class="wire-grid final-two-up">
+    <div class="wire-panel checklist-panel">
+      <h3>Wire Management Checklist</h3>
+      <ul class="checklist">
+        <li>Wires are secured and do not flop loosely.</li>
+        <li>Bundles are protected with loom, braid, or other covering where needed.</li>
+        <li>Wires are kept away from chains, belts, gears, wheels, and sharp edges.</li>
+        <li>Grommets or edge protection are used when wires pass through holes.</li>
+        <li>Connectors are accessible for troubleshooting and pit repairs.</li>
+        <li>Moving mechanisms have controlled slack or cable chain routing.</li>
+        <li>Wires are labeled or color-managed so students can trace them quickly.</li>
+        <li>The wiring looks intentional, serviceable, and match-ready.</li>
+      </ul>
+      <div class="callout wire-callout mini-callout">
+        <p>
+          <strong>In Short:</strong> Secure it, protect it, label it, and make sure you can fix it.
+        </p>
+      </div>
+    </div>
+    <div class="wire-panel robot-example-panel">
+      <h3>Example: Team 3255 Robot Wiring</h3>
+      <img src="assets/Wiring/frcteam3255.jpg" alt="FRC Team 3255 robot electronics layout" class="robot-example-image">
+    </div>
+  </div>
+</section>
+</section>
+  <section class="elec-vertical wire-sort-slide">
+    <span class="tag">Sort the Wiring Practices</span>
+    <div class="sort-bank">
+<div class="sort-chip" draggable="true" data-answer="risk">Pull wires tight</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Use undersized wire</div>
+<div class="sort-chip" draggable="true" data-answer="good">Label both wire ends</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Skip wire labels</div>
+<div class="sort-chip" draggable="true" data-answer="good">Crimp with correct tool</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Crush CAN wires</div>
+<div class="sort-chip" draggable="true" data-answer="good">Keep wires traceable</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Leave excess slack</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Hide main breaker</div>
+<div class="sort-chip" draggable="true" data-answer="good">Route away from mechanisms</div>
+<div class="sort-chip" draggable="true" data-answer="good">Use correct wire gauge</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Mismatch breakers and wire</div>
+<div class="sort-chip" draggable="true" data-answer="good">Tug-test every crimp</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Leave wires dangling</div>
+<div class="sort-chip" draggable="true" data-answer="good">Match breaker size</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Block repair access</div>
+<div class="sort-chip" draggable="true" data-answer="good">Keep electronics accessible</div>
+<div class="sort-chip" draggable="true" data-answer="good">Protect sharp edges</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Overtighten zip ties</div>
+<div class="sort-chip" draggable="true" data-answer="good">Secure battery cables firmly</div>
+<div class="sort-chip" draggable="true" data-answer="risk">Skip tug tests</div>
+<div class="sort-chip" draggable="true" data-answer="good">Use grommets through panels</div>
+    </div>
+    <div class="sort-targets">
+      <div class="sort-zone" data-zone="good"><h3>Good Practice</h3><div class="sort-list"></div></div>
+      <div class="sort-zone" data-zone="risk"><h3>Bad Practice</h3><div class="sort-list"></div></div>
+    </div>
+    <div class="activity-controls"><button class="quiz-button check-sort" type="button">Check Answers</button><button class="quiz-button secondary reset-sort" type="button">Reset</button><p class="activity-feedback"></p></div>
+  </section>
+
+  <section>
+ <section class="elec-vertical sensor-click-slide">
+  <span class="tag">Common Sensors</span>
+  <p class="sensor-click-intro">Click to learn about sensors and why they may be used.</p>
+  <div class="sensor-click-grid">
+    <button class="sensor-card sensor-click-card" type="button" data-sensor="limitSwitch">
+      <h3>Limit Switch</h3>
+      <p>Detects a physical endpoint or contact position.</p>
+    </button>
+    <button class="sensor-card sensor-click-card" type="button" data-sensor="beamBreak">
+      <h3>Beam Break</h3>
+      <p>Detects whether something blocks a light beam.</p>
+    </button>
+    <button class="sensor-card sensor-click-card" type="button" data-sensor="relativeEncoder">
+      <h3>Relative Encoder</h3>
+      <p>Measures change in rotation or movement.</p>
+    </button>
+    <button class="sensor-card sensor-click-card" type="button" data-sensor="absoluteEncoder">
+      <h3>Absolute Encoder</h3>
+      <p>Measures real position even after power cycles.</p>
+    </button>
+    <button class="sensor-card sensor-click-card" type="button" data-sensor="gyro">
+      <h3>Gyro</h3>
+      <p>Measures robot rotation and heading.</p>
+    </button>
+    <button class="sensor-card sensor-click-card" type="button" data-sensor="camera">
+      <h3>Cameras</h3>
+      <p>Support vision, targeting, alignment, and drivers.</p>
+    </button>
+    <button class="sensor-card sensor-click-card" type="button" data-sensor="lidar">
+      <h3>Distance / LiDAR</h3>
+      <p>Measures distance to objects or field elements.</p>
+    </button>
+        <button class="sensor-card sensor-click-card" type="button" data-sensor="accelerometer">
+      <h3>Accelerometer</h3>
+      <p>Measures changes in robot motion.</p>
+    </button>
+  </div>
+  <p class="small center sensor-note">
+    Sensor readings are only useful when the sensor is mounted securely, wired reliably, and tested through full mechanism motion.
+  </p>
+</section>
+  <section class="elec-vertical">
+    <span class="tag">Sensor Wiring</span>
+    <h2>Small wires still need protection</h2>
+    <div class="elec-grid-3">
+      <div class="elec-card"><h3>Mount firmly</h3><p>A sensor that moves during a match gives bad data even if it is wired correctly.</p></div>
+      <div class="elec-card"><h3>Protect cables</h3><p>Sensor wires are often small and easy to damage near arms, elevators, intakes, and game pieces.</p></div>
+      <div class="elec-card"><h3>Label inputs</h3><p>Documentation helps programmers and pit students know which signal is which.</p></div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section class="elec-vertical label-doc-slide">
+    <span class="tag">Labeling + Documentation</span>
+    <h2>Good Wiring Should Be Easy to Trace</h2>
+    <p class="label-doc-intro">
+      Labels and documentation make the robot faster to inspect, repair, and troubleshoot.
+      A new student should be able to follow the wiring without guessing.
+    </p>
+    <div class="elec-grid-3">
+      <div class="elec-card">
+        <h3>Label</h3>
+        <p>Mark important wires, devices, ports, breakers, and CAN IDs.</p>
+      </div>
+      <div class="elec-card">
+        <h3>Trace</h3>
+        <p>Make it clear where each wire starts, ends, and what it controls.</p>
+      </div>
+      <div class="elec-card">
+        <h3>Update</h3>
+        <p>Keep diagrams and tables current when wiring changes.</p>
+      </div>
+    </div>
+    <div class="elec-callout">
+      <p><strong>Pit rule:</strong> If someone has to guess where a wire goes, it needs a label or documentation.</p>
+    </div>
+  </section>
+  <section class="elec-vertical label-doc-slide">
+    <span class="tag">Labeling Electronics</span>
+    <h2>Label the Devices First</h2>
+    <div class="two">
+      <div class="panel do">
+        <h3>Label (if not already)</h3>
+        <ul>
+          <li>Power distribution ports</li>
+          <li>Breaker sizes</li>
+          <li>Motor controllers</li>
+          <li>CAN IDs</li>
+          <li>roboRIO/SystemCore ports</li>
+          <li>Radio power and Ethernet</li>
+          <li>Sensor ports</li>
+          <li>Pneumatics channels</li>
+        </ul>
+      </div>
+      <div class="panel warn">
+        <h3>Avoid</h3>
+        <ul>
+          <li>Unlabeled motor controllers</li>
+          <li>Hidden CAN IDs</li>
+          <li>Unknown breaker sizes</li>
+          <li>Random sensor ports</li>
+          <li>Old labels left in place</li>
+          <li>Labels that fall off</li>
+          <li>Labels blocked by wires</li>
+          <li>Only documenting in memory</li>
+        </ul>
+      </div>
+    </div>
+    <div class="elec-callout">
+      <p><strong>Best practice:</strong> Label the device and document it in a table so the label still helps even if the robot changes later.</p>
+    </div>
+  </section>
+  <section class="elec-vertical label-doc-slide">
+    <span class="tag">Wire Labels</span>
+    <h2>Power Wire Example</h2>
+    <div class="label-example-grid">
+      <div class="label-example-card">
+        <img src="assets/Power-Path-Wire-Label-Example.png" class="img" alt="Power Path Wire Label Example">
+        <ul>
+          <li>Shows where power starts.</li>
+          <li>Shows what device it feeds.</li>
+          <li>Helps find the correct breaker.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="elec-callout">
+      <p><strong>Note:</strong> There is no one way to do this and this example is illustrate one way to track wiring.</p>
+    </div>
+  </section>
+  <section class="elec-vertical label-doc-slide">
+    <span class="tag">Wire Labels</span>
+    <h2>CAN Wire Example</h2>
+    <div class="label-example-grid">
+      <div class="label-example-card">
+        <img src="assets/CAN-Wire-Label-Example.png" class="img" alt="CAN Wire Label Example">
+        <ul>
+          <li>Shows device CAN IDs.</li>
+          <li>Shows device connections.</li>
+          <li>Helps debug missing devices.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="elec-callout">
+      <p><strong>Keep it simple:</strong>The best label is short, readable, consistent, and matches the documentation.</p>
+    </div>
+  </section>
+  <section class="elec-vertical label-doc-slide">
+    <span class="tag">Documentation</span>
+    <h2>Document the Wiring Before Competition</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <h3>CAN ID Table</h3>
+        <p>List every CAN device, ID number, mechanism, location, and purpose.</p>
+      </div>
+      <div class="doc-card">
+        <h3>Breaker Map</h3>
+        <p>Record each PDH/PDP port, breaker size, wire gauge, and connected device.</p>
+      </div>
+      <div class="doc-card">
+        <h3>Sensor Map</h3>
+        <p>List sensor names, controller ports, mounting locations, and code names.</p>
+      </div>
+      <div class="doc-card">
+        <h3>Power Path Diagram</h3>
+        <p>Show how power moves from battery to breaker to distribution to devices.</p>
+      </div>
+    </div>
+    <div class="elec-callout">
+      <p><strong>Goal:</strong> Documentation should help the pit crew fix the robot under time pressure.</p>
+    </div>
+  </section>
+  <section class="elec-vertical label-doc-slide">
+    <span class="tag">Documentation Example</span>
+    <h2>Simple Wiring Table</h2>
+    <img src="assets/Wire-Label-Examples.png"  class="max-width-img" alt="Wire Label Example">
+    <div class="elec-callout">
+      <p><strong>Tip:</strong> Use the same device names in labels, code, CAD notes, and pit documentation.</p>
+    </div>
+  </section>
+  <section class="elec-vertical label-doc-slide">
+    <span class="tag">Keeping Documentation Current</span>
+    <h2>Update Labels When the Robot Changes</h2>
+      <div class="panel do">
+        <h3>Good habits</h3>
+        <ul>
+          <li>Update labels immediately.</li>
+          <li>Remove old labels.</li>
+          <li>Record new CAN IDs.</li>
+          <li>Verify breaker sizes.</li>
+          <li>Confirm code still matches.</li>
+        </ul>
+      </div>
+  </section>
+  <section class="elec-vertical label-doc-slide">
+    <span class="tag">Final Check</span>
+    <h2>Labeling and Documentation Checklist</h2>
+    <div class="two">
+      <ul class="checklist">
+        <li>Main breaker is labeled and accessible.</li>
+        <li>Power distribution ports are documented.</li>
+        <li>Breaker sizes match the table.</li>
+        <li>Motor controllers have CAN ID labels.</li>
+        <li>CAN chain order is documented.</li>
+      </ul>
+      <ul class="checklist">
+        <li>Sensor wires are labeled by port.</li>
+        <li>Old labels have been removed.</li>
+        <li>Documentation matches the robot.</li>
+        <li>All wires have labels.</li>
+        <li>Documenation is complete and organized.</li>
+      </ul>
+    </div>
+    <div class="elec-callout">
+      <p><strong>Final rule:</strong> If the robot changes, the labels and documentation change with it.</p>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section class="elec-vertical">
+    <span class="tag">Battery Practices</span>
+    <h2>“The robot turned on” is not enough</h2>
+    <p class="elec-intro">A battery can power the robot in the pit and still be a poor choice for a match.</p>
+    <ul class="battery-list">
+      <li>Charge batteries properly.</li>
+      <li>Label batteries.</li>
+      <li>Track battery age and performance.</li>
+      <li>Inspect battery terminals.</li>
+      <li>Make sure battery lugs are tight.</li>
+      <li>Cover exposed terminals.</li>
+      <li>Use a proper battery cart or safe storage.</li>
+      <li>Secure the battery firmly in the robot.</li>
+      <li>Never allow the battery to fall out during a match.</li>
+      <li>Retire weak or damaged batteries from competition use.</li>
+    </ul>
+  </section>
+  <section class="elec-vertical">
+    <span class="tag">Pre-Match Battery Check</span>
+    <h2>Fast questions before the robot leaves the pit</h2>
+    <div class="elec-grid-3">
+      <div class="elec-card"><h3>Charge</h3><p>Is this battery fully charged and known to perform well under load?</p></div>
+      <div class="elec-card"><h3>Condition</h3><p>Are terminals tight, covered, clean, and undamaged?</p></div>
+      <div class="elec-card"><h3>Retention</h3><p>Is the battery fully secured in the robot before the match?</p></div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section class="elec-vertical">
+    <span class="tag">Troubleshooting Electronics</span>
+    <h2>Use a systematic order</h2>
+    <p class="elec-intro">When a robot does not work, do not randomly unplug and replug things. Work from the simplest and most central checks outward.</p>
+    <div class="elec-grid-2">
+      <div class="elec-card"><h3>Start with basics</h3><p>Battery, breaker, roboRIO, radio, Driver Station connection, and motor controller power.</p></div>
+      <div class="elec-card"><h3>Then go deeper</h3><p>CAN visibility, faults, brownout logs, mechanism motion, and what changed since it last worked.</p></div>
+    </div>
+  </section>
+  <section class="elec-vertical">
+    <span class="tag">Troubleshooting Tools</span>
+    <h2>Students should get comfortable using:</h2>
+    <div class="elec-grid-4">
+      <div class="elec-card"><h3>Driver Station Logs</h3><p>Voltage, packet loss, brownouts, and match timing clues.</p></div>
+      <div class="elec-card"><h3>Status Lights</h3><p>roboRIO, radio, and motor controller LEDs can quickly narrow problems.</p></div>
+      <div class="elec-card"><h3>Vendor Tools</h3><p>REV Hardware Client or vendor tools for IDs, firmware, faults, and device status.</p></div>
+      <div class="elec-card"><h3>Multimeter + Load Tester</h3><p>Verify voltage, continuity, and battery health instead of guessing.</p></div>
+    </div>
+  </section>
+  <section class="elec-vertical trouble-order-slide">
+    <span class="tag">Check for Understanding</span>
+    <h2>Put the troubleshooting checks in a useful order</h2>
+    <div class="troubleshooting-sort">
+      <div class="trouble-card" draggable="true" data-order="6">Are CAN devices visible?</div>
+      <div class="trouble-card" draggable="true" data-order="2">Is the main breaker on?</div>
+      <div class="trouble-card" draggable="true" data-order="8">Does the mechanism move freely by hand?</div>
+      <div class="trouble-card" draggable="true" data-order="1">Is the battery charged?</div>
+      <div class="trouble-card" draggable="true" data-order="4">Is the radio powered?</div>
+      <div class="trouble-card" draggable="true" data-order="7">Are there faults or brownouts in logs?</div>
+      <div class="trouble-card" draggable="true" data-order="3">Is the roboRIO powered?</div>
+      <div class="trouble-card" draggable="true" data-order="5">Is the Driver Station connected?</div>
+    </div>
+    <div class="activity-controls"><button class="quiz-button check-order" type="button">Check Order</button><button class="quiz-button secondary reset-order" type="button">Reset</button><p class="activity-feedback"></p></div>
+  </section>
+</section>
+
+
+<section id="quiz-intro" class="center">
+  <span class="tag">Required Quiz</span>
+  <h2>Pass to complete the module</h2>
+  <p>Each question is on its own slide.</p>
+  <p class="small">Answer all 20 questions, then grade the quiz. Score at least 18 out of 20 to unlock the completion slide.</p>
+  <div class="stripe"></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q1"><span class="tag">Quiz Question 1</span><div class="progress-note">1 of 20</div><div class="quiz-card"><p>What is the main purpose of the robot battery?</p><label><input type="radio" name="q1" value="a"> It stores robot code</label><label><input type="radio" name="q1" value="b"> It is the main 12V robot power source</label><label><input type="radio" name="q1" value="c"> It replaces the radio</label></div></section>
+<section class="quiz-slide" id="quiz-q2"><span class="tag">Quiz Question 2</span><div class="progress-note">2 of 20</div><div class="quiz-card"><p>What is the main breaker used for?</p><label><input type="radio" name="q2" value="a"> The robot's primary power shutoff</label><label><input type="radio" name="q2" value="b"> Labeling CAN IDs</label><label><input type="radio" name="q2" value="c"> Charging batteries</label></div></section>
+<section class="quiz-slide" id="quiz-q3"><span class="tag">Quiz Question 3</span><div class="progress-note">3 of 20</div><div class="quiz-card"><p>Why should wires be routed away from chains, belts, gears, and intakes?</p><label><input type="radio" name="q3" value="a"> To make the robot heavier</label><label><input type="radio" name="q3" value="b"> To hide the wires from inspectors</label><label><input type="radio" name="q3" value="c"> To prevent cutting, pulling, snagging, and failure during movement</label></div></section>
+<section class="quiz-slide" id="quiz-q4"><span class="tag">Quiz Question 4</span><div class="progress-note">4 of 20</div><div class="quiz-card"><p>What should happen after making a crimp?</p><label><input type="radio" name="q4" value="a"> Tug-test and inspect it</label><label><input type="radio" name="q4" value="b"> Hide it inside a bundle</label><label><input type="radio" name="q4" value="c"> Assume it is good if it looks shiny</label></div></section>
+<section class="quiz-slide" id="quiz-q5"><span class="tag">Quiz Question 5</span><div class="progress-note">5 of 20</div><div class="quiz-card"><p>Which is a good wire-routing practice for moving mechanisms?</p><label><input type="radio" name="q5" value="a"> Pull the wire tight at full extension</label><label><input type="radio" name="q5" value="b"> Use protected routing such as cable chain or controlled flexible routing</label><label><input type="radio" name="q5" value="c"> Let the wire hang loose near the floor</label></div></section>
+<section class="quiz-slide" id="quiz-q6"><span class="tag">Quiz Question 6</span><div class="progress-note">6 of 20</div><div class="quiz-card"><p>What is CAN on an FRC robot?</p><label><input type="radio" name="q6" value="a"> A communication bus used by many robot devices</label><label><input type="radio" name="q6" value="b"> A type of battery charger</label><label><input type="radio" name="q6" value="c"> A bumper mounting system</label></div></section>
+<section class="quiz-slide" id="quiz-q7"><span class="tag">Quiz Question 7</span><div class="progress-note">7 of 20</div><div class="quiz-card"><p>Why are CAN IDs important?</p><label><input type="radio" name="q7" value="a"> They choose the robot color</label><label><input type="radio" name="q7" value="b"> Code and tools need correct IDs to communicate with the correct devices</label><label><input type="radio" name="q7" value="c"> They replace wire labels</label></div></section>
+<section class="quiz-slide" id="quiz-q8"><span class="tag">Quiz Question 8</span><div class="progress-note">8 of 20</div><div class="quiz-card"><p>What can a loose CAN connection cause?</p><label><input type="radio" name="q8" value="a"> Multiple devices may disappear or fail to communicate</label><label><input type="radio" name="q8" value="b"> The robot will become lighter</label><label><input type="radio" name="q8" value="c"> The battery will charge faster</label></div></section>
+<section class="quiz-slide" id="quiz-q9"><span class="tag">Quiz Question 9</span><div class="progress-note">9 of 20</div><div class="quiz-card"><p>Which is a common cause of brownouts?</p><label><input type="radio" name="q9" value="a"> Too many labels</label><label><input type="radio" name="q9" value="b"> A properly secured battery</label><label><input type="radio" name="q9" value="c"> Weak battery, loose connection, binding mechanism, or current spikes</label></div></section>
+<section class="quiz-slide" id="quiz-q10"><span class="tag">Quiz Question 10</span><div class="progress-note">10 of 20</div><div class="quiz-card"><p>Why can a mechanical problem look like an electrical problem?</p><label><input type="radio" name="q10" value="a"> Mechanical problems only affect bumpers</label><label><input type="radio" name="q10" value="b"> Binding or poor gearing can cause high current draw and voltage drops</label><label><input type="radio" name="q10" value="c"> Mechanics cannot affect current</label></div></section>
+<section class="quiz-slide" id="quiz-q11"><span class="tag">Quiz Question 11</span><div class="progress-note">11 of 20</div><div class="quiz-card"><p>Where should critical electronics be mounted?</p><label><input type="radio" name="q11" value="a"> Firmly on a protected and accessible panel or belly pan</label><label><input type="radio" name="q11" value="b"> Loose in the frame</label><label><input type="radio" name="q11" value="c"> Where game pieces can crush them</label></div></section>
+<section class="quiz-slide" id="quiz-q12"><span class="tag">Quiz Question 12</span><div class="progress-note">12 of 20</div><div class="quiz-card"><p>Why should motor controller status lights remain visible when possible?</p><label><input type="radio" name="q12" value="a"> They are decorative</label><label><input type="radio" name="q12" value="b"> They replace the main breaker</label><label><input type="radio" name="q12" value="c"> They help quickly diagnose faults and device status</label></div></section>
+<section class="quiz-slide" id="quiz-q13"><span class="tag">Quiz Question 13</span><div class="progress-note">13 of 20</div><div class="quiz-card"><p>Which sensor is commonly used to detect whether a game piece is present?</p><label><input type="radio" name="q13" value="a"> Beam-break sensor</label><label><input type="radio" name="q13" value="b"> Main breaker</label><label><input type="radio" name="q13" value="c"> Battery lug</label></div></section>
+<section class="quiz-slide" id="quiz-q14"><span class="tag">Quiz Question 14</span><div class="progress-note">14 of 20</div><div class="quiz-card"><p>Which sensor is commonly used to measure mechanism position or rotation?</p><label><input type="radio" name="q14" value="a"> Zip tie</label><label><input type="radio" name="q14" value="b"> Encoder</label><label><input type="radio" name="q14" value="c"> Fuse map</label></div></section>
+<section class="quiz-slide" id="quiz-q15"><span class="tag">Quiz Question 15</span><div class="progress-note">15 of 20</div><div class="quiz-card"><p>Which battery practice is competition-ready?</p><label><input type="radio" name="q15" value="a"> Label, charge, inspect, load-test, and secure the battery</label><label><input type="radio" name="q15" value="b"> Use any battery that turns the robot on</label><label><input type="radio" name="q15" value="c"> Let the battery move so it is easier to remove</label></div></section>
+<section class="quiz-slide" id="quiz-q16"><span class="tag">Quiz Question 16</span><div class="progress-note">16 of 20</div><div class="quiz-card"><p>What should be checked early in troubleshooting?</p><label><input type="radio" name="q16" value="a"> The robot nickname</label><label><input type="radio" name="q16" value="b"> Battery charge, main breaker, roboRIO power, radio power, and Driver Station connection</label><label><input type="radio" name="q16" value="c"> Only the final CAD drawing</label></div></section>
+<section class="quiz-slide" id="quiz-q17"><span class="tag">Quiz Question 17</span><div class="progress-note">17 of 20</div><div class="quiz-card"><p>Which tool helps verify voltage and continuity?</p><label><input type="radio" name="q17" value="a"> Multimeter</label><label><input type="radio" name="q17" value="b"> Bumper fabric</label><label><input type="radio" name="q17" value="c"> Drill press</label></div></section>
+<section class="quiz-slide" id="quiz-q18"><span class="tag">Quiz Question 18</span><div class="progress-note">18 of 20</div><div class="quiz-card"><p>What documentation helps with CAN troubleshooting?</p><label><input type="radio" name="q18" value="a"> A list of favorite tools</label><label><input type="radio" name="q18" value="b"> A team dinner order</label><label><input type="radio" name="q18" value="c"> A CAN ID table and CAN chain map</label></div></section>
+<section class="quiz-slide" id="quiz-q19"><span class="tag">Quiz Question 19</span><div class="progress-note">19 of 20</div><div class="quiz-card"><p>What is the best reason to label both ends of important wires?</p><label><input type="radio" name="q19" value="a"> To make wires harder to trace</label><label><input type="radio" name="q19" value="b"> To speed inspection, troubleshooting, and repair</label><label><input type="radio" name="q19" value="c"> To replace correct wire gauge</label></div></section>
+<section class="quiz-slide" id="quiz-q20"><span class="tag">Quiz Question 20</span><div class="progress-note">20 of 20</div><div class="quiz-card"><p>Which set of documents would be most useful for the pit?</p><label><input type="radio" name="q20" value="a"> Electronics layout, CAN IDs, breaker map, sensor list, battery checklist, and troubleshooting guide</label><label><input type="radio" name="q20" value="b"> Only a team photo</label><label><input type="radio" name="q20" value="c"> Only the final robot name</label></div></section>
+
+<section id="quiz-results" class="center">
+  <span class="tag">Quiz Results</span>
+  <h2>Grade the quiz</h2>
+  <p class="small">You need at least 18 out of 20 to unlock completion.</p>
+  <div class="quiz-actions" style="justify-content:center;"><button class="quiz-button" id="gradeQuiz" type="button">Grade Quiz</button><button class="quiz-button secondary" id="resetQuiz" type="button">Reset</button></div>
+  <p class="result" id="quizResult">Not submitted.</p>
+  <p class="small" id="quizHint">After passing, advance to the final completion slide.</p>
+</section>
+
+<section id="complete" class="center redCorner locked">
+  <h1 class="cytitle">Wire it right.</h1>
+  <div class="stripe"></div>
+  <p>5041 CyBear Robotics</p>
+  <p class="small" id="completionNote">Complete after passing the required quiz.</p>
+</section>
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+<script src="electronics.js"></script>
+<div id="componentModal" class="component-modal" aria-hidden="true">
+  <div class="component-modal-panel" role="dialog" aria-modal="true" aria-labelledby="componentModalTitle">
+    <button id="componentModalClose" class="component-modal-close" type="button">×</button>
+
+    <div class="component-modal-content">
+      <div>
+        <h2 id="componentModalTitle">Component Title</h2>
+        <p id="componentModalDescription"></p>
+
+        <h3>Important Information</h3>
+        <ul id="componentModalChecks"></ul>
+      </div>
+
+      <img id="componentModalImage" src="" alt="">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

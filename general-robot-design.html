@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>5041 General Robot Design Training</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<section data-background-image="assets/5041teamlogo.png" data-background-size="contain" data-background-opacity="0.2" class="center">
+  <h1 class="cytitle">General Robot Design Training Module</h1>
+</section>
+
+<section>
+  <span class="tag">Module Goals</span>
+  <h2>By the end, students should be able to:</h2>
+  <div class="bar"></div>
+  <ul>
+    <li>Follow a general process for structural design.</li>
+    <li>Explain the difference between strength and stiffness.</li>
+    <li>Understand the importance of weight distribution.</li>
+    <li>Understand the difference between stiffness and strength.</li>
+    <li>Understand what a load paths through a robot frame or mechanism is.</li>
+    <li>Choose fabrication methods that match team tools and time.</li>
+    <li>Design for bumpers, wiring, maintenance, and impact before final build.</li>
+    <li>Use CAD as a communication, design, and documentation tool.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="tag">General Design Checklist</span>
+  <div class="two">
+    <ul class="checklist">
+      <li>Does the robot meet geometric and weight constraints?</li>
+      <li>Are loads supported by strong frame members instead of small brackets?</li>
+      <li>Are arms, elevators, climbers, and intakes mounted securely?</li>
+      <li>Is the frame rigid and square?</li>
+      <li>Is the center of gravity low enough for stable driving and scoring?
+      <li>Can we build this accurately with our available tools?</li>
+    </ul>
+    <ul class="checklist">
+      <li>Do bumpers mount securely and meet requirements?</li>
+      <li>Are extensions impact durable?</li>
+      <li>Are electronics and impact sensitive equipment in protected spaces?</li>
+      <li>Does the design allow for accessibility and repair?</li>
+      <li>Does the design include consideration for wire placement and management?</li>
+      <li>Does the design have good documentation and testing?</li>
+    </ul>
+  </div>
+  <p class="small">Get into the habit to ask these before CAD is “done”, before parts are cut, and again before competition.</p>
+</section>
+
+
+<section>
+  <section>
+    <span class="tag">5041 Design Process</span>
+    <h2>Use the team process before expensive material is cut</h2>
+    <div class="process-strip">
+      <div class="process-step">1. Set Out Clear Objectives</div>
+      <div class="process-step">2. Layout Design Criteria & Constraints</div>
+      <div class="process-step">3. Brainstorm & Rapid Prototype</div>
+      <div class="process-step dark">4. Develop Best Prototype</div>
+      <div class="process-step gray">5. Test & Review Prototype</div>
+      <div class="process-step dark">6. Finalize & Implement</div>
+    </div>
+    <p class="small">This means using cheap and quick prototypes and CAD to answer overall spacing, movement, and placement questions, then moving into CAD and durable materials after the design has been decided.</p>
+  </section>
+  <section>
+    <span class="tag">5041 Design Process Poster</span>
+    <h2>Team process reference</h2>
+    <img class="poster-img" src="assets/5041_design_process_poster.png" alt="5041 Design Process Poster with six steps">
+  </section>
+  <section>
+    <h2>Steps 1–2: Objectives, criteria, and constraints</h2>
+    <div class="two">
+      <div class="panel"><h3>1. Set Out Clear Objectives</h3><p>Create clear goals and objectives. Study the game rules, choose a game strategy, and prioritize functions.</p></div>
+      <div class="panel"><h3>2. Layout Design Criteria & Constraints</h3><p>Document requirements and restrictions, including play dimensions, robot size, frame perimeter, bumper rules, and field/game piece needs.</p></div>
+    </div>
+  </section>
+  <section>
+    <h2>Steps 3–4: Prototype possible solutions</h2>
+    <div class="two">
+      <div class="panel"><h3>3. Brainstorm and Rapid Prototype</h3><p>Create proof-of-concept prototypes from easy-to-work materials such as foam board, cardboard, scrap wood, or spare tube.</p></div>
+      <div class="panel"><h3>4. Develop Best Prototype</h3><p>Build the strongest candidate from medium-durable materials such as hardwood or better test parts, then test movable components.</p></div>
+    </div>
+  </section>
+  <section>
+    <h2>Steps 5–6: Test, finalize, and implement</h2>
+    <div class="two">
+      <div class="panel"><h3>5. Test and Review Prototype</h3><p>Test against criteria, find flaws, identify new constraints, and redevelop the solution as needed.</p></div>
+      <div class="panel"><h3>6. Finalize Design and Implement</h3><p>Create the final version from durable materials such as metal or plastics, then collaborate with build members to place the subsystem on the robot.</p></div>
+    </div>
+  </section>
+  <section class="process-sort-slide">
+  <span class="tag">5041 Design Process</span>
+  <h2>Put the design process in the correct order</h2>
+
+  <div id="process-sort" class="sortable-process compact">
+    <div class="process-card" draggable="true" data-order="3">Brainstorm & Rapid Prototype</div>
+    <div class="process-card" draggable="true" data-order="6">Finalize & Implement</div>
+    <div class="process-card" draggable="true" data-order="1">Set Out Clear Objectives</div>
+    <div class="process-card" draggable="true" data-order="5">Test & Review Prototype</div>
+    <div class="process-card" draggable="true" data-order="2">Layout Design Criteria & Constraints</div>
+    <div class="process-card" draggable="true" data-order="4">Develop Best Prototype</div>
+  </div>
+
+  <div class="process-controls">
+    <button id="check-process-order" class="quiz-button">Check Order</button>
+    <p id="process-feedback" class="small feedback-text"></p>
+  </div>
+</section>
+</section>
+
+<section>
+  <section>
+    <span class="tag">CAD, CAD, CAD</span>
+    <h2>CAD should answer practical questions and document design</h2>
+    <div class="bar gray"></div>
+    <p>CAD has a lot of uses. It can: </p>
+  <ul>
+    <li>check dimensions</li> 
+    <li>check field constraints</li>
+    <li>determine mechanism travel</li>
+    <li>determine bumper placement</li>
+    <li>determine electronics & battery location</li>
+    <li>act as an iterative prototyping platform</li>
+    <li>act as validation before fabrication starts</li>
+    </ul>
+  </section>
+  <section>
+  <span class="tag">CAD Basics</span>
+  <h2>What is CAD?</h2>
+  <div class="image-text-layout">
+    <img 
+      src="assets/cadexample.jpg" 
+      alt="Computer-aided design technical drawing"
+      class="slide-image"
+    >
+    <div>
+      <p>
+        <strong>CAD</strong> stands for <strong>Computer-Aided Design</strong>. It is software used to create accurate digital models of parts, assemblies, and mechanisms before they are built in real life.
+      </p>
+      <ul>
+        <li>Create accurate 2D sketches and 3D parts</li>
+        <li>Assemble parts into mechanisms or full robots</li>
+        <li>Check dimensions, spacing, and fit</li>
+        <li>Share designs before fabrication</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section>
+  <img 
+    src="assets/Onshape_logo_full.png" 
+    alt="Onshape logo"
+    class="onshape-logo"
+  >
+  <p>
+    Team 5041 uses <strong>Onshape</strong> as its main CAD program. Onshape is browser-based, so students can work on robot designs from school computers, personal laptops, or Chromebooks without installing large software.
+  </p>
+  <div class="callout">
+    <p>
+      Because OnShape saves work online, multiple students and mentors can view, edit, and comment on the same robot design as it develops.
+    </p>
+  </div>
+  <ul>
+    <li>Runs in a web browser</li>
+    <li>Allows team collaboration in shared documents</li>
+    <li>Keeps version history as designs change</li>
+    <li>Creates parts, assemblies, and drawings for fabrication</li>
+  </ul>
+  <p class="image-credit small">
+    Logo: Conrado.arias, CC BY-SA 4.0, via Wikimedia Commons
+  </p>
+</section>
+ <section class="mechanism-motion-slide">
+  <span class="tag">CAD and Geometric Contraints</span>
+  <p>
+    Mechanisms do not move in empty space. In FRC they have to work around the
+    game piece, the field elements, and the robot's own components.
+    CAD lets us mock up those relationships for better design.
+  </p>
+  <div class="motion-layout">
+    <div class="motion-text">
+    <p>Some examples of this are: </p>
+      <ul>
+        <li>Checking how far an elevator must travel</li>
+        <li>Finding the range of motion of manipulators</li>
+        <li>Finding possible collisions with field elements</li>
+        <li>Confirming the game piece can enter, move, and release cleanly</li>
+        <li>Comparing positions for different scoring possibilities</li>
+      </ul>
+    </div>
+  </div>
+    </section>
+   <section class="reefscape-comparison-slide">
+  <div class="callout reefscape-callout">
+    <p>
+      In <strong>REEFSCAPE</strong>, 5041 used CAD to study how high Ursula's elevator needed to lift
+      and what angle the coral arm needed to reach so coral could be deposited onto the reef.
+    </p>
+  </div>
+  <div class="reefscape-images">
+    <figure>
+      <img src="assets/ursula-coral-high.jpg" alt="Ursula depositing coral at a higher reef level">
+      <figcaption>Higher reef level: elevator extension and arm angle both change.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/ursula-coral-low.jpg" alt="Ursula depositing coral at a lower reef level">
+      <figcaption>Lower reef level: same mechanism, different geometry.</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="cad-example-slide">
+  <span class="tag">CAD as a Prototyping Platform</span>
+  <div class="cad-example-layout">
+    <div>
+      <p>
+        CAD is not just for final robot designs. It is a place to test ideas, compare versions,
+        and improve parts before they are built.
+      </p>
+      <ul>
+        <li>Change geometry quickly</li>
+        <li>Compare multiple versions of the same part</li>
+        <li>Find weak points or awkward dimensions early</li>
+        <li>Move from rough prototypes toward final parts</li>
+      </ul>
+    </div>
+    <figure>
+      <img src="assets/hookiteration.png" alt="Iterations of Bearthoven's 2024 climber hook design">
+      <figcaption>5041's 2024 robot Bearthoven's climber hook changed through several versions as the team tested
+          shape, size, mounting holes, and how the hook interacted with the chain.</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="cad-example-slide">
+  <span class="tag">Precision Design</span>
+  <div class="cad-example-layout">
+    <div>
+      <p>
+        When CAD is paired with advanced manufacturing, teams can design parts with exact
+        hole spacing, gear placement, bearing locations, and material thickness in mind.
+      </p>
+      <ul>
+        <li>Place shafts, gears, and bearings accurately</li>
+        <li>Design around real material thickness</li>
+        <li>Create parts for CNC routers, laser cutters, 3D printers, or mills</li>
+        <li>Reduce guesswork during fabrication and assembly</li>
+      </ul>
+
+    </div>
+    <figure>
+      <img src="assets/gearbox.gif" alt="CAD animation of Kuruk's 2026 polycarbonate gearbox">
+      <figcaption>5041's 2026 robot Kuruk's polycarbonate gearbox shows how CAD can define exact geometry before a
+          part is manufactured from sheet material.</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="cad-example-slide">
+  <span class="tag">Robot Documentation</span>
+  <div class="cad-example-layout">
+    <div>
+      <p>
+        CAD also creates a record of what the team built and why. Drawings, dimensions, and
+        saved assemblies help students explain the design and improve it later.
+      </p>
+      <ul>
+        <li>Record important dimensions</li>
+        <li>Show mechanism positions and clearances</li>
+        <li>Help new students understand past robots</li>
+        <li>Create references for repairs, upgrades, and future designs</li>
+      </ul>
+    </div>
+    <figure>
+      <img src="assets/ursula-drawing.jpg" alt="Dimensioned CAD drawing of Ursula's 2025 robot scoring geometry">
+      <figcaption>5041's 2025 robot Ursula's drawing document shows the robot-to-reef geometry, including distances,
+          clearances, and scoring position.</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="cad-next-steps-slide">
+  <span class="tag">CAD Next Steps</span>
+  <p class="cad-next-intro">
+    To begin learning CAD, create an Onshape Education account and then bookmark the FRC Design learning course to build skills with robot-specific examples.
+  </p>
+  <div class="cad-resource-grid">
+    <div class="resource-card">
+      <h3>1. Create an Onshape Account</h3>
+      <p>
+        Onshape is the browser-based CAD program used by 5041. Students can use the
+        free Education Plan to model parts, assemblies, and robot mechanisms. <b>Use your school email.</b>
+      </p>
+      <a class="resource-button" href="https://www.onshape.com/en/education/sign-up" target="_blank">
+        Onshape Education Sign-Up
+      </a>
+    </div>
+    <div class="resource-card">
+      <h3>2. Continue With FRC Design</h3>
+      <p>
+        FRCDesign.org has a guided CAD learning course focused on Onshape and robot
+        design fundamentals for FIRST Robotics Competition. <b>Bookmark the link below.</b>
+      </p>
+      <a class="resource-button" href="https://frcdesign.org/learning-course/" target="_blank">
+        FRC Design Learning Course
+      </a>
+    </div>
+  </div>
+</section>
+</section>
+
+<section>
+  <section>
+    <span class="tag">Frame First</span>
+    <h2>Start with the frame and load paths</h2>
+    <div class="bar"></div>
+    <p class="bigq">“When it gets hit, where does the force go?”</p>
+    <img src="assets/Force Path Flow Chart.png" alt="Force Flow Chart" >
+    <div class="center"><p class="small">If the path includes “through a tiny bracket,” redesign it.</p></div>
+  </section>
+  <section class="impact-direction-slide">
+  <span class="tag">Impact Direction Matters</span>
+  <p class="impact-intro">
+    FRC robots take hits from many directions. A structure may handle one impact direction well
+    but be weaker from another direction depending on how the frame members are arranged.
+  </p>
+  <div class="impact-compare">
+    <figure class="impact-card good-impact">
+      <h3>Front Impact: Better Load Distribution</h3>
+      <img src="assets/fromfrontimpact.gif" alt="Front impact on FRC robot frame">
+      <figcaption>
+        The force travels into several long frame members, spreading the load across more of the structure.
+      </figcaption>
+    </figure>
+    <figure class="impact-card bad-impact">
+      <h3>Side Impact: Less Support</h3>
+      <img src="assets/fromsideimpact.gif" alt="Side impact on FRC robot frame">
+      <figcaption>
+        The force pushes across fewer supporting members, making bending or twisting more likely.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+<section class="frame-sort-slide">
+  <h2>Frame Design Rules of Thumb</h2>
+  <p class="small sort-directions">
+    Drag each card into the correct category: <strong>Do</strong> or <strong>Avoid</strong>.
+  </p>
+  <div class="frame-sort-layout">
+    <div class="frame-card-bank" data-zone="bank">
+      <div class="frame-sort-card" draggable="true" data-answer="avoid">Small brackets carrying major loads.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="do">Keep the frame square.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="avoid">Heavy mechanisms on weak supports.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="do">Use crossmembers and gussets.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="avoid">Last minute bumper mounts.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="do">Mount bumpers early in the design.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="avoid">Forcing misaligned parts together.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="do">Route forces through strong members.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="avoid">Thin-walled metals and weak 3D printed parts in high-load areas.</div>
+      <div class="frame-sort-card" draggable="true" data-answer="do">Use appropriately strong materials.</div>
+    </div>
+    <div class="frame-category-grid">
+      <div class="panel do frame-drop-zone" data-zone="do">
+        <h3>Do</h3>
+        <div class="frame-drop-list"></div>
+      </div>
+      <div class="panel warn frame-drop-zone" data-zone="avoid">
+        <h3>Avoid</h3>
+        <div class="frame-drop-list"></div>
+      </div>
+    </div>
+  </div>
+  <div class="frame-sort-controls">
+    <button class="quiz-button check-frame-sort">Check Answers</button>
+    <button class="quiz-button secondary reset-frame-sort">Reset</button>
+    <p class="small frame-sort-feedback"></p>
+  </div>
+</section>
+</section>
+
+<section>
+  <section>
+    <span class="tag">Strength and Stiffness</span>
+    <h2>Strength = Not Breaking. Stiffness = Accuracy.</h2>
+    <div class="bar gray"></div>
+    <p>Strong parts do not always make an accurate robot. A part can survive and still flex enough to miss shots, bind an elevator, or throw off alignment.</p>
+  </section>
+  <section class="strength-stiffness-slide">
+  <span class="tag">Strength vs. Stiffness</span>
+  <div class="strength-stiffness-layout">
+    <div class="concept-box">
+      <h3>Strength</h3>
+      <p>
+        Strength is whether a part can survive the load without permanently bending,
+        cracking, or breaking.
+      </p>
+    </div>
+    <div class="concept-box">
+      <h3>Stiffness</h3>
+      <p>
+        Stiffness is how much a part resists flexing while it is being loaded.
+        A part can be strong enough but still too bendy to work well.
+      </p>
+    </div>
+  </div>
+  <div class="image-row">
+    <figure>
+      <img src="assets/beam-deflection.png" alt="Cantilever beam deflection diagram">
+      <figcaption>A beam may not break, but too much deflection can still cause problems.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/triangle.gif" alt="Ursula triangle support structure">
+      <figcaption>Trusses add stiffness by spreading loads through triangles.</figcaption>
+    </figure>
+  </div>
+</section>
+  <section>
+    <h2>Areas that need stiffness</h2>
+    <div class="three">
+      <div class="panel"><h3>Shooters</h3><p>Consistent angle and wheel spacing.</p></div>
+      <div class="panel"><h3>Elevators / Arms</h3><p>Parallel rails, stable pivots, hard stops.</p></div>
+      <div class="panel"><h3>Vision / Sensors</h3><p>No wobble, protected mounting.</p></div>
+      <div class="panel"><h3>Swerve / Drivetrain</h3><p>Square frame and rigid module mounts.</p></div>
+      <div class="panel"><h3>Belts / Chains</h3><p>Aligned shafts and tension control.</p></div>
+      <div class="panel"><h3>Climbers</h3><p>Loads travel into the frame, not thin side plates.</p></div>
+    </div>
+  </section>
+  <section>
+    <h2>Stiffness quick fixes</h2>
+    <ul>
+      <li>Shorten unsupported spans.</li>
+      <li>Add triangles: gussets, diagonal bracing, boxed structures.</li>
+      <li>Use tube instead of flat plate where possible.</li>
+      <li>Support shafts on both sides.</li>
+      <li>Use hard stops instead of relying on motor limits alone.</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+<section class="weight-overview-slide">
+  <span class="tag">Robot Weight</span>
+  <p class="weight-intro">
+    Weight is a constraint for FRC robots and distribution affects how an FRC robot drives, turns, accelerates, scores, and survives defense.
+    A robot can have strong mechanisms but still perform poorly or be over limits.
+  </p>
+  <div class="weight-card-grid">
+    <div class="weight-card">
+      <h3>Stability</h3>
+      <p>
+        Heavy parts mounted high can make the robot tip when accelerating, turning, climbing, or reaching.
+      </p>
+    </div>
+    <div class="weight-card">
+      <h3>Driving</h3>
+      <p>
+        Too much weight on one side, front, or back can reduce traction and make the robot harder to control.
+      </p>
+    </div>
+    <div class="weight-card">
+      <h3>Scoring Accuracy</h3>
+      <p>
+        Moving arms, elevators, and game pieces can shift the center of mass and change how the robot behaves.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="weight-dos-slide">
+  <span class="tag">Weight Dos and Donts</span>
+  <div class="two weight-do-dont">
+    <div class="panel do">
+      <h3>Do</h3>
+      <ul>
+        <li>Mount heavy components low.</li>
+        <li>Consider how moving components shift weight.</li>
+        <li>Use as light materials as possible.</li>
+      </ul>
+    </div>
+    <div class="panel warn">
+      <h3>Avoid</h3>
+      <ul>
+        <li>Putting too much mass in any one direction.</li>
+        <li>Adding thick material everywhere “just to be safe.”</li>
+        <li>Ignoring weight until finished.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">
+    <p>
+      For swerve drivetrains, uneven weight distribution can affect wheel loading, traction,
+      steering consistency, and how predictably the robot drives.
+    </p>
+  </div>
+</section>
+<section class="wd-balance-slide">
+  <span class="tag">Interactive Balance Challenge</span>
+  <p class="wd-directions">
+    Drag the masses around the robot frame. Try to place the center of mass near the center line.
+  </p>
+  <div class="wd-layout">
+    <div class="wd-board-wrap">
+      <div class="wd-board">
+        <div class="wd-center-line"></div>
+        <div class="wd-center-label">Center Line</div>
+        <div class="wd-com-marker">
+          <span>COM</span>
+        </div>
+        <div class="wd-mass" data-mass="12" style="left: 60px; top: 55px;">Battery<br>12 kg</div>
+        <div class="wd-mass" data-mass="8" style="left: 155px; top: 145px;">Gearbox<br>8 kg</div>
+        <div class="wd-mass" data-mass="10" style="left: 470px; top: 70px;">Elevator<br>10 kg</div>
+        <div class="wd-mass" data-mass="6" style="left: 560px; top: 155px;">Intake<br>6 kg</div>
+      </div>
+      <div class="wd-side-labels">
+        <span>Left Heavy</span>
+        <span>Balanced</span>
+        <span>Right Heavy</span>
+      </div>
+    </div>
+    <aside class="wd-panel">
+        <div class="wd-status">Move the masses to begin.</div>
+      <div class="wd-data-row">
+        <span>Total mass:</span>
+        <strong class="wd-total-mass">0 kg</strong>
+      </div>
+      <div class="wd-data-row">
+        <span>COM offset:</span>
+        <strong class="wd-com-offset">0 cm</strong>
+      </div>
+      <div class="wd-data-row">
+        <span>Net torque:</span>
+        <strong class="wd-net-torque">0 kg·cm</strong>
+      </div>
+      <div class="wd-meter">
+        <div class="wd-meter-center"></div>
+        <div class="wd-meter-needle"></div>
+      </div>
+      <p class="wd-goal">
+        Goal: get the center of mass within <strong>±3 cm</strong> of the center line.
+      </p>
+      <div class="wd-buttons">
+        <button class="wd-randomize">Random Challenge</button>
+        <button class="wd-reset">Reset</button>
+      </div>
+    </aside>
+  </div>
+</section>
+</section>
+
+<section>
+  <section class="impact-repair-slide">
+    <span class="tag">Impact + Repair</span>
+    <h2>Prepare for Impacts, Design for Repair</h2>
+    <p class="big-idea">
+      FRC robots should be designed with the assumption that they will be hit,
+      pushed, dropped, tangled, and repaired quickly between matches.
+    </p>
+    <div class="impact-repair-grid">
+      <div class="impact-card">
+        <h3>Prepare for Impacts</h3>
+        <p>
+          Protect the parts that keep the robot driving, scoring, and communicating.
+        </p>
+      </div>
+      <div class="impact-card">
+        <h3>Design for Repair</h3>
+        <p>
+          Make common failures fast to inspect, remove, replace, and test.
+        </p>
+      </div>
+    </div>
+    <div class="callout">
+      <p>
+        A strong robot is not just hard to break. It is also easy to fix.
+      </p>
+    </div>
+  </section>
+  <section class="impact-repair-slide">
+    <span class="tag">Impact Preparation</span>
+    <h2>Protect Important Parts</h2>
+    <div class="two">
+      <div class="panel do">
+        <h3>Protect</h3>
+        <ul>
+          <li>Exposed wheels</li>
+          <li>Belts and chains</li>
+          <li>Wires and pneumatic tubes</li>
+          <li>Sensors and cameras</li>
+          <li>Fragile mechanisms</li>
+        </ul>
+      </div>
+
+      <div class="panel warn">
+        <h3>Avoid</h3>
+        <ul>
+          <li>Long, thin, unsupported parts sticking out</li>
+          <li>Fragile parts outside the frame perimeter</li>
+          <li>Mechanisms that can overtravel</li>
+          <li>Loose or weak bumper mounts</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <p>
+        Keep fragile mechanisms inside the frame perimeter when possible.
+      </p>
+    </div>
+  </section>
+  <section class="impact-repair-slide">
+    <span class="tag">Impact Design Choices</span>
+    <h2>Strong, Flexible, or Replaceable</h2>
+    <div class="three-choice-grid">
+      <div class="choice-card">
+        <h3>Strong</h3>
+        <p>
+          Use strong materials, gussets, hard stops, and secure mounts where parts must survive impacts.
+        </p>
+      </div>
+      <div class="choice-card">
+        <h3>Flexible</h3>
+        <p>
+          Let intakes or touch points flex when they contact game pieces, robots, or field elements.
+        </p>
+      </div>
+      <div class="choice-card">
+        <h3>Replaceable</h3>
+        <p>
+          Design exposed parts so they can be swapped quickly with simple tools and spare parts.
+        </p>
+      </div>
+    </div>
+    <div class="callout">
+      <p>
+        <strong>Good rule:</strong> Anything outside the frame perimeter should be
+        <strong>strong</strong>, <strong>flexible</strong>, or <strong>easy to replace</strong>.
+      </p>
+    </div>
+  </section>
+  <section>
+  <section class="impact-repair-slide">
+    <span class="tag">Maintenance Access</span>
+    <h2>Make Maintenance Easy</h2>
+    <div class="maintenance-grid">
+      <div class="maintenance-list">
+        <h3>Design Choices That Help</h3>
+        <ul>
+          <li>Easy battery access</li>
+          <li>Easy main breaker access</li>
+          <li>Accessible motor controllers</li>
+          <li>Removable panels</li>
+          <li>Clear wire paths</li>
+        </ul>
+      </div>
+      <div class="maintenance-list">
+        <h3>Prepare for Competition</h3>
+        <ul>
+          <li>Replaceable intake parts</li>
+          <li>Spare gussets and brackets</li>
+          <li>Standardized bolts and rivets</li>
+          <li>Labeled wires and pneumatic tubes</li>
+          <li>Parts that can be reached with normal tools</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <p>
+        Ask during design review: <strong>Can we fix this in five minutes between matches?</strong>
+      </p>
+    </div>
+  </section>
+</section>
+</section>
+
+
+
+
+
+<section id="quiz-intro" class="center">
+  <span class="tag">Required Quiz</span>
+  <h2>Pass to complete the module</h2>
+  <p>Each question is now on its own slide.</p>
+  <p class="small">Answer all 20 questions, then grade the quiz. Score at least 18 out of 20 to unlock the completion slide.</p>
+  <div class="stripe"></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q1">
+  <span class="tag">Quiz Question 1</span><div class="progress-note">1 of 20</div>
+  <div class="quiz-card"><p>What is the main purpose of a general robot design checklist?</p>
+    <label><input type="radio" name="q1" value="a"> To replace prototyping</label>
+    <label><input type="radio" name="q1" value="b"> To catch design problems before parts are built</label>
+    <label><input type="radio" name="q1" value="c"> To make the robot look professional</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q2">
+  <span class="tag">Quiz Question 2</span><div class="progress-note">2 of 20</div>
+  <div class="quiz-card"><p>Which question best represents load path thinking?</p>
+    <label><input type="radio" name="q2" value="a"> “When this gets hit, where does the force go?”</label>
+    <label><input type="radio" name="q2" value="b"> “What color should this part be?”</label>
+    <label><input type="radio" name="q2" value="c"> “Can we skip CAD and build it faster?”</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q3">
+  <span class="tag">Quiz Question 3</span><div class="progress-note">3 of 20</div>
+  <div class="quiz-card"><p>In the 5041 design process, what should happen first?</p>
+    <label><input type="radio" name="q3" value="a"> Finalize the metal design</label>
+    <label><input type="radio" name="q3" value="b"> Set out clear objectives</label>
+    <label><input type="radio" name="q3" value="c"> Order all parts</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q4">
+  <span class="tag">Quiz Question 4</span><div class="progress-note">4 of 20</div>
+  <div class="quiz-card"><p>Which of these belongs in the “criteria and constraints” step?</p>
+    <label><input type="radio" name="q4" value="a"> Document robot size, field limits, and rule restrictions</label>
+    <label><input type="radio" name="q4" value="b"> Paint the robot</label>
+    <label><input type="radio" name="q4" value="c"> Ignore bumper placement until the end</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q5">
+  <span class="tag">Quiz Question 5</span><div class="progress-note">5 of 20</div>
+  <div class="quiz-card"><p>Why should teams prototype before committing to a final design?</p>
+    <label><input type="radio" name="q5" value="a"> To delay the build season</label>
+    <label><input type="radio" name="q5" value="b"> To avoid CAD completely</label>
+    <label><input type="radio" name="q5" value="c"> To test ideas before using expensive or final materials</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q6">
+  <span class="tag">Quiz Question 6</span><div class="progress-note">6 of 20</div>
+  <div class="quiz-card"><p>What is CAD especially useful for before fabrication begins?</p>
+    <label><input type="radio" name="q6" value="a"> Replacing all physical testing</label>
+    <label><input type="radio" name="q6" value="b"> Choosing team shirts</label>
+    <label><input type="radio" name="q6" value="c"> Checking dimensions, spacing, and mechanism movement</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q7">
+  <span class="tag">Quiz Question 7</span><div class="progress-note">7 of 20</div>
+  <div class="quiz-card"><p>Why does Team 5041 use Onshape?</p>
+    <label><input type="radio" name="q7" value="a"> It is browser-based and supports collaboration</label>
+    <label><input type="radio" name="q7" value="b"> It only works on one computer</label>
+    <label><input type="radio" name="q7" value="c"> It prevents students from editing designs</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q8">
+  <span class="tag">Quiz Question 8</span><div class="progress-note">8 of 20</div>
+  <div class="quiz-card"><p>In REEFSCAPE, what could CAD help determine for Ursula’s coral scoring mechanism?</p>
+    <label><input type="radio" name="q8" value="a"> Elevator height and coral arm angle</label>
+    <label><input type="radio" name="q8" value="b"> Driver station location</label>
+    <label><input type="radio" name="q8" value="c"> Match schedule</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q9">
+  <span class="tag">Quiz Question 9</span><div class="progress-note">9 of 20</div>
+  <div class="quiz-card"><p>What is strength?</p>
+    <label><input type="radio" name="q9" value="a"> How much a part resists flexing</label>
+    <label><input type="radio" name="q9" value="b"> Whether a part survives load without permanently bending, cracking, or breaking</label>
+    <label><input type="radio" name="q9" value="c"> How heavy a part is</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q10">
+  <span class="tag">Quiz Question 10</span><div class="progress-note">10 of 20</div>
+  <div class="quiz-card"><p>What is stiffness?</p>
+    <label><input type="radio" name="q10" value="a"> How much a part resists flexing while loaded</label>
+    <label><input type="radio" name="q10" value="b"> Whether a robot has enough bumpers</label>
+    <label><input type="radio" name="q10" value="c"> How many motors are used</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q11">
+  <span class="tag">Quiz Question 11</span><div class="progress-note">11 of 20</div>
+  <div class="quiz-card"><p>A shooter mount does not break, but it flexes enough to miss shots. What is the main issue?</p>
+    <label><input type="radio" name="q11" value="a"> Strength</label>
+    <label><input type="radio" name="q11" value="b"> Stiffness</label>
+    <label><input type="radio" name="q11" value="c"> Battery access</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q12">
+  <span class="tag">Quiz Question 12</span><div class="progress-note">12 of 20</div>
+  <div class="quiz-card"><p>Which robot areas especially need stiffness?</p>
+    <label><input type="radio" name="q12" value="a"> Bumper cushion</label>
+    <label><input type="radio" name="q12" value="b"> Only decorative panels</label>
+    <label><input type="radio" name="q12" value="c"> Shooters, elevators, arms, vision mounts, drivetrains, belts, and chains</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q13">
+  <span class="tag">Quiz Question 13</span><div class="progress-note">13 of 20</div>
+  <div class="quiz-card"><p>Which design choice helps improve stiffness?</p>
+    <label><input type="radio" name="q13" value="a"> Shorten unsupported spans</label>
+    <label><input type="radio" name="q13" value="b"> Use long thin unsupported parts</label>
+    <label><input type="radio" name="q13" value="c"> Remove all gussets</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q14">
+  <span class="tag">Quiz Question 14</span><div class="progress-note">14 of 20</div>
+  <div class="quiz-card"><p>Which is a good frame design habit?</p>
+    <label><input type="radio" name="q14" value="a"> Use small brackets for major loads</label>
+    <label><input type="radio" name="q14" value="b"> Hang heavy mechanisms from weak supports</label>
+    <label><input type="radio" name="q14" value="c"> Route forces through strong members</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q15">
+  <span class="tag">Quiz Question 15</span><div class="progress-note">15 of 20</div>
+  <div class="quiz-card"><p>Why should bumper mounting be designed early?</p>
+    <label><input type="radio" name="q15" value="a"> Bumpers affect frame layout, impact protection, and rule compliance</label>
+    <label><input type="radio" name="q15" value="b"> Bumpers are optional in FRC</label>
+    <label><input type="radio" name="q15" value="c"> Bumpers should be designed after competition starts</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q16">
+  <span class="tag">Quiz Question 16</span><div class="progress-note">16 of 20</div>
+  <div class="quiz-card"><p>Which is a good rule for parts outside the frame perimeter?</p>
+    <label><input type="radio" name="q16" value="a"> They should be strong, flexible, or easy to replace</label>
+    <label><input type="radio" name="q16" value="b"> They should always be thin and rigid</label>
+    <label><input type="radio" name="q16" value="c"> They should never be tested</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q17">
+  <span class="tag">Quiz Question 17</span><div class="progress-note">17 of 20</div>
+  <div class="quiz-card"><p>What should be protected from impacts?</p>
+    <label><input type="radio" name="q17" value="a"> Only the robot cart</label>
+    <label><input type="radio" name="q17" value="b"> Exposed wheels, belts, chains, wires, and sensors</label>
+    <label><input type="radio" name="q17" value="c"> Only parts inside the battery</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q18">
+  <span class="tag">Quiz Question 18</span><div class="progress-note">18 of 20</div>
+  <div class="quiz-card"><p>What is a good weight distribution goal?</p>
+    <label><input type="radio" name="q18" value="a"> Put all heavy parts high and forward</label>
+    <label><input type="radio" name="q18" value="b"> Keep heavy parts low, centered, and securely mounted</label>
+    <label><input type="radio" name="q18" value="c"> Ignore weight until inspection</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q19">
+  <span class="tag">Quiz Question 19</span><div class="progress-note">19 of 20</div>
+  <div class="quiz-card"><p>Why can poor weight distribution hurt a swerve drivetrain?</p>
+    <label><input type="radio" name="q19" value="a"> It removes the need for CAD</label>
+    <label><input type="radio" name="q19" value="b"> It makes the robot color inaccurate</label>
+    <label><input type="radio" name="q19" value="c"> It can affect wheel loading, traction, and steering consistency</label></div>
+</section>
+
+<section class="quiz-slide" id="quiz-q20">
+  <span class="tag">Quiz Question 20</span><div class="progress-note">20 of 20</div>
+  <div class="quiz-card"><p>What should a subsystem lead be able to show before fabrication approval?</p>
+    <label><input type="radio" name="q20" value="a"> Only the final robot name</label>
+    <label><input type="radio" name="q20" value="b"> Only a rough sketch</label>
+    <label><input type="radio" name="q20" value="c"> Load path, stiffness, impact plan, fabrication method, and repair access</label></div>
+</section>
+
+<section id="quiz-results" class="center">
+  <span class="tag">Quiz Results</span>
+  <h2>Grade the quiz</h2>
+  <p class="small">You need at least 18 out of 20 to unlock completion.</p>
+  <div class="quiz-actions" style="justify-content:center;"><button class="quiz-button" id="gradeQuiz" type="button">Grade Quiz</button><button class="quiz-button secondary" id="resetQuiz" type="button">Reset</button></div>
+  <p class="result" id="quizResult">Not submitted.</p>
+  <p class="small" id="quizHint">After passing, advance to the final completion slide.</p>
+</section>
+
+
+<section id="complete" class="center redCorner locked">
+  <h1 class="cytitle">Build it right.</h1>
+  <div class="stripe"></div>
+  <h2>Strong • Stiff • Light • Accurate • Repairable</h2>
+  <p>5041 CyBear Robotics</p>
+  <p class="small" id="completionNote">Complete after passing the required quiz.</p>
+</section>
+
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

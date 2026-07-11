@@ -1,0 +1,1647 @@
+/* Additional styles for electronics.html */
+.elec-hero .front-card {
+  max-width: 900px;
+}
+
+.elec-slide h2,
+.elec-vertical h2,
+.elec-quiz h2 {
+  font-size: 1.45em;
+  margin-bottom: 0.45rem;
+}
+
+.elec-intro {
+  max-width: 950px;
+  margin: 0 auto 0.8rem;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+
+.elec-grid-2,
+.elec-grid-3,
+.elec-grid-4,
+.component-grid,
+.sensor-grid,
+.doc-grid {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.elec-grid-2 { grid-template-columns: 1fr 1fr; }
+.elec-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.elec-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.component-grid { grid-template-columns: repeat(3, 1fr); }
+.sensor-grid { grid-template-columns: repeat(3, 1fr); }
+.doc-grid { grid-template-columns: repeat(2, 1fr); }
+
+.elec-card,
+.component-card,
+.sensor-card,
+.doc-card,
+.path-card {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.elec-card.dark,
+.component-card.dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.elec-card.dark h3,
+.elec-card.dark p,
+.elec-card.dark li,
+.component-card.dark h3,
+.component-card.dark p,
+.component-card.dark li {
+  color: var(--white);
+}
+
+.elec-card h3,
+.component-card h3,
+.sensor-card h3,
+.doc-card h3,
+.path-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.72em;
+}
+
+.elec-card p,
+.component-card p,
+.sensor-card p,
+.doc-card p,
+.path-card p {
+  margin: 0;
+  font-size: 0.45em;
+  line-height: 1.25;
+}
+
+.elec-card li,
+.component-card li,
+.sensor-card li,
+.doc-card li,
+.path-card li {
+  font-size: 0.5em;
+  line-height: 1.22;
+  margin-bottom: 0.16rem;
+}
+
+.elec-callout {
+  max-width: 950px;
+  margin: 0.8rem auto 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+}
+
+.elec-callout p {
+  margin: 0;
+  font-size: 0.56em;
+  line-height: 1.25;
+}
+
+.elec-mini {
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.42em;
+  color: var(--gray);
+}
+
+.power-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+  max-width: 1050px;
+  margin: 0.8rem auto 0;
+}
+
+.power-node {
+  background: var(--white);
+  border: 3px solid var(--black);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.6rem 0.5rem;
+  min-height: 92px;
+  text-align: center;
+  font-family: "Droid Sans", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.48em;
+  font-weight: 700;
+}
+
+.power-arrow {
+  text-align: center;
+  font-size: 1.1em;
+  color: var(--red);
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+}
+
+.can-chain {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0.7rem auto;
+  max-width: 1050px;
+  flex-wrap: wrap;
+}
+
+.can-device {
+  background: var(--white);
+  border: 3px solid var(--black);
+  border-top: 8px solid var(--red);
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.44em;
+  font-weight: 700;
+  min-width: 120px;
+  text-align: center;
+}
+
+.can-wire {
+  font-size: 0.75em;
+  color: var(--gray);
+  font-weight: 700;
+}
+
+.sort-bank,
+.sort-targets,
+.troubleshooting-sort {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.sort-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.45rem;
+  background: var(--light);
+  border: 3px dashed var(--gray);
+  border-radius: 8px;
+  min-height: 86px;
+}
+
+.sort-chip,
+.trouble-card {
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-radius: 7px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.42em;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #222222;
+  cursor: grab;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.sort-chip.dragging,
+.trouble-card.dragging { opacity: 0.45; }
+.sort-chip.correct,
+.trouble-card.correct { border-color: #2e7d32; background: #e6f4ea; }
+.sort-chip.incorrect,
+.trouble-card.incorrect { border-color: #b00020; background: #fdecea; }
+
+.sort-targets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-top: 0.7rem;
+}
+
+.sort-zone {
+  min-height: 210px;
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.55rem;
+}
+
+.sort-zone h3 {
+  font-size: 0.68em;
+  text-align: center;
+  margin: 0 0 0.4rem;
+}
+
+.sort-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 150px;
+}
+
+.sort-bank.drag-over,
+.sort-zone.drag-over,
+.troubleshooting-sort.drag-over {
+  outline: 4px solid var(--red);
+  outline-offset: 2px;
+}
+
+.activity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.activity-feedback {
+  min-width: 240px;
+  margin: 0;
+  font-size: 0.46em;
+  font-weight: 700;
+}
+
+.troubleshooting-sort {
+  display: grid;
+  gap: 0.35rem;
+  background: var(--light);
+  border: 3px dashed var(--gray);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.trouble-card {
+  font-size: 0.44em;
+}
+
+.documentation-table {
+  width: 100%;
+  max-width: 950px;
+  margin: 0.5rem auto;
+  border-collapse: collapse;
+  font-size: 0.42em;
+  font-family: "Droid Sans", Arial, sans-serif;
+}
+
+.documentation-table th,
+.documentation-table td {
+  border: 2px solid #cccccc;
+  padding: 0.35rem;
+  text-align: left;
+}
+
+.documentation-table th {
+  background: var(--black);
+  color: var(--white);
+}
+
+.documentation-table tr:nth-child(even) {
+  background: var(--light);
+}
+
+.battery-list {
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.battery-list li {
+  break-inside: avoid;
+}
+
+@media (max-width: 900px) {
+  .elec-grid-3,
+  .elec-grid-4,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  .power-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .elec-grid-2,
+  .sort-targets {
+    grid-template-columns: 1fr;
+  }
+}
+.wiring-structure-slide h2 {
+  font-size: 1.45em;
+  margin-bottom: 0.35rem;
+}
+
+.wiring-structure-intro {
+  max-width: 1200px;
+  margin: 0 auto 0.2rem;
+  font-size: 0.2em;
+  line-height: 1;
+  text-align: center;
+}
+
+.wiring-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+  max-width: 2000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.wiring-layout-card {
+  margin: 0;
+  background: #f4f4f4;
+  border-left: 8px solid #980000;
+  border-radius: 8px;
+  padding: 0.45rem;
+}
+
+.wiring-layout-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 6px;
+  display: block;
+}
+
+.wiring-layout-card figcaption {
+  font-size: 0.38em;
+  line-height: 1.15;
+  margin-top: 0.3rem;
+  text-align: center;
+}
+
+.wiring-structure-callout {
+  max-width: 1000px;
+  margin: 0.6rem auto 0;
+  padding: 0.55rem 0.8rem;
+  background: #ffffff;
+  border-left: 8px solid #980000;
+  border-radius: 8px;
+}
+
+.wiring-structure-callout p {
+  margin: 0;
+  font-size: 0.5em;
+}
+.image-focus-slide {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.35rem;
+}
+
+.image-focus-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3rem;
+  align-items: center;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.image-focus-header .tag {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.wiring-layout-main {
+  width: 100%;
+  height: 530px;
+  max-height: calc(100vh - 145px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  max-width: 1100px;
+  margin: 0.8rem auto 0;
+}
+
+.component-card {
+  min-height: 145px;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+}
+
+.component-card h3 {
+  font-size: 2em;
+  margin: 0 0 0.45rem;
+}
+
+.component-card p {
+  font-size: 1em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.component-card:hover,
+.component-card:focus {
+  outline: 4px solid var(--red);
+  outline-offset: 3px;
+  transform: translateY(-2px);
+}
+
+.component-card.viewed {
+  border-left-color: var(--gray);
+  opacity: 0.85;
+}
+
+.component-card.viewed h3::after {
+  content: " ✓";
+  color: var(--gray);
+  font-weight: bold;
+}
+
+.component-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1.5rem;
+}
+
+.component-modal.open {
+  display: flex;
+}
+
+.component-modal-panel {
+  position: relative;
+  width: min(1000px, 95vw);
+  max-height: 88vh;
+  overflow: auto;
+  background: #ffffff;
+  border-left: 14px solid #980000;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.component-modal-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  background: #980000;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 2rem;
+  line-height: 1;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+
+.component-modal-content {
+  display: grid;
+  grid-template-columns: 1fr 42%;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.component-modal-content h2 {
+  margin-top: 0;
+  font-family: "Droid Sans", Arial, sans-serif;
+}
+
+.component-modal-content p,
+.component-modal-content li {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.component-modal-content img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  background: #f3f3f3;
+  border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+  .component-modal-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reveal .poster-img {
+  max-width:100%;
+  max-height:520px;
+  display:block;
+  margin:.2em auto;
+  border:1px solid #ddd;
+}
+.awg-vertical-slide {
+  height: 100%;
+}
+
+.awg-vertical-slide .tag {
+  margin-bottom: 0.25rem;
+}
+
+.awg-image-wrap {
+  background: #ffffff;
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.25rem;
+  max-width: 1120px;
+  margin: 0 auto 0.45rem;
+}
+
+.awg-main-image {
+  width: 100%;
+  height: 345px;
+  object-fit: contain;
+  display: block;
+}
+
+.awg-text-panel {
+  background: #f4f4f4;
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.awg-text-panel h2 {
+  font-size: 0.78em;
+  margin: 0 0 0.2rem;
+}
+
+.awg-text-panel p {
+  font-size: 0.43em;
+  line-height: 1.18;
+  margin: 0;
+}
+
+.awg-rule-box {
+  background: #ffffff;
+  border-left: 8px solid var(--gray);
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+  margin: 0.35rem 0;
+  font-size: 0.43em;
+  line-height: 1.15;
+}
+
+.awg-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+}
+
+.awg-type-grid h3 {
+  font-size: 0.55em;
+  margin: 0 0 0.15rem;
+}
+
+.awg-type-grid p {
+  font-size: 0.36em;
+  line-height: 1.15;
+}
+
+.awg-note {
+  margin-top: 0.35rem;
+  opacity: 0.8;
+}
+.wire-materials-slide h2 {
+  font-size: 1.35em;
+  margin-bottom: 0.3rem;
+}
+
+.wire-materials-intro {
+  max-width: 1050px;
+  margin: 0 auto 0.55rem;
+  font-size: 0.54em;
+  line-height: 1.2;
+}
+
+.wire-materials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.wire-material-card {
+  background: #f4f4f4;
+  border-left: 9px solid var(--red);
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  min-height: 245px;
+}
+
+.wire-material-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.68em;
+}
+
+.wire-material-card p,
+.wire-material-card li {
+  font-size: 0.4em;
+  line-height: 1.18;
+}
+
+.wire-material-card ul {
+  margin-top: 0.25rem;
+}
+
+.wire-material-card.conductor {
+  border-left-color: #000000;
+}
+
+.wire-material-card.strand {
+  border-left-color: var(--red);
+}
+
+.wire-material-card.insulation {
+  border-left-color: var(--gray);
+}
+
+.wire-importance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  max-width: 1100px;
+  margin: 0.65rem auto 0;
+}
+
+.importance-box {
+  background: #ffffff;
+  border-left: 9px solid var(--red);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+}
+
+.importance-box.gray {
+  border-left-color: var(--gray);
+}
+
+.importance-box h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.62em;
+}
+
+.importance-box li {
+  font-size: 0.38em;
+  line-height: 1.16;
+}
+.wire-materials-slide ul {
+  margin-left: 0.1em;
+  padding-left: 0.5em;
+}
+
+.wire-materials-slide li {
+  text-align: left;
+  padding-left: 0;
+}
+.connector-slide h2 {
+  font-size: 1.4em;
+  margin-bottom: 0.35rem;
+}
+
+.connector-slide {
+  height: 100%;
+}
+
+.connector-slide .tag {
+  margin-bottom: 0.2rem;
+}
+
+.connector-intro {
+  max-width: 1050px;
+  margin: 0 auto 0.35rem;
+  font-size: 0.48em;
+  line-height: 1.15;
+}
+
+.connector-grid {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.connector-grid.three-up {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.connector-grid.two-up {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.connector-card {
+  background: #f4f4f4;
+  border-left: 9px solid var(--red);
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  min-width: 0;
+}
+
+.connector-card img {
+  width: 100%;
+  height: 155px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.connector-card h3 {
+  margin: 0 0 0.2rem;
+  font-size: 0.62em;
+}
+
+.connector-card p,
+.connector-card li {
+  font-size: 0.36em;
+  line-height: 1.12;
+}
+
+.connector-card p {
+  margin: 0 0 0.25rem;
+}
+
+.connector-card ul {
+  margin: 0.15rem 0 0;
+  padding-left: 0.85em;
+}
+
+.connector-callout {
+  max-width: 1100px;
+  margin: 0.45rem auto 0;
+  padding: 0.42rem 0.65rem;
+  background: #ffffff;
+  border-left: 9px solid var(--gray);
+  border-radius: 8px;
+}
+
+.connector-callout p {
+  margin: 0;
+  font-size: 0.38em;
+  line-height: 1.15;
+}
+
+.strip-crimp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.diagram-card {
+  background: #f4f4f4;
+  border-left: 9px solid var(--red);
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  min-width: 0;
+}
+
+.diagram-card h3 {
+  margin: 0 0 0.2rem;
+  font-size: 0.62em;
+}
+
+.diagram-card img {
+  width: 100%;
+  height: 155px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.diagram-card ul {
+  margin: 0.15rem 0 0;
+  padding-left: 0.85em;
+}
+
+.diagram-card li {
+  font-size: 0.36em;
+  line-height: 1.12;
+}
+
+.diagram-svg {
+  width: 100%;
+  height: 220px;
+  display: block;
+  background: #ffffff;
+  border-radius: 6px;
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 900px) {
+  .connector-grid.two-up,
+  .strip-crimp-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem;
+  }
+
+  .connector-grid.three-up {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+  }
+
+  .connector-card,
+  .diagram-card {
+    padding: 0.32rem 0.38rem;
+  }
+
+  .connector-card img,
+  .diagram-card img {
+    height: 125px;
+  }
+
+  .connector-card h3,
+  .diagram-card h3 {
+    font-size: 0.52em;
+  }
+
+  .connector-card p,
+  .connector-card li,
+  .diagram-card li {
+    font-size: 0.3em;
+    line-height: 1.08;
+  }
+
+  .connector-intro {
+    font-size: 0.38em;
+    margin-bottom: 0.25rem;
+  }
+
+  .connector-callout {
+    margin-top: 0.3rem;
+    padding: 0.3rem 0.45rem;
+  }
+
+  .connector-callout p {
+    font-size: 0.3em;
+    line-height: 1.1;
+  }
+}
+
+/* Connector slide fix: keep these slides side-by-side on narrower browser windows and scale content down instead of stacking. */
+.strip-crimp-slide .diagram-card img {
+  height: 145px;
+}
+
+@media (max-width: 900px) {
+  .strip-crimp-slide .diagram-card img {
+    height: 115px;
+  }
+}
+@media (min-width: 1200px) {
+  .connector-grid.two-up,
+  .strip-crimp-layout {
+    max-width: 1250px;
+    gap: 0.9rem;
+  }
+
+  .connector-card,
+  .diagram-card {
+    padding: 0.7rem 0.85rem;
+  }
+
+  .connector-card img,
+  .diagram-card img {
+    height: 210px;
+  }
+
+  .connector-card h3,
+  .diagram-card h3 {
+    font-size: 0.78em;
+  }
+
+  .connector-card p,
+  .connector-card li,
+  .diagram-card li {
+    font-size: 0.46em;
+    line-height: 1.18;
+  }
+
+  .connector-intro {
+    font-size: 0.58em;
+    max-width: 1150px;
+  }
+
+  .connector-callout {
+    max-width: 1250px;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .connector-callout p {
+    font-size: 0.5em;
+  }
+}
+
+  .doanddont li {
+    font-size: 0.3em;
+    line-height: 1.08;
+  }
+
+  .wire-slide h2 {
+  font-size: 1.4em;
+  margin-bottom: 0.3rem;
+}
+
+.wire-intro {
+  max-width: 1100px;
+  margin: 0 auto 0.45rem;
+  font-size: 0.52em;
+  line-height: 1.2;
+}
+
+.wire-grid {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.wire-grid.five-up {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.wire-grid.three-up {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.wire-grid.two-up,
+.wire-grid.final-two-up {
+  grid-template-columns: 1fr 1fr;
+}
+
+.wire-grid.small-top {
+  margin-top: 0.5rem;
+}
+
+.wire-card,
+.wire-panel,
+.slack-box {
+  background: #f4f4f4;
+  border-left: 8px solid var(--red);
+  border-radius: 8px;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  min-width: 0;
+}
+
+.wire-card img {
+  width: 100%;
+  height: 125px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.wire-card h3,
+.wire-panel h3,
+.slack-box h3 {
+  margin: 0 0 0.2rem;
+  font-size: 0.68em;
+}
+
+.wire-card p,
+.wire-panel p,
+.wire-panel li,
+.wire-card li {
+  font-size: 0.4em;
+  line-height: 1.18;
+}
+
+.wire-panel ul,
+.checklist-panel ul {
+  margin: 0.15rem 0 0;
+  padding-left: 0.95em;
+}
+
+.wire-panel li,
+.checklist-panel li {
+  text-align: left;
+  padding-left: 0;
+}
+
+.callout.wire-callout {
+  max-width: 1120px;
+  margin: 0.55rem auto 0;
+  padding: 0.5rem 0.7rem;
+  background: #ffffff;
+  border-left: 8px solid var(--gray);
+  border-radius: 8px;
+}
+
+.callout.wire-callout p {
+  margin: 0;
+  font-size: 0.46em;
+  line-height: 1.18;
+}
+
+.mini-card img {
+  height: 100px;
+}
+
+.slack-diagram-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  max-width: 1120px;
+  margin: 0.55rem auto 0;
+}
+
+.slack-box.bad {
+  border-left-color: #c40000;
+}
+
+.slack-box.good {
+  border-left-color: #0a7a2f;
+}
+
+.slack-box.warn {
+  border-left-color: #d68a00;
+}
+
+.slack-diagram {
+  width: 100%;
+  height: 140px;
+  display: block;
+  background: #ffffff;
+  border-radius: 6px;
+  margin-top: 0.2rem;
+}
+
+.final-wire-slide .checklist-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.robot-example-image {
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 8px;
+  display: block;
+  margin: 0.2rem 0 0.3rem;
+}
+
+.robot-caption {
+  font-size: 0.4em;
+  line-height: 1.18;
+  margin: 0;
+}
+
+.robot-example-panel {
+  border-left-color: var(--gray);
+}
+
+.checklist-panel {
+  border-left-color: var(--red);
+}
+
+@media (max-width: 1100px) {
+  .wire-grid.five-up {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.35rem;
+  }
+
+  .wire-card,
+  .wire-panel,
+  .slack-box {
+    padding: 0.35rem 0.4rem;
+  }
+
+  .wire-card img {
+    height: 95px;
+  }
+
+  .wire-card h3,
+  .wire-panel h3,
+  .slack-box h3 {
+    font-size: 0.56em;
+  }
+
+  .wire-card p,
+  .wire-panel p,
+  .wire-panel li,
+  .wire-card li,
+  .robot-caption {
+    font-size: 0.33em;
+    line-height: 1.1;
+  }
+
+  .robot-example-image {
+    height: 280px;
+  }
+
+  .slack-diagram {
+    height: 115px;
+  }
+
+  .callout.wire-callout p {
+    font-size: 0.36em;
+  }
+}
+.component-match-slide {
+  height: 100%;
+}
+
+.component-match-slide .tag {
+  margin-bottom: 0.2rem;
+}
+
+.match-intro {
+  font-size: 0.38em;
+  line-height: 1.1;
+  margin: 0 auto 0.25rem;
+  max-width: 1100px;
+}
+
+.match-layout {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  gap: 0.45rem;
+  max-width: 1160px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.match-bank-panel,
+.definition-grid-panel {
+  background: #f4f4f4;
+  border-left: 8px solid var(--red);
+  border-radius: 8px;
+  padding: 0.35rem;
+  text-align: left;
+}
+
+.match-bank-panel h3,
+.definition-grid-panel h3 {
+  margin: 0 0 0.18rem;
+  font-size: 0.5em;
+}
+
+.match-bank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.22rem;
+  min-height: 0;
+  align-content: start;
+}
+
+.match-card {
+  background: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 7px;
+  padding: 0.12rem;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  min-width: 0;
+}
+
+.match-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.definition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.28rem;
+}
+
+.definition-box {
+  background: #ffffff;
+  border: 2px solid #222222;
+  border-radius: 8px;
+  padding: 0;
+  min-height: 0;
+}
+
+.drop-slot {
+  position: relative;
+  height: 128px;
+  border: 2px dashed #bbbbbb;
+  border-radius: 6px;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.definition-text {
+  position: absolute;
+  left: 0.18rem;
+  right: 0.18rem;
+  bottom: 0.18rem;
+  min-height: 34px;
+  margin: 0;
+  padding: 0.18rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 2px solid #dddddd;
+  border-radius: 4px;
+  font-size: 0.22em;
+  line-height: 1.05;
+  text-align: center;
+  z-index: 2;
+}
+
+.drop-slot {
+  position: relative;
+  height: 135px;
+  border: 2px dashed #bbbbbb;
+  border-radius: 6px;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+/* Smaller definition text at the bottom */
+.definition-text {
+  position: absolute;
+  left: 0.12rem;
+  right: 0.12rem;
+  bottom: 0.12rem;
+  margin: 0;
+  padding: 0.08rem 0.12rem;
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 0.14em;
+  line-height: 0.95;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Make dropped image area larger */
+.drop-slot .match-card {
+  position: absolute;
+  top: 0.08rem;
+  left: 0.08rem;
+  right: 0.08rem;
+  bottom: 26px;
+  width: auto;
+  height: auto;
+  border: none;
+  background: transparent;
+  padding: 0;
+  z-index: 1;
+}
+
+.drop-slot .match-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.match-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.28rem;
+}
+
+.match-check-btn,
+.match-reset-btn {
+  font-size: 0.34em;
+  padding: 0.24rem 0.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--red);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.match-reset-btn {
+  background: var(--gray);
+}
+
+.match-feedback {
+  font-size: 0.34em;
+  min-width: 220px;
+  text-align: left;
+}
+
+@media (max-width: 1100px) {
+  .match-layout {
+    grid-template-columns: 24% 1fr;
+    gap: 0.3rem;
+  }
+
+  .match-bank-panel,
+  .definition-grid-panel {
+    padding: 0.22rem;
+  }
+
+  .match-card {
+    height: 72px;
+    padding: 0.05rem;
+  }
+
+  .drop-slot {
+    height: 112px;
+  }
+
+  .drop-slot .match-card {
+    top: 0.05rem;
+    left: 0.05rem;
+    right: 0.05rem;
+    bottom: 22px;
+  }
+
+  .definition-text {
+    font-size: 0.15em;
+    line-height: 0.9;
+    padding: 0.05rem 0.08rem;
+  }
+
+  .match-bank-panel h3,
+  .definition-grid-panel h3 {
+    font-size: 0.38em;
+  }
+
+  .match-intro,
+  .match-feedback,
+  .match-check-btn,
+  .match-reset-btn {
+    font-size: 0.26em;
+  }
+
+  .match-controls {
+    margin-top: 0.15rem;
+  }
+}
+
+.drop-slot.filled .definition-text {
+  display: none;
+}
+/* Smaller text for the wiring sort activity */
+.wire-sort-slide .sort-chip {
+  font-size: 0.34em;
+  line-height: 1.05;
+  padding: 0.18rem 0.35rem;
+  min-height: 0;
+}
+
+/* Make the top bank take less vertical space */
+.wire-sort-slide .sort-bank {
+  min-height: 95px;
+  max-height: 155px;
+  overflow-y: auto;
+  padding: 0.35rem;
+  gap: 0.25rem;
+  align-content: start;
+}
+
+/* Make the target areas a little more compact too */
+.wire-sort-slide .sort-targets {
+  gap: 0.5rem;
+  margin-top: 0.45rem;
+}
+
+.wire-sort-slide .sort-zone {
+  min-height: 250px;
+  padding: 0.45rem;
+}
+
+.wire-sort-slide .sort-zone h3 {
+  font-size: 0.58em;
+  margin-bottom: 0.25rem;
+}
+
+.wire-sort-slide .sort-list {
+  gap: 0.2rem;
+}
+
+/* Smaller bottom controls */
+.wire-sort-slide .activity-controls {
+  margin-top: 0.35rem;
+}
+
+.wire-sort-slide .quiz-button {
+  font-size: 0.34em;
+  padding: 0.24rem 0.55rem;
+}
+
+.wire-sort-slide .activity-feedback {
+  font-size: 0.34em;
+}
+
+.sensor-click-slide {
+  height: 100%;
+}
+
+.sensor-click-intro {
+  max-width: 1050px;
+  margin: 0 auto 0.45rem;
+  font-size: 0.42em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.sensor-click-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.sensor-click-card {
+  min-height: 215px;
+  padding: 0.45rem 0.5rem;
+  border-radius: 9px;
+  background: #f4f4f4;
+  border: none;
+  border-left: 9px solid var(--red);
+  color: #000000;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sensor-click-card img {
+  width: 100%;
+  height: 105px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.sensor-click-card h3 {
+  font-size: 2.5em;
+  margin: 0 0 0.18rem;
+}
+
+.sensor-click-card p {
+  font-size: 1em;
+  line-height: 1.12;
+  margin: 0;
+}
+
+.sensor-click-card:hover,
+.sensor-click-card:focus {
+  outline: 4px solid var(--red);
+  outline-offset: 3px;
+  transform: translateY(-2px);
+}
+
+.sensor-click-card.viewed {
+  border-left-color: var(--gray);
+  opacity: 0.86;
+}
+
+.sensor-click-card.viewed h3::after {
+  content: " ✓";
+  color: var(--gray);
+  font-weight: bold;
+}
+
+.sensor-note {
+  margin-top: 0.4rem;
+  font-size: 0.34em;
+  line-height: 1.12;
+}
+
+@media (max-width: 1100px) {
+  .sensor-click-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.35rem;
+  }
+
+  .sensor-click-card {
+    min-height: 175px;
+    padding: 0.32rem 0.38rem;
+  }
+
+  .sensor-click-card img {
+    height: 82px;
+  }
+
+  .sensor-click-card h3 {
+    font-size: 0.46em;
+  }
+
+  .sensor-click-card p,
+  .sensor-click-intro,
+  .sensor-note {
+    font-size: 0.28em;
+  }
+}
+.label-doc-slide .elec-card,
+.label-doc-slide .doc-card,
+.label-doc-slide .panel,
+.label-example-card {
+  padding: 0.55rem 0.65rem;
+}
+
+.label-doc-intro {
+  max-width: 1000px;
+  margin: 0 auto 0.55rem;
+  font-size: 0.54em;
+  line-height: 1.18;
+}
+
+.label-example-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.25rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.label-example-card {
+  background: #f4f4f4;
+  border-left: 9px solid var(--red);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.label-example-card h3 {
+  font-size: 0.68em;
+  margin: 0 0 0.25rem;
+  text-align: center;
+}
+
+.label-example-card ul {
+  margin: 0.15rem 0 0;
+  padding-left: 2em;
+
+}
+.label-example-card li {
+  font-size: 0.7em;
+  line-height: 1.4;
+  text-align: left;
+  padding-left: 2;
+}
+
+.label-code {
+  background: #ffffff;
+  border-left: 7px solid var(--gray);
+  border-radius: 6px;
+  padding: 0.35rem 0.45rem;
+  font-family: monospace;
+  font-size: 0.42em;
+  margin: 0 0 0.35rem;
+}
+
+/* Maximize image width */
+.label-example-card img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 470px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+.compact-doc-table {
+  font-size: 0.34em;
+}
+
+.documentation-table-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.label-process-strip {
+  margin-bottom: 0.7rem;
+}
+
+.reveal img.max-width-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
