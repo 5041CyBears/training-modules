@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const componentInfo = {
     battery: {
       title: "Battery",
-      image: "assets/components/battery.jpg",
+      image: "assets/Components/battery.jpg",
       alt: "FRC robot battery",
       description: "The battery is the main 12V power source for the robot.",
       checks: [
