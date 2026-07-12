@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const componentInfo = {
     battery: {
       title: "Battery",
-      image: "assets/Components/battery.jpg",
+      image: "assets/components/battery.jpg",
       alt: "FRC robot battery",
       description: "The battery is the main 12V power source for the robot.",
       checks: [
@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mainBreaker: {
       title: "Main Breaker",
-      image: "assets/Components/main-breaker.png",
+      image: "assets/components/main-breaker.png",
       alt: "FRC main breaker",
       description: "The main breaker is the robot’s primary power shutoff.",
       checks: [
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     powerDistribution: {
       title: "Power Distribution",
-      image: "assets/Components/pdps.png",
+      image: "assets/components/pdps.png",
       alt: "FRC power distribution device",
       description: "The power distribution device sends battery power to robot circuits through breakers and fuses.",
       checks: [
@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     roboRio: {
       title: "roboRIO / SystemCore",
-      image: "assets/Components/controllers.png",
+      image: "assets/components/controllers.png",
       alt: "FRC robot controller",
       description: "The robot controller runs robot code and communicates with motor controllers, sensors, the radio, and the Driver Station.",
       checks: [
@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     radio: {
       title: "Radio",
-      image: "assets/Components/radio.png",
+      image: "assets/components/radio.png",
       alt: "FRC robot radio",
       description: "The radio connects the robot to the field and Driver Station.",
       checks: [
@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     motorControllers: {
       title: "Motor Controllers",
-      image: "assets/Components/motor-controllers.png",
+      image: "assets/components/motor-controllers.png",
       alt: "FRC motor controller",
       description: "Motor controllers receive commands from robot code and control motors.",
       checks: [
@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     canBus: {
       title: "CAN Bus",
-      image: "assets/Components/can-connectors.png",
+      image: "assets/components/can-connectors.png",
       alt: "CAN bus wiring",
       description: "The CAN bus is a communication network used by many FRC devices. ",
       checks: [
@@ -378,7 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     pneumatics: {
       title: "Pneumatics",
-      image: "assets/Components/pneumatics.png",
+      image: "assets/components/pneumatics.png",
       alt: "FRC pneumatics module",
       description: "If used, the pneumatics module controls the compressor, pressure switch, and solenoids.",
       checks: [
@@ -393,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sensors: {
       title: "Sensors",
-      image: "assets/Components/sensors.png",
+      image: "assets/components/sensors.png",
       alt: "FRC robot sensors",
       description: "Sensors give the robot information about position, speed, distance, pressure, limits, game pieces, and field targets.",
       checks: [
