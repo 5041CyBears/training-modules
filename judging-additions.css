@@ -1,0 +1,403 @@
+
+/* 5041 Pit Judging Training Module additions */
+.judge-hero h1,
+.judge-hero .cytitle {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.judge-hero-subtitle {
+  max-width: 900px;
+  margin: 0.6rem auto 0;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.68em;
+  color: var(--gray);
+}
+
+.judge-slide h2,
+.judge-vertical h2,
+.judge-quiz h2 {
+  font-size: 1.42em;
+  margin-bottom: 0.42rem;
+}
+
+.judge-intro {
+  max-width: 1050px;
+  margin: 0 auto 0.65rem;
+  font-size: 0.58em;
+  line-height: 1.22;
+  text-align: center;
+}
+
+.judge-grid-2,
+.judge-grid-3,
+.judge-grid-4 {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.judge-grid-2 { grid-template-columns: 1fr 1fr; }
+.judge-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.judge-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.judge-card,
+.script-card,
+.evidence-card,
+.dialogue-card,
+.award-output,
+.response-card,
+.judge-sort-zone {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+}
+
+.center-list-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.judge-card h3,
+.script-card h3,
+.evidence-card h3,
+.dialogue-card h3,
+.award-output h3,
+.judge-sort-zone h3 {
+  margin: 0 0 0.28rem;
+  font-size: 0.68em;
+}
+
+.judge-card p,
+.script-card p,
+.evidence-card p,
+.dialogue-card p,
+.award-output p {
+  margin: 0;
+  font-size: 0.42em;
+  line-height: 1.18;
+}
+
+.judge-card li,
+.award-output li,
+.judge-sort-zone li {
+  font-size: 0.43em;
+  line-height: 1.18;
+  margin-bottom: 0.12rem;
+}
+
+.judge-card ul,
+.award-output ul {
+  margin: 0.25rem 0 0;
+  padding-left: 0.9em;
+}
+
+.judge-list-large li {
+  font-size: 0.5em;
+  line-height: 1.2;
+  margin-bottom: 0.18rem;
+}
+
+.judge-callout {
+  max-width: 1050px;
+  margin: 0.7rem auto 0;
+  padding: 0.55rem 0.75rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+}
+
+.judge-callout p {
+  margin: 0;
+  font-size: 0.5em;
+  line-height: 1.18;
+}
+
+.judge-photo-split {
+  display: grid;
+  grid-template-columns: 52% 1fr;
+  gap: 0.85rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.judge-photo-card {
+  margin: 0;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 0.25rem;
+  border-left: 10px solid var(--red);
+}
+
+.judge-photo {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.judge-photo-card figcaption {
+  font-size: 0.34em;
+  line-height: 1.1;
+  color: var(--gray);
+  margin-top: 0.25rem;
+  text-align: center;
+}
+
+.judge-wide-img {
+  display: block;
+  width: 100%;
+  max-width: 1050px;
+  max-height: 490px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.judge-process {
+  max-width: 900px;
+  margin: 0.45rem auto 0.75rem;
+}
+
+.good-script {
+  max-width: 1050px;
+  margin: 0 auto 0.75rem;
+  background: var(--white);
+}
+
+.good-script p {
+  font-size: 0.55em;
+  line-height: 1.25;
+}
+
+.compact-grid .judge-card {
+  min-height: 125px;
+}
+
+.award-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  max-width: 1050px;
+  margin: 0 auto 0.65rem;
+  justify-content: center;
+}
+
+.award-chip {
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--red);
+  border-left: 8px solid var(--red);
+  border-radius: 7px;
+  padding: 0.38rem 0.52rem;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.36em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.award-chip:hover,
+.award-chip:focus,
+.award-chip.active {
+  background: var(--red);
+  color: var(--white);
+  outline: none;
+}
+
+.award-output {
+  max-width: 1050px;
+  min-height: 260px;
+  margin: 0 auto;
+  background: var(--white);
+}
+
+.award-output p {
+  margin-top: 0.45rem;
+  padding-top: 0.4rem;
+  border-top: 2px solid #dddddd;
+}
+
+.dialogue-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr 1.35fr;
+  gap: 0.65rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.dialogue-card {
+  min-height: 245px;
+}
+
+.dialogue-card p {
+  font-size: 0.5em;
+  line-height: 1.25;
+}
+
+.dialogue-card.judge { border-left-color: var(--gray); background: var(--white); }
+.dialogue-card.weak { border-left-color: #b00020; background: #fdecea; }
+.dialogue-card.strong { border-left-color: #2e7d32; background: #e6f4ea; }
+.dialogue-card.weak h3 { color: #b00020; }
+.dialogue-card.strong h3 { color: #2e7d32; }
+
+.response-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  max-width: 1120px;
+  margin: 0 auto 0.55rem;
+}
+
+.response-card {
+  min-height: 200px;
+  font-family: "Droid Serif", Georgia, serif;
+  color: var(--black);
+  border: none;
+  border-left: 10px solid var(--red);
+  cursor: pointer;
+  font-size: 0.46em;
+  line-height: 1.24;
+}
+
+.response-card:hover,
+.response-card:focus {
+  outline: 4px solid var(--red);
+  outline-offset: 2px;
+}
+
+.response-card.correct {
+  border-left-color: #2e7d32;
+  background: #e6f4ea;
+}
+
+.response-card.incorrect {
+  border-left-color: #b00020;
+  background: #fdecea;
+}
+
+.judge-sort-bank {
+  max-width: 1080px;
+  min-height: 105px;
+  margin: 0 auto 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.32rem;
+  padding: 0.45rem;
+  background: var(--light);
+  border: 3px dashed var(--gray);
+  border-radius: 8px;
+}
+
+.judge-sort-chip {
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-radius: 7px;
+  padding: 0.28rem 0.4rem;
+  font-size: 0.35em;
+  line-height: 1.12;
+  font-weight: 700;
+  color: #222222;
+  cursor: grab;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.judge-sort-targets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.judge-sort-zone {
+  min-height: 250px;
+}
+
+.judge-sort-zone h3 {
+  text-align: center;
+}
+
+.judge-sort-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  min-height: 190px;
+}
+
+.judge-sort-chip.dragging { opacity: 0.45; }
+.judge-sort-chip.correct { border-color: #2e7d32; background: #e6f4ea; }
+.judge-sort-chip.incorrect { border-color: #b00020; background: #fdecea; }
+.judge-sort-bank.drag-over,
+.judge-sort-zone.drag-over {
+  outline: 4px solid var(--red);
+  outline-offset: 2px;
+}
+
+.activity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.activity-feedback {
+  min-width: 240px;
+  margin: 0;
+  font-size: 0.46em;
+  font-weight: 700;
+}
+
+.judge-sort-slide .quiz-button,
+.response-choice-slide .quiz-button {
+  font-size: 0.42em;
+}
+
+.judge-quiz .quiz-card {
+  max-width: 880px;
+  margin: 0.7em auto;
+  padding: 1em 1.1em;
+}
+
+.judge-quiz .quiz-card p {
+  font-size: 0.72em;
+  line-height: 1.2;
+}
+
+.judge-quiz .quiz-card label {
+  display: block;
+  font-size: 0.62em;
+  line-height: 1.25;
+  margin: 0.35em 0;
+  font-family: "Droid Serif", Georgia, serif;
+}
+
+@media (max-width: 1000px) {
+  .judge-photo-split,
+  .dialogue-grid,
+  .response-grid,
+  .judge-grid-3,
+  .judge-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .judge-photo { height: 260px; }
+}
+.reveal section.judge-vertical img.judge-wide-img {
+  height: 500px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  max-height: 1000px !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
