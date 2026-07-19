@@ -1,598 +1,610 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>5041 CyBear Robotics Training Hub</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>5041 CyBear Robotics Training Hub</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    :root {
-      --red: #980000;
-      --black: #000000;
-      --gray: #666666;
-      --light: #f3f3f3;
-      --white: #ffffff;
-    }
+    <style>
+      :root {
+        --red: #980000;
+        --black: #000000;
+        --gray: #666666;
+        --light: #f3f3f3;
+        --white: #ffffff;
+      }
 
-    * {
-      box-sizing: border-box;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    body {
-      margin: 0;
-      font-family: "Droid Serif", Georgia, serif;
-      color: var(--black);
-      background:
-        linear-gradient(135deg, rgba(152,0,0,0.08), transparent 35%),
-        linear-gradient(315deg, rgba(0,0,0,0.08), transparent 35%),
-        var(--light);
-    }
+      body {
+        margin: 0;
+        font-family: "Droid Serif", Georgia, serif;
+        color: var(--black);
+        background:
+          linear-gradient(135deg, rgba(152, 0, 0, 0.08), transparent 35%),
+          linear-gradient(315deg, rgba(0, 0, 0, 0.08), transparent 35%),
+          var(--light);
+      }
 
-    header {
-      background: var(--black);
-      color: var(--white);
-      padding: 2rem 1.25rem;
-      border-bottom: 12px solid var(--red);
-    }
-
-    .header-inner,
-    main,
-    footer {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      background: var(--red);
-      color: var(--white);
-      font-family: "Droid Sans", Arial, sans-serif;
-      font-weight: 700;
-      padding: 0.25rem 0.55rem;
-      margin-bottom: 0.8rem;
-    }
-
-    h1 {
-      font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1;
-      margin: 0 0 0.75rem;
-      letter-spacing: 0.02em;
-    }
-
-    header p {
-      max-width: 850px;
-      font-size: 1.05rem;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    main {
-      padding: 2rem 1.25rem;
-    }
-
-    .intro {
-      background: var(--white);
-      border-left: 12px solid var(--red);
-      padding: 1rem 1.25rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    }
-
-    .intro h2 {
-      font-family: "Droid Sans", Arial, sans-serif;
-      margin: 0 0 0.35rem;
-      font-size: 1.4rem;
-    }
-
-    .intro p {
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    .module-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-
-    .module-card {
-      background: var(--white);
-      border-top: 8px solid var(--red);
-      padding: 1.1rem;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    }
-
-    .module-card h2 {
-      font-family: "Droid Sans", Arial, sans-serif;
-      margin: 0 0 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .module-card p {
-      margin: 0 0 1rem;
-      line-height: 1.45;
-      color: #222222;
-    }
-
-    .module-meta {
-      font-family: "Droid Sans", Arial, sans-serif;
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-bottom: 1rem;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .module-link {
-      display: inline-block;
-      font-family: "Droid Sans", Arial, sans-serif;
-      font-weight: 700;
-      text-decoration: none;
-      background: var(--red);
-      color: var(--white);
-      padding: 0.65rem 0.85rem;
-      border-radius: 4px;
-    }
-
-    .module-link:visited {
-      color: var(--white);
-    }
-
-    .module-link:hover,
-    .module-link:focus {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .secondary-link {
-      background: var(--gray);
-    }
-
-    .note {
-      margin-top: 1.5rem;
-      padding: 1rem 1.25rem;
-      background: var(--black);
-      color: var(--white);
-      border-left: 12px solid var(--red);
-    }
-
-    .note h2 {
-      font-family: "Droid Sans", Arial, sans-serif;
-      margin: 0 0 0.5rem;
-    }
-
-    .note code {
-      background: rgba(255,255,255,0.15);
-      padding: 0.1rem 0.25rem;
-      border-radius: 3px;
-    }
-
-    footer {
-      padding: 1.5rem 1.25rem 2rem;
-      color: var(--gray);
-      font-family: "Droid Sans", Arial, sans-serif;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 650px) {
       header {
-        padding: 1.5rem 1rem;
+        background: var(--black);
+        color: var(--white);
+        padding: 2rem 1.25rem;
+        border-bottom: 12px solid var(--red);
+      }
+
+      .header-inner,
+      main,
+      footer {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        background: var(--red);
+        color: var(--white);
+        font-family: "Droid Sans", Arial, sans-serif;
+        font-weight: 700;
+        padding: 0.25rem 0.55rem;
+        margin-bottom: 0.8rem;
+      }
+
+      h1 {
+        font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1;
+        margin: 0 0 0.75rem;
+        letter-spacing: 0.02em;
+      }
+
+      header p {
+        max-width: 850px;
+        font-size: 1.05rem;
+        line-height: 1.5;
+        margin: 0;
       }
 
       main {
-        padding: 1.25rem 1rem;
+        padding: 2rem 1.25rem;
+      }
+
+      .intro {
+        background: var(--white);
+        border-left: 12px solid var(--red);
+        padding: 1rem 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      .intro h2 {
+        font-family: "Droid Sans", Arial, sans-serif;
+        margin: 0 0 0.35rem;
+        font-size: 1.4rem;
+      }
+
+      .intro p {
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
       }
 
       .module-card {
-        min-height: auto;
+        background: var(--white);
+        border-top: 8px solid var(--red);
+        padding: 1.1rem;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
       }
-    }
-    .site-header {
-  width: 100%;
-  background: #000000;
-  border-bottom: 6px solid #980000;
-  padding: 0.75rem 1.25rem;
-  box-sizing: border-box;
-}
 
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
+      .module-card h2 {
+        font-family: "Droid Sans", Arial, sans-serif;
+        margin: 0 0 0.5rem;
+        font-size: 1.2rem;
+      }
 
-.header-inner h1 {
-  margin: 0;
-  color: #ffffff;
-  font-family: "Audiowide", Arial, sans-serif;
-  font-size: 5rem;
-  line-height: 1;
-}
+      .module-card p {
+        margin: 0 0 1rem;
+        line-height: 1.45;
+        color: #222222;
+      }
 
-.team-logo {
-  height: 200px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
+      .module-meta {
+        font-family: "Droid Sans", Arial, sans-serif;
+        font-size: 0.85rem;
+        color: var(--gray);
+        margin-bottom: 1rem;
+      }
 
-@media (max-width: 600px) {
-  .header-inner h1 {
-    font-size: 1.4rem;
-  }
+      .button-row {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
 
-  .team-logo {
-    height: 52px;
-  }
-}
-.module-card {
-  position: relative;
-  overflow: hidden;
-}
+      .module-link {
+        display: inline-block;
+        font-family: "Droid Sans", Arial, sans-serif;
+        font-weight: 700;
+        text-decoration: none;
+        background: var(--red);
+        color: var(--white);
+        padding: 0.65rem 0.85rem;
+        border-radius: 4px;
+      }
 
-.module-card.coming-soon {
-  opacity: 0.72;
-}
+      .module-link:visited {
+        color: var(--white);
+      }
 
-.module-card.coming-soon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.58);
-  z-index: 2;
-}
+      .module-link:hover,
+      .module-link:focus {
+        background: var(--black);
+        color: var(--white);
+      }
 
-.module-card.coming-soon::after {
-  content: "COMING SOON";
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #ffffff;
-  font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
-  font-size: 2rem;
-  letter-spacing: 0.08em;
-  transform: rotate(-12deg);
-  text-shadow: 0 3px 8px rgba(0,0,0,0.55);
-  pointer-events: none;
-}
+      .secondary-link {
+        background: var(--gray);
+      }
 
-.module-card.coming-soon .module-link {
-  pointer-events: none;
-  background: var(--gray);
-  cursor: not-allowed;
-}
+      .note {
+        margin-top: 1.5rem;
+        padding: 1rem 1.25rem;
+        background: var(--black);
+        color: var(--white);
+        border-left: 12px solid var(--red);
+      }
 
-.resource-intro {
-  margin-bottom: 0.3rem;
-  padding-left: 2rem;
-}
+      .note h2 {
+        font-family: "Droid Sans", Arial, sans-serif;
+        margin: 0 0 0.5rem;
+      }
 
-.resource-intro p {
-  margin-bottom: 0.5rem;
-}
+      .note code {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.1rem 0.25rem;
+        border-radius: 3px;
+      }
 
-.resource-intro .button-row {
-  margin-top: 0.1rem;
-  padding-left: 0.1rem;
-}
-  </style>
-</head>
+      footer {
+        padding: 1.5rem 1.25rem 2rem;
+        color: var(--gray);
+        font-family: "Droid Sans", Arial, sans-serif;
+        font-size: 0.9rem;
+      }
 
-<body>
-<header class="site-header">
-  <div class="header-inner">
-    <h1>5041 Training Hub</h1>
-    <img src="assets/5041teamlogo.png" alt="5041 CyBear Robotics logo" class="team-logo">
-  </div>
-</header>
+      @media (max-width: 650px) {
+        header {
+          padding: 1.5rem 1rem;
+        }
 
-<section class="intro resource-intro">
+        main {
+          padding: 1.25rem 1rem;
+        }
+
+        .module-card {
+          min-height: auto;
+        }
+      }
+      .site-header {
+        width: 100%;
+        background: #000000;
+        border-bottom: 6px solid #980000;
+        padding: 0.75rem 1.25rem;
+        box-sizing: border-box;
+      }
+
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .header-inner h1 {
+        margin: 0;
+        color: #ffffff;
+        font-family: "Audiowide", Arial, sans-serif;
+        font-size: 5rem;
+        line-height: 1;
+      }
+
+      .team-logo {
+        height: 200px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      @media (max-width: 600px) {
+        .header-inner h1 {
+          font-size: 1.4rem;
+        }
+
+        .team-logo {
+          height: 52px;
+        }
+      }
+      .module-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .module-card.coming-soon {
+        opacity: 0.72;
+      }
+
+      .module-card.coming-soon::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.58);
+        z-index: 2;
+      }
+
+      .module-card.coming-soon::after {
+        content: "COMING SOON";
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #ffffff;
+        font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+        transform: rotate(-12deg);
+        text-shadow: 0 3px 8px rgba(0, 0, 0, 0.55);
+        pointer-events: none;
+      }
+
+      .module-card.coming-soon .module-link {
+        pointer-events: none;
+        background: var(--gray);
+        cursor: not-allowed;
+      }
+
+      .resource-intro {
+        margin-bottom: 0.3rem;
+        padding-left: 2rem;
+      }
+
+      .resource-intro p {
+        margin-bottom: 0.5rem;
+      }
+
+      .resource-intro .button-row {
+        margin-top: 0.1rem;
+        padding-left: 0.1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <h1>5041 Training Hub</h1>
+        <img
+          src="assets/5041teamlogo.png"
+          alt="5041 CyBear Robotics logo"
+          class="team-logo"
+        />
+      </div>
+    </header>
+
+    <section class="intro resource-intro">
       <h2>5041 Time Clock</h2>
-          <p>
-            A simple time clock app for authorized 5041 users.
-          </p>
+      <p>A simple time clock app for authorized 5041 users.</p>
       <div class="button-row">
-          <a class="module-link" href="https://5041cybears.github.io/Hours-Tracker-App/">Time Clock</a>
-        </div>
-</section>
+        <a
+          class="module-link"
+          href="https://5041cybears.github.io/Hours-Tracker-App/"
+          >Time Clock</a
+        >
+      </div>
+    </section>
 
-<section class="intro resource-intro">
+    <section class="intro resource-intro">
       <h2>Helpful FIRST Robotics Competition Resources</h2>
-          <p>
-            A collection of resources commonly used by 5041 and many by most FRC teams.
-          </p>
+      <p>
+        A collection of resources commonly used by 5041 and many by most FRC
+        teams.
+      </p>
       <div class="button-row">
-          <a class="module-link" href="frc-resources.html">Resource Links</a>
-        </div>
-</section>
-
-  <main>
-
-    <section class="intro">
-      <h2>Safety and Inclusion Training</h2>
-      <p>
-        Recommended for: all team members
-      </p>
+        <a class="module-link" href="frc-resources.html">Resource Links</a>
+      </div>
     </section>
 
-<section class="module-grid" aria-label="Training module links">
+    <main>
+      <section class="intro">
+        <h2>Safety and Inclusion Training</h2>
+        <p>Recommended for: all team members</p>
+      </section>
 
-   <article class="module-card">
-        <div>
-          <h2>Safety & Pit Readiness</h2>
-          <p>
-            Shop safety, robot handling, pit organization, match turnaround, battery handling, and competition roles.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="safety.html">Open Module</a>
-        </div>
-      </article>
+      <section class="module-grid" aria-label="Training module links">
+        <article class="module-card">
+          <div>
+            <h2>Safety & Pit Readiness</h2>
+            <p>
+              Shop safety, robot handling, pit organization, match turnaround,
+              battery handling, and competition roles.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety.html">Open Module</a>
+          </div>
+        </article>
 
-         <article class="module-card coming-soon">
-        <div>
-          <h2>Creating a Safe Space</h2>
-          <p>
-          Creating a safe space for productive and positive teamwork and learning.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="safety.html">Open Module</a>
-        </div>
-      </article>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Creating a Safe Space</h2>
+            <p>
+              Creating a safe space for productive and positive teamwork and
+              learning.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety.html">Open Module</a>
+          </div>
+        </article>
+      </section>
 
-</section>
-      
-  
-    <section class="intro">
-      <h2>Mechanical Training</h2>
-      <p>
-        Recommended for: all team mechanical team members
-      </p>
-    </section>
+      <section class="intro">
+        <h2>Mechanical Training</h2>
+        <p>Recommended for: all team mechanical team members</p>
+      </section>
 
-    <section class="module-grid" aria-label="Training module links">
-      <article class="module-card">
-        <div>
-          <h2>General Robot Design</h2>
-          <p>
-            Design process, CAD, load paths, strength, stiffness, weight distribution, impact preparation, and repair access.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="general-robot-design.html">Open Module</a>
-        </div>
-      </article>
+      <section class="module-grid" aria-label="Training module links">
+        <article class="module-card">
+          <div>
+            <h2>General Robot Design</h2>
+            <p>
+              Design process, CAD, load paths, strength, stiffness, weight
+              distribution, impact preparation, and repair access.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="general-robot-design.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
 
-      
-<article class="module-card coming-soon">
-        <div>
-          <h2>FRC Scoring and Intake Systems</h2>
-          <p>
-          The basics on typical systems needed in FRC games including shooters, roller intake systems, and some manipulator examples.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="structure-fabrication.html">Open Module</a>
-        </div>
-      </article>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>FRC Scoring and Intake Systems</h2>
+            <p>
+              The basics on typical systems needed in FRC games including
+              shooters, roller intake systems, and some manipulator examples.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="structure-fabrication.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
 
-      <article class="module-card coming-soon">
-        <div>
-          <h2>CAD Basics</h2>
-          <p>
-            Introduction to CAD, Onshape setup, part studios, assemblies, drawings, and robot design documentation.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="cad-basics.html">Open Module</a>
-          <a class="module-link secondary-link" href="https://frcdesign.org/learning-course/" target="_blank" rel="noopener">FRC Design</a>
-        </div>
-      </article>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>CAD Basics</h2>
+            <p>
+              Introduction to CAD, Onshape setup, part studios, assemblies,
+              drawings, and robot design documentation.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="cad-basics.html">Open Module</a>
+            <a
+              class="module-link secondary-link"
+              href="https://frcdesign.org/learning-course/"
+              target="_blank"
+              rel="noopener"
+              >FRC Design</a
+            >
+          </div>
+        </article>
 
-            <article class="module-card ">
-        <div>
-          <h2>Motors</h2>
-          <p>
-            Motor basics and common FRC motors
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="motors.html">Open Module</a>
-        </div>
-      </article>
+        <article class="module-card">
+          <div>
+            <h2>Motors</h2>
+            <p>Motor basics and common FRC motors</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="motors.html">Open Module</a>
+          </div>
+        </article>
 
-            <article class="module-card coming-soon">
-        <div>
-          <h2>Gearing and Gearboxes</h2>
-          <p>
-            The basics of gearing, use cases in FRC, and gearbox creation.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="safety-pit-readiness.html">Open Module</a>
-        </div>
-      </article>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Gearing and Gearboxes</h2>
+            <p>
+              The basics of gearing, use cases in FRC, and gearbox creation.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety-pit-readiness.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
 
-      <article class="module-card coming-soon">
-        <div>
-          <h2>Belts and Chains</h2>
-          <p>
-            The basics of belts and pulleys and chains and sprokets and use cases for both in FRC
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="safety-pit-readiness.html">Open Module</a>
-        </div>
-      </article>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Belts and Chains</h2>
+            <p>
+              The basics of belts and pulleys and chains and sprokets and use
+              cases for both in FRC
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety-pit-readiness.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
 
-      <article class="module-card coming-soon">
-        <div>
-          <h2>Linear Motion</h2>
-          <p>
-           Linear motion types and use cases in FRC
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="safety-pit-readiness.html">Open Module</a>
-        </div>
-      </article>
- </section>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Linear Motion</h2>
+            <p>Linear motion types and use cases in FRC</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety-pit-readiness.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+      </section>
 
- 
-          <section class="intro">
-      <h2>Electrical and Programming Training</h2>
-      <p>
-        Recommended for: all mechnical and programming team members
-      </p>
-    </section>
+      <section class="intro">
+        <h2>Electrical and Programming Training</h2>
+        <p>Recommended for: all mechnical and programming team members</p>
+      </section>
 
- <section class="module-grid" aria-label="Training module links">
+      <section class="module-grid" aria-label="Training module links">
+        <article class="module-card">
+          <div>
+            <h2>Electrical & Wiring</h2>
+            <p>
+              Power layout, wire routing, labeling, protection, motor
+              controllers, sensors, and inspection-ready wiring.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="electronics.html">Open Module</a>
+          </div>
+        </article>
 
-      <article class="module-card">
-        <div>
-          <h2>Electrical & Wiring</h2>
-          <p>
-            Power layout, wire routing, labeling, protection, motor controllers, sensors, and inspection-ready wiring.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="electronics.html">Open Module</a>
-        </div>
-      </article>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Programming & Controls</h2>
+            <p>
+              Robot controls, sensors, autonomous planning, driver controls,
+              testing, debugging, and code documentation.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="programming-controls.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
 
-   <article class="module-card coming-soon">
-        <div>
-          <h2>Programming & Controls</h2>
-          <p>
-            Robot controls, sensors, autonomous planning, driver controls, testing, debugging, and code documentation.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="programming-controls.html">Open Module</a>
-        </div>
-      </article>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Swerve Drive</h2>
+            <p>The basics on how swerve drive works and is implemented.</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="electronics.html">Open Module</a>
+          </div>
+        </article>
+      </section>
 
-      <article class="module-card coming-soon">
-        <div>
-          <h2>Swerve Drive</h2>
-          <p>
-            The basics on how swerve drive works and is implemented.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="electronics.html">Open Module</a>
-        </div>
-      </article>
-</section>
+      <section class="intro">
+        <h2>Awards and Judging Training</h2>
+        <p>Recommended for: all team members</p>
+      </section>
 
- 
-    <section class="intro">
-      <h2>Awards and Judging Training</h2>
-      <p>
-        Recommended for: all team members
-      </p>
-    </section>
+      <section class="module-grid" aria-label="Training module links">
+        <article class="module-card">
+          <div>
+            <h2>Talking to Judges</h2>
+            <p>How to talk to judges in the pits.</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="judging.html">Open Module</a>
+          </div>
+        </article>
 
- <section class="module-grid" aria-label="Training module links">
-      <article class="module-card">
-        <div>
-          <h2>Talking to Judges</h2>
-          <p>
-            How to talk to judges in the pits.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="judging.html">Open Module</a>
-        </div>
-      </article>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Submitted Awards</h2>
+            <p>
+              Basics and tips for submitted awards such as FIRST Leadership and
+              the Impact Award.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="electronics.html">Open Module</a>
+          </div>
+        </article>
+      </section>
 
-            <article class="module-card coming-soon">
-        <div>
-          <h2>Submitted Awards</h2>
-          <p>
-            Basics and tips for submitted awards such as FIRST Leadership and the Impact Award.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="electronics.html">Open Module</a>
-        </div>
-      </article>
-</section>
+      <section class="intro">
+        <h2>Business and Outreach Training</h2>
+        <p>Recommended for: all non-technical team members</p>
+      </section>
 
+      <section class="module-grid" aria-label="Training module links">
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Media Specialist</h2>
+            <p>
+              Basics on the best practices for creation of media, use of styles
+              guide, and outreach documentation.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety-pit-readiness.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
 
-    <section class="intro">
-      <h2>Business and Outreach Training</h2>
-      <p>
-       Recommended for: all non-technical team members
-      </p>
-    </section>
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Fundraising</h2>
+            <p>
+              How to help with fundraising, talking to sponsors, and supporting
+              fiscal goals of the program.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="programming-controls.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+      </section>
+    </main>
 
-<section class="module-grid" aria-label="Training module links">
-      <article class="module-card coming-soon">
-        <div>
-          <h2>Media Specialist</h2>
-          <p>
-            Basics on the best practices for creation of media, use of styles guide, and outreach documentation.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="safety-pit-readiness.html">Open Module</a>
-        </div>
-      </article>
+    <footer>5041 CyBear Robotics · Everyone has a place here</footer>
 
+    <script>
+      document
+        .querySelectorAll(".module-card.coming-soon a")
+        .forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+          });
 
-      <article class="module-card coming-soon">
-        <div>
-          <h2>Fundraising</h2>
-          <p>
-            How to help with fundraising, talking to sponsors, and supporting fiscal goals of the program.
-          </p>
-        </div>
-        <div class="button-row">
-          <a class="module-link" href="programming-controls.html">Open Module</a>
-        </div>
-      </article>
-
-    </section>
-
-  </main>
-
-  <footer>
-    5041 CyBear Robotics · Everyone has a place here
-  </footer>
-
-  <script>
-  document.querySelectorAll(".module-card.coming-soon a").forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-    });
-
-    link.setAttribute("aria-disabled", "true");
-    link.setAttribute("tabindex", "-1");
-  });
-</script>
-
-</body>
+          link.setAttribute("aria-disabled", "true");
+          link.setAttribute("tabindex", "-1");
+        });
+    </script>
+  </body>
 </html>

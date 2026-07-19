@@ -29,12 +29,24 @@
   margin: 0 auto;
 }
 
-.elec-grid-2 { grid-template-columns: 1fr 1fr; }
-.elec-grid-3 { grid-template-columns: repeat(3, 1fr); }
-.elec-grid-4 { grid-template-columns: repeat(4, 1fr); }
-.component-grid { grid-template-columns: repeat(3, 1fr); }
-.sensor-grid { grid-template-columns: repeat(3, 1fr); }
-.doc-grid { grid-template-columns: repeat(2, 1fr); }
+.elec-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.elec-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.elec-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.component-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.sensor-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.doc-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
 
 .elec-card,
 .component-card,
@@ -204,15 +216,23 @@
   font-weight: 700;
   color: #222222;
   cursor: grab;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .sort-chip.dragging,
-.trouble-card.dragging { opacity: 0.45; }
+.trouble-card.dragging {
+  opacity: 0.45;
+}
 .sort-chip.correct,
-.trouble-card.correct { border-color: #2e7d32; background: #e6f4ea; }
+.trouble-card.correct {
+  border-color: #2e7d32;
+  background: #e6f4ea;
+}
 .sort-chip.incorrect,
-.trouble-card.incorrect { border-color: #b00020; background: #fdecea; }
+.trouble-card.incorrect {
+  border-color: #b00020;
+  background: #fdecea;
+}
 
 .sort-targets {
   display: grid;
@@ -483,7 +503,7 @@
   border-left: 14px solid #980000;
   border-radius: 10px;
   padding: 1.2rem;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 .component-modal-close {
@@ -534,11 +554,11 @@
 }
 
 .reveal .poster-img {
-  max-width:100%;
-  max-height:520px;
-  display:block;
-  margin:.2em auto;
-  border:1px solid #ddd;
+  max-width: 100%;
+  max-height: 520px;
+  display: block;
+  margin: 0.2em auto;
+  border: 1px solid #ddd;
 }
 .awg-vertical-slide {
   height: 100%;
@@ -952,12 +972,12 @@
   }
 }
 
-  .doanddont li {
-    font-size: 0.3em;
-    line-height: 1.08;
-  }
+.doanddont li {
+  font-size: 0.3em;
+  line-height: 1.08;
+}
 
-  .wire-slide h2 {
+.wire-slide h2 {
   font-size: 1.4em;
   margin-bottom: 0.3rem;
 }
@@ -1591,7 +1611,6 @@
 .label-example-card ul {
   margin: 0.15rem 0 0;
   padding-left: 2em;
-
 }
 .label-example-card li {
   font-size: 0.7em;
@@ -1644,4 +1663,92 @@
   object-fit: contain;
   display: block;
   margin: 0 auto;
+}
+
+/* Shared slide width patch
+   Uses the widest recurring content width from the judging/motors/safety modules.
+   Keep this block at the bottom of the file so it overrides earlier module rules. */
+:root {
+  --shared-slide-width: 1120px;
+}
+
+/* Main direct slide content containers */
+.reveal .slides section > :is(
+  [class*="intro"],
+  [class*="grid"],
+  [class*="layout"],
+  [class*="split"],
+  [class*="callout"],
+  [class*="flow"],
+  [class*="chain"],
+  [class*="table"],
+  [class*="wrap"],
+  [class*="panel"],
+  [class*="bank"],
+  [class*="targets"],
+  [class*="process"],
+  [class*="actions"],
+  .quiz-card,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .order-list,
+  .documentation-table,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  figure,
+  table,
+  ul,
+  ol
+) {
+  max-width: var(--shared-slide-width);
+}
+
+/* Common module-specific containers that may not be direct children */
+.reveal :is(
+  .elec-grid-2,
+  .elec-grid-3,
+  .elec-grid-4,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  .power-flow,
+  .can-chain,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .documentation-table-wrap,
+  .judge-grid-2,
+  .judge-grid-3,
+  .judge-grid-4,
+  .judge-photo-split,
+  .dialogue-grid,
+  .response-grid,
+  .judge-sort-bank,
+  .judge-sort-targets,
+  .award-chip-grid,
+  .award-output,
+  .motor-grid-2,
+  .motor-grid-3,
+  .motor-grid-4,
+  .motor-click-grid,
+  .motor-flow,
+  .speed-torque-layout,
+  .safety-grid-2,
+  .safety-grid-3,
+  .safety-grid-4,
+  .safety-source-grid,
+  .safety-tool-grid,
+  .safety-split,
+  .review-grid,
+  .safety-resource-grid,
+  .impact-repair-grid,
+  .three-choice-grid,
+  .maintenance-grid,
+  .weight-card-grid,
+  .weight-do-dont,
+  .wd-layout
+) {
+  max-width: var(--shared-slide-width);
 }

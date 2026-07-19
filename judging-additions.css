@@ -1,4 +1,3 @@
-
 /* 5041 Pit Judging Training Module additions */
 .judge-hero h1,
 .judge-hero .cytitle {
@@ -39,9 +38,15 @@
   margin: 0 auto;
 }
 
-.judge-grid-2 { grid-template-columns: 1fr 1fr; }
-.judge-grid-3 { grid-template-columns: repeat(3, 1fr); }
-.judge-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.judge-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.judge-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.judge-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
 
 .judge-card,
 .script-card,
@@ -244,11 +249,24 @@
   line-height: 1.25;
 }
 
-.dialogue-card.judge { border-left-color: var(--gray); background: var(--white); }
-.dialogue-card.weak { border-left-color: #b00020; background: #fdecea; }
-.dialogue-card.strong { border-left-color: #2e7d32; background: #e6f4ea; }
-.dialogue-card.weak h3 { color: #b00020; }
-.dialogue-card.strong h3 { color: #2e7d32; }
+.dialogue-card.judge {
+  border-left-color: var(--gray);
+  background: var(--white);
+}
+.dialogue-card.weak {
+  border-left-color: #b00020;
+  background: #fdecea;
+}
+.dialogue-card.strong {
+  border-left-color: #2e7d32;
+  background: #e6f4ea;
+}
+.dialogue-card.weak h3 {
+  color: #b00020;
+}
+.dialogue-card.strong h3 {
+  color: #2e7d32;
+}
 
 .response-grid {
   display: grid;
@@ -308,7 +326,7 @@
   font-weight: 700;
   color: #222222;
   cursor: grab;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .judge-sort-targets {
@@ -334,9 +352,17 @@
   min-height: 190px;
 }
 
-.judge-sort-chip.dragging { opacity: 0.45; }
-.judge-sort-chip.correct { border-color: #2e7d32; background: #e6f4ea; }
-.judge-sort-chip.incorrect { border-color: #b00020; background: #fdecea; }
+.judge-sort-chip.dragging {
+  opacity: 0.45;
+}
+.judge-sort-chip.correct {
+  border-color: #2e7d32;
+  background: #e6f4ea;
+}
+.judge-sort-chip.incorrect {
+  border-color: #b00020;
+  background: #fdecea;
+}
 .judge-sort-bank.drag-over,
 .judge-sort-zone.drag-over {
   outline: 4px solid var(--red);
@@ -390,14 +416,291 @@
   .judge-grid-4 {
     grid-template-columns: 1fr;
   }
-  .judge-photo { height: 260px; }
+  .judge-photo {
+    height: 260px;
+  }
 }
-.reveal section.judge-vertical img.judge-wide-img {
-  height: 500px !important;
-  width: auto !important;
-  max-width: 100% !important;
-  max-height: 1000px !important;
-  display: block;
+
+.reveal .judge-slide h2,
+.reveal .judge-vertical h2,
+.reveal .judge-quiz h2,
+.reveal .judge-sort-slide h2 {
+  font-size: 1.42em;
+  margin-bottom: 0.42rem;
+}
+
+.reveal .judge-card,
+.reveal .script-card,
+.reveal .evidence-card,
+.reveal .dialogue-card,
+.reveal .award-output,
+.reveal .response-card,
+.reveal .judge-sort-zone,
+.reveal .quiz-card {
+  text-align: left;
+}
+
+/* Electronics style match patch
+   Keeps the module-specific layout, but matches the electronics module's
+   title sizing, content width, card spacing, card typography, and sort styling.
+   This patch intentionally does NOT force slide titles to text-align:center. */
+
+.judge-slide h2,
+.judge-vertical h2,
+.judge-quiz h2,
+.judge-sort-slide h2,
+.reveal .judge-slide h2,
+.reveal .judge-vertical h2,
+.reveal .judge-quiz h2,
+.reveal .judge-sort-slide h2 {
+  font-size: 1.45em;
+  margin-bottom: 0.45rem;
+}
+
+.judge-intro,
+.reveal .judge-intro {
+  max-width: 950px;
+  margin: 0 auto 0.8rem;
+  font-size: 0.62em;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.judge-grid-2,
+.judge-grid-3,
+.judge-grid-4,
+.reveal .judge-grid-2,
+.reveal .judge-grid-3,
+.reveal .judge-grid-4 {
+  gap: 0.8rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.judge-card,
+.script-card,
+.evidence-card,
+.dialogue-card,
+.award-output,
+.response-card,
+.judge-sort-zone,
+.reveal .judge-card,
+.reveal .script-card,
+.reveal .evidence-card,
+.reveal .dialogue-card,
+.reveal .award-output,
+.reveal .response-card,
+.reveal .judge-sort-zone {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.judge-card h3,
+.script-card h3,
+.evidence-card h3,
+.dialogue-card h3,
+.award-output h3,
+.judge-sort-zone h3,
+.reveal .judge-card h3,
+.reveal .script-card h3,
+.reveal .evidence-card h3,
+.reveal .dialogue-card h3,
+.reveal .award-output h3,
+.reveal .judge-sort-zone h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.72em;
+}
+
+.judge-card p,
+.script-card p,
+.evidence-card p,
+.dialogue-card p,
+.award-output p,
+.reveal .judge-card p,
+.reveal .script-card p,
+.reveal .evidence-card p,
+.reveal .dialogue-card p,
+.reveal .award-output p {
+  margin: 0;
+  font-size: 0.45em;
+  line-height: 1.25;
+}
+
+.judge-card li,
+.award-output li,
+.judge-sort-zone li,
+.reveal .judge-card li,
+.reveal .award-output li,
+.reveal .judge-sort-zone li {
+  font-size: 0.5em;
+  line-height: 1.22;
+  margin-bottom: 0.16rem;
+}
+
+.judge-callout,
+.reveal .judge-callout {
+  max-width: 950px;
+  margin: 0.8rem auto 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+}
+
+.judge-callout p,
+.reveal .judge-callout p {
+  margin: 0;
+  font-size: 0.56em;
+  line-height: 1.25;
+}
+
+.judge-sort-bank,
+.judge-sort-targets,
+.reveal .judge-sort-bank,
+.reveal .judge-sort-targets {
+  max-width: 1050px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.judge-sort-bank,
+.reveal .judge-sort-bank {
+  gap: 0.4rem;
+  padding: 0.45rem;
+  min-height: 86px;
+}
+
+.judge-sort-chip,
+.reveal .judge-sort-chip {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.42em;
+  line-height: 1.15;
+}
+
+.judge-sort-targets,
+.reveal .judge-sort-targets {
+  gap: 0.8rem;
+  margin-top: 0.7rem;
+}
+
+.judge-sort-zone,
+.reveal .judge-sort-zone {
+  min-height: 210px;
+  padding: 0.55rem;
+}
+
+.judge-sort-zone h3,
+.reveal .judge-sort-zone h3 {
+  font-size: 0.68em;
+  text-align: center;
+  margin: 0 0 0.4rem;
+}
+
+.judge-sort-list,
+.reveal .judge-sort-list {
+  gap: 0.35rem;
+  min-height: 150px;
+}
+
+.activity-controls,
+.reveal .activity-controls {
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.activity-feedback,
+.reveal .activity-feedback {
+  min-width: 240px;
+  font-size: 0.46em;
+}
+
+/* Shared slide width patch
+   Uses the widest recurring content width from the judging/motors/safety modules.
+   Keep this block at the bottom of the file so it overrides earlier module rules. */
+:root {
+  --shared-slide-width: 1120px;
+}
+
+/* Main direct slide content containers */
+.reveal .slides section > :is(
+  [class*="intro"],
+  [class*="grid"],
+  [class*="layout"],
+  [class*="split"],
+  [class*="callout"],
+  [class*="flow"],
+  [class*="chain"],
+  [class*="table"],
+  [class*="wrap"],
+  [class*="panel"],
+  [class*="bank"],
+  [class*="targets"],
+  [class*="process"],
+  [class*="actions"],
+  .quiz-card,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .order-list,
+  .documentation-table,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  figure,
+  table,
+  ul,
+  ol
+) {
+  max-width: var(--shared-slide-width);
+}
+
+/* Common module-specific containers that may not be direct children */
+.reveal :is(
+  .elec-grid-2,
+  .elec-grid-3,
+  .elec-grid-4,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  .power-flow,
+  .can-chain,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .documentation-table-wrap,
+  .judge-grid-2,
+  .judge-grid-3,
+  .judge-grid-4,
+  .judge-photo-split,
+  .dialogue-grid,
+  .response-grid,
+  .judge-sort-bank,
+  .judge-sort-targets,
+  .award-chip-grid,
+  .award-output,
+  .motor-grid-2,
+  .motor-grid-3,
+  .motor-grid-4,
+  .motor-click-grid,
+  .motor-flow,
+  .speed-torque-layout,
+  .safety-grid-2,
+  .safety-grid-3,
+  .safety-grid-4,
+  .safety-source-grid,
+  .safety-tool-grid,
+  .safety-split,
+  .review-grid,
+  .safety-resource-grid,
+  .impact-repair-grid,
+  .three-choice-grid,
+  .maintenance-grid,
+  .weight-card-grid,
+  .weight-do-dont,
+  .wd-layout
+) {
+  max-width: var(--shared-slide-width);
 }

@@ -5,6 +5,7 @@
   --gray: #666666;
   --light: #f3f3f3;
   --white: #ffffff;
+  --shared-slide-width: 1120px;
 }
 
 .impact-repair-slide h2 {
@@ -153,8 +154,8 @@
   height: 330px;
   width: 100%;
   background:
-    linear-gradient(90deg, rgba(152,0,0,0.08) 0 1px, transparent 1px 100%),
-    linear-gradient(0deg, rgba(152,0,0,0.08) 0 1px, transparent 1px 100%),
+    linear-gradient(90deg, rgba(152, 0, 0, 0.08) 0 1px, transparent 1px 100%),
+    linear-gradient(0deg, rgba(152, 0, 0, 0.08) 0 1px, transparent 1px 100%),
     var(--white);
   background-size: 40px 40px;
   border: 7px solid var(--gray);
@@ -251,7 +252,7 @@
   cursor: grab;
   z-index: 4;
   user-select: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .wd-mass.dragging {
@@ -432,7 +433,7 @@
   font-weight: 700;
   color: #222222;
   cursor: grab;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .frame-sort-card.dragging {
@@ -752,7 +753,7 @@
   font-weight: 700;
   color: #222222;
   cursor: grab;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .process-controls {
@@ -868,7 +869,7 @@
 
 .reveal .cytitle {
   font-family: "Audiowide", "Droid Sans", sans-serif;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
 
 .reveal h1 {
@@ -880,12 +881,12 @@
 }
 
 .reveal h3 {
-  font-size: .95em;
+  font-size: 0.95em;
 }
 
 .reveal p,
 .reveal li {
-  font-size: .58em;
+  font-size: 0.58em;
   line-height: 1.28;
 }
 
@@ -902,30 +903,35 @@
 }
 
 .reveal .small {
-  font-size: .48em;
+  font-size: 0.48em;
 }
 
 .reveal .tag {
-  display:inline-block;
+  display: inline-block;
   background: var(--red);
   color: white;
-  font-family:"Droid Sans";
-  font-weight:700;
-  padding:.18em .45em;
-  margin-bottom:.4em;
+  font-family: "Droid Sans";
+  font-weight: 700;
+  padding: 0.18em 0.45em;
+  margin-bottom: 0.4em;
 }
 
 .reveal .stripe {
   height: 10px;
-  background: linear-gradient(90deg, var(--red) 0 35%, var(--black) 35% 65%, var(--gray) 65% 100%);
-  margin: .35em 0 .5em;
+  background: linear-gradient(
+    90deg,
+    var(--red) 0 35%,
+    var(--black) 35% 65%,
+    var(--gray) 65% 100%
+  );
+  margin: 0.35em 0 0.5em;
 }
 
 .reveal .bar {
   height: 6px;
   background: var(--red);
   width: 45%;
-  margin: .3em 0 .6em;
+  margin: 0.3em 0 0.6em;
 }
 
 .reveal .bar.gray {
@@ -934,21 +940,21 @@
 }
 
 .reveal .two {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.1em;
-  align-items:start;
+  align-items: start;
 }
 
 .reveal .three {
-  display:grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:.7em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7em;
 }
 
 .reveal .panel {
   background: var(--light);
-  padding:.75em;
+  padding: 0.75em;
   border-left: 12px solid var(--red);
 }
 
@@ -961,30 +967,30 @@
 .reveal .panel.dark h3,
 .reveal .panel.dark p,
 .reveal .panel.dark li {
-  color:white;
+  color: white;
 }
 
 .reveal .redCorner::after {
-  content:"";
-  position:absolute;
-  right:0;
-  bottom:0;
-  border-style:solid;
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-style: solid;
   border-width: 115px 430px 0 0;
   border-color: transparent var(--red) transparent transparent;
-  z-index:-1;
+  z-index: -1;
 }
 
 .reveal .bigq {
-  font-family:"Droid Sans";
-  font-size:1.05em;
-  font-weight:700;
-  line-height:1.1;
+  font-family: "Droid Sans";
+  font-size: 1.05em;
+  font-weight: 700;
+  line-height: 1.1;
 }
 
 .reveal .checklist li {
   list-style: "☐  ";
-  margin: .14em 0;
+  margin: 0.14em 0;
 }
 
 .reveal .do {
@@ -1016,144 +1022,147 @@
 }
 
 .reveal .foot {
-  position:absolute;
+  position: absolute;
   bottom: 18px;
   left: 35px;
   right: 35px;
-  font-family:"Droid Sans";
-  font-size:.28em;
-  color:var(--gray);
-  display:flex;
-  justify-content:space-between;
+  font-family: "Droid Sans";
+  font-size: 0.28em;
+  color: var(--gray);
+  display: flex;
+  justify-content: space-between;
 }
 
 .reveal .quiz-card {
   background: var(--light);
   border-left: 12px solid var(--red);
-  padding:.65em .9em;
-  margin:.35em 0;
+  padding: 0.65em 0.9em;
+  margin: 0.35em 0;
 }
 
 .reveal .quiz-card p {
-  margin:.1em 0 .3em;
-  font-weight:700;
-  font-family:"Droid Sans", Arial, sans-serif;
+  margin: 0.1em 0 0.3em;
+  font-weight: 700;
+  font-family: "Droid Sans", Arial, sans-serif;
 }
 
 .reveal .quiz-card label {
-  display:block;
-  font-size:.5em;
-  line-height:1.25;
-  margin:.15em 0;
-  font-family:"Droid Serif", Georgia, serif;
+  display: block;
+  font-size: 0.5em;
+  line-height: 1.25;
+  margin: 0.15em 0;
+  font-family: "Droid Serif", Georgia, serif;
 }
 
 .reveal .quiz-actions {
-  display:flex;
-  align-items:center;
-  gap:.6em;
-  margin-top:.55em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0.8rem auto;
+  text-align: center;
 }
 
 .reveal button.quiz-button {
-  font-family:"Droid Sans", Arial, sans-serif;
-  font-size:.45em;
-  font-weight:700;
-  border:0;
-  background:var(--red);
-  color:white;
-  padding:.45em .8em;
-  cursor:pointer;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.45em;
+  font-weight: 700;
+  border: 0;
+  background: var(--red);
+  color: white;
+  padding: 0.45em 0.8em;
+  cursor: pointer;
 }
 
 .reveal button.quiz-button.secondary {
-  background:var(--gray);
+  background: var(--gray);
 }
 
 .reveal button.quiz-button:disabled {
-  background:#aaa;
-  cursor:not-allowed;
+  background: #aaa;
+  cursor: not-allowed;
 }
 
 .reveal .result {
-  font-family:"Droid Sans", Arial, sans-serif;
-  font-size:.48em;
-  font-weight:700;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.48em;
+  font-weight: 700;
 }
 
 .reveal .success {
-  color:var(--red);
+  color: var(--red);
 }
 
 .reveal .locked {
-  opacity:.35;
-  pointer-events:none;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 .reveal .process-strip {
-  display:flex;
-  align-items:stretch;
-  gap:.18em;
-  margin:.45em 0 .65em;
-  font-family:"Droid Sans", Arial, sans-serif;
+  display: flex;
+  align-items: stretch;
+  gap: 0.18em;
+  margin: 0.45em 0 0.65em;
+  font-family: "Droid Sans", Arial, sans-serif;
 }
 
 .reveal .process-step {
-  background:var(--red);
-  color:white;
-  padding:.42em .45em;
-  flex:1;
-  font-size:.38em;
-  font-weight:700;
-  text-align:center;
-  min-height:3.2em;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background: var(--red);
+  color: white;
+  padding: 0.42em 0.45em;
+  flex: 1;
+  font-size: 0.38em;
+  font-weight: 700;
+  text-align: center;
+  min-height: 3.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .reveal .process-step.dark {
-  background:var(--black);
+  background: var(--black);
 }
 
 .reveal .process-step.gray {
-  background:var(--gray);
+  background: var(--gray);
 }
 
 .reveal .poster-img {
-  max-width:100%;
-  max-height:520px;
-  display:block;
-  margin:.2em auto;
-  border:1px solid #ddd;
+  max-width: 100%;
+  max-height: 520px;
+  display: block;
+  margin: 0.2em auto;
+  border: 1px solid #ddd;
 }
 
 .reveal .quiz-slide .quiz-card {
-  max-width:850px;
-  margin:.7em auto;
-  padding:1em 1.1em;
+  max-width: 850px;
+  margin: 0.7em auto;
+  padding: 1em 1.1em;
 }
 
 .reveal .quiz-slide .quiz-card p {
-  font-size:.72em;
-  line-height:1.2;
+  font-size: 0.72em;
+  line-height: 1.2;
 }
 
 .reveal .quiz-slide .quiz-card label {
-  font-size:.62em;
-  margin:.35em 0;
+  font-size: 0.62em;
+  margin: 0.35em 0;
 }
 
 .reveal .progress-note {
-  font-family:"Droid Sans", Arial, sans-serif;
-  color:var(--gray);
-  font-size:.42em;
-  text-align:right;
+  font-family: "Droid Sans", Arial, sans-serif;
+  color: var(--gray);
+  font-size: 0.42em;
+  text-align: right;
 }
 
 @media print {
   .reveal .foot {
-    display:none;
+    display: none;
   }
 }
 
@@ -1168,8 +1177,8 @@
   grid-template-areas:
     "top right"
     "bottom right";
-  gap: .1rem;
-  height: 400px; 
+  gap: 0.1rem;
+  height: 400px;
 }
 
 .top-left {
@@ -1186,8 +1195,9 @@
   justify-self: stretch;
 
   display: flex;
-  align-items: center;   
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
+}
 
 .video-wrapper {
   width: 90%;
@@ -1200,4 +1210,226 @@
   height: 100%;
   display: block;
   border: 4px solid var(--black);
+}
+
+.reveal .certificate-slide {
+  height: 100%;
+}
+
+.reveal .certificate-card {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+  background: #ffffff;
+  border: 6px solid var(--black);
+  border-left: 22px solid var(--red);
+  padding: 1rem;
+  box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.18);
+}
+
+.reveal .certificate-border {
+  border: 4px solid var(--red);
+  padding: 1.5rem;
+  text-align: center;
+  min-height: 470px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.reveal .certificate-small {
+  margin: 0;
+  color: var(--red);
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.reveal .certificate-slide h2 {
+  margin: 0;
+  font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
+  font-size: 1.55em;
+  color: var(--black);
+}
+
+.reveal .certificate-text {
+  max-width: 760px;
+  margin: 0;
+  font-size: 0.52em;
+  line-height: 1.25;
+}
+
+.reveal .certificate-slide h3 {
+  margin: 0.2rem 0;
+  color: var(--red);
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.95em;
+  font-weight: 700;
+}
+
+.reveal .certificate-score {
+  margin: 0;
+  font-size: 0.52em;
+  font-weight: 700;
+}
+
+.reveal .certificate-line {
+  width: 55%;
+  height: 4px;
+  margin: 0.6rem auto 0.2rem;
+  background: linear-gradient(90deg, var(--black), var(--red), var(--black));
+}
+
+.reveal .certificate-footer {
+  margin: 0;
+  color: var(--gray);
+  font-size: 0.42em;
+  font-family: "Droid Serif", Georgia, serif;
+}
+
+.reveal .certificate-slide.locked .certificate-card {
+  opacity: 0.25;
+  filter: grayscale(1);
+}
+
+/* Shared certificate/name-entry styles */
+.reveal .name-entry-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.6em;
+  font-weight: 700;
+}
+
+.reveal .name-entry-input {
+  width: min(650px, 90%);
+  padding: 0.6rem 0.8rem;
+  font-size: 0.7em;
+  font-family: "Droid Sans", Arial, sans-serif;
+  border: 4px solid var(--black);
+  border-left: 12px solid var(--red);
+  background: #ffffff;
+}
+
+.reveal .certificate-name {
+  min-width: 60%;
+  margin: 0.3rem auto;
+  padding: 0.4rem 1rem;
+  border-bottom: 4px solid var(--black);
+  color: var(--red);
+  font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+
+/* Shared slide width patch
+   Uses the widest recurring content width from the judging/motors/safety modules.
+   Keep this block at the bottom of the file so it overrides earlier module rules. */
+:root {
+  --shared-slide-width: 1120px;
+}
+
+/* Main direct slide content containers */
+.reveal .slides section > :is(
+  [class*="intro"],
+  [class*="grid"],
+  [class*="layout"],
+  [class*="split"],
+  [class*="callout"],
+  [class*="flow"],
+  [class*="chain"],
+  [class*="table"],
+  [class*="wrap"],
+  [class*="panel"],
+  [class*="bank"],
+  [class*="targets"],
+  [class*="process"],
+  [class*="actions"],
+  .quiz-card,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .order-list,
+  .documentation-table,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  figure,
+  table,
+  ul,
+  ol
+) {
+  max-width: var(--shared-slide-width);
+}
+
+/* Common module-specific containers that may not be direct children */
+.reveal :is(
+  .elec-grid-2,
+  .elec-grid-3,
+  .elec-grid-4,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  .power-flow,
+  .can-chain,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .documentation-table-wrap,
+  .judge-grid-2,
+  .judge-grid-3,
+  .judge-grid-4,
+  .judge-photo-split,
+  .dialogue-grid,
+  .response-grid,
+  .judge-sort-bank,
+  .judge-sort-targets,
+  .award-chip-grid,
+  .award-output,
+  .motor-grid-2,
+  .motor-grid-3,
+  .motor-grid-4,
+  .motor-click-grid,
+  .motor-flow,
+  .speed-torque-layout,
+  .safety-grid-2,
+  .safety-grid-3,
+  .safety-grid-4,
+  .safety-source-grid,
+  .safety-tool-grid,
+  .safety-split,
+  .review-grid,
+  .safety-resource-grid,
+  .impact-repair-grid,
+  .three-choice-grid,
+  .maintenance-grid,
+  .weight-card-grid,
+  .weight-do-dont,
+  .wd-layout
+) {
+  max-width: var(--shared-slide-width);
+}
+.reveal .slide-number {
+  right: 20px;
+  left: auto;
+  bottom: auto;
+  top: 20px;
+}
+
+.reveal .certificate-actions {
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+.reveal .certificate-download {
+  font-size: 0.42em;
+  padding: 0.4rem 0.9rem;
+}
+
+.reveal .certificate-download:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }

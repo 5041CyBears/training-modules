@@ -1,414 +1,1220 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>5041 Motion and Motors Training</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="motors-additions.css">
-</head>
-<body>
-<div class="reveal"><div class="slides">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>5041 Motion and Motors Training</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="motors-additions.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-background-image="assets/5041teamlogo.png"
+          data-background-size="contain"
+          data-background-opacity="0.12"
+          class="center motor-hero"
+        >
+          <h1 class="cytitle">Motion and Motors Training Module</h1>
+        </section>
 
-<section data-background-image="assets/5041teamlogo.png" data-background-size="contain" data-background-opacity="0.12" class="center motor-hero">
-  <h1 class="cytitle">Motion and Motors Training Module</h1>
-</section>
+        <section class="motor-slide">
+          <span class="tag">Module Goals</span>
+          <h2>By the end, students should be able to:</h2>
+          <div class="bar"></div>
+          <ul>
+            <li>Explain what motors do on an FRC robot.</li>
+            <li>
+              Describe velocity, torque, voltage, current, power, and stall in
+              practical robot terms.
+            </li>
+            <li>Compare brushed and brushless motor designs.</li>
+            <li>Identify common FRC motors and their best uses.</li>
+            <li>Explain why motor controller compatibility matters.</li>
+            <li>Choose motors based on mechanism needs instead of guessing.</li>
+            <li>
+              Recognize why current limits, gearing, sensors, and mechanical
+              stops protect motors.
+            </li>
+          </ul>
+        </section>
 
-<section class="motor-slide">
-  <span class="tag">Module Goals</span>
-  <h2>By the end, students should be able to:</h2>
-  <div class="bar"></div>
-  <ul>
-    <li>Explain what motors do on an FRC robot.</li>
-    <li>Describe velocity, torque, voltage, current, power, and stall in practical robot terms.</li>
-    <li>Compare brushed and brushless motor designs.</li>
-    <li>Identify common FRC motors and their best uses.</li>
-    <li>Explain why motor controller compatibility matters.</li>
-    <li>Choose motors based on mechanism needs instead of guessing.</li>
-    <li>Recognize why current limits, gearing, sensors, and mechanical stops protect motors.</li>
-  </ul>
-</section>
+        <section>
+          <section class="motor-slide">
+            <span class="tag">Big Idea</span>
+            <h2>Motors turn electrical energy into robot motion</h2>
+            <div class="motor-flow">
+              <div class="motor-node">12V Battery</div>
+              <div class="motor-arrow">→</div>
+              <div class="motor-node">Motor Controller</div>
+              <div class="motor-arrow">→</div>
+              <div class="motor-node red-node">Motor</div>
+              <div class="motor-arrow">→</div>
+              <div class="motor-node">Mechanism</div>
+            </div>
+          </section>
+          <section class="motor-vertical">
+            <span class="tag">Where Motors Are Used</span>
+            <h2>Motors power nearly every robot function</h2>
+            <div class="motor-grid-4">
+              <div class="motor-card">
+                <h3>Drivetrain</h3>
+                <p>Moves the robot, accelerates, turns, and resists defense.</p>
+              </div>
+              <div class="motor-card">
+                <h3>Intake</h3>
+                <p>
+                  Pulls game pieces into the robot quickly and consistently.
+                </p>
+              </div>
+              <div class="motor-card">
+                <h3>Shooter</h3>
+                <p>Spins wheels or flywheels to launch game pieces.</p>
+              </div>
+              <div class="motor-card">
+                <h3>Arm/Elevator</h3>
+                <p>Lifts mechanisms and holds position against gravity.</p>
+              </div>
+              <div class="motor-card">
+                <h3>Climber</h3>
+                <p>Raises the robot or holds the robot in place at endgame.</p>
+              </div>
+              <div class="motor-card">
+                <h3>Conveyor</h3>
+                <p>Moves game pieces inside the robot between subsystems.</p>
+              </div>
+              <div class="motor-card">
+                <h3>Indexer</h3>
+                <p>Positions game pieces before scoring or shooting.</p>
+              </div>
+              <div class="motor-card">
+                <h3>Swerve Steering</h3>
+                <p>
+                  Turns individual swerve modules to face the correct direction.
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
 
-<section class="motor-slide">
-  <span class="tag">Big Idea</span>
-  <h2>Motors turn electrical energy into robot motion</h2>
-  <div class="motor-flow">
-    <div class="motor-node">12V Battery</div>
-    <div class="motor-arrow">→</div>
-    <div class="motor-node">Motor Controller</div>
-    <div class="motor-arrow">→</div>
-    <div class="motor-node red-node">Motor</div>
-    <div class="motor-arrow">→</div>
-    <div class="motor-node">Mechanism</div>
-  </div>
-  </section>
-  <section class="motor-vertical">
-    <span class="tag">Where Motors Are Used</span>
-    <h2>Motors power nearly every robot function</h2>
-    <div class="motor-grid-4">
-      <div class="motor-card"><h3>Drivetrain</h3><p>Moves the robot, accelerates, turns, and resists defense.</p></div>
-      <div class="motor-card"><h3>Intake</h3><p>Pulls game pieces into the robot quickly and consistently.</p></div>
-      <div class="motor-card"><h3>Shooter</h3><p>Spins wheels or flywheels to launch game pieces.</p></div>
-      <div class="motor-card"><h3>Arm/Elevator</h3><p>Lifts mechanisms and holds position against gravity.</p></div>
-      <div class="motor-card"><h3>Climber</h3><p>Raises the robot or holds the robot in place at endgame.</p></div>
-      <div class="motor-card"><h3>Conveyor</h3><p>Moves game pieces inside the robot between subsystems.</p></div>
-      <div class="motor-card"><h3>Indexer</h3><p>Positions game pieces before scoring or shooting.</p></div>
-      <div class="motor-card"><h3>Swerve Steering</h3><p>Turns individual swerve modules to face the correct direction.</p></div>
-    </div>
-  </section>
-</section>
+        <section>
+          <section class="motor-vertical">
+            <span class="tag">Motor Outputs</span>
+            <div class="speed-torque-layout">
+              <div class="meter-card speed-card">
+                <h3>Angular Velocity</h3>
+                <img
+                  src="assets/motors/Angular-Velocity.png"
+                  class="max-width-img"
+                  alt="Angular Velocity Example"
+                />
+                <p>
+                  How fast something rotates and usually measured in RPM
+                  (revolutions per minute). This velocity is not determined by
+                  the radius of the object.
+                </p>
+              </div>
+              <div class="meter-card torque-card">
+                <h3>Torque</h3>
+                <img
+                  src="assets/motors/torque.png"
+                  class="max-width-img"
+                  alt="torque Example"
+                />
+                <p>
+                  How much rotational force something puts out and is determined
+                  by the size of the object's radius and the radially
+                  perpendicular force.
+                </p>
+              </div>
+            </div>
+            <div class="motor-callout">
+              <p>
+                The two most important outputs to know about a motor are its
+                angular velocity and its torque. Many FRC motors spin thousands
+                of RPM, which is usually too fast for arms, climbers, and
+                elevators and require gearing to reduce it.
+              </p>
+            </div>
+          </section>
+          <section class="motor-vertical">
+            <span class="tag">Design Considerations</span>
+            <p>
+              Torque and Angular Velocity have an inverse relatiosnhip. If you
+              gain one you usually lose the other.
+            </p>
+            <img
+              class="trade-off-img"
+              src="assets/motors/trade-off.gif"
+              alt="Trade Off"
+            />
+            <div class="motor-grid-2">
+              <div class="motor-card">
+                <h3>Angular Velocity</h3>
+                <p>
+                  In FRC, shooters, rollers, intakes, conveyors, and swerve
+                  drive wheels often need higher output velocity, but arms,
+                  elevators, and climbers usually need that motor velocity
+                  reduced through gears, belts, chains, or gearboxes. If the
+                  output spins too fast, the mechanism may be hard to control,
+                  unsafe, inaccurate, or likely to break game pieces and robot
+                  parts.
+                </p>
+              </div>
+              <div class="motor-card">
+                <h3>Torque</h3>
+                <p>
+                  Torque matters because it tells you whether the motor system
+                  can create enough rotational force to move a load, resist
+                  defense, lift weight, or hold position against gravity.
+                  Drivetrains, climbers, elevators, arms, and heavy manipulators
+                  need enough torque at the output, which usually means using
+                  gear reduction and current limits to avoid stalling or
+                  overheating the motor.
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
 
-<section>
-  <section class="motor-vertical">
-    <span class="tag">Motor Outputs</span>
-    <div class="speed-torque-layout">
-      <div class="meter-card speed-card">
-        <h3>Angular Velocity</h3>
-        <img src="assets/motors/Angular-Velocity.png"  class="max-width-img" alt="Angular Velocity Example">
-        <p>How fast something rotates and usually measured in RPM (revolutions per minute). This velocity is not determined by the radius of the object.</p>
+        <section>
+          <section class="motor-vertical">
+            <span class="tag">Motor Inputs</span>
+            <h2>
+              Two of the most important inputs to consider with motors are:
+            </h2>
+            <div class="motor-grid-2">
+              <div class="motor-card">
+                <h3>Voltage</h3>
+                <p>
+                  The electrical push from the battery. The robot is a 12V
+                  system, but voltage drops under load.
+                </p>
+              </div>
+              <div class="motor-card">
+                <h3>Current</h3>
+                <p>
+                  How hard the motor is working. Heavy load, stalls, and fast
+                  acceleration draw more current.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="motor-vertical">
+            <span class="tag">Current Draw</span>
+            <h2>More load usually means more current</h2>
+            <div class="motor-grid-4 compact-cards">
+              <div class="motor-card">
+                <h3>More Load</h3>
+                <p>Mechanism is harder to move.</p>
+              </div>
+              <div class="motor-card">
+                <h3>More Current</h3>
+                <p>Motor draws more amperage.</p>
+              </div>
+              <div class="motor-card">
+                <h3>More Heat</h3>
+                <p>Motor and controller heat up.</p>
+              </div>
+              <div class="motor-card">
+                <h3>More Risk</h3>
+                <p>Brownouts, breaker trips, and damage.</p>
+              </div>
+            </div>
+            <div class="motor-callout">
+              <p>
+                <strong>Design tool:</strong> Use current limits in motor
+                controllers to protect wiring, breakers, motors, controllers,
+                and mechanisms.
+              </p>
+            </div>
+          </section>
+
+          <section class="motor-vertical">
+            <span class="tag">Stall</span>
+            <h2>Stall is when the motor is powered but not rotating</h2>
+            <div class="motor-grid-2">
+              <div class="motor-card dark">
+                <h3>Why stall is dangerous</h3>
+                <p>
+                  Current is extremely high and much of the electrical energy
+                  becomes heat instead of useful motion.
+                </p>
+              </div>
+              <div class="motor-card">
+                <h3>Common FRC examples</h3>
+                <ul>
+                  <li>Mechanism pushes against a hard stop.</li>
+                  <li>Drivetrain pushes while wheels do not move.</li>
+                  <li>Arm tries to hold position with poor gearing.</li>
+                  <li>Climber is jammed but still commanded upward.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="motor-callout">
+              <p>
+                Limit stall with current limits, soft limits, hard stops,
+                sensors, and good gearing.
+              </p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="motor-vertical">
+            <span class="tag">Motor Types</span>
+            <h2>Brushed vs Brushless Motors</h2>
+            <div class="video-grid">
+              <div class="top-left">
+                <div class="panel">
+                  <h3>Brushed</h3>
+                  <p>
+                    Use physical brushes and a commutator to switch current
+                    through the windings. Far less common now in FRC.
+                  </p>
+                </div>
+              </div>
+              <div class="bottom-left">
+                <div class="panel">
+                  <h3>Brushless</h3>
+                  <p>
+                    Use electronic commutation through a compatible brushless
+                    motor controller. Far more common now in FRC.
+                  </p>
+                </div>
+              </div>
+
+              <div class="right-merged">
+                <div class="video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/8y2jWPvdoCY?start=37&end=88&rel=0"
+                    title="YouTube video"
+                    frameborder="0"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="
+                      accelerometer;
+                      autoplay;
+                      clipboard-write;
+                      encrypted-media;
+                      gyroscope;
+                      picture-in-picture;
+                      web-share;
+                    "
+                    allowfullscreen
+                  >
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="motor-vertical">
+            <span class="tag">Brushed Motors</span>
+            <h2>Simple and proven, but less efficient</h2>
+            <div class="two motor-compare">
+              <div class="panel do">
+                <h3>Pros</h3>
+                <ul>
+                  <li>Simpler to understand and wire.</li>
+                  <li>Usually cheaper.</li>
+                  <li>Historically common in FRC.</li>
+                  <li>Useful for practice robots and basic mechanisms.</li>
+                </ul>
+              </div>
+              <div class="panel warn">
+                <h3>Cons</h3>
+                <ul>
+                  <li>Less efficient than brushless motors.</li>
+                  <li>Usually heavier for the same power.</li>
+                  <li>Brushes wear out over time.</li>
+                  <li>More heat and electrical loss.</li>
+                  <li>Usually no built-in encoder.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="motor-vertical">
+            <span class="tag">Brushless Motors</span>
+            <h2>Powerful and controllable, but setup matters</h2>
+            <div class="two motor-compare">
+              <div class="panel do">
+                <h3>Pros</h3>
+                <ul>
+                  <li>Higher power-to-weight ratio.</li>
+                  <li>Better acceleration and performance.</li>
+                  <li>Often include encoder feedback.</li>
+                  <li>Less mechanical wear.</li>
+                  <li>Good for advanced control.</li>
+                </ul>
+              </div>
+              <div class="panel warn">
+                <h3>Cons</h3>
+                <ul>
+                  <li>More expensive.</li>
+                  <li>Need compatible controllers.</li>
+                  <li>More setup and configuration.</li>
+                  <li>Can break weak mechanisms if uncontrolled.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="motor-vertical motor-sort-slide">
+            <span class="tag">Check for Understanding</span>
+            <h2>Sort each statement</h2>
+            <div class="sort-bank">
+              <div class="sort-chip" draggable="true" data-answer="brushed">
+                Uses physical brushes
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="brushless">
+                Uses electronic commutation
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="brushless">
+                Often includes encoder feedback
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="brushed">
+                Usually simpler wiring
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="brushless">
+                Higher power-to-weight ratio
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="brushed">
+                Brushes wear over time
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="brushless">
+                Requires compatible brushless control
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="brushed">
+                Common older FRC motor type
+              </div>
+            </div>
+            <div class="sort-targets">
+              <div class="sort-zone" data-zone="brushed">
+                <h3>Brushed</h3>
+                <div class="sort-list"></div>
+              </div>
+              <div class="sort-zone" data-zone="brushless">
+                <h3>Brushless</h3>
+                <div class="sort-list"></div>
+              </div>
+            </div>
+            <div class="activity-controls">
+              <button class="quiz-button check-sort" type="button">
+                Check Answers</button
+              ><button class="quiz-button secondary reset-sort" type="button">
+                Reset
+              </button>
+              <p class="activity-feedback"></p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="motor-vertical motor-priority-slide">
+            <span class="tag">Design Habit</span>
+            <h2>Start with the mechanism, not the motor</h2>
+            <div class="motor-grid-3">
+              <div class="motor-card">
+                <h3>What must move?</h3>
+                <p>Game piece, arm, elevator, wheel, robot, or climber?</p>
+              </div>
+              <div class="motor-card">
+                <h3>How fast?</h3>
+                <p>
+                  Does the output need quick movement, high RPM, or controlled
+                  slow motion?
+                </p>
+              </div>
+              <div class="motor-card">
+                <h3>How much force?</h3>
+                <p>
+                  Does it need torque to push, lift, hold, or resist gravity?
+                </p>
+              </div>
+            </div>
+            <div class="motor-callout">
+              <p>
+                <strong>Rule:</strong> A good motor choice matches the
+                mechanism, the controller, the current limits, and the expected
+                load.
+              </p>
+            </div>
+          </section>
+          <section class="motor-vertical">
+            <span class="tag">High Torque vs Low Torque</span>
+            <h2>Different mechanisms need different motor behavior</h2>
+            <div class="two motor-compare">
+              <div class="panel do">
+                <h3>High-torque needs</h3>
+                <ul>
+                  <li>Drivetrains</li>
+                  <li>Arms</li>
+                  <li>Elevators</li>
+                  <li>Climbers</li>
+                  <li>Heavy intakes</li>
+                  <li>Swerve drive modules</li>
+                  <li>Mechanisms that resist gravity</li>
+                </ul>
+              </div>
+              <div class="panel warn">
+                <h3>Lower-torque needs</h3>
+                <ul>
+                  <li>Light rollers</li>
+                  <li>Small indexers</li>
+                  <li>Sensor wheels</li>
+                  <li>Low-load spinning mechanisms</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="motor-vertical motor-sort-slide">
+            <span class="tag">Check for Understanding</span>
+            <h2>Sort the mechanism by what it needs most</h2>
+
+            <div class="sort-bank">
+              <div class="sort-chip" draggable="true" data-answer="highTorque">
+                Climber lifting the robot
+              </div>
+              <div
+                class="sort-chip"
+                draggable="true"
+                data-answer="highVelocity"
+              >
+                Shooter flywheel
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="highTorque">
+                Arm lifting a game piece
+              </div>
+              <div
+                class="sort-chip"
+                draggable="true"
+                data-answer="highVelocity"
+              >
+                Roller intake
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="highTorque">
+                Elevator raising a manipulator
+              </div>
+              <div
+                class="sort-chip"
+                draggable="true"
+                data-answer="highVelocity"
+              >
+                Conveyor moving game pieces
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="highTorque">
+                Drivetrain pushing through defense
+              </div>
+              <div
+                class="sort-chip"
+                draggable="true"
+                data-answer="highVelocity"
+              >
+                Indexer feeding a shooter
+              </div>
+              <div class="sort-chip" draggable="true" data-answer="highTorque">
+                Wrist holding position against gravity
+              </div>
+              <div
+                class="sort-chip"
+                draggable="true"
+                data-answer="highVelocity"
+              >
+                Fast scoring roller
+              </div>
+            </div>
+            <div class="sort-targets">
+              <div class="sort-zone" data-zone="highTorque">
+                <h3>Needs More Torque</h3>
+                <div class="sort-list"></div>
+              </div>
+              <div class="sort-zone" data-zone="highVelocity">
+                <h3>Needs Higher Velocity</h3>
+                <div class="sort-list"></div>
+              </div>
+            </div>
+            <div class="activity-controls">
+              <button class="quiz-button check-sort" type="button">
+                Check Answers
+              </button>
+              <button class="quiz-button secondary reset-sort" type="button">
+                Reset
+              </button>
+              <p class="activity-feedback"></p>
+            </div>
+          </section>
+        </section>
+
+        <section class="motor-vertical">
+          <span class="tag">Common FRC Motors</span>
+          <h2>Click a motor type to learn common uses</h2>
+          <div class="motor-click-grid">
+            <button class="motor-click-card" type="button" data-motor="cim">
+              <h1>CIM</h1>
+              <h2>Classic brushed workhorse motor.</h2>
+            </button>
+            <button class="motor-click-card" type="button" data-motor="neo">
+              <h1>REV NEO</h1>
+              <h2>Common CIM-style brushless motor.</h2>
+            </button>
+            <button class="motor-click-card" type="button" data-motor="neo2">
+              <h1>REV Neo 2.0</h1>
+              <h2>A motor that builds on the original REV NEO</h2>
+            </button>
+            <button class="motor-click-card" type="button" data-motor="vortex">
+              <h1>NEO Vortex</h1>
+              <h2>High-power REV brushless motor.</h2>
+            </button>
+            <button
+              class="motor-click-card"
+              type="button"
+              data-motor="krakenX60"
+            >
+              <h1>Kraken X60</h1>
+              <h2>High-power WCP / CTRE brushless motor.</h2>
+            </button>
+            <button
+              class="motor-click-card"
+              type="button"
+              data-motor="krakenX44"
+            >
+              <h1>Kraken X44</h1>
+              <h2>Compact WCP / CTRE brushless motor.</h2>
+            </button>
+            <button class="motor-click-card" type="button" data-motor="falcon">
+              <h1>Falcon 500</h1>
+              <h2>Brushless motor with integrated Talon FX.</h2>
+            </button>
+            <button class="motor-click-card" type="button" data-motor="small">
+              <h1>Small High-Velocity</h1>
+              <h2>NEO 550, 775pro, RedLine, BAG.</h2>
+            </button>
+          </div>
+        </section>
+
+        <section class="motor-vertical">
+          <span class="tag">Choosing Motors</span>
+          <h2>Use a checklist before choosing</h2>
+          <div class="motor-grid-3">
+            <div class="motor-card">
+              <h3>Load</h3>
+              <p>How heavy is the mechanism and what forces act on it?</p>
+            </div>
+            <div class="motor-card">
+              <h3>Velocity</h3>
+              <p>How quickly must the output move during a match?</p>
+            </div>
+            <div class="motor-card">
+              <h3>Control</h3>
+              <p>Does it need an encoder, PID, brake mode, or soft limits?</p>
+            </div>
+            <div class="motor-card">
+              <h3>Heat</h3>
+              <p>
+                Will it run continuously, stall, or repeat hard accelerations?
+              </p>
+            </div>
+            <div class="motor-card">
+              <h3>Compatibility</h3>
+              <p>Does the team have the correct motor controller and wiring?</p>
+            </div>
+            <div class="motor-card">
+              <h3>Legality</h3>
+              <p>Is the motor legal under the current FRC rules?</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="motor-vertical">
+          <span class="tag">Common Mistakes</span>
+          <h2>Motor problems often come from system problems</h2>
+          <div class="motor-grid-3 compact-cards">
+            <div class="motor-card">
+              <h3>Wrong Controller</h3>
+              <p>Brushless motors need compatible brushless controllers.</p>
+            </div>
+            <div class="motor-card">
+              <h3>Too Much Stall</h3>
+              <p>Repeated stall creates heat and current problems.</p>
+            </div>
+            <div class="motor-card">
+              <h3>Poor Gearing</h3>
+              <p>
+                A fast motor directly driving a heavy load is usually wrong.
+              </p>
+            </div>
+            <div class="motor-card">
+              <h3>No Current Limit</h3>
+              <p>High-load mechanisms can brown out or trip breakers.</p>
+            </div>
+            <div class="motor-card">
+              <h3>No Feedback</h3>
+              <p>Position systems may need homing or absolute encoders.</p>
+            </div>
+            <div class="motor-card">
+              <h3>Weak Mechanism</h3>
+              <p>
+                Modern motors can break parts if the design is not strong
+                enough.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="motor-vertical">
+          <span class="tag">Final Design Rule</span>
+          <h2>Think of motors as part of a full system</h2>
+          <div class="motor-flow wide-flow">
+            <div class="motor-node">Motor</div>
+            <div class="motor-arrow">→</div>
+            <div class="motor-node">Controller</div>
+            <div class="motor-arrow">→</div>
+            <div class="motor-node">Reduction</div>
+            <div class="motor-arrow">→</div>
+            <div class="motor-node">Mechanism</div>
+            <div class="motor-arrow">→</div>
+            <div class="motor-node">Sensor Feedback</div>
+          </div>
+          <div class="motor-callout">
+            <p>
+              <strong>Best practice:</strong> Mechanical, electrical, and
+              programming students should design motor systems together.
+            </p>
+          </div>
+        </section>
+
+                <section id="quiz-intro" class="center">
+          <span class="tag">Required Quiz</span>
+          <h2>Pass to complete the module</h2>
+          <p>Each question is on its own slide.</p>
+          <p class="small">
+            Answer all 20 questions, then grade the quiz. Score at least 18 out
+            of 20 to unlock the completion certificate.
+          </p>
+          <div class="stripe"></div>
+        </section>
+
+        <section>
+          <section class="quiz-slide name-entry-slide" id="quiz-name">
+            <span class="tag">Before You Begin</span>
+            <h2>Enter Your Name</h2>
+
+            <div class="quiz-card">
+              <p>Please enter your name before starting the quiz.</p>
+
+              <label class="name-entry-label" for="participantName">
+                Name:
+              </label>
+
+              <input
+                id="participantName"
+                class="name-entry-input"
+                type="text"
+                placeholder="First and last name"
+                autocomplete="name"
+              />
+
+              <p class="small">
+                This name will appear on your completion certificate.
+              </p>
+            </div>
+          </section>
+          <section class="quiz-slide" id="quiz-q1">
+            <span class="tag">Quiz Question 1</span>
+            <div class="progress-note">1 of 20</div>
+            <div class="quiz-card">
+              <p>What do motors convert into rotational motion?</p>
+              <label
+                ><input type="radio" name="q1" value="a" /> Pneumatic
+                pressure</label
+              >
+              <label
+                ><input type="radio" name="q1" value="b" /> Electrical
+                energy</label
+              >
+              <label
+                ><input type="radio" name="q1" value="c" /> Radio signal
+                strength</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q2">
+            <span class="tag">Quiz Question 2</span>
+            <div class="progress-note">2 of 20</div>
+            <div class="quiz-card">
+              <p>
+                What typically happens when you increase the torque output of a
+                motor?
+              </p>
+              <label
+                ><input type="radio" name="q2" value="a" /> Nothing
+                changes</label
+              >
+              <label
+                ><input type="radio" name="q2" value="b" /> The angular velocity
+                goes up</label
+              >
+              <label
+                ><input type="radio" name="q2" value="c" /> The angular velocity
+                goes down</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q3">
+            <span class="tag">Quiz Question 3</span>
+            <div class="progress-note">3 of 20</div>
+            <div class="quiz-card">
+              <p>Torque is best described as:</p>
+              <label
+                ><input type="radio" name="q3" value="a" /> Robot radio
+                bandwidth</label
+              >
+              <label
+                ><input type="radio" name="q3" value="b" /> Rotational
+                force</label
+              >
+              <label
+                ><input type="radio" name="q3" value="c" /> Battery charge
+                percentage</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q4">
+            <span class="tag">Quiz Question 4</span>
+            <div class="progress-note">4 of 20</div>
+            <div class="quiz-card">
+              <p>Which mechanism usually needs high torque?</p>
+              <label
+                ><input type="radio" name="q4" value="a" /> Sensor wheel</label
+              >
+              <label
+                ><input type="radio" name="q4" value="b" /> Decorative LED
+                strip</label
+              >
+              <label
+                ><input type="radio" name="q4" value="c" /> Heavy arm</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q5">
+            <span class="tag">Quiz Question 5</span>
+            <div class="progress-note">5 of 20</div>
+            <div class="quiz-card">
+              <p>Motor velocity is usually measured in:</p>
+              <label><input type="radio" name="q5" value="a" /> RPM</label>
+              <label><input type="radio" name="q5" value="b" /> PSI</label>
+              <label><input type="radio" name="q5" value="c" /> AWG</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q6">
+            <span class="tag">Quiz Question 6</span>
+            <div class="progress-note">6 of 20</div>
+            <div class="quiz-card">
+              <p>Current is strongly related to:</p>
+              <label
+                ><input type="radio" name="q6" value="a" /> How bright the pit
+                lights are</label
+              >
+              <label
+                ><input type="radio" name="q6" value="b" /> How hard the motor
+                is working</label
+              >
+              <label
+                ><input type="radio" name="q6" value="c" /> How many students
+                are on drive team</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q7">
+            <span class="tag">Quiz Question 7</span>
+            <div class="progress-note">7 of 20</div>
+            <div class="quiz-card">
+              <p>Too much current can cause:</p>
+              <label
+                ><input type="radio" name="q7" value="a" /> Automatic award
+                points</label
+              >
+              <label
+                ><input type="radio" name="q7" value="b" /> Lower motor
+                temperature</label
+              >
+              <label
+                ><input type="radio" name="q7" value="c" /> Brownouts, breaker
+                trips, and damage</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q8">
+            <span class="tag">Quiz Question 8</span>
+            <div class="progress-note">8 of 20</div>
+            <div class="quiz-card">
+              <p>In rotational systems, power can be summarized as:</p>
+              <label
+                ><input type="radio" name="q8" value="a" /> Torque × angular
+                velocity</label
+              >
+              <label
+                ><input type="radio" name="q8" value="b" /> Wire gauge × bumper
+                color</label
+              >
+              <label
+                ><input type="radio" name="q8" value="c" /> Battery label ×
+                robot number</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q9">
+            <span class="tag">Quiz Question 9</span>
+            <div class="progress-note">9 of 20</div>
+            <div class="quiz-card">
+              <p>A motor is stalled when it is:</p>
+              <label
+                ><input type="radio" name="q9" value="a" /> Disconnected from
+                the battery</label
+              >
+              <label
+                ><input type="radio" name="q9" value="b" /> Moving freely with
+                no load</label
+              >
+              <label
+                ><input type="radio" name="q9" value="c" /> Powered but not
+                rotating</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q10">
+            <span class="tag">Quiz Question 10</span>
+            <div class="progress-note">10 of 20</div>
+            <div class="quiz-card">
+              <p>What is a good way to reduce stall damage risk?</p>
+              <label
+                ><input type="radio" name="q10" value="a" /> Remove all
+                sensors</label
+              >
+              <label
+                ><input type="radio" name="q10" value="b" /> Current limits,
+                soft limits, hard stops, sensors, and gearing</label
+              >
+              <label
+                ><input type="radio" name="q10" value="c" /> Always run full
+                power into hard stops</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q11">
+            <span class="tag">Quiz Question 11</span>
+            <div class="progress-note">11 of 20</div>
+            <div class="quiz-card">
+              <p>Brushed motors use:</p>
+              <label
+                ><input type="radio" name="q11" value="a" /> Physical brushes
+                and a commutator</label
+              >
+              <label
+                ><input type="radio" name="q11" value="b" /> Only compressed
+                air</label
+              >
+              <label
+                ><input type="radio" name="q11" value="c" /> No motor controller
+                of any kind</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q12">
+            <span class="tag">Quiz Question 12</span>
+            <div class="progress-note">12 of 20</div>
+            <div class="quiz-card">
+              <p>Brushless motors require:</p>
+              <label
+                ><input type="radio" name="q12" value="a" /> No wiring</label
+              >
+              <label
+                ><input type="radio" name="q12" value="b" /> A pneumatic
+                solenoid</label
+              >
+              <label
+                ><input type="radio" name="q12" value="c" /> A compatible
+                brushless motor controller</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q13">
+            <span class="tag">Quiz Question 13</span>
+            <div class="progress-note">13 of 20</div>
+            <div class="quiz-card">
+              <p>Which is a common brushed FRC motor?</p>
+              <label
+                ><input type="radio" name="q13" value="a" /> NEO Vortex</label
+              >
+              <label><input type="radio" name="q13" value="b" /> CIM</label>
+              <label
+                ><input type="radio" name="q13" value="c" /> Kraken X60</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q14">
+            <span class="tag">Quiz Question 14</span>
+            <div class="progress-note">14 of 20</div>
+            <div class="quiz-card">
+              <p>Which is a common brushless FRC motor?</p>
+              <label><input type="radio" name="q14" value="a" /> REV NEO</label>
+              <label
+                ><input type="radio" name="q14" value="b" /> BAG motor
+                only</label
+              >
+              <label
+                ><input type="radio" name="q14" value="c" /> Wooden
+                pulley</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q15">
+            <span class="tag">Quiz Question 15</span>
+            <div class="progress-note">15 of 20</div>
+            <div class="quiz-card">
+              <p>A major advantage of brushless motors is:</p>
+              <label
+                ><input type="radio" name="q15" value="a" /> Brushes wear out
+                faster</label
+              >
+              <label
+                ><input type="radio" name="q15" value="b" /> They cannot
+                overheat</label
+              >
+              <label
+                ><input type="radio" name="q15" value="c" /> Higher
+                power-to-weight ratio</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q16">
+            <span class="tag">Quiz Question 16</span>
+            <div class="progress-note">16 of 20</div>
+            <div class="quiz-card">
+              <p>The REV NEO is commonly used for:</p>
+              <label
+                ><input type="radio" name="q16" value="a" /> Only paper
+                airplanes</label
+              >
+              <label
+                ><input type="radio" name="q16" value="b" /> Drivetrains,
+                swerve, arms, elevators, intakes, and climbers</label
+              >
+              <label
+                ><input type="radio" name="q16" value="c" /> Only non-moving
+                parts</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q17">
+            <span class="tag">Quiz Question 17</span>
+            <div class="progress-note">17 of 20</div>
+            <div class="quiz-card">
+              <p>
+                The NEO Vortex has a higher current capability, so students
+                should especially consider:
+              </p>
+              <label
+                ><input type="radio" name="q17" value="a" /> Current limits and
+                thermal management</label
+              >
+              <label
+                ><input type="radio" name="q17" value="b" /> Removing all
+                gearing</label
+              >
+              <label
+                ><input type="radio" name="q17" value="c" /> Using weaker
+                mechanisms</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q18">
+            <span class="tag">Quiz Question 18</span>
+            <div class="progress-note">18 of 20</div>
+            <div class="quiz-card">
+              <p>Kraken X60 is best described as:</p>
+              <label
+                ><input type="radio" name="q18" value="a" /> A hand tool</label
+              >
+              <label
+                ><input type="radio" name="q18" value="b" /> A type of pneumatic
+                tubing</label
+              >
+              <label
+                ><input type="radio" name="q18" value="c" /> A high-power
+                brushless motor for demanding FRC mechanisms</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q19">
+            <span class="tag">Quiz Question 19</span>
+            <div class="progress-note">19 of 20</div>
+            <div class="quiz-card">
+              <p>
+                Small high-velocity motors like NEO 550, 775pro, RedLine, and
+                BAG are often used for:
+              </p>
+              <label
+                ><input type="radio" name="q19" value="a" /> Holding heavy arms
+                at stall forever</label
+              >
+              <label
+                ><input type="radio" name="q19" value="b" /> Intakes, rollers,
+                conveyors, and small shooters</label
+              >
+              <label
+                ><input type="radio" name="q19" value="c" /> Replacing safety
+                glasses</label
+              >
+            </div>
+          </section>
+
+          <section class="quiz-slide" id="quiz-q20">
+            <span class="tag">Quiz Question 20</span>
+            <div class="progress-note">20 of 20</div>
+            <div class="quiz-card">
+              <p>What is the best overall approach to motor selection?</p>
+              <label
+                ><input type="radio" name="q20" value="a" /> Match the motor,
+                controller, gearing, limits, and feedback to the mechanism
+                need</label
+              >
+              <label
+                ><input type="radio" name="q20" value="b" /> Always use the most
+                powerful motor available</label
+              >
+              <label
+                ><input type="radio" name="q20" value="c" /> Ignore current and
+                temperature during testing</label
+              >
+            </div>
+          </section>
+
+<section id="quiz-results" class="center">
+            <span class="tag">Quiz Results</span>
+            <h2>Grade the quiz</h2>
+            <p class="small">
+              You need at least 18 out of 20 to unlock the completion
+              certificate.
+            </p>
+             <div class="quiz-actions">
+              <button class="quiz-button" id="gradeQuiz" type="button">
+              Grade Quiz
+              </button>
+              <button class="quiz-button secondary" id="resetQuiz" type="button">
+              Reset
+              </button>
+            </div>
+            <p class="result" id="quizResult">Not submitted.</p>
+            <p class="small" id="quizHint">
+              After passing, advance to the final completion certificate.
+            </p>
+          </section>
+        </section>
+
+        <section id="complete" class="center certificate-slide locked">
+          <div class="certificate-card">
+            <div class="certificate-border">
+              <p class="certificate-small">5041 CyBear Robotics</p>
+
+              <h2>Certificate of Completion</h2>
+
+              <p class="certificate-text">Presented to</p>
+
+              <div id="certificateName" class="certificate-name">
+                Student Name
+              </div>
+
+              <p class="certificate-text">for successfully completing the</p>
+
+              <h3>Motion and Motors Training Module</h3>
+
+              <p id="completionNote" class="certificate-score">
+                Complete after passing the required quiz.
+              </p>
+
+              <div class="certificate-line"></div>
+
+              <p class="certificate-footer">
+                Training complete after earning a passing quiz score.
+              </p>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <button id="downloadCertificate" class="quiz-button certificate-download" type="button">
+              Download Certificate PDF
+            </button>
+          </div>
+        </section>
       </div>
-      <div class="meter-card torque-card">
-        <h3>Torque</h3>
-        <img src="assets/motors/torque.png"  class="max-width-img" alt="torque Example">
-        <p>How much rotational force something puts out and is determined by the size of the object's radius and the radially perpendicular force.</p>
-      </div>
     </div>
-    <div class="motor-callout"><p>The two most important outputs to know about a motor are its angular velocity and its torque. 
-      Many FRC motors spin thousands of RPM, which is usually too fast for arms, climbers, and elevators and require gearing to reduce it.</p></div>
-  </section>
-    <section class="motor-vertical">
-    <span class="tag">Design Considerations</span>
-    <p>Torque and Angular Velocity have an inverse relatiosnhip. If you gain one you usually lose the other.</p>
-    <img class="trade-off-img" src="assets/motors/trade-off.gif" alt="Trade Off">
-    <div class="motor-grid-2">
-      <div class="motor-card"><h3>Angular Velocity</h3><p>In FRC, shooters, rollers, intakes, conveyors, and swerve drive wheels often need higher 
-        output velocity, but arms, elevators, and climbers usually need that motor velocity reduced through gears, belts, chains, or gearboxes. 
-        If the output spins too fast, the mechanism may be hard to control, unsafe, inaccurate, or likely to break game pieces and robot parts.</p></div>
-      <div class="motor-card"><h3>Torque</h3><p>Torque matters because it tells you whether the motor system can create enough rotational force to move a load, resist defense, 
-        lift weight, or hold position against gravity. Drivetrains, climbers, elevators, arms, and heavy manipulators need enough torque at the output, 
-        which usually means using gear reduction and current limits to avoid stalling or overheating the motor.</p></div>
-    </div>
-  </section>
-  </section>
 
-<section>
-  <section class="motor-vertical">
-    <span class="tag">Motor Inputs</span>
-    <h2>Two of the most important inputs to consider with motors are:</h2>
-    <div class="motor-grid-2">
-      <div class="motor-card"><h3>Voltage</h3><p>The electrical push from the battery. The robot is a 12V system, but voltage drops under load.</p></div>
-      <div class="motor-card"><h3>Current</h3><p>How hard the motor is working. Heavy load, stalls, and fast acceleration draw more current.</p></div>
-    </div>
-  </section>
+    <div id="motorModal" class="motor-modal" aria-hidden="true">
+      <div
+        class="motor-modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="motorModalTitle"
+      >
+        <button class="motor-modal-close" type="button" aria-label="Close">
+          ×
+        </button>
 
-  <section class="motor-vertical">
-    <span class="tag">Current Draw</span>
-    <h2>More load usually means more current</h2>
-    <div class="motor-grid-4 compact-cards">
-      <div class="motor-card"><h3>More Load</h3><p>Mechanism is harder to move.</p></div>
-      <div class="motor-card"><h3>More Current</h3><p>Motor draws more amperage.</p></div>
-      <div class="motor-card"><h3>More Heat</h3><p>Motor and controller heat up.</p></div>
-      <div class="motor-card"><h3>More Risk</h3><p>Brownouts, breaker trips, and damage.</p></div>
-    </div>
-    <div class="motor-callout"><p><strong>Design tool:</strong> Use current limits in motor controllers to protect wiring, breakers, motors, controllers, and mechanisms.</p></div>
-  </section>
+        <div class="motor-modal-layout">
+          <div class="motor-modal-text">
+            <h2 id="motorModalTitle">Motor</h2>
+            <p id="motorModalDescription"></p>
+            <ul id="motorModalChecks"></ul>
+          </div>
 
-  <section class="motor-vertical">
-    <span class="tag">Stall</span>
-    <h2>Stall is when the motor is powered but not rotating</h2>
-    <div class="motor-grid-2">
-      <div class="motor-card dark"><h3>Why stall is dangerous</h3><p>Current is extremely high and much of the electrical energy becomes heat instead of useful motion.</p></div>
-      <div class="motor-card"><h3>Common FRC examples</h3><ul><li>Mechanism pushes against a hard stop.</li><li>Drivetrain pushes while wheels do not move.</li><li>Arm tries to hold position with poor gearing.</li><li>Climber is jammed but still commanded upward.</li></ul></div>
-    </div>
-    <div class="motor-callout"><p>Limit stall with current limits, soft limits, hard stops, sensors, and good gearing.</p></div>
-  </section>
-</section>
-
-<section>
-  <section class="motor-vertical">
-    <span class="tag">Motor Types</span>
-    <h2>Brushed vs Brushless Motors</h2>
-    <div class="video-grid">
-      <div class="top-left"><div class="panel"><h3>Brushed</h3><p>Use physical brushes and a commutator to switch current through the windings. Far less common now in FRC.</p></div></div>
-      <div class="bottom-left"><div class="panel"><h3>Brushless</h3><p>Use electronic commutation through a compatible brushless motor controller. Far more common now in FRC.</p></div></div>
-
-<div class="right-merged">
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/8y2jWPvdoCY?start=37&end=88&rel=0"
-          title="YouTube video"
-          frameborder="0"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
+          <div class="motor-modal-image-wrap">
+            <img id="motorModalImage" src="" alt="" class="motor-modal-image" />
+          </div>
+        </div>
       </div>
     </div>
 
-</div>
-     </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  <section class="motor-vertical">
-    <span class="tag">Brushed Motors</span>
-    <h2>Simple and proven, but less efficient</h2>
-    <div class="two motor-compare">
-      <div class="panel do"><h3>Pros</h3><ul><li>Simpler to understand and wire.</li><li>Usually cheaper.</li><li>Historically common in FRC.</li><li>Useful for practice robots and basic mechanisms.</li></ul></div>
-      <div class="panel warn"><h3>Cons</h3><ul><li>Less efficient than brushless motors.</li><li>Usually heavier for the same power.</li><li>Brushes wear out over time.</li><li>More heat and electrical loss.</li><li>Usually no built-in encoder.</li></ul></div>
-    </div>
-  </section>
-
-  <section class="motor-vertical">
-    <span class="tag">Brushless Motors</span>
-    <h2>Powerful and controllable, but setup matters</h2>
-    <div class="two motor-compare">
-      <div class="panel do"><h3>Pros</h3><ul><li>Higher power-to-weight ratio.</li><li>Better acceleration and performance.</li><li>Often include encoder feedback.</li><li>Less mechanical wear.</li><li>Good for advanced control.</li></ul></div>
-      <div class="panel warn"><h3>Cons</h3><ul><li>More expensive.</li><li>Need compatible controllers.</li><li>More setup and configuration.</li><li>Can break weak mechanisms if uncontrolled.</li></ul></div>
-    </div>
-  </section>
-  <section class="motor-vertical motor-sort-slide">
-    <span class="tag">Check for Understanding</span>
-    <h2>Sort each statement</h2>
-    <div class="sort-bank">
-      <div class="sort-chip" draggable="true" data-answer="brushed">Uses physical brushes</div>
-      <div class="sort-chip" draggable="true" data-answer="brushless">Uses electronic commutation</div>
-      <div class="sort-chip" draggable="true" data-answer="brushless">Often includes encoder feedback</div>
-      <div class="sort-chip" draggable="true" data-answer="brushed">Usually simpler wiring</div>
-      <div class="sort-chip" draggable="true" data-answer="brushless">Higher power-to-weight ratio</div>
-      <div class="sort-chip" draggable="true" data-answer="brushed">Brushes wear over time</div>
-      <div class="sort-chip" draggable="true" data-answer="brushless">Requires compatible brushless control</div>
-      <div class="sort-chip" draggable="true" data-answer="brushed">Common older FRC motor type</div>
-    </div>
-    <div class="sort-targets">
-      <div class="sort-zone" data-zone="brushed"><h3>Brushed</h3><div class="sort-list"></div></div>
-      <div class="sort-zone" data-zone="brushless"><h3>Brushless</h3><div class="sort-list"></div></div>
-    </div>
-    <div class="activity-controls"><button class="quiz-button check-sort" type="button">Check Answers</button><button class="quiz-button secondary reset-sort" type="button">Reset</button><p class="activity-feedback"></p></div>
-  </section>
-</section>
-
-<section>
-  <section class="motor-vertical motor-priority-slide">
-    <span class="tag">Design Habit</span>
-    <h2>Start with the mechanism, not the motor</h2>
-    <div class="motor-grid-3">
-      <div class="motor-card"><h3>What must move?</h3><p>Game piece, arm, elevator, wheel, robot, or climber?</p></div>
-      <div class="motor-card"><h3>How fast?</h3><p>Does the output need quick movement, high RPM, or controlled slow motion?</p></div>
-      <div class="motor-card"><h3>How much force?</h3><p>Does it need torque to push, lift, hold, or resist gravity?</p></div>
-    </div>
-    <div class="motor-callout"><p><strong>Rule:</strong> A good motor choice matches the mechanism, the controller, the current limits, and the expected load.</p></div>
-  </section>
-  <section class="motor-vertical">
-    <span class="tag">High Torque vs Low Torque</span>
-    <h2>Different mechanisms need different motor behavior</h2>
-    <div class="two motor-compare">
-      <div class="panel do"><h3>High-torque needs</h3><ul><li>Drivetrains</li><li>Arms</li><li>Elevators</li><li>Climbers</li><li>Heavy intakes</li><li>Swerve drive modules</li><li>Mechanisms that resist gravity</li></ul></div>
-      <div class="panel warn"><h3>Lower-torque needs</h3><ul><li>Light rollers</li><li>Small indexers</li><li>Sensor wheels</li><li>Low-load spinning mechanisms</li></ul></div>
-    </div>
-  </section>
-  <section class="motor-vertical motor-sort-slide">
-  <span class="tag">Check for Understanding</span>
-  <h2>Sort the mechanism by what it needs most</h2>
-
-  <div class="sort-bank">
-    <div class="sort-chip" draggable="true" data-answer="highTorque">Climber lifting the robot</div>
-    <div class="sort-chip" draggable="true" data-answer="highVelocity">Shooter flywheel</div>
-    <div class="sort-chip" draggable="true" data-answer="highTorque">Arm lifting a game piece</div>
-    <div class="sort-chip" draggable="true" data-answer="highVelocity">Roller intake</div>
-    <div class="sort-chip" draggable="true" data-answer="highTorque">Elevator raising a manipulator</div>
-    <div class="sort-chip" draggable="true" data-answer="highVelocity">Conveyor moving game pieces</div>
-    <div class="sort-chip" draggable="true" data-answer="highTorque">Drivetrain pushing through defense</div>
-    <div class="sort-chip" draggable="true" data-answer="highVelocity">Indexer feeding a shooter</div>
-    <div class="sort-chip" draggable="true" data-answer="highTorque">Wrist holding position against gravity</div>
-    <div class="sort-chip" draggable="true" data-answer="highVelocity">Fast scoring roller</div>
-  </div>
-  <div class="sort-targets">
-    <div class="sort-zone" data-zone="highTorque">
-      <h3>Needs More Torque</h3>
-      <div class="sort-list"></div>
-    </div>
-    <div class="sort-zone" data-zone="highVelocity">
-      <h3>Needs Higher Velocity</h3>
-      <div class="sort-list"></div>
-    </div>
-  </div>
-  <div class="activity-controls">
-    <button class="quiz-button check-sort" type="button">Check Answers</button>
-    <button class="quiz-button secondary reset-sort" type="button">Reset</button>
-    <p class="activity-feedback"></p>
-  </div>
-</section>
-</section>
-
-<section>
-  <section class="motor-vertical">
-    <span class="tag">Common FRC Motors</span>
-    <h2>Click a motor type to learn common uses</h2>
-    <div class="motor-click-grid">
-      <button class="motor-click-card" type="button" data-motor="cim"><h1>CIM</h1><h2>Classic brushed workhorse motor.</h2></button>
-      <button class="motor-click-card" type="button" data-motor="neo"><h1>REV NEO</h1><h2>Common CIM-style brushless motor.</h2></button>
-      <button class="motor-click-card" type="button" data-motor="neo2"><h1>REV Neo 2.0</h1><h2>A motor that builds on the original REV NEO</h2></button>
-      <button class="motor-click-card" type="button" data-motor="vortex"><h1>NEO Vortex</h1><h2>High-power REV brushless motor.</h2></button>
-      <button class="motor-click-card" type="button" data-motor="krakenX60"><h1>Kraken X60</h1><h2>High-power WCP / CTRE brushless motor.</h2></button>
-      <button class="motor-click-card" type="button" data-motor="krakenX44"><h1>Kraken X44</h1><h2>Compact WCP / CTRE brushless motor.</h2></button>
-      <button class="motor-click-card" type="button" data-motor="falcon"><h1>Falcon 500</h1><h2>Brushless motor with integrated Talon FX.</h2></button>
-      <button class="motor-click-card" type="button" data-motor="small"><h1>Small High-Velocity</h1><h2>NEO 550, 775pro, RedLine, BAG.</h2></button>
-    </div>
-    <p class="small center">Clicking a card marks it as reviewed.</p>
-  </section>
-
-  <section class="motor-vertical">
-    <span class="tag">Brushed Examples</span>
-    <h2>CIM and Mini-CIM</h2>
-    <div class="motor-grid-2">
-      <div class="motor-card"><h3>CIM</h3><p>A classic FRC brushed workhorse historically used for drivetrains and heavy mechanisms.</p><ul><li>About 5310 RPM free speed.</li><li>About 2.425 Nm stall torque.</li><li>About 133A stall current.</li><li>About 337W output power.</li></ul></div>
-      <div class="motor-card"><h3>Mini-CIM</h3><p>A smaller, lighter brushed motor with CIM-like behavior.</p><ul><li>Used in drivetrains.</li><li>Useful for conveyors and arms.</li><li>No integrated encoder.</li><li>Lower performance than many modern brushless options.</li></ul></div>
-    </div>
-  </section>
-
-  <section class="motor-vertical">
-    <span class="tag">REV Brushless Examples</span>
-    <h2>NEO and NEO Vortex</h2>
-    <div class="motor-grid-2">
-      <div class="motor-card"><h3>REV NEO</h3><p>Compact brushless motor designed as a CIM-style replacement and optimized for SPARK MAX.</p><ul><li>5676 RPM free speed.</li><li>2.6 Nm stall torque.</li><li>105A stall current.</li><li>406W peak power.</li></ul></div>
-      <div class="motor-card"><h3>NEO Vortex</h3><p>High-power REV brushless motor with dockable controller interface and high-resolution encoder options.</p><ul><li>6784 RPM free speed.</li><li>3.6 Nm stall torque.</li><li>211A stall current.</li><li>640W peak power.</li></ul></div>
-    </div>
-  </section>
-
-  <section class="motor-vertical">
-    <span class="tag">WCP / CTRE Examples</span>
-    <h2>Kraken and Falcon style motors</h2>
-    <div class="motor-grid-3">
-      <div class="motor-card"><h3>Kraken X60</h3><p>High-power brushless motor designed for demanding FRC mechanisms such as drivetrains, swerve, shooters, climbers, elevators, and heavy arms.</p></div>
-      <div class="motor-card"><h3>Kraken X44</h3><p>More compact brushless motor option for mechanisms where space and weight matter.</p></div>
-      <div class="motor-card"><h3>Falcon 500</h3><p>Brushless motor with integrated Talon FX controller and encoder, often found on legacy high-performance robots.</p></div>
-    </div>
-  </section>
-
-  <section class="motor-vertical">
-    <span class="tag">Small High-velocity Motors</span>
-    <h2>Fast and light does not mean unlimited</h2>
-    <div class="motor-grid-2">
-      <div class="motor-card"><h3>Examples</h3><ul><li>REV NEO 550</li><li>775pro</li><li>AndyMark RedLine</li><li>BAG motor</li></ul></div>
-      <div class="motor-card"><h3>Best Uses and Limits</h3><ul><li>Good for intakes, rollers, conveyors, and small shooters.</li><li>Often need reductions.</li><li>Can overheat quickly if overloaded.</li><li>Not ideal for holding heavy arms or stalled loads.</li></ul></div>
-    </div>
-  </section>
-</section>
-
-  <section class="motor-vertical">
-    <span class="tag">Choosing Motors</span>
-    <h2>Use a checklist before choosing</h2>
-    <div class="motor-grid-3">
-      <div class="motor-card"><h3>Load</h3><p>How heavy is the mechanism and what forces act on it?</p></div>
-      <div class="motor-card"><h3>Velocity</h3><p>How quickly must the output move during a match?</p></div>
-      <div class="motor-card"><h3>Control</h3><p>Does it need an encoder, PID, brake mode, or soft limits?</p></div>
-      <div class="motor-card"><h3>Heat</h3><p>Will it run continuously, stall, or repeat hard accelerations?</p></div>
-      <div class="motor-card"><h3>Compatibility</h3><p>Does the team have the correct motor controller and wiring?</p></div>
-      <div class="motor-card"><h3>Legality</h3><p>Is the motor legal under the current FRC rules?</p></div>
-    </div>
-  </section>
-
-<section>
-  <section class="motor-vertical">
-    <span class="tag">Common Mistakes</span>
-    <h2>Motor problems often come from system problems</h2>
-    <div class="motor-grid-3 compact-cards">
-      <div class="motor-card"><h3>Wrong Controller</h3><p>Brushless motors need compatible brushless controllers.</p></div>
-      <div class="motor-card"><h3>Too Much Stall</h3><p>Repeated stall creates heat and current problems.</p></div>
-      <div class="motor-card"><h3>Poor Gearing</h3><p>A fast motor directly driving a heavy load is usually wrong.</p></div>
-      <div class="motor-card"><h3>No Current Limit</h3><p>High-load mechanisms can brown out or trip breakers.</p></div>
-      <div class="motor-card"><h3>No Feedback</h3><p>Position systems may need homing or absolute encoders.</p></div>
-      <div class="motor-card"><h3>Weak Mechanism</h3><p>Modern motors can break parts if the design is not strong enough.</p></div>
-    </div>
-  </section>
-
-  <section class="motor-vertical">
-    <span class="tag">Final Design Rule</span>
-    <h2>Think of motors as part of a full system</h2>
-    <div class="motor-flow wide-flow">
-      <div class="motor-node">Motor</div>
-      <div class="motor-arrow">→</div>
-      <div class="motor-node">Controller</div>
-      <div class="motor-arrow">→</div>
-      <div class="motor-node">Reduction</div>
-      <div class="motor-arrow">→</div>
-      <div class="motor-node">Mechanism</div>
-      <div class="motor-arrow">→</div>
-      <div class="motor-node">Sensor Feedback</div>
-    </div>
-    <div class="motor-callout"><p><strong>Best practice:</strong> Mechanical, electrical, and programming students should design motor systems together.</p></div>
-  </section>
-</section>
-
-<section class="motor-slide">
-  <span class="tag">Quiz</span>
-  <h2>Motor Quiz</h2>
-  <div class="bar"></div>
-  <p>Answer all 20 questions. Passing score is 18 out of 20.</p>
-</section>
-
-<section class="quiz-slide" id="quiz-q1"><span class="tag">Quiz Question 1</span><div class="progress-note">1 of 20</div><div class="quiz-card"><p>What do motors convert into rotational motion?</p><label><input type="radio" name="q1" value="a"> Pneumatic pressure</label><label><input type="radio" name="q1" value="b"> Electrical energy</label><label><input type="radio" name="q1" value="c"> Radio signal strength</label></div></section>
-<section class="quiz-slide" id="quiz-q2"><span class="tag">Quiz Question 2</span><div class="progress-note">2 of 20</div><div class="quiz-card"><p>Why do FRC teams usually use gears, belts, chains, pulleys, or gearboxes with motors?</p><label><input type="radio" name="q2" value="a"> To trade velocity and torque for the mechanism need</label><label><input type="radio" name="q2" value="b"> To remove the need for wiring</label><label><input type="radio" name="q2" value="c"> To make the battery last forever</label></div></section>
-<section class="quiz-slide" id="quiz-q3"><span class="tag">Quiz Question 3</span><div class="progress-note">3 of 20</div><div class="quiz-card"><p>Torque is best described as:</p><label><input type="radio" name="q3" value="a"> Rotational force</label><label><input type="radio" name="q3" value="b"> Robot radio bandwidth</label><label><input type="radio" name="q3" value="c"> Battery charge percentage</label></div></section>
-<section class="quiz-slide" id="quiz-q4"><span class="tag">Quiz Question 4</span><div class="progress-note">4 of 20</div><div class="quiz-card"><p>Which mechanism usually needs high torque?</p><label><input type="radio" name="q4" value="a"> Heavy arm</label><label><input type="radio" name="q4" value="b"> Sensor wheel</label><label><input type="radio" name="q4" value="c"> Decorative LED strip</label></div></section>
-<section class="quiz-slide" id="quiz-q5"><span class="tag">Quiz Question 5</span><div class="progress-note">5 of 20</div><div class="quiz-card"><p>Motor velocity is usually measured in:</p><label><input type="radio" name="q5" value="a"> PSI</label><label><input type="radio" name="q5" value="b"> RPM</label><label><input type="radio" name="q5" value="c"> AWG</label></div></section>
-<section class="quiz-slide" id="quiz-q6"><span class="tag">Quiz Question 6</span><div class="progress-note">6 of 20</div><div class="quiz-card"><p>Current is strongly related to:</p><label><input type="radio" name="q6" value="a"> How hard the motor is working</label><label><input type="radio" name="q6" value="b"> How bright the pit lights are</label><label><input type="radio" name="q6" value="c"> How many students are on drive team</label></div></section>
-<section class="quiz-slide" id="quiz-q7"><span class="tag">Quiz Question 7</span><div class="progress-note">7 of 20</div><div class="quiz-card"><p>Too much current can cause:</p><label><input type="radio" name="q7" value="a"> Brownouts, breaker trips, and damage</label><label><input type="radio" name="q7" value="b"> Automatic award points</label><label><input type="radio" name="q7" value="c"> Lower motor temperature</label></div></section>
-<section class="quiz-slide" id="quiz-q8"><span class="tag">Quiz Question 8</span><div class="progress-note">8 of 20</div><div class="quiz-card"><p>In rotational systems, power can be summarized as:</p><label><input type="radio" name="q8" value="a"> Torque × angular velocity</label><label><input type="radio" name="q8" value="b"> Wire gauge × bumper color</label><label><input type="radio" name="q8" value="c"> Battery label × robot number</label></div></section>
-<section class="quiz-slide" id="quiz-q9"><span class="tag">Quiz Question 9</span><div class="progress-note">9 of 20</div><div class="quiz-card"><p>A motor is stalled when it is:</p><label><input type="radio" name="q9" value="a"> Powered but not rotating</label><label><input type="radio" name="q9" value="b"> Disconnected from the battery</label><label><input type="radio" name="q9" value="c"> Moving freely with no load</label></div></section>
-<section class="quiz-slide" id="quiz-q10"><span class="tag">Quiz Question 10</span><div class="progress-note">10 of 20</div><div class="quiz-card"><p>What is a good way to reduce stall damage risk?</p><label><input type="radio" name="q10" value="a"> Current limits, soft limits, hard stops, sensors, and gearing</label><label><input type="radio" name="q10" value="b"> Remove all sensors</label><label><input type="radio" name="q10" value="c"> Always run full power into hard stops</label></div></section>
-<section class="quiz-slide" id="quiz-q11"><span class="tag">Quiz Question 11</span><div class="progress-note">11 of 20</div><div class="quiz-card"><p>Brushed motors use:</p><label><input type="radio" name="q11" value="a"> Physical brushes and a commutator</label><label><input type="radio" name="q11" value="b"> Only compressed air</label><label><input type="radio" name="q11" value="c"> No motor controller of any kind</label></div></section>
-<section class="quiz-slide" id="quiz-q12"><span class="tag">Quiz Question 12</span><div class="progress-note">12 of 20</div><div class="quiz-card"><p>Brushless motors require:</p><label><input type="radio" name="q12" value="a"> A compatible brushless motor controller</label><label><input type="radio" name="q12" value="b"> No wiring</label><label><input type="radio" name="q12" value="c"> A pneumatic solenoid</label></div></section>
-<section class="quiz-slide" id="quiz-q13"><span class="tag">Quiz Question 13</span><div class="progress-note">13 of 20</div><div class="quiz-card"><p>Which is a common brushed FRC motor?</p><label><input type="radio" name="q13" value="a"> CIM</label><label><input type="radio" name="q13" value="b"> NEO Vortex</label><label><input type="radio" name="q13" value="c"> Kraken X60</label></div></section>
-<section class="quiz-slide" id="quiz-q14"><span class="tag">Quiz Question 14</span><div class="progress-note">14 of 20</div><div class="quiz-card"><p>Which is a common brushless FRC motor?</p><label><input type="radio" name="q14" value="a"> REV NEO</label><label><input type="radio" name="q14" value="b"> BAG motor only</label><label><input type="radio" name="q14" value="c"> Wooden pulley</label></div></section>
-<section class="quiz-slide" id="quiz-q15"><span class="tag">Quiz Question 15</span><div class="progress-note">15 of 20</div><div class="quiz-card"><p>A major advantage of brushless motors is:</p><label><input type="radio" name="q15" value="a"> Higher power-to-weight ratio</label><label><input type="radio" name="q15" value="b"> Brushes wear out faster</label><label><input type="radio" name="q15" value="c"> They cannot overheat</label></div></section>
-<section class="quiz-slide" id="quiz-q16"><span class="tag">Quiz Question 16</span><div class="progress-note">16 of 20</div><div class="quiz-card"><p>The REV NEO is commonly used for:</p><label><input type="radio" name="q16" value="a"> Drivetrains, swerve, arms, elevators, intakes, and climbers</label><label><input type="radio" name="q16" value="b"> Only paper airplanes</label><label><input type="radio" name="q16" value="c"> Only non-moving parts</label></div></section>
-<section class="quiz-slide" id="quiz-q17"><span class="tag">Quiz Question 17</span><div class="progress-note">17 of 20</div><div class="quiz-card"><p>The NEO Vortex has a higher current capability, so students should especially consider:</p><label><input type="radio" name="q17" value="a"> Current limits and thermal management</label><label><input type="radio" name="q17" value="b"> Removing all gearing</label><label><input type="radio" name="q17" value="c"> Using weaker mechanisms</label></div></section>
-<section class="quiz-slide" id="quiz-q18"><span class="tag">Quiz Question 18</span><div class="progress-note">18 of 20</div><div class="quiz-card"><p>Kraken X60 is best described as:</p><label><input type="radio" name="q18" value="a"> A high-power brushless motor for demanding FRC mechanisms</label><label><input type="radio" name="q18" value="b"> A hand tool</label><label><input type="radio" name="q18" value="c"> A type of pneumatic tubing</label></div></section>
-<section class="quiz-slide" id="quiz-q19"><span class="tag">Quiz Question 19</span><div class="progress-note">19 of 20</div><div class="quiz-card"><p>Small high-velocity motors like NEO 550, 775pro, RedLine, and BAG are often used for:</p><label><input type="radio" name="q19" value="a"> Intakes, rollers, conveyors, and small shooters</label><label><input type="radio" name="q19" value="b"> Holding heavy arms at stall forever</label><label><input type="radio" name="q19" value="c"> Replacing safety glasses</label></div></section>
-<section class="quiz-slide" id="quiz-q20"><span class="tag">Quiz Question 20</span><div class="progress-note">20 of 20</div><div class="quiz-card"><p>What is the best overall approach to motor selection?</p><label><input type="radio" name="q20" value="a"> Match the motor, controller, gearing, limits, and feedback to the mechanism need</label><label><input type="radio" name="q20" value="b"> Always use the most powerful motor available</label><label><input type="radio" name="q20" value="c"> Ignore current and temperature during testing</label></div></section>
-
-<section id="quiz-results" class="quiz-slide">
-  <span class="tag">Quiz Results</span>
-  <h2>Check your score</h2>
-  <div class="quiz-card">
-    <p>Passing score: 18 out of 20.</p>
-    <div class="quiz-actions"><button id="gradeQuiz" class="quiz-button" type="button">Grade Quiz</button><button id="resetQuiz" class="quiz-button secondary" type="button">Reset Quiz</button><span id="quizResult" class="result">Not submitted.</span></div>
-    <p id="quizHint" class="small">After passing, advance to the final completion slide.</p>
-  </div>
-</section>
-
-<section id="complete" class="center locked">
-  <span class="tag">Module Complete</span>
-  <h2>Motion and Motors Training Complete</h2>
-  <p id="completionNote">Complete after passing the required quiz.</p>
-</section>
-
-</div></div>
-
-<div id="motorModal" class="motor-modal" aria-hidden="true">
-  <div class="motor-modal-box" role="dialog" aria-modal="true" aria-labelledby="motorModalTitle">
-    <button class="motor-modal-close" type="button" aria-label="Close">×</button>
-
-    <div class="motor-modal-layout">
-      <div class="motor-modal-text">
-        <h2 id="motorModalTitle">Motor</h2>
-        <p id="motorModalDescription"></p>
-        <ul id="motorModalChecks"></ul>
-      </div>
-
-      <div class="motor-modal-image-wrap">
-        <img id="motorModalImage" src="" alt="" class="motor-modal-image">
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
-<script src="motors.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="motors.js"></script>
+  </body>
 </html>

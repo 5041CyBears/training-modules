@@ -1,352 +1,527 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>5041 CyBear Robotics FRC Resources</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>5041 CyBear Robotics FRC Resources</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    :root {
-      --red: #980000;
-      --black: #000000;
-      --gray: #666666;
-      --light: #f3f3f3;
-      --white: #ffffff;
-    }
+    <style>
+      :root {
+        --red: #980000;
+        --black: #000000;
+        --gray: #666666;
+        --light: #f3f3f3;
+        --white: #ffffff;
+      }
 
-    * {
-      box-sizing: border-box;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    body {
-      margin: 0;
-      font-family: "Droid Serif", Georgia, serif;
-      color: var(--black);
-      background:
-        linear-gradient(135deg, rgba(152,0,0,0.08), transparent 35%),
-        linear-gradient(315deg, rgba(0,0,0,0.08), transparent 35%),
-        var(--light);
-    }
+      body {
+        margin: 0;
+        font-family: "Droid Serif", Georgia, serif;
+        color: var(--black);
+        background:
+          linear-gradient(135deg, rgba(152, 0, 0, 0.08), transparent 35%),
+          linear-gradient(315deg, rgba(0, 0, 0, 0.08), transparent 35%),
+          var(--light);
+      }
 
-    .site-header {
-      width: 100%;
-      background: var(--black);
-      border-bottom: 8px solid var(--red);
-      padding: 1rem 1.25rem;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .header-inner h1 {
-      margin: 0;
-      color: var(--white);
-      font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1;
-    }
-
-    .team-logo {
-      height: 120px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem;
-    }
-
-    .intro {
-      background: var(--white);
-      border-left: 12px solid var(--red);
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    }
-
-    .intro h2 {
-      font-family: "Droid Sans", Arial, sans-serif;
-      margin: 0 0 0.35rem;
-      font-size: 1.4rem;
-    }
-
-    .intro p {
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    .resource-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-      gap: 1rem;
-    }
-
-    .resource-card {
-      background: var(--white);
-      border-top: 8px solid var(--red);
-      padding: 1rem;
-      min-height: 185px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    }
-
-    .resource-card h2 {
-      font-family: "Droid Sans", Arial, sans-serif;
-      margin: 0 0 0.5rem;
-      font-size: 1.15rem;
-    }
-
-    .resource-card p {
-      margin: 0 0 1rem;
-      line-height: 1.45;
-      color: #222222;
-    }
-
-    .resource-link {
-      display: inline-block;
-      font-family: "Droid Sans", Arial, sans-serif;
-      font-weight: 700;
-      text-decoration: none;
-      background: var(--red);
-      color: var(--white);
-      padding: 0.65rem 0.85rem;
-      border-radius: 4px;
-      align-self: flex-start;
-    }
-
-    .resource-link:visited {
-      color: var(--white);
-    }
-
-    .resource-link:hover,
-    .resource-link:focus {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    footer {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 2rem;
-      color: var(--gray);
-      font-family: "Droid Sans", Arial, sans-serif;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 650px) {
       .site-header {
-        padding: 1rem;
+        width: 100%;
+        background: var(--black);
+        border-bottom: 8px solid var(--red);
+        padding: 1rem 1.25rem;
       }
 
       .header-inner {
-        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .header-inner h1 {
+        margin: 0;
+        color: var(--white);
+        font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1;
       }
 
       .team-logo {
-        height: 70px;
+        height: 120px;
+        width: auto;
+        object-fit: contain;
+        display: block;
       }
 
       main {
-        padding: 1.25rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem;
+      }
+
+      .intro {
+        background: var(--white);
+        border-left: 12px solid var(--red);
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      .intro h2 {
+        font-family: "Droid Sans", Arial, sans-serif;
+        margin: 0 0 0.35rem;
+        font-size: 1.4rem;
+      }
+
+      .intro p {
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+        gap: 1rem;
       }
 
       .resource-card {
-        min-height: auto;
+        background: var(--white);
+        border-top: 8px solid var(--red);
+        padding: 1rem;
+        min-height: 185px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
       }
-    }
-  </style>
-</head>
 
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1>FRC Resources</h1>
-      <img src="assets/5041teamlogo.png" alt="5041 CyBear Robotics logo" class="team-logo">
-    </div>
-  </header>
+      .resource-card h2 {
+        font-family: "Droid Sans", Arial, sans-serif;
+        margin: 0 0 0.5rem;
+        font-size: 1.15rem;
+      }
 
-  <main>
-    <section class="intro">
-      <h2>Helpful FIRST Robotics Competition Links</h2>
-      <p>
-        Use these resources for game rules, robot design, programming, safety, scouting, documentation,
-        team organization, and technical troubleshooting.
-      </p>
-    </section>
+      .resource-card p {
+        margin: 0 0 1rem;
+        line-height: 1.45;
+        color: #222222;
+      }
 
-    <section class="resource-grid" aria-label="FRC resource links">
-      <article class="resource-card">
-        <div>
-          <h2>FIRST Robotics Competition</h2>
-          <p>Official overview, program information, team resources, and season details.</p>
-        </div>
-        <a class="resource-link" href="https://www.firstinspires.org/programs/frc/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+      .resource-link {
+        display: inline-block;
+        font-family: "Droid Sans", Arial, sans-serif;
+        font-weight: 700;
+        text-decoration: none;
+        background: var(--red);
+        color: var(--white);
+        padding: 0.65rem 0.85rem;
+        border-radius: 4px;
+        align-self: flex-start;
+      }
 
-      <article class="resource-card">
-        <div>
-          <h2>FIRST FRC Season Materials</h2>
-          <p>Official game manual, field drawings, kickoff materials, event rules, and season documents.</p>
-        </div>
-        <a class="resource-link" href="https://www.firstinspires.org/resources/library/frc/season-materials" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+      .resource-link:visited {
+        color: var(--white);
+      }
 
-      <article class="resource-card">
-        <div>
-          <h2>FIRST Safety Resources</h2>
-          <p>Official safety resources and safety program materials for FIRST teams.</p>
-        </div>
-        <a class="resource-link" href="https://www.firstinspires.org/resources/library/safety" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+      .resource-link:hover,
+      .resource-link:focus {
+        background: var(--black);
+        color: var(--white);
+      }
 
-      <article class="resource-card">
-        <div>
-          <h2>FIRST Mentor Guide</h2>
-          <p>Team structure, mentor expectations, build season guidance, and team support.</p>
-        </div>
-        <a class="resource-link" href="https://info.firstinspires.org/hubfs/web/program/frc/resources/frc_mentor_guide.pdf" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+      footer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem 2rem;
+        color: var(--gray);
+        font-family: "Droid Sans", Arial, sans-serif;
+        font-size: 0.9rem;
+      }
 
-      <article class="resource-card">
-        <div>
-          <h2>WPILib Documentation</h2>
-          <p>Programming, control system setup, sensors, command-based programming, simulation, and Driver Station tools.</p>
-        </div>
-        <a class="resource-link" href="https://docs.wpilib.org/en/stable/docs/software/what-is-wpilib.html" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+      @media (max-width: 650px) {
+        .site-header {
+          padding: 1rem;
+        }
 
-      <article class="resource-card">
-        <div>
-          <h2>FRC Control System Docs</h2>
-          <p>Robot software and control system documentation maintained through WPILib.</p>
-        </div>
-        <a class="resource-link" href="https://docs.wpilib.org/en/stable/index.html" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        .header-inner {
+          align-items: flex-start;
+        }
 
-      <article class="resource-card">
-        <div>
-          <h2>FRC Design</h2>
-          <p>CAD, robot design fundamentals, mechanism design, and design handbook resources.</p>
-        </div>
-        <a class="resource-link" href="https://frcdesign.org/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        .team-logo {
+          height: 70px;
+        }
 
-      <article class="resource-card">
-        <div>
-          <h2>FRC Design Learning Course</h2>
-          <p>Guided Onshape and FRC CAD course with staged exercises and design concepts.</p>
-        </div>
-        <a class="resource-link" href="https://www.frcdesign.org/learning-course/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        main {
+          padding: 1.25rem 1rem;
+        }
 
-      <article class="resource-card">
-        <div>
-          <h2>Onshape for FIRST Robotics</h2>
-          <p>Free CAD access and FIRST-specific Onshape resources for teams.</p>
-        </div>
-        <a class="resource-link" href="https://www.onshape.com/en/education/first-robotics" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        .resource-card {
+          min-height: auto;
+        }
+      }
+    </style>
+  </head>
 
-      <article class="resource-card">
-        <div>
-          <h2>REV Robotics Documentation</h2>
-          <p>REV hardware, SPARK motor controllers, REVLib, starter bot, and control system docs.</p>
-        </div>
-        <a class="resource-link" href="https://docs.revrobotics.com/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <h1>FRC Resources</h1>
+        <img
+          src="assets/5041teamlogo.png"
+          alt="5041 CyBear Robotics logo"
+          class="team-logo"
+        />
+      </div>
+    </header>
 
-      <article class="resource-card">
-        <div>
-          <h2>REV FRC Resources</h2>
-          <p>REV ION system, FRC product ecosystem, and season-focused resources.</p>
-        </div>
-        <a class="resource-link" href="https://www.revrobotics.com/frc/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+    <main>
+      <section class="intro">
+        <h2>Helpful FIRST Robotics Competition Links</h2>
+        <p>
+          Use these resources for game rules, robot design, programming, safety,
+          scouting, documentation, team organization, and technical
+          troubleshooting.
+        </p>
+      </section>
 
-      <article class="resource-card">
-        <div>
-          <h2>CTR Electronics Phoenix 6 Docs</h2>
-          <p>CTRE motor controller setup, Phoenix 6 API, Tuner X, CANivore, Talon FX, and CAN device configuration.</p>
-        </div>
-        <a class="resource-link" href="https://v6.docs.ctr-electronics.com/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+      <section class="resource-grid" aria-label="FRC resource links">
+        <article class="resource-card">
+          <div>
+            <h2>FIRST Robotics Competition</h2>
+            <p>
+              Official overview, program information, team resources, and season
+              details.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.firstinspires.org/programs/frc/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-      <article class="resource-card">
-        <div>
-          <h2>AndyMark Docs</h2>
-          <p>FIRST robotics product documentation, practical build guidance, and hardware support.</p>
-        </div>
-        <a class="resource-link" href="https://docs.andymark.com/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        <article class="resource-card">
+          <div>
+            <h2>FIRST FRC Season Materials</h2>
+            <p>
+              Official game manual, field drawings, kickoff materials, event
+              rules, and season documents.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.firstinspires.org/resources/library/frc/season-materials"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-      <article class="resource-card">
-        <div>
-          <h2>The Blue Alliance</h2>
-          <p>Match videos, event schedules, rankings, team history, scouting data, and event results.</p>
-        </div>
-        <a class="resource-link" href="https://www.thebluealliance.com/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        <article class="resource-card">
+          <div>
+            <h2>FIRST Safety Resources</h2>
+            <p>
+              Official safety resources and safety program materials for FIRST
+              teams.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.firstinspires.org/resources/library/safety"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-      <article class="resource-card">
-        <div>
-          <h2>Statbotics</h2>
-          <p>FRC data analytics, EPA ratings, team and event analysis, and historical trends.</p>
-        </div>
-        <a class="resource-link" href="https://www.statbotics.io/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        <article class="resource-card">
+          <div>
+            <h2>FIRST Mentor Guide</h2>
+            <p>
+              Team structure, mentor expectations, build season guidance, and
+              team support.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://info.firstinspires.org/hubfs/web/program/frc/resources/frc_mentor_guide.pdf"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-      <article class="resource-card">
-        <div>
-          <h2>Chief Delphi</h2>
-          <p>FRC community discussion, build blogs, technical advice, scouting ideas, and team management conversations.</p>
-        </div>
-        <a class="resource-link" href="https://www.chiefdelphi.com/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        <article class="resource-card">
+          <div>
+            <h2>WPILib Documentation</h2>
+            <p>
+              Programming, control system setup, sensors, command-based
+              programming, simulation, and Driver Station tools.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://docs.wpilib.org/en/stable/docs/software/what-is-wpilib.html"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-      <article class="resource-card">
-        <div>
-          <h2>Spectrum 3847 Recommended Reading</h2>
-          <p>Curated FRC articles, technical resources, team guides, and design/build references.</p>
-        </div>
-        <a class="resource-link" href="https://spectrum3847.org/recommendedreading/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        <article class="resource-card">
+          <div>
+            <h2>FRC Control System Docs</h2>
+            <p>
+              Robot software and control system documentation maintained through
+              WPILib.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://docs.wpilib.org/en/stable/index.html"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-      <article class="resource-card">
-        <div>
-          <h2>167 FRC Docs Project</h2>
-          <p>Broad set of documents covering important FRC skills from Iowa City team 167.</p>
-        </div>
-        <a class="resource-link" href="https://docs.iowacityrobotics.org/" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        <article class="resource-card">
+          <div>
+            <h2>FRC Design</h2>
+            <p>
+              CAD, robot design fundamentals, mechanism design, and design
+              handbook resources.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://frcdesign.org/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-            <article class="resource-card">
-        <div>
-          <h2>ReCalc</h2>
-          <p>Broad set of calculator tools for gearing, belts, elevators, and much more. Also includes many specs for common FRC components.</p>
-        </div>
-        <a class="resource-link" href="https://www.reca.lc/ratioFinder" target="_blank" rel="noopener">Open Resource</a>
-      </article>
+        <article class="resource-card">
+          <div>
+            <h2>FRC Design Learning Course</h2>
+            <p>
+              Guided Onshape and FRC CAD course with staged exercises and design
+              concepts.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.frcdesign.org/learning-course/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-    </section>
-  </main>
+        <article class="resource-card">
+          <div>
+            <h2>Onshape for FIRST Robotics</h2>
+            <p>
+              Free CAD access and FIRST-specific Onshape resources for teams.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.onshape.com/en/education/first-robotics"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
 
-  <footer>
-    5041 CyBear Robotics · Everyone has a place here
-  </footer>
-</body>
+        <article class="resource-card">
+          <div>
+            <h2>REV Robotics Documentation</h2>
+            <p>
+              REV hardware, SPARK motor controllers, REVLib, starter bot, and
+              control system docs.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://docs.revrobotics.com/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>REV FRC Resources</h2>
+            <p>
+              REV ION system, FRC product ecosystem, and season-focused
+              resources.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.revrobotics.com/frc/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>CTR Electronics Phoenix 6 Docs</h2>
+            <p>
+              CTRE motor controller setup, Phoenix 6 API, Tuner X, CANivore,
+              Talon FX, and CAN device configuration.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://v6.docs.ctr-electronics.com/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>AndyMark Docs</h2>
+            <p>
+              FIRST robotics product documentation, practical build guidance,
+              and hardware support.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://docs.andymark.com/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>The Blue Alliance</h2>
+            <p>
+              Match videos, event schedules, rankings, team history, scouting
+              data, and event results.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.thebluealliance.com/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>Statbotics</h2>
+            <p>
+              FRC data analytics, EPA ratings, team and event analysis, and
+              historical trends.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.statbotics.io/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>Chief Delphi</h2>
+            <p>
+              FRC community discussion, build blogs, technical advice, scouting
+              ideas, and team management conversations.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.chiefdelphi.com/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>Spectrum 3847 Recommended Reading</h2>
+            <p>
+              Curated FRC articles, technical resources, team guides, and
+              design/build references.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://spectrum3847.org/recommendedreading/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>167 FRC Docs Project</h2>
+            <p>
+              Broad set of documents covering important FRC skills from Iowa
+              City team 167.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://docs.iowacityrobotics.org/"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h2>ReCalc</h2>
+            <p>
+              Broad set of calculator tools for gearing, belts, elevators, and
+              much more. Also includes many specs for common FRC components.
+            </p>
+          </div>
+          <a
+            class="resource-link"
+            href="https://www.reca.lc/ratioFinder"
+            target="_blank"
+            rel="noopener"
+            >Open Resource</a
+          >
+        </article>
+      </section>
+    </main>
+
+    <footer>5041 CyBear Robotics · Everyone has a place here</footer>
+  </body>
 </html>

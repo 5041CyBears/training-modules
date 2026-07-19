@@ -1,6 +1,9 @@
 /* 5041 Motion and Motors Training Module additions */
 .motor-hero h1,
-.motor-hero .cytitle { max-width: 1080px; margin: 0 auto; }
+.motor-hero .cytitle {
+  max-width: 1080px;
+  margin: 0 auto;
+}
 
 .motor-slide h2,
 .motor-vertical h2,
@@ -25,11 +28,18 @@
   max-width: 1100px;
   margin: 0 auto;
 }
-.motor-grid-2 { grid-template-columns: repeat(2, 1fr); }
-.motor-grid-3 { grid-template-columns: repeat(3, 1fr); }
-.motor-grid-4 { grid-template-columns: repeat(4, 1fr); }
-.motor-click-grid { grid-template-columns: repeat(4, 1fr); }
-
+.motor-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.motor-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.motor-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.motor-click-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
 
 .motor-card,
 .motor-click-card,
@@ -42,10 +52,15 @@
   text-align: left;
 }
 
-.motor-card.dark { background: var(--black); color: var(--white); }
+.motor-card.dark {
+  background: var(--black);
+  color: var(--white);
+}
 .motor-card.dark h3,
 .motor-card.dark p,
-.motor-card.dark li { color: var(--white); }
+.motor-card.dark li {
+  color: var(--white);
+}
 
 .motor-card h3,
 .motor-click-card h3,
@@ -70,7 +85,10 @@
   margin-bottom: 0.12rem;
 }
 
-.motor-card ul { margin: 0.25rem 0 0; padding-left: 0.85em; }
+.motor-card ul {
+  margin: 0.25rem 0 0;
+  padding-left: 0.85em;
+}
 
 .motor-callout {
   max-width: 1050px;
@@ -80,7 +98,11 @@
   border-left: 10px solid var(--red);
   border-radius: 8px;
 }
-.motor-callout p { margin: 0; font-size: 0.5em; line-height: 1.18; }
+.motor-callout p {
+  margin: 0;
+  font-size: 0.5em;
+  line-height: 1.18;
+}
 
 .motor-flow {
   display: grid;
@@ -91,7 +113,9 @@
   margin: 0.75rem auto 0;
 }
 
-.motor-flow.wide-flow { grid-template-columns: 1fr 0.12fr 1fr 0.12fr 1fr 0.12fr 1fr 0.12fr 1fr; }
+.motor-flow.wide-flow {
+  grid-template-columns: 1fr 0.12fr 1fr 0.12fr 1fr 0.12fr 1fr 0.12fr 1fr;
+}
 
 .motor-node {
   min-height: 95px;
@@ -108,8 +132,16 @@
   justify-content: center;
   text-align: center;
 }
-.red-node { background: var(--red); color: var(--white); }
-.motor-arrow { text-align: center; color: var(--red); font-size: 0.9em; font-weight: 700; }
+.red-node {
+  background: var(--red);
+  color: var(--white);
+}
+.motor-arrow {
+  text-align: center;
+  color: var(--red);
+  font-size: 0.9em;
+  font-weight: 700;
+}
 
 .speed-torque-layout {
   display: grid;
@@ -119,10 +151,17 @@
   margin: 0 auto;
 }
 
-
-.compact-cards .motor-card { min-height: 130px; }
-.motor-compare .panel li { font-size: 0.48em; line-height: 1.2; }
-.motor-compare .panel p { font-size: 0.48em; line-height: 1.2; }
+.compact-cards .motor-card {
+  min-height: 130px;
+}
+.motor-compare .panel li {
+  font-size: 0.48em;
+  line-height: 1.2;
+}
+.motor-compare .panel p {
+  font-size: 0.48em;
+  line-height: 1.2;
+}
 
 .motor-click-card {
   border: none;
@@ -139,11 +178,20 @@
   outline-offset: 3px;
   transform: translateY(-2px);
 }
-.motor-click-card.viewed { border-left-color: var(--gray); opacity: 0.86; }
-.motor-click-card.viewed h3::after { content: " ✓"; color: var(--gray); }
+.motor-click-card.viewed {
+  border-left-color: var(--gray);
+  opacity: 0.86;
+}
+.motor-click-card.viewed h3::after {
+  content: " ✓";
+  color: var(--gray);
+}
 
 .sort-bank,
-.sort-targets { max-width: 1050px; margin: 0 auto; }
+.sort-targets {
+  max-width: 1050px;
+  margin: 0 auto;
+}
 .sort-bank {
   display: flex;
   flex-wrap: wrap;
@@ -164,11 +212,19 @@
   font-weight: 700;
   color: #222;
   cursor: grab;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
-.sort-chip.dragging { opacity: 0.45; }
-.sort-chip.correct { border-color: #2e7d32; background: #e6f4ea; }
-.sort-chip.incorrect { border-color: #b00020; background: #fdecea; }
+.sort-chip.dragging {
+  opacity: 0.45;
+}
+.sort-chip.correct {
+  border-color: #2e7d32;
+  background: #e6f4ea;
+}
+.sort-chip.incorrect {
+  border-color: #b00020;
+  background: #fdecea;
+}
 .sort-targets {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -182,10 +238,22 @@
   border-radius: 8px;
   padding: 0.55rem;
 }
-.sort-zone h3 { font-size: 0.68em; text-align: center; margin: 0 0 0.4rem; }
-.sort-list { display: flex; flex-direction: column; gap: 0.35rem; min-height: 150px; }
+.sort-zone h3 {
+  font-size: 0.68em;
+  text-align: center;
+  margin: 0 0 0.4rem;
+}
+.sort-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 150px;
+}
 .sort-bank.drag-over,
-.sort-zone.drag-over { outline: 4px solid var(--red); outline-offset: 2px; }
+.sort-zone.drag-over {
+  outline: 4px solid var(--red);
+  outline-offset: 2px;
+}
 .activity-controls {
   display: flex;
   align-items: center;
@@ -193,10 +261,21 @@
   gap: 0.65rem;
   margin-top: 0.55rem;
 }
-.activity-feedback { min-width: 240px; margin: 0; font-size: 0.46em; font-weight: 700; }
+.activity-feedback {
+  min-width: 240px;
+  margin: 0;
+  font-size: 0.46em;
+  font-weight: 700;
+}
 
-.scenario-card { max-width: 1000px; margin: 0 auto; }
-.scenario-card p { font-size: 0.52em; margin-bottom: 0.5rem; }
+.scenario-card {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.scenario-card p {
+  font-size: 0.52em;
+  margin-bottom: 0.5rem;
+}
 .scenario-options {
   display: grid;
   grid-template-columns: 1fr;
@@ -215,21 +294,37 @@
   cursor: pointer;
 }
 .scenario-options button:hover,
-.scenario-options button:focus { background: var(--red); color: var(--white); }
-.scenario-options button.correct { border-color: #2e7d32; background: #e6f4ea; color: var(--black); }
-.scenario-options button.incorrect { border-color: #b00020; background: #fdecea; color: var(--black); }
-.scenario-feedback { margin-top: 0.45rem !important; font-weight: 700; }
+.scenario-options button:focus {
+  background: var(--red);
+  color: var(--white);
+}
+.scenario-options button.correct {
+  border-color: #2e7d32;
+  background: #e6f4ea;
+  color: var(--black);
+}
+.scenario-options button.incorrect {
+  border-color: #b00020;
+  background: #fdecea;
+  color: var(--black);
+}
+.scenario-feedback {
+  margin-top: 0.45rem !important;
+  font-weight: 700;
+}
 
 .motor-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.65);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
 }
-.motor-modal.open { display: flex; }
+.motor-modal.open {
+  display: flex;
+}
 .motor-modal-box {
   width: min(860px, 90vw);
   background: var(--white);
@@ -238,11 +333,22 @@
   border-radius: 10px;
   padding: 1rem;
   position: relative;
-  box-shadow: 0 16px 34px rgba(0,0,0,0.35);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
 }
-.motor-modal-box h2 { margin: 0 0 0.4rem; font-size: 2em; }
-.motor-modal-box p { font-size: 1em; line-height: 1.22; margin: 0 0 0.5rem; }
-.motor-modal-box li { font-size: 1em; line-height: 1.22; margin-bottom: 0.15rem; }
+.motor-modal-box h2 {
+  margin: 0 0 0.4rem;
+  font-size: 2em;
+}
+.motor-modal-box p {
+  font-size: 1em;
+  line-height: 1.22;
+  margin: 0 0 0.5rem;
+}
+.motor-modal-box li {
+  font-size: 1em;
+  line-height: 1.22;
+  margin-bottom: 0.15rem;
+}
 .motor-modal-close {
   position: absolute;
   top: 0.25rem;
@@ -258,11 +364,19 @@
 
 @media (max-width: 900px) {
   .motor-grid-4,
-  .motor-click-grid { grid-template-columns: repeat(2, 1fr); }
-  .motor-grid-3 { grid-template-columns: 1fr; }
+  .motor-click-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .motor-grid-3 {
+    grid-template-columns: 1fr;
+  }
   .motor-flow,
-  .motor-flow.wide-flow { grid-template-columns: 1fr; }
-  .motor-arrow { display: none; }
+  .motor-flow.wide-flow {
+    grid-template-columns: 1fr;
+  }
+  .motor-arrow {
+    display: none;
+  }
 }
 
 .motor-modal-layout {
@@ -312,4 +426,276 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Electronics style match patch
+   Keeps the module-specific layout, but matches the electronics module's
+   title sizing, content width, card spacing, card typography, and sort styling.
+   This patch intentionally does NOT force slide titles to text-align:center. */
+
+.motor-slide h2,
+.motor-vertical h2,
+.motor-quiz h2,
+.reveal .motor-slide h2,
+.reveal .motor-vertical h2,
+.reveal .motor-quiz h2 {
+  font-size: 1.45em;
+  margin-bottom: 0.45rem;
+}
+
+.motor-intro,
+.reveal .motor-intro {
+  max-width: 950px;
+  margin: 0 auto 0.8rem;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+
+.motor-grid-2,
+.motor-grid-3,
+.motor-grid-4,
+.motor-click-grid,
+.reveal .motor-grid-2,
+.reveal .motor-grid-3,
+.reveal .motor-grid-4,
+.reveal .motor-click-grid {
+  gap: 0.8rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.motor-card,
+.motor-click-card,
+.meter-card,
+.scenario-card,
+.reveal .motor-card,
+.reveal .motor-click-card,
+.reveal .meter-card,
+.reveal .scenario-card {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.motor-card h3,
+.motor-click-card h3,
+.meter-card h3,
+.scenario-card h3,
+.reveal .motor-card h3,
+.reveal .motor-click-card h3,
+.reveal .meter-card h3,
+.reveal .scenario-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.72em;
+}
+
+.motor-card p,
+.motor-click-card p,
+.meter-card p,
+.scenario-card p,
+.reveal .motor-card p,
+.reveal .motor-click-card p,
+.reveal .meter-card p,
+.reveal .scenario-card p {
+  margin: 0;
+  font-size: 0.45em;
+  line-height: 1.25;
+}
+
+.motor-card li,
+.reveal .motor-card li {
+  font-size: 0.5em;
+  line-height: 1.22;
+  margin-bottom: 0.16rem;
+}
+
+.motor-callout,
+.reveal .motor-callout {
+  max-width: 950px;
+  margin: 0.8rem auto 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+}
+
+.motor-callout p,
+.reveal .motor-callout p {
+  margin: 0;
+  font-size: 0.56em;
+  line-height: 1.25;
+}
+
+.motor-flow,
+.reveal .motor-flow {
+  max-width: 1050px;
+  margin: 0.8rem auto 0;
+}
+
+.motor-node,
+.reveal .motor-node {
+  min-height: 92px;
+  padding: 0.6rem 0.5rem;
+  font-size: 0.48em;
+}
+
+.sort-bank,
+.sort-targets,
+.reveal .sort-bank,
+.reveal .sort-targets {
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sort-bank,
+.reveal .sort-bank {
+  gap: 0.4rem;
+  padding: 0.45rem;
+  min-height: 86px;
+}
+
+.sort-chip,
+.reveal .sort-chip {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.42em;
+  line-height: 1.15;
+}
+
+.sort-targets,
+.reveal .sort-targets {
+  gap: 0.8rem;
+  margin-top: 0.7rem;
+}
+
+.sort-zone,
+.reveal .sort-zone {
+  min-height: 210px;
+  padding: 0.55rem;
+}
+
+.sort-zone h3,
+.reveal .sort-zone h3 {
+  font-size: 0.68em;
+  text-align: center;
+  margin: 0 0 0.4rem;
+}
+
+.sort-list,
+.reveal .sort-list {
+  gap: 0.35rem;
+  min-height: 150px;
+}
+
+.activity-controls,
+.reveal .activity-controls {
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.activity-feedback,
+.reveal .activity-feedback {
+  min-width: 240px;
+  font-size: 0.46em;
+}
+
+/* Shared slide width patch
+   Uses the widest recurring content width from the judging/motors/safety modules.
+   Keep this block at the bottom of the file so it overrides earlier module rules. */
+:root {
+  --shared-slide-width: 1120px;
+}
+
+/* Main direct slide content containers */
+.reveal .slides section > :is(
+  [class*="intro"],
+  [class*="grid"],
+  [class*="layout"],
+  [class*="split"],
+  [class*="callout"],
+  [class*="flow"],
+  [class*="chain"],
+  [class*="table"],
+  [class*="wrap"],
+  [class*="panel"],
+  [class*="bank"],
+  [class*="targets"],
+  [class*="process"],
+  [class*="actions"],
+  .quiz-card,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .order-list,
+  .documentation-table,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  figure,
+  table,
+  ul,
+  ol
+) {
+  max-width: var(--shared-slide-width);
+}
+
+/* Common module-specific containers that may not be direct children */
+.reveal :is(
+  .elec-grid-2,
+  .elec-grid-3,
+  .elec-grid-4,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  .power-flow,
+  .can-chain,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .documentation-table-wrap,
+  .judge-grid-2,
+  .judge-grid-3,
+  .judge-grid-4,
+  .judge-photo-split,
+  .dialogue-grid,
+  .response-grid,
+  .judge-sort-bank,
+  .judge-sort-targets,
+  .award-chip-grid,
+  .award-output,
+  .motor-grid-2,
+  .motor-grid-3,
+  .motor-grid-4,
+  .motor-click-grid,
+  .motor-flow,
+  .speed-torque-layout,
+  .safety-grid-2,
+  .safety-grid-3,
+  .safety-grid-4,
+  .safety-source-grid,
+  .safety-tool-grid,
+  .safety-split,
+  .review-grid,
+  .safety-resource-grid,
+  .impact-repair-grid,
+  .three-choice-grid,
+  .maintenance-grid,
+  .weight-card-grid,
+  .weight-do-dont,
+  .wd-layout
+) {
+  max-width: var(--shared-slide-width);
+}
+
+.reveal .slides section .motor-card.dark {
+  background: var(--black) !important;
+  color: var(--white) !important;
+}
+
+.reveal .slides section .motor-card.dark h3,
+.reveal .slides section .motor-card.dark p,
+.reveal .slides section .motor-card.dark li {
+  color: var(--white) !important;
 }
