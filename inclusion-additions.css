@@ -420,3 +420,109 @@
   font-size: 0.38em;
   font-weight: 700;
 }
+
+/* Gracious Professionalism slides */
+.reveal .gp-slide .inclusion-intro {
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0 auto 0.8rem;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+
+.reveal .gp-scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0 auto;
+}
+
+.reveal .gp-scenario-card,
+.reveal .gp-check-card {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.reveal .gp-scenario-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.68em;
+}
+
+.reveal .gp-scenario-card p,
+.reveal .gp-check-card p {
+  margin: 0 0 0.45rem;
+  font-size: 0.45em;
+  line-height: 1.25;
+}
+
+.reveal .bad-response {
+  border-left: 6px solid #b00020;
+  padding-left: 0.45rem;
+}
+
+.reveal .good-response {
+  border-left: 6px solid #2e7d32;
+  padding-left: 0.45rem;
+}
+
+.reveal .gp-check-card {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.reveal .gp-check-options {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.reveal .gp-check-option {
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+  color: var(--black);
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.42em;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.reveal .gp-check-option:hover,
+.reveal .gp-check-option:focus {
+  outline: 4px solid var(--red);
+  outline-offset: 2px;
+}
+
+.reveal .gp-check-option.correct {
+  border-color: #2e7d32;
+  border-left-color: #2e7d32;
+  background: #e6f4ea;
+}
+
+.reveal .gp-check-option.incorrect {
+  border-color: #b00020;
+  border-left-color: #b00020;
+  background: #fdecea;
+}
+
+.reveal .gp-check-feedback {
+  margin-top: 0.55rem !important;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .reveal .gp-scenario-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.text-red {
+  color: var(--red);
+}

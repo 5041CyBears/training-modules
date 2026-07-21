@@ -361,6 +361,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initCategorySort(".inclusion-sort-slide");
   initScenario();
   initReviewChecklist();
+  initGPCheck();
+
 });
 
 Reveal.on("slidechanged", (event) => {
@@ -383,3 +385,30 @@ Reveal.on("slidechanged", (event) => {
     }, 0);
   }
 });
+
+function initGPCheck() {
+  document.querySelectorAll(".gp-check-slide").forEach((slide) => {
+    const buttons = slide.querySelectorAll(".gp-check-option");
+    const feedback = slide.querySelector(".gp-check-feedback");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((item) => {
+          item.classList.remove("correct", "incorrect");
+        });
+
+        const isCorrect = button.dataset.correct === "true";
+
+        if (isCorrect) {
+          button.classList.add("correct");
+          feedback.textContent =
+            "Correct. Gracious Professionalism means doing good work while helping others grow.";
+        } else {
+          button.classList.add("incorrect");
+          feedback.textContent =
+            "Not quite. Choose the response that teaches, respects the teammate, and keeps the work safe.";
+        }
+      });
+    });
+  });
+}
