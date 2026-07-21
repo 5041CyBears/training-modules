@@ -1,0 +1,363 @@
+/* 5041 Gearing and Gearboxes Training Module additions */
+.gear-hero h1,
+.gear-hero .cytitle {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.gear-slide h2,
+.gear-vertical h2,
+.gear-quiz h2 {
+  font-size: 1.45em;
+  margin-bottom: 0.45rem;
+}
+
+.gear-intro {
+  max-width: 1000px;
+  margin: 0 auto 0.65rem;
+  font-size: 0.58em;
+  line-height: 1.22;
+}
+
+.gear-grid-2,
+.gear-grid-3,
+.gear-grid-4,
+.gear-split,
+.gear-flow,
+.gear-table-wrap {
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0 auto;
+}
+
+.gear-grid-2,
+.gear-grid-3,
+.gear-grid-4 {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.gear-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gear-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gear-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gear-card,
+.scenario-choice,
+.ratio-answer-card {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.gear-card.dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.gear-card.dark h3,
+.gear-card.dark p,
+.gear-card.dark li {
+  color: var(--white);
+}
+
+.gear-card h3,
+.scenario-choice h3,
+.ratio-answer-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.72em;
+}
+
+.gear-card p,
+.scenario-choice p,
+.ratio-answer-card p {
+  margin: 0 0 0.35rem;
+  font-size: 0.45em;
+  line-height: 1.25;
+}
+
+.gear-card li {
+  font-size: 0.5em;
+  line-height: 1.22;
+  margin-bottom: 0.16rem;
+}
+
+.gear-card ul {
+  margin: 0.25rem 0 0;
+  padding-left: 0.85em;
+}
+
+.gear-callout {
+  max-width: 1000px;
+  margin: 0.8rem auto 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+}
+
+.gear-callout p {
+  margin: 0;
+  font-size: 0.56em;
+  line-height: 1.25;
+}
+
+.gear-flow {
+  display: grid;
+  grid-template-columns: 1fr 0.18fr 1fr 0.18fr 1fr 0.18fr 1fr;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.gear-flow.wide-flow {
+  grid-template-columns: 1fr 0.12fr 1fr 0.12fr 1fr 0.12fr 1fr 0.12fr 1fr;
+}
+
+.gear-node {
+  min-height: 92px;
+  background: var(--white);
+  border: 3px solid var(--black);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.45rem;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.48em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.red-node {
+  background: var(--red);
+  color: var(--white);
+}
+
+.gear-arrow {
+  text-align: center;
+  color: var(--red);
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.gear-split {
+  display: grid;
+  grid-template-columns: 46% 1fr;
+  gap: 0.8rem;
+  align-items: stretch;
+}
+
+.gear-split.reverse {
+  grid-template-columns: 1fr 46%;
+}
+
+.gear-img {
+  width: 100%;
+  height: 430px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 8px;
+  display: block;
+}
+
+.gear-list-large li {
+  font-size: 0.56em;
+  line-height: 1.24;
+}
+
+.formula {
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.56em !important;
+  color: var(--red);
+}
+
+.compact-cards .gear-card {
+  min-height: 135px;
+}
+
+.gear-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.gear-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.36em;
+  background: var(--white);
+}
+
+.gear-table th,
+.gear-table td {
+  border: 2px solid #cccccc;
+  padding: 0.34rem 0.4rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.gear-table th {
+  background: var(--black);
+  color: var(--white);
+}
+
+.gear-table tr:nth-child(even) td {
+  background: #f7f7f7;
+}
+
+/* Sort activity */
+.gear-sort-slide .sort-bank,
+.gear-sort-slide .sort-targets {
+  max-width: var(--shared-slide-width, 1120px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gear-sort-slide .sort-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.4rem;
+  background: var(--light);
+  border: 3px dashed var(--gray);
+  border-radius: 8px;
+  min-height: 86px;
+  max-height: 135px;
+  overflow-y: auto;
+}
+
+.gear-sort-slide .sort-chip {
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-radius: 7px;
+  padding: 0.28rem 0.42rem;
+  font-size: 0.36em;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #222222;
+  cursor: grab;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.gear-sort-slide .sort-chip.dragging {
+  opacity: 0.45;
+}
+
+.gear-sort-slide .sort-chip.correct {
+  border-color: #2e7d32;
+  background: #e6f4ea;
+}
+
+.gear-sort-slide .sort-chip.incorrect {
+  border-color: #b00020;
+  background: #fdecea;
+}
+
+.gear-sort-slide .sort-targets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+.gear-sort-slide .sort-zone {
+  min-height: 205px;
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.45rem;
+  overflow-y: auto;
+}
+
+.gear-sort-slide .sort-zone h3 {
+  font-size: 0.52em;
+  margin: 0 0 0.25rem;
+  text-align: center;
+}
+
+.gear-sort-slide .sort-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  min-height: 135px;
+}
+
+.gear-sort-slide .drag-over {
+  outline: 4px solid var(--red);
+  outline-offset: 2px;
+}
+
+.activity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.activity-feedback {
+  min-width: 240px;
+  margin: 0;
+  font-size: 0.46em;
+  font-weight: 700;
+}
+
+.hidden-answer {
+  opacity: 0.15;
+  filter: grayscale(1);
+}
+
+.scenario-choice {
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.52em;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.scenario-choice:hover,
+.scenario-choice:focus {
+  outline: 4px solid var(--red);
+}
+
+.scenario-feedback {
+  max-width: 1000px;
+  margin: 0.8rem auto 0;
+  font-size: 0.5em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.gear-card a {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.reveal .gear-card.dark {
+  background: var(--black) !important;
+  color: var(--white) !important;
+}
+
+@media (max-width: 900px) {
+  .gear-grid-3,
+  .gear-grid-4,
+  .gear-sort-slide .sort-targets {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gear-split,
+  .gear-split.reverse {
+    grid-template-columns: 1fr;
+  }
+}

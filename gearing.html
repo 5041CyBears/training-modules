@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>5041 Gearing and Gearboxes Training</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="gearing-additions.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-background-image="assets/5041teamlogo.png"
+          data-background-size="contain"
+          data-background-opacity="0.12"
+          class="center gear-hero"
+        >
+          <h1 class="cytitle">Gearing and Gearboxes Training Module</h1>
+        </section>
+
+        <section class="gear-slide">
+          <span class="tag">Module Goals</span>
+          <h2>By the end, students should be able to:</h2>
+          <div class="bar"></div>
+          <ul>
+            <li>Explain what gears and gearboxes do on an FRC robot.</li>
+            <li>Calculate simple and compound gear ratios.</li>
+            <li>Predict how gearing changes torque and angular velocity.</li>
+            <li>Compare spur, shifting, worm, right-angle, and planetary gearboxes.</li>
+            <li>Identify common FRC gearbox options from REV, AndyMark, and WCP.</li>
+            <li>Choose a gearbox type based on mechanism needs and packaging.</li>
+            <li>Describe the steps and checks for creating a custom gearbox.</li>
+          </ul>
+        </section>
+
+        <section>
+          <section class="gear-slide">
+            <span class="tag">Big Idea</span>
+            <h2>Gearing changes how motor motion reaches the mechanism</h2>
+            <div class="gear-flow">
+              <div class="gear-node">Motor</div>
+              <div class="gear-arrow">→</div>
+              <div class="gear-node red-node">Gears / Gearbox</div>
+              <div class="gear-arrow">→</div>
+              <div class="gear-node">Shaft</div>
+              <div class="gear-arrow">→</div>
+              <div class="gear-node">Mechanism</div>
+            </div>
+            <div class="gear-callout">
+              <p>
+                FRC mechanisms rarely use motor output directly. Gearboxes help convert a fast,
+                lower-torque motor output into the speed and torque a drivetrain, arm, intake,
+                shooter, elevator, or climber actually needs.
+              </p>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Power Transmission</span>
+            <h2>Gears are one way to move power through a robot</h2>
+            <div class="gear-grid-3">
+              <div class="gear-card">
+                <h3>Gears</h3>
+                <p>Compact, precise, and positive engagement. Great when shafts are close and alignment is controlled.</p>
+              </div>
+              <div class="gear-card">
+                <h3>Chain and Sprockets</h3>
+                <p>Good for longer distances, high loads, and mechanisms where some center distance flexibility helps.</p>
+              </div>
+              <div class="gear-card">
+                <h3>Belts and Pulleys</h3>
+                <p>Quiet, light, and smooth. Useful for rollers, shooters, and compact motion runs when tension is planned.</p>
+              </div>
+            </div>
+            <div class="gear-callout">
+              <p><strong>Design choice:</strong> Use gearing when you need a compact fixed relationship between shafts or a packaged gearbox solution.</p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="gear-vertical">
+            <span class="tag">Gear Vocabulary</span>
+            <h2>Know the words before calculating</h2>
+            <div class="gear-grid-4">
+              <div class="gear-card"><h3>Driver / Input</h3><p>The gear connected to the motor or previous stage.</p></div>
+              <div class="gear-card"><h3>Driven / Output</h3><p>The gear that receives motion and sends it to the mechanism.</p></div>
+              <div class="gear-card"><h3>Idler</h3><p>A middle gear that changes rotation direction but does not change the overall ratio.</p></div>
+              <div class="gear-card"><h3>Gear Ratio</h3><p>The relationship between input teeth and output teeth.</p></div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Simple Gear Trains</span>
+            <h2>Driver and driven gears set the ratio</h2>
+            <div class="gear-split">
+              <div class="gear-card">
+                <h3>Simple ratio</h3>
+                <p>Count teeth on the output gear and divide by teeth on the input gear.</p>
+                <p class="formula">Gear Ratio = Output Teeth ÷ Input Teeth</p>
+                <ul>
+                  <li>Small drives large: torque increases, speed decreases.</li>
+                  <li>Large drives small: speed increases, torque decreases.</li>
+                  <li>Same size gears: speed and torque stay about the same.</li>
+                </ul>
+              </div>
+              <img src="assets/gearing/gear-trains-p1.png" alt="Simple gear ratio example" class="gear-img" />
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Torque and Speed</span>
+            <h2>Gearing trades angular velocity for torque</h2>
+            <div class="gear-split reverse">
+              <img src="assets/gearing/gear-trains-p2.png" alt="Gear ratio torque and angular speed table" class="gear-img" />
+              <div class="gear-card">
+                <h3>What changes?</h3>
+                <ul class="gear-list-large">
+                  <li><strong>Ratio greater than 1:</strong> more torque, less speed.</li>
+                  <li><strong>Ratio equal to 1:</strong> no major change in torque or speed.</li>
+                  <li><strong>Ratio less than 1:</strong> more speed, less torque.</li>
+                </ul>
+                <p>FRC teams use this tradeoff constantly when tuning drivetrains, arms, shooters, climbers, and intakes.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Direction</span>
+            <h2>Meshed gears reverse rotation direction</h2>
+            <div class="gear-grid-3">
+              <div class="gear-card"><h3>Two Gears</h3><p>Input and output spin opposite directions.</p></div>
+              <div class="gear-card"><h3>Idler Gear</h3><p>A third gear flips the direction again but does not change the final gear ratio.</p></div>
+              <div class="gear-card"><h3>Why it matters</h3><p>Direction affects how arms, rollers, and drivetrain sides are controlled in code.</p></div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Compound Gear Trains</span>
+            <h2>Compound gears create larger reductions in less space</h2>
+            <div class="gear-split">
+              <div class="gear-card">
+                <h3>How it works</h3>
+                <p>One axle holds multiple gears, so the output of one stage drives the input of the next stage.</p>
+                <p class="formula">Total Ratio = Stage 1 Ratio × Stage 2 Ratio × ...</p>
+                <p>This lets teams get large reductions without one giant gear.</p>
+              </div>
+              <img src="assets/gearing/gear-trains-p3.png" alt="Compound gear train example" class="gear-img" />
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="gear-vertical">
+            <span class="tag">Gearboxes</span>
+            <h2>A gearbox packages gears, shafts, bearings, and mounting</h2>
+            <div class="gear-split reverse">
+              <img src="assets/gearbox.gif" alt="Animated gearbox example" class="gear-img" />
+              <div class="gear-card">
+                <h3>Why use a gearbox?</h3>
+                <ul>
+                  <li>Gets the mechanism to the right speed and torque.</li>
+                  <li>Supports shafts with bearings.</li>
+                  <li>Mounts motors cleanly.</li>
+                  <li>Keeps gear spacing accurate.</li>
+                  <li>Makes repair and replacement more repeatable.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Gearbox Types</span>
+            <h2>Use the simplest gearbox that meets the need</h2>
+            <div class="gear-table-wrap">
+              <table class="gear-table">
+                <thead><tr><th>Type</th><th>Best For</th><th>Main Advantage</th><th>Main Concern</th></tr></thead>
+                <tbody>
+                  <tr><td>Single-Speed Spur</td><td>Drivetrains, elevators, climbers</td><td>Simple and reliable</td><td>One fixed compromise</td></tr>
+                  <tr><td>Dual-Speed Shifting</td><td>Tank drives, speed + pushing</td><td>Switches ratios</td><td>More complexity</td></tr>
+                  <tr><td>Worm</td><td>Arms, wrists, rotating mechanisms</td><td>High reduction</td><td>Efficiency and heat</td></tr>
+                  <tr><td>Right-Angle</td><td>Swerve, tight packaging</td><td>Turns power 90°</td><td>Alignment sensitive</td></tr>
+                  <tr><td>Planetary</td><td>Arms, intakes, wrists, prototypes</td><td>Compact modular reduction</td><td>Shock and side loads</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="gear-vertical">
+            <span class="tag">Single-Speed Spur</span>
+            <h2>Strong, simple, and common in FRC</h2>
+            <div class="gear-split">
+              <div class="gear-card">
+                <h3>Use when...</h3>
+                <ul>
+                  <li>The mechanism only needs one speed range.</li>
+                  <li>Reliability matters more than shifting complexity.</li>
+                  <li>You can pick a ratio that balances speed, torque, current, and control.</li>
+                </ul>
+                <h3>FRC examples</h3>
+                <p>Tank drivetrains, elevators, arms, climbers, and simple custom reductions.</p>
+              </div>
+              <img src="assets/gearing/gearboxes-p2.png" alt="Single-speed spur gearbox notes" class="gear-img" />
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Dual-Speed Shifting</span>
+            <h2>Two ratios: one for speed, one for torque</h2>
+            <div class="gear-grid-2">
+              <div class="gear-card">
+                <h3>High Gear</h3>
+                <p>More speed, less torque. Useful for full-field sprinting when the robot has room to move.</p>
+              </div>
+              <div class="gear-card">
+                <h3>Low Gear</h3>
+                <p>More torque, less speed. Useful for acceleration, pushing, or reducing current during heavy load.</p>
+              </div>
+              <div class="gear-card dark">
+                <h3>Tradeoff</h3>
+                <p>Shifters add parts, controls, maintenance, and driver/code decisions.</p>
+              </div>
+              <div class="gear-card">
+                <h3>FRC examples</h3>
+                <p>AndyMark EVO Shifter and WCP dog-shifting gearboxes on tank drive robots.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Worm Gearboxes</span>
+            <h2>Compact high reduction with sliding friction</h2>
+            <div class="gear-split reverse">
+              <img src="assets/gearing/gearboxes-p4.png" alt="Worm gearbox notes" class="gear-img" />
+              <div class="gear-card">
+                <h3>Use when...</h3>
+                <ul>
+                  <li>You need high reduction at low speed.</li>
+                  <li>Right-angle packaging helps the design fit.</li>
+                  <li>Some back-drive resistance is useful.</li>
+                </ul>
+                <p><strong>Warning:</strong> Do not rely on back-drive resistance as the only safe way to hold a heavy mechanism.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Right-Angle Gearboxes</span>
+            <h2>Change the direction of power by 90 degrees</h2>
+            <div class="gear-split">
+              <div class="gear-card">
+                <h3>Common uses</h3>
+                <ul>
+                  <li>Swerve drive modules.</li>
+                  <li>Intakes or conveyors where the motor must mount sideways.</li>
+                  <li>Mechanisms where moving the motor protects it from impact.</li>
+                </ul>
+                <p>Bevel gear alignment and bearing support matter a lot.</p>
+              </div>
+              <img src="assets/gearing/gearboxes-p5.png" alt="Right-angle gearbox notes" class="gear-img" />
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Planetary Gearboxes</span>
+            <h2>Compact modular reduction for mechanisms</h2>
+            <div class="gear-split reverse">
+              <img src="assets/gearing/gearboxes-p6.png" alt="Planetary gearbox notes" class="gear-img" />
+              <div class="gear-card">
+                <h3>Why teams like them</h3>
+                <ul>
+                  <li>Compact for the amount of reduction.</li>
+                  <li>Easy to mount to many FRC motors.</li>
+                  <li>Ratios can often be swapped during prototyping.</li>
+                  <li>Useful for arms, wrists, intakes, conveyors, and light-to-medium climbers.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="gear-vertical">
+            <span class="tag">Common COTS Gearboxes</span>
+            <h2>Many FRC teams buy gearboxes instead of designing from scratch</h2>
+            <div class="gear-grid-3">
+              <div class="gear-card">
+                <h3>REV</h3>
+                <ul>
+                  <li>MAXPlanetary</li>
+                  <li>UltraPlanetary</li>
+                  <li>2 Motor Gearbox - Through Bore</li>
+                </ul>
+              </div>
+              <div class="gear-card">
+                <h3>AndyMark</h3>
+                <ul>
+                  <li>EVO Shifter</li>
+                  <li>Sport Gearbox</li>
+                  <li>RAW Box</li>
+                  <li>Flyer Overdrive Gearbox</li>
+                </ul>
+              </div>
+              <div class="gear-card">
+                <h3>WestCoast Products</h3>
+                <ul>
+                  <li>SS Flipped Gearbox</li>
+                  <li>Dog Shifter Gearboxes</li>
+                  <li>Rotation SS Gearbox</li>
+                  <li>Swerve modules and bevel gears</li>
+                </ul>
+              </div>
+            </div>
+            <div class="gear-callout">
+              <p><strong>Rule:</strong> COTS gearboxes save time, but teams must still check ratio, torque limits, motor compatibility, mounting, output support, and current draw.</p>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">REV Examples</span>
+            <h2>MAXPlanetary and UltraPlanetary are modular planetary systems</h2>
+            <div class="gear-grid-2">
+              <div class="gear-card">
+                <h3>MAXPlanetary</h3>
+                <p>Cartridge-based planetary gearbox for NEO-class and other common FRC motors. Useful when ratio iteration matters.</p>
+                <ul><li>Common reductions: 3:1, 4:1, 5:1, 9:1 cartridges.</li><li>Stages can be stacked for larger reductions.</li><li>Often used for arms, wrists, climbers, and manipulators.</li></ul>
+              </div>
+              <div class="gear-card">
+                <h3>UltraPlanetary</h3>
+                <p>Smaller cartridge-based system often paired with 550-class motors and smaller mechanisms.</p>
+                <ul><li>Good for prototypes and lighter-duty mechanisms.</li><li>Watch torque limits and shock loads.</li><li>Support outputs when side loads are present.</li></ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">AndyMark Examples</span>
+            <h2>AndyMark gearboxes cover drivetrain and mechanism needs</h2>
+            <div class="gear-grid-3">
+              <div class="gear-card"><h3>EVO Shifter</h3><p>A drivetrain shifter that lets teams choose high and low ratios.</p></div>
+              <div class="gear-card"><h3>Sport Gearbox</h3><p>A planetary gearbox family often used for FRC mechanisms that need compact reduction.</p></div>
+              <div class="gear-card"><h3>RAW Box</h3><p>A worm-style right-angle gearbox useful for compact high-reduction rotation.</p></div>
+              <div class="gear-card"><h3>Flyer Overdrive</h3><p>Designed so teams can configure output faster or slower than input for shooters or rollers.</p></div>
+              <div class="gear-card"><h3>ToughBox Style</h3><p>Historically common simple drivetrain gearbox layout.</p></div>
+              <div class="gear-card"><h3>When to choose</h3><p>Choose when a product matches your ratio, load, packaging, and motor needs.</p></div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">WCP Examples</span>
+            <h2>WCP products support drivetrains, swerve, and rotating mechanisms</h2>
+            <div class="gear-grid-3">
+              <div class="gear-card"><h3>SS Flipped Gearbox</h3><p>Compact fixed-ratio drive gearbox for West Coast Drive layouts.</p></div>
+              <div class="gear-card"><h3>Dog Shifter Gearboxes</h3><p>Multi-ratio drivetrain options when strategy justifies shifting.</p></div>
+              <div class="gear-card"><h3>Rotation SS</h3><p>Good fit for arms, turrets, and low-speed rotating mechanisms.</p></div>
+              <div class="gear-card"><h3>Swerve X / XS</h3><p>Uses precise gear reductions and bevel gears in a packaged swerve module.</p></div>
+              <div class="gear-card"><h3>Bevel Gears</h3><p>Common for right-angle power transfer in custom swerve and compact mechanisms.</p></div>
+              <div class="gear-card"><h3>When to choose</h3><p>Use when packaging, serviceability, and FRC-specific hardware support match your design.</p></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="gear-vertical">
+            <span class="tag">Choosing a Ratio</span>
+            <h2>Start with the mechanism job, not the motor</h2>
+            <div class="gear-grid-4 compact-cards">
+              <div class="gear-card"><h3>Drivetrain</h3><p>Balance top speed, acceleration, pushing, current, wheel size, and driver control.</p></div>
+              <div class="gear-card"><h3>Arm / Wrist</h3><p>Needs enough torque to move and hold against gravity without overheating.</p></div>
+              <div class="gear-card"><h3>Shooter</h3><p>Often needs high wheel speed, fast recovery, and consistent velocity control.</p></div>
+              <div class="gear-card"><h3>Intake</h3><p>Usually needs moderate speed, enough torque to avoid jams, and compliance.</p></div>
+              <div class="gear-card"><h3>Elevator</h3><p>Needs torque for lifting, speed for cycle time, and braking/holding strategy.</p></div>
+              <div class="gear-card"><h3>Climber</h3><p>Needs high torque, strong structure, controlled motion, and safe load holding.</p></div>
+              <div class="gear-card"><h3>Swerve Steering</h3><p>Needs precise direction control and enough torque to turn the module quickly.</p></div>
+              <div class="gear-card"><h3>Conveyor</h3><p>Needs enough speed to feed reliably without damaging game pieces.</p></div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Custom Gearbox Workflow</span>
+            <h2>Build the design from requirements to verification</h2>
+            <div class="gear-flow wide-flow">
+              <div class="gear-node">1. Define mechanism need</div>
+              <div class="gear-arrow">→</div>
+              <div class="gear-node">2. Estimate load and speed</div>
+              <div class="gear-arrow">→</div>
+              <div class="gear-node">3. Pick motor(s)</div>
+              <div class="gear-arrow">→</div>
+              <div class="gear-node">4. Calculate ratio</div>
+              <div class="gear-arrow">→</div>
+              <div class="gear-node red-node">5. CAD, build, test</div>
+            </div>
+            <div class="gear-callout"><p>Good custom gearboxes are designed around loads, spacing, support, assembly, maintenance, and testing—not just tooth counts.</p></div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Center Distance</span>
+            <h2>Gear spacing controls whether gears mesh correctly</h2>
+            <div class="gear-grid-2">
+              <div class="gear-card">
+                <h3>For 20 DP gears</h3>
+                <p class="formula">Pitch Diameter = Teeth ÷ DP</p>
+                <p class="formula">Center Distance = (PD1 + PD2) ÷ 2</p>
+                <p>Example: 20T and 60T 20DP gears: PDs are 1 in and 3 in, so center distance is 2 in.</p>
+              </div>
+              <div class="gear-card">
+                <h3>CAD practice</h3>
+                <ul>
+                  <li>Use layout sketches before making plates.</li>
+                  <li>Dimension pitch diameter circles, not just random centers.</li>
+                  <li>Fully define sketches and name important features.</li>
+                  <li>Leave room for bearings, spacers, collars, and fasteners.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Custom Gearbox Checklist</span>
+            <h2>A custom gearbox has more than just gears</h2>
+            <div class="gear-grid-3">
+              <div class="gear-card"><h3>Plates</h3><p>Rigid, accurately spaced side plates hold shafts and bearings in alignment.</p></div>
+              <div class="gear-card"><h3>Shafts</h3><p>Use the right shaft size, length, material, retaining method, and output interface.</p></div>
+              <div class="gear-card"><h3>Bearings</h3><p>Support shafts on both sides of loaded gears when possible.</p></div>
+              <div class="gear-card"><h3>Gear Mesh</h3><p>Correct pitch, tooth count, center distance, and profile must match.</p></div>
+              <div class="gear-card"><h3>Loads</h3><p>Plan for torque, side loads, shock loads, and stall current.</p></div>
+              <div class="gear-card"><h3>Service</h3><p>Design so students can inspect, lubricate, replace gears, and remove motors.</p></div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Common Mistakes</span>
+            <h2>Most gearbox problems start in the design stage</h2>
+            <div class="gear-grid-3">
+              <div class="gear-card"><h3>Too Fast</h3><p>The mechanism draws high current, accelerates poorly, or becomes hard to control.</p></div>
+              <div class="gear-card"><h3>No Shaft Support</h3><p>Output shafts bend, bearings loosen, gears wear, and planetary outputs fail.</p></div>
+              <div class="gear-card"><h3>Wrong Mesh</h3><p>Gears are noisy, bind, skip, or wear because the center distance is wrong.</p></div>
+              <div class="gear-card"><h3>Shock Loading</h3><p>Hard hits or sudden stops break teeth, stages, keys, or couplers.</p></div>
+              <div class="gear-card"><h3>No Maintenance Access</h3><p>Fast repairs become impossible because motors or shafts are trapped.</p></div>
+              <div class="gear-card"><h3>Ignoring Current</h3><p>Motors brown out, breakers trip, or controllers overheat during matches.</p></div>
+            </div>
+          </section>
+
+          <section class="gear-vertical">
+            <span class="tag">Maintenance</span>
+            <h2>Gearboxes need inspection before they fail</h2>
+            <div class="gear-grid-4 compact-cards">
+              <div class="gear-card"><h3>Listen</h3><p>New clicking, grinding, or whining means inspect immediately.</p></div>
+              <div class="gear-card"><h3>Feel</h3><p>Excess heat may mean friction, misalignment, overloading, or poor ratio.</p></div>
+              <div class="gear-card"><h3>Look</h3><p>Check loose bolts, worn teeth, metal dust, cracked plates, and shifting issues.</p></div>
+              <div class="gear-card"><h3>Test</h3><p>Run mechanisms under realistic load, not just free-spin tests on blocks.</p></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="gear-vertical gear-sort-slide">
+            <span class="tag">Check for Understanding</span>
+            <h2>Sort each gearbox choice</h2>
+            <div class="sort-bank">
+              <div class="sort-chip" draggable="true" data-answer="simple">Fixed drivetrain ratio</div>
+              <div class="sort-chip" draggable="true" data-answer="shifting">High gear and low gear</div>
+              <div class="sort-chip" draggable="true" data-answer="planetary">Stacked compact cartridges</div>
+              <div class="sort-chip" draggable="true" data-answer="rightAngle">Swerve bevel gear power turn</div>
+              <div class="sort-chip" draggable="true" data-answer="simple">WCP SS Flipped style drive box</div>
+              <div class="sort-chip" draggable="true" data-answer="planetary">REV MAXPlanetary for an arm</div>
+              <div class="sort-chip" draggable="true" data-answer="rightAngle">Motor must mount perpendicular</div>
+              <div class="sort-chip" draggable="true" data-answer="shifting">Dog gear locks one ratio</div>
+            </div>
+            <div class="sort-targets gear-sort-targets-4">
+              <div class="sort-zone" data-zone="simple"><h3>Single-Speed</h3><div class="sort-list"></div></div>
+              <div class="sort-zone" data-zone="shifting"><h3>Shifting</h3><div class="sort-list"></div></div>
+              <div class="sort-zone" data-zone="planetary"><h3>Planetary</h3><div class="sort-list"></div></div>
+              <div class="sort-zone" data-zone="rightAngle"><h3>Right-Angle</h3><div class="sort-list"></div></div>
+            </div>
+            <div class="activity-controls">
+              <button class="quiz-button check-sort" type="button">Check Answers</button>
+              <button class="quiz-button secondary reset-sort" type="button">Reset</button>
+              <p class="activity-feedback"></p>
+            </div>
+          </section>
+
+          <section class="gear-vertical ratio-practice-slide">
+            <span class="tag">Ratio Practice</span>
+            <h2>Calculate the ratio</h2>
+            <div class="gear-grid-2">
+              <div class="gear-card">
+                <h3>Problem</h3>
+                <p>A 12 tooth gear drives a 60 tooth gear.</p>
+                <p>What happens to torque and speed?</p>
+              </div>
+              <div class="gear-card ratio-answer-card hidden-answer" id="ratioAnswer">
+                <h3>Answer</h3>
+                <p class="formula">60 ÷ 12 = 5:1</p>
+                <p>Output torque is about 5× larger, and output speed is about 1/5 as fast before losses.</p>
+              </div>
+            </div>
+            <div class="activity-controls">
+              <button class="quiz-button" id="showRatioAnswer" type="button">Show Answer</button>
+              <button class="quiz-button secondary" id="hideRatioAnswer" type="button">Hide Answer</button>
+            </div>
+          </section>
+
+          <section class="gear-vertical scenario-slide">
+            <span class="tag">Design Scenario</span>
+            <h2>Pick the better direction</h2>
+            <div class="gear-grid-3">
+              <button class="scenario-choice" type="button" data-feedback="Good choice: an arm needs torque, control, and holding strategy. Start with reduction, test current, and use feedback.">Arm must lift heavy game pieces</button>
+              <button class="scenario-choice" type="button" data-feedback="Good choice: a shooter usually needs speed and velocity control. Watch recovery time and wheel inertia.">Shooter wheel is too slow</button>
+              <button class="scenario-choice" type="button" data-feedback="Good choice: jams often require torque, current limits, and compliant design, not just more speed.">Intake stalls on game pieces</button>
+            </div>
+            <p class="scenario-feedback">Click a mechanism to see what gearing direction you should consider.</p>
+          </section>
+        </section>
+
+        <section class="gear-vertical">
+          <span class="tag">Source Notes</span>
+          <h2>Resources used for this module</h2>
+          <div class="gear-grid-2">
+            <div class="gear-card">
+              <h3>Attached 5041 materials</h3>
+              <ul>
+                <li><a href="assets/pdfs/Gear-Trains.pdf" download>Simple Gear Trains PDF</a></li>
+                <li><a href="assets/pdfs/Gears-and-gearboxes.pdf" download>Gears and Gearboxes PDF</a></li>
+                <li>Existing 5041 training module layout, style, quiz, and certificate pattern.</li>
+              </ul>
+            </div>
+            <div class="gear-card">
+              <h3>Online FRC resources</h3>
+              <ul>
+                <li>FRCDesign.org Power Transmissions and Gear Basics.</li>
+                <li>REV Robotics gearbox documentation.</li>
+                <li>AndyMark gearbox product documentation.</li>
+                <li>WestCoast Products gearbox and swerve documentation.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="quiz-intro" class="center">
+          <span class="tag">Required Quiz</span>
+          <h2>Pass to complete the module</h2>
+          <p>Each question is on its own slide.</p>
+          <p class="small">Answer all 20 questions, then grade the quiz. Score at least 18 out of 20 to unlock the completion certificate.</p>
+          <div class="stripe"></div>
+        </section>
+
+        <section class="quiz-slide" id="quiz-name">
+          <span class="tag">Before You Begin</span>
+          <h2>Enter Your Name</h2>
+          <div class="quiz-card">
+            <p>Please enter your name before starting the quiz.</p>
+            <label class="name-entry-label" for="participantName">Name:</label>
+            <input id="participantName" class="name-entry-input" type="text" placeholder="First and last name" autocomplete="name" />
+            <p class="small">This name will appear on your completion certificate.</p>
+          </div>
+        </section>
+
+        <section>
+          <section class="quiz-slide gear-quiz" id="quiz-q1">
+            <span class="tag">Quiz Question 1</span>
+            <div class="progress-note">1 of 20</div>
+            <div class="quiz-card">
+              <p>What is the main job of gearing on an FRC robot?</p>
+              <label><input type="radio" name="q1" value="a" /> Only make mechanisms louder</label>
+              <label><input type="radio" name="q1" value="b" /> Change speed, torque, and direction of rotating motion</label>
+              <label><input type="radio" name="q1" value="c" /> Replace all sensors</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q2">
+            <span class="tag">Quiz Question 2</span>
+            <div class="progress-note">2 of 20</div>
+            <div class="quiz-card">
+              <p>The input gear is also called the:</p>
+              <label><input type="radio" name="q2" value="a" /> Driven gear</label>
+              <label><input type="radio" name="q2" value="b" /> Driver gear</label>
+              <label><input type="radio" name="q2" value="c" /> Idler-only gear</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q3">
+            <span class="tag">Quiz Question 3</span>
+            <div class="progress-note">3 of 20</div>
+            <div class="quiz-card">
+              <p>A 12 tooth gear drives a 60 tooth gear. What is the ratio?</p>
+              <label><input type="radio" name="q3" value="a" /> 5:1</label>
+              <label><input type="radio" name="q3" value="b" /> 1:5</label>
+              <label><input type="radio" name="q3" value="c" /> 1:1</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q4">
+            <span class="tag">Quiz Question 4</span>
+            <div class="progress-note">4 of 20</div>
+            <div class="quiz-card">
+              <p>When gear ratio is greater than 1, output torque usually:</p>
+              <label><input type="radio" name="q4" value="a" /> Gets bigger</label>
+              <label><input type="radio" name="q4" value="b" /> Gets smaller</label>
+              <label><input type="radio" name="q4" value="c" /> Disappears</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q5">
+            <span class="tag">Quiz Question 5</span>
+            <div class="progress-note">5 of 20</div>
+            <div class="quiz-card">
+              <p>When gear ratio is greater than 1, output angular speed usually:</p>
+              <label><input type="radio" name="q5" value="a" /> Gets bigger</label>
+              <label><input type="radio" name="q5" value="b" /> Gets smaller</label>
+              <label><input type="radio" name="q5" value="c" /> Stays infinite</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q6">
+            <span class="tag">Quiz Question 6</span>
+            <div class="progress-note">6 of 20</div>
+            <div class="quiz-card">
+              <p>What does an idler gear do in a simple gear train?</p>
+              <label><input type="radio" name="q6" value="a" /> Changes the final gear ratio by itself</label>
+              <label><input type="radio" name="q6" value="b" /> Changes direction without changing the final ratio</label>
+              <label><input type="radio" name="q6" value="c" /> Makes the motor illegal</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q7">
+            <span class="tag">Quiz Question 7</span>
+            <div class="progress-note">7 of 20</div>
+            <div class="quiz-card">
+              <p>How do you find total ratio in a compound gear train?</p>
+              <label><input type="radio" name="q7" value="a" /> Add all gear teeth together</label>
+              <label><input type="radio" name="q7" value="b" /> Multiply each stage ratio together</label>
+              <label><input type="radio" name="q7" value="c" /> Ignore every gear except idlers</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q8">
+            <span class="tag">Quiz Question 8</span>
+            <div class="progress-note">8 of 20</div>
+            <div class="quiz-card">
+              <p>Which mechanism usually needs a lot of gear reduction?</p>
+              <label><input type="radio" name="q8" value="a" /> Heavy arm lifting game pieces</label>
+              <label><input type="radio" name="q8" value="b" /> Decorative LED strip</label>
+              <label><input type="radio" name="q8" value="c" /> Laptop charger</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q9">
+            <span class="tag">Quiz Question 9</span>
+            <div class="progress-note">9 of 20</div>
+            <div class="quiz-card">
+              <p>A single-speed spur gearbox is best described as:</p>
+              <label><input type="radio" name="q9" value="a" /> A gearbox with one fixed ratio</label>
+              <label><input type="radio" name="q9" value="b" /> A gearbox with no gears</label>
+              <label><input type="radio" name="q9" value="c" /> A software-only transmission</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q10">
+            <span class="tag">Quiz Question 10</span>
+            <div class="progress-note">10 of 20</div>
+            <div class="quiz-card">
+              <p>What is the main advantage of a shifting gearbox?</p>
+              <label><input type="radio" name="q10" value="a" /> It switches between different ratios</label>
+              <label><input type="radio" name="q10" value="b" /> It removes the need for drivers</label>
+              <label><input type="radio" name="q10" value="c" /> It prevents all robot repairs</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q11">
+            <span class="tag">Quiz Question 11</span>
+            <div class="progress-note">11 of 20</div>
+            <div class="quiz-card">
+              <p>Low gear in a shifting drivetrain usually gives:</p>
+              <label><input type="radio" name="q11" value="a" /> More torque and less speed</label>
+              <label><input type="radio" name="q11" value="b" /> Less torque and more speed</label>
+              <label><input type="radio" name="q11" value="c" /> No movement</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q12">
+            <span class="tag">Quiz Question 12</span>
+            <div class="progress-note">12 of 20</div>
+            <div class="quiz-card">
+              <p>A worm gearbox is often chosen for:</p>
+              <label><input type="radio" name="q12" value="a" /> High-speed flywheels only</label>
+              <label><input type="radio" name="q12" value="b" /> Low-speed high-reduction rotation</label>
+              <label><input type="radio" name="q12" value="c" /> Replacing the battery</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q13">
+            <span class="tag">Quiz Question 13</span>
+            <div class="progress-note">13 of 20</div>
+            <div class="quiz-card">
+              <p>A right-angle gearbox changes power direction by about:</p>
+              <label><input type="radio" name="q13" value="a" /> 90 degrees</label>
+              <label><input type="radio" name="q13" value="b" /> 1 degree</label>
+              <label><input type="radio" name="q13" value="c" /> 720 degrees</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q14">
+            <span class="tag">Quiz Question 14</span>
+            <div class="progress-note">14 of 20</div>
+            <div class="quiz-card">
+              <p>Planetary gearboxes are commonly useful because they are:</p>
+              <label><input type="radio" name="q14" value="a" /> Compact and modular</label>
+              <label><input type="radio" name="q14" value="b" /> Always immune to shock loads</label>
+              <label><input type="radio" name="q14" value="c" /> Only decorative</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q15">
+            <span class="tag">Quiz Question 15</span>
+            <div class="progress-note">15 of 20</div>
+            <div class="quiz-card">
+              <p>Which is an example of a REV planetary gearbox system?</p>
+              <label><input type="radio" name="q15" value="a" /> MAXPlanetary</label>
+              <label><input type="radio" name="q15" value="b" /> Main breaker</label>
+              <label><input type="radio" name="q15" value="c" /> RSL light</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q16">
+            <span class="tag">Quiz Question 16</span>
+            <div class="progress-note">16 of 20</div>
+            <div class="quiz-card">
+              <p>Which is an example of an AndyMark shifting gearbox?</p>
+              <label><input type="radio" name="q16" value="a" /> EVO Shifter</label>
+              <label><input type="radio" name="q16" value="b" /> Ethernet switch</label>
+              <label><input type="radio" name="q16" value="c" /> Battery spill kit</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q17">
+            <span class="tag">Quiz Question 17</span>
+            <div class="progress-note">17 of 20</div>
+            <div class="quiz-card">
+              <p>Why are bevel gears common in swerve modules?</p>
+              <label><input type="radio" name="q17" value="a" /> They can transfer power between angled shafts</label>
+              <label><input type="radio" name="q17" value="b" /> They store electrical code</label>
+              <label><input type="radio" name="q17" value="c" /> They are used only for bumpers</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q18">
+            <span class="tag">Quiz Question 18</span>
+            <div class="progress-note">18 of 20</div>
+            <div class="quiz-card">
+              <p>When designing a custom gearbox, shaft support should be:</p>
+              <label><input type="radio" name="q18" value="a" /> Ignored if the CAD looks nice</label>
+              <label><input type="radio" name="q18" value="b" /> Planned with bearings and load direction in mind</label>
+              <label><input type="radio" name="q18" value="c" /> Replaced with tape</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q19">
+            <span class="tag">Quiz Question 19</span>
+            <div class="progress-note">19 of 20</div>
+            <div class="quiz-card">
+              <p>For two 20 DP gears, pitch diameter is:</p>
+              <label><input type="radio" name="q19" value="a" /> Teeth divided by DP</label>
+              <label><input type="radio" name="q19" value="b" /> DP divided by battery voltage</label>
+              <label><input type="radio" name="q19" value="c" /> Robot weight divided by wheel color</label>
+            </div>
+          </section>
+
+          <section class="quiz-slide gear-quiz" id="quiz-q20">
+            <span class="tag">Quiz Question 20</span>
+            <div class="progress-note">20 of 20</div>
+            <div class="quiz-card">
+              <p>What is the best overall approach to gearbox selection?</p>
+              <label><input type="radio" name="q20" value="a" /> Use the strongest-looking gearbox without calculations</label>
+              <label><input type="radio" name="q20" value="b" /> Match mechanism needs, ratio, load, packaging, motor, and service access</label>
+              <label><input type="radio" name="q20" value="c" /> Always use the fastest ratio possible</label>
+            </div>
+          </section>
+        </section>
+
+        <section id="quiz-results" class="center">
+          <span class="tag">Quiz Results</span>
+          <h2>Grade the quiz</h2>
+          <p class="small">You need at least 18 out of 20 to unlock the completion certificate.</p>
+          <div class="quiz-actions">
+            <button class="quiz-button" id="gradeQuiz" type="button">Grade Quiz</button>
+            <button class="quiz-button secondary" id="resetQuiz" type="button">Reset</button>
+          </div>
+          <p class="result" id="quizResult">Not submitted.</p>
+          <p class="small" id="quizHint">After passing, advance to the final completion certificate.</p>
+        </section>
+
+        <section id="complete" class="center certificate-slide locked">
+          <div class="certificate-card">
+            <div class="certificate-border">
+              <p class="certificate-small">5041 CyBear Robotics</p>
+              <h2>Certificate of Completion</h2>
+              <p class="certificate-text">Presented to</p>
+              <div id="certificateName" class="certificate-name">Student Name</div>
+              <p class="certificate-text">for successfully completing the</p>
+              <h3>Gearing and Gearboxes Training Module</h3>
+              <p id="completionNote" class="certificate-score">Complete after passing the required quiz.</p>
+              <div class="certificate-line"></div>
+              <p class="certificate-footer">Training complete after earning a passing quiz score.</p>
+              <div class="certificate-actions">
+                <button id="downloadCertificate" class="quiz-button certificate-download" type="button">Download Certificate PDF</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="gearing.js"></script>
+  </body>
+</html>
