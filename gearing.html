@@ -58,13 +58,6 @@
               <div class="gear-arrow">→</div>
               <div class="gear-node">Mechanism</div>
             </div>
-            <div class="gear-callout">
-              <p>
-                FRC mechanisms rarely use motor output directly. Gearboxes help convert a fast,
-                lower-torque motor output into the speed and torque a drivetrain, arm, intake,
-                shooter, elevator, or climber actually needs.
-              </p>
-            </div>
           </section>
 
           <section class="gear-vertical">
@@ -90,33 +83,50 @@
           </section>
         </section>
 
-        <section>
+        
           <section class="gear-vertical">
             <span class="tag">Gear Vocabulary</span>
             <div class="gear-grid-4">
-              <div class="gear-card"><h3>Driver / Input</h3><p>The gear connected to the motor or previous stage.</p></div>
-              <div class="gear-card"><h3>Driven / Output</h3><p>The gear that receives motion and sends it to the mechanism.</p></div>
+              <div class="gear-card"><h3>Driver/Input</h3><p>The gear connected to the motor or previous stage.</p></div>
+              <div class="gear-card"><h3>Driven/Output</h3><p>The gear that receives motion and sends it to the mechanism.</p></div>
               <div class="gear-card"><h3>Idler</h3><p>A middle gear that changes rotation direction but does not change the overall ratio.</p></div>
               <div class="gear-card"><h3>Gear Ratio</h3><p>The relationship between input teeth and output teeth.</p></div>
             </div>
+            <br>
+            <div class="gear-grid-2">
+              <div class="gear-card"><h3>Torque</h3><p>The force of rotation. Usually measured in N-m (Newton-Meters) or lb-ft (Pound-Foot).</p></div>
+              <div class="gear-card"><h3>Angular Velocity</h3><p>The velocity of rotation. Usually measured in RPM (revolutions per minute).</p></div>
+            </div>
+          </section>
+
+<section>
+
+ <section class="gear-vertical">
+            <span class="tag">How Gear Trains Affect Motion</span>
+            <h2>Gears can change the direction of motion, the output velocity, and the output torque.</h2>
+            <img src="assets/gearing/gear-boxes.png" alt="Gearboxes"/>
+          </section>
+
+  <section class="gear-vertical">
+            <span class="tag">Direction</span>
+            <h2>Gears can change the direction of motion</h2>
+            <div class="gear-grid-2">
+              <div class="gear-card"><h3>2 Gears</h3><p>Input and output spin opposite directions.</p></div>
+              <div class="gear-card"><h3>3 Gears (Idler Gear in middle)</h3><p>Input and output spin the same directions.</p></div>
+            </div>
+            <img src="assets/gearing/directions.png" alt="Directions"/>
           </section>
 
           <section class="gear-vertical">
-            <span class="tag">Simple Gear Trains</span>
-            <h2>Driver and driven gears set the ratio</h2>
-            <div class="gear-split">
+            <span class="tag">Gear Ratios</span>
               <div class="gear-card">
-                <h3>Simple ratio</h3>
-                <p>Count teeth on the output gear and divide by teeth on the input gear.</p>
-                <p class="formula">Gear Ratio = Output Teeth ÷ Input Teeth</p>
-                <ul>
-                  <li>Small drives large: torque increases, speed decreases.</li>
-                  <li>Large drives small: speed increases, torque decreases.</li>
-                  <li>Same size gears: speed and torque stay about the same.</li>
-                </ul>
+                <p>Simple gear trains have ratios based on the count of teeth on the output gear divided by teeth on the input gear. 
+                  That ratio determines how the the gears affect output torque and velocity.</p>
               </div>
-              <img src="assets/gearing/gear-trains-p1.png" alt="Simple gear ratio example" class="gear-img" />
-            </div>
+              <img src="assets/gearing/Simple-Train.png" alt="Simple gear ratio example"/>
+              <div class="gear-card">
+                <p class="formulabig">Gear Ratio = Output Teeth ÷ Input Teeth</p>
+              </div>
           </section>
 
           <section class="gear-vertical">
@@ -133,16 +143,6 @@
                 </ul>
                 <p>FRC teams use this tradeoff constantly when tuning drivetrains, arms, shooters, climbers, and intakes.</p>
               </div>
-            </div>
-          </section>
-
-          <section class="gear-vertical">
-            <span class="tag">Direction</span>
-            <h2>Meshed gears reverse rotation direction</h2>
-            <div class="gear-grid-3">
-              <div class="gear-card"><h3>Two Gears</h3><p>Input and output spin opposite directions.</p></div>
-              <div class="gear-card"><h3>Idler Gear</h3><p>A third gear flips the direction again but does not change the final gear ratio.</p></div>
-              <div class="gear-card"><h3>Why it matters</h3><p>Direction affects how arms, rollers, and drivetrain sides are controlled in code.</p></div>
             </div>
           </section>
 

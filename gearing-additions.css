@@ -182,6 +182,14 @@
   color: var(--red);
 }
 
+.formulabig {
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.5em !important;
+  color: var(--red);
+  text-align: center;
+}
+
 .compact-cards .gear-card {
   min-height: 135px;
 }
