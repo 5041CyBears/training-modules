@@ -120,45 +120,57 @@
           <section class="gear-vertical">
             <span class="tag">Gear Ratios</span>
               <div class="gear-card">
-                <p>Simple gear trains have ratios based on the count of teeth on the output gear divided by teeth on the input gear. 
+                <p>Simple gear trains have ratios based on the count of teeth of the output gear divided by teeth of the input gear. 
                   That ratio determines how the the gears affect output torque and velocity.</p>
               </div>
-              <img src="assets/gearing/Simple-Train.png" alt="Simple gear ratio example"/>
+              <img class="img-gears" src="assets/gearing/Simple-Train.png" alt="Simple gear ratio example"/>
               <div class="gear-card">
                 <p class="formulabig">Gear Ratio = Output Teeth ÷ Input Teeth</p>
               </div>
           </section>
+         
+          <section class="gear-vertical">
+            <span class="tag">Idlers and Gear Ratios</span>
+            <h2>Only Input and Output Count</h2>
+              <div class="gear-card">
+                <p>Simple gear train ratios are only deteremined by the output and input gears. The only thing idler gears can do is reverse the direction.</p>
+              </div>
+              <img class="img-gears-2" src="assets/gearing/direction-change.png" alt="Direction change"/>
+          </section>
 
           <section class="gear-vertical">
-            <span class="tag">Torque and Speed</span>
-            <h2>Gearing trades angular velocity for torque</h2>
+            <span class="tag">Torque and Angular Velocity</span>
+            <h2>Gearing trades angular velocity and torque</h2>
             <div class="gear-split reverse">
-              <img src="assets/gearing/gear-trains-p2.png" alt="Gear ratio torque and angular speed table" class="gear-img" />
+              <img src="assets/gearing/trade-off.png" alt="Gear ratio torque and angular velocity trade off" class="gear-img" />
               <div class="gear-card">
-                <h3>What changes?</h3>
+                <h3>Gearing Ratio Outputs</h3>
                 <ul class="gear-list-large">
                   <li><strong>Ratio greater than 1:</strong> more torque, less speed.</li>
                   <li><strong>Ratio equal to 1:</strong> no major change in torque or speed.</li>
                   <li><strong>Ratio less than 1:</strong> more speed, less torque.</li>
                 </ul>
                 <p>FRC teams use this tradeoff constantly when tuning drivetrains, arms, shooters, climbers, and intakes.</p>
-              </div>
+                </div>
+
             </div>
           </section>
 
-          <section class="gear-vertical">
-            <span class="tag">Compound Gear Trains</span>
-            <h2>Compound gears create larger reductions in less space</h2>
-            <div class="gear-split">
+<section class="gear-vertical">
+            <span class="tag">Compound Gears</span>
               <div class="gear-card">
-                <h3>How it works</h3>
-                <p>One axle holds multiple gears, so the output of one stage drives the input of the next stage.</p>
-                <p class="formula">Total Ratio = Stage 1 Ratio × Stage 2 Ratio × ...</p>
-                <p>This lets teams get large reductions without one giant gear.</p>
+                <p>Compound gears allow you to create much larger gear ratios without needing huge gears. 
+                  In a compound gear <span class="text-red">one axle holds multiple gears</span>, so the output of one stage drives the input of the next stage. 
+                  This can be repeated more than once.</p>
               </div>
-              <img src="assets/gearing/gear-trains-p3.png" alt="Compound gear train example" class="gear-img" />
-            </div>
+              <img class="img-gears-2" src="assets/gearing/compound-example.png" alt="Simple gear ratio example"/>
+              <div class="gear-card">
+                <p class="formulabig-2">Total Ratio = Gear Ratio 1 × Gear Ratio 2 ×...</p>
+              </div>
           </section>
+         
+
+    
         </section>
 
         <section>

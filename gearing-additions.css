@@ -38,6 +38,7 @@
 
 .gear-grid-2 {
   grid-template-columns: repeat(2, 1fr);
+  align-items: start;
 }
 
 .gear-grid-3 {
@@ -56,6 +57,7 @@
   border-radius: 8px;
   padding: 0.75rem 0.85rem;
   text-align: left;
+  height: fit-content
 }
 
 .gear-card.dark {
@@ -186,6 +188,14 @@
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 700;
   font-size: 1.5em !important;
+  color: var(--red);
+  text-align: center;
+}
+
+.formulabig-2 {
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.25em !important;
   color: var(--red);
   text-align: center;
 }
@@ -368,4 +378,36 @@
   .gear-split.reverse {
     grid-template-columns: 1fr;
   }
+}
+
+.reveal img.img-gears {
+  width: 75%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal img.img-gears-2 {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.reveal .symbol-key p {
+  font-size: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal .symbol-key .torque-line {
+  color: #701F28;
+}
+
+.text-red {
+  color: var(--red);
 }
