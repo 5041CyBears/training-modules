@@ -17,14 +17,14 @@ const gearingCorrectAnswers = {
   q4: "a",
   q5: "b",
   q6: "b",
-  q7: "b",
+  q7: "c",
   q8: "a",
   q9: "a",
-  q10: "a",
+  q10: "c",
   q11: "a",
   q12: "b",
   q13: "a",
-  q14: "a",
+  q14: "c",
   q15: "a",
   q16: "a",
   q17: "a",
@@ -351,4 +351,283 @@ document.addEventListener("DOMContentLoaded", () => {
   initCategorySort(".gear-sort-slide");
   initRatioPractice();
   initScenarios();
+  initGearLab();
+  initCustomGearboxTermMatch();
 });
+
+function initGearLab() {
+  const bank = document.getElementById("gearBank");
+  const slots = [...document.querySelectorAll(".gear-lab-slide .axle-slot")];
+  const rpmInput = document.getElementById("gearInputRpm");
+  const torqueInput = document.getElementById("gearInputTorque");
+  const result = document.getElementById("gearTrainResult");
+  const reset = document.getElementById("resetGearLab");
+
+  if (!bank || !slots.length || !rpmInput || !torqueInput || !result) return;
+
+  let dragged = null;
+  const angles = new Map();
+
+  function makeDraggable(gear) {
+    gear.addEventListener("dragstart", () => {
+      dragged = gear;
+      gear.classList.add("dragging");
+    });
+
+    gear.addEventListener("dragend", () => {
+      gear.classList.remove("dragging");
+      dragged = null;
+    });
+  }
+
+  document.querySelectorAll(".gear-token").forEach(makeDraggable);
+
+  [...slots, bank].forEach((target) => {
+    target.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      target.classList.add("drag-over");
+    });
+
+    target.addEventListener("dragleave", () => {
+      target.classList.remove("drag-over");
+    });
+
+    target.addEventListener("drop", (event) => {
+      event.preventDefault();
+      target.classList.remove("drag-over");
+
+      if (!dragged) return;
+
+      if (target.classList.contains("axle-slot")) {
+        const dropZone = target.querySelector(".axle-drop-zone");
+        const existing = dropZone.querySelector(".gear-token");
+
+        if (existing && existing !== dragged) {
+          bank.appendChild(existing);
+        }
+
+        dropZone.appendChild(dragged);
+      } else {
+        bank.appendChild(dragged);
+      }
+
+      updateGearMath();
+    });
+  });
+
+  function getGearInSlot(index) {
+    return slots[index].querySelector(".gear-token");
+  }
+
+  function updateGearMath() {
+    const inputRpm = Number(rpmInput.value) || 0;
+    const inputTorque = Number(torqueInput.value) || 0;
+    const gears = slots.map((_, index) => getGearInSlot(index));
+
+    const values = gears.map(() => null);
+
+    if (gears[0]) {
+      values[0] = {
+        rpm: inputRpm,
+        torque: inputTorque,
+        direction: 1
+      };
+    }
+
+    for (let i = 1; i < gears.length; i++) {
+      if (!gears[i - 1] || !gears[i] || !values[i - 1]) break;
+
+      const driverTeeth = Number(gears[i - 1].dataset.teeth);
+      const drivenTeeth = Number(gears[i].dataset.teeth);
+
+      values[i] = {
+        rpm: -values[i - 1].rpm * (driverTeeth / drivenTeeth),
+        torque: values[i - 1].torque * (drivenTeeth / driverTeeth),
+        direction: -values[i - 1].direction
+      };
+    }
+
+    slots.forEach((slot, index) => {
+      const readout = slot.querySelector(".axle-readout");
+      const gear = gears[index];
+
+      if (!gear) {
+        readout.textContent = "Drop gear here";
+        return;
+      }
+
+      if (!values[index]) {
+        readout.textContent = `${gear.dataset.teeth} teeth | not connected`;
+        return;
+      }
+
+      const direction = values[index].rpm >= 0 ? "CW" : "CCW";
+
+      readout.textContent =
+        `${gear.dataset.teeth} teeth | ${Math.abs(values[index].rpm).toFixed(1)} RPM | ${values[index].torque.toFixed(2)} N·m | ${direction}`;
+    });
+
+    if (values[2]) {
+      result.textContent =
+        `Output: ${Math.abs(values[2].rpm).toFixed(1)} RPM and ${values[2].torque.toFixed(2)} N·m. Larger output gears increase torque and reduce speed; smaller output gears increase speed and reduce torque.`;
+    } else {
+      result.textContent =
+        "Add connected gears from the input axle to the output axle to see the final speed and torque.";
+    }
+
+    return values;
+  }
+
+  function animateGears(timeNow) {
+    if (!animateGears.lastTime) animateGears.lastTime = timeNow;
+
+    const dt = (timeNow - animateGears.lastTime) / 1000;
+    animateGears.lastTime = timeNow;
+
+    const values = updateGearMath();
+
+    slots.forEach((slot, index) => {
+      const gear = getGearInSlot(index);
+      if (!gear || !values[index]) return;
+
+      const current = angles.get(gear) || 0;
+      const next = current + values[index].rpm * 6 * dt;
+
+      angles.set(gear, next);
+      gear.style.transform = `rotate(${next}deg)`;
+    });
+
+    requestAnimationFrame(animateGears);
+  }
+
+  rpmInput.addEventListener("input", updateGearMath);
+  torqueInput.addEventListener("input", updateGearMath);
+
+  if (reset) {
+    reset.addEventListener("click", () => {
+      document.querySelectorAll(".gear-token").forEach((gear) => {
+        gear.style.transform = "";
+        bank.appendChild(gear);
+      });
+
+      updateGearMath();
+    });
+  }
+
+  updateGearMath();
+  requestAnimationFrame(animateGears);
+}
+
+function initGearboxSort() {
+  const slide = document.querySelector(".gearbox-sort-slide");
+  if (!slide) return;
+
+  const bank = slide.querySelector(".gearbox-sort-bank");
+  const chips = slide.querySelectorAll(".gearbox-sort-chip");
+  const zones = slide.querySelectorAll(".gearbox-sort-zone");
+  const check = slide.querySelector(".check-gearbox-sort");
+  const reset = slide.querySelector(".reset-gearbox-sort");
+  const feedback = slide.querySelector(".gearbox-sort-feedback");
+  let dragged = null;
+
+  chips.forEach((chip) => {
+    chip.addEventListener("dragstart", () => dragged = chip);
+    chip.addEventListener("dragend", () => dragged = null);
+  });
+
+  [...zones, bank].forEach((area) => {
+    area.addEventListener("dragover", (e) => e.preventDefault());
+    area.addEventListener("drop", (e) => {
+      e.preventDefault();
+      if (!dragged) return;
+
+      if (area.classList.contains("gearbox-sort-zone")) {
+        area.querySelector(".gearbox-sort-list").appendChild(dragged);
+      } else {
+        bank.appendChild(dragged);
+      }
+    });
+  });
+
+  check.addEventListener("click", () => {
+    let correct = 0;
+    let total = chips.length;
+
+    zones.forEach((zone) => {
+      const zoneName = zone.dataset.zone;
+      zone.querySelectorAll(".gearbox-sort-chip").forEach((chip) => {
+        if (chip.dataset.answer === zoneName) correct++;
+      });
+    });
+
+    feedback.textContent = `${correct}/${total} correct.`;
+  });
+
+  reset.addEventListener("click", () => {
+    chips.forEach((chip) => bank.appendChild(chip));
+    feedback.textContent = "";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initGearboxSort();
+});
+
+function initCustomGearboxTermMatch() {
+  const slide = document.querySelector(".custom-gear-match-slide");
+  if (!slide) return;
+
+  const bank = slide.querySelector(".custom-gear-match-bank");
+  const chips = slide.querySelectorAll(".custom-gear-match-chip");
+  const zones = slide.querySelectorAll(".custom-gear-match-zone");
+  const check = slide.querySelector(".check-custom-gear-match");
+  const reset = slide.querySelector(".reset-custom-gear-match");
+  const feedback = slide.querySelector(".custom-gear-match-feedback");
+  let dragged = null;
+
+  chips.forEach((chip) => {
+    chip.addEventListener("dragstart", () => dragged = chip);
+    chip.addEventListener("dragend", () => dragged = null);
+  });
+
+  [...zones, bank].forEach((area) => {
+    area.addEventListener("dragover", (event) => event.preventDefault());
+
+    area.addEventListener("drop", (event) => {
+      event.preventDefault();
+      if (!dragged) return;
+
+      if (area.classList.contains("custom-gear-match-zone")) {
+        const drop = area.querySelector(".custom-gear-match-drop");
+        const existing = drop.querySelector(".custom-gear-match-chip");
+
+        if (existing && existing !== dragged) {
+          bank.appendChild(existing);
+        }
+
+        drop.appendChild(dragged);
+      } else {
+        bank.appendChild(dragged);
+      }
+    });
+  });
+
+  check.addEventListener("click", () => {
+    let correct = 0;
+
+    zones.forEach((zone) => {
+      const chip = zone.querySelector(".custom-gear-match-chip");
+
+      if (chip && chip.dataset.match === zone.dataset.zone) {
+        correct++;
+      }
+    });
+
+    feedback.textContent = `${correct}/${chips.length} correct.`;
+  });
+
+  reset.addEventListener("click", () => {
+    chips.forEach((chip) => bank.appendChild(chip));
+    feedback.textContent = "";
+  });
+}
