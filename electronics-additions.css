@@ -58,6 +58,7 @@
   border-radius: 8px;
   padding: 0.75rem 0.85rem;
   text-align: left;
+  margin-bottom: 0.1em;
 }
 
 .elec-card.dark,
@@ -1751,4 +1752,8 @@
   .wd-layout
 ) {
   max-width: var(--shared-slide-width);
+}
+
+.margin-bottom-small {
+  margin-bottom: 0.65rem;
 }

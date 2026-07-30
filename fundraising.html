@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>5041 Fundraising and Sponsor Engagement Training</title>
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="fundraising-additions.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-background-image="assets/5041teamlogo.png"
+          data-background-size="contain"
+          data-background-opacity="0.10"
+          class="center fundraising-hero"
+        >
+          <h1 class="cytitle">Fundraising & Sponsor Engagement</h1>
+        </section>
+
+        <section class="fundraising-slide">
+          <span class="tag">Module Goals</span>
+          <h2>By the end, students should be able to:</h2>
+          <div class="bar"></div>
+          <ul>
+            <li>Explain why fundraising is part of team sustainability, not just “asking for money.”</li>
+            <li>Describe how students can engage in sponsor conversations with confidence and professionalism.</li>
+            <li>Use a simple structure for making an ask, telling the 5041 story, and following up.</li>
+            <li>Apply general sales skills to campaigns such as Honey Den candy sales.</li>
+            <li>Understand why outreach, recruitment, and fundraising can happen together at community events.</li>
+            <li>Choose a meaningful fundraising role that fits their strengths and helps the team.</li>
+          </ul>
+        </section>
+
+        <section>
+          <section class="fundraising-vertical">
+            <span class="tag">Why It Matters</span>
+            <h2>Fundraising keeps the program open, prepared, and growing</h2>
+            <div class="fundraising-grid-3">
+              <div class="fundraising-card">
+                <h3>Access</h3>
+                <p>Fundraising helps reduce barriers so students can participate in robotics without every cost falling on families.</p>
+              </div>
+              <div class="fundraising-card">
+                <h3>Capability</h3>
+                <p>Money becomes robot parts, tools, registration, travel, outreach supplies, and learning opportunities.</p>
+              </div>
+              <div class="fundraising-card">
+                <h3>Sustainability</h3>
+                <p>Strong support lets the team plan beyond one season and invest in future students.</p>
+              </div>
+            </div>
+            <div class="fundraising-callout">
+              <p><strong>Key idea:</strong> Students are not just raising money. They are building trust with the community.</p>
+            </div>
+          </section>
+
+          <section class="fundraising-vertical">
+            <span class="tag">FIRST Resources</span>
+            <h2>Good fundraising has a plan, an ask, and a thank you</h2>
+            <div class="fundraising-grid-4 compact-cards">
+              <div class="fundraising-card"><h3>Budget</h3><p>Know what the team needs before asking for support.</p></div>
+              <div class="fundraising-card"><h3>Map Resources</h3><p>Identify businesses, families, alumni, partners, and community groups.</p></div>
+              <div class="fundraising-card"><h3>Make the Ask</h3><p>Connect a clear need to a clear impact.</p></div>
+              <div class="fundraising-card"><h3>Say Thanks</h3><p>Follow up so sponsors know their support mattered.</p></div>
+            </div>
+            <div class="fundraising-resource-links">
+              <a href="https://www.firstinspires.org/resources/library/fundraising-toolkit" target="_blank" rel="noopener">FIRST Fundraising Toolkit</a>
+              <a href="https://www.firstinspires.org/resources/library/frc/team-management-resources" target="_blank" rel="noopener">FRC Team Management Resources</a>
+              <a href="https://www.firstinspires.org/resources/library/brand-marketing-downloads" target="_blank" rel="noopener">FIRST Marketing Resources</a>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="fundraising-vertical">
+            <span class="tag">Student Engagement</span>
+            <h2>Every student can help fundraising succeed</h2>
+            <div class="fundraising-grid-3">
+              <div class="fundraising-card"><h3>Storytellers</h3><p>Explain what the team does, what students learn, and why 5041 matters.</p></div>
+              <div class="fundraising-card"><h3>Connectors</h3><p>Introduce the team to local businesses, families, alumni, and community leaders.</p></div>
+              <div class="fundraising-card"><h3>Event Helpers</h3><p>Set up, run demonstrations, sell items, greet visitors, and thank supporters.</p></div>
+              <div class="fundraising-card"><h3>Record Keepers</h3><p>Track sales, contacts, donations, thank-you notes, and follow-up tasks.</p></div>
+              <div class="fundraising-card"><h3>Designers</h3><p>Create flyers, sponsor packets, social posts, signs, and presentations.</p></div>
+              <div class="fundraising-card"><h3>Leaders</h3><p>Organize shifts, train teammates, and make sure students have meaningful roles.</p></div>
+            </div>
+          </section>
+
+          <section class="fundraising-vertical role-review-slide">
+            <span class="tag">Participation Check</span>
+            <h2>Click the roles you could help with this season</h2>
+           <div class="fundraising-review-grid">
+              <button class="fundraising-review-item role-reveal-card" type="button" data-role="Talk to a sponsor with a teammate" onclick="revealFundraisingRole(this)">Click to reveal a role</button>
+              <button class="fundraising-review-item role-reveal-card" type="button" data-role="Sell at a community event" onclick="revealFundraisingRole(this)">Click to reveal a role</button>
+              <button class="fundraising-review-item role-reveal-card" type="button" data-role="Help with Honey Den candy sales" onclick="revealFundraisingRole(this)">Click to reveal a role</button>
+              <button class="fundraising-review-item role-reveal-card" type="button" data-role="Create signs or social posts" onclick="revealFundraisingRole(this)">Click to reveal a role</button>
+              <button class="fundraising-review-item role-reveal-card" type="button" data-role="Track sales or donations" onclick="revealFundraisingRole(this)">Click to reveal a role</button>
+              <button class="fundraising-review-item role-reveal-card" type="button" data-role="Write thank-you notes" onclick="revealFundraisingRole(this)">Click to reveal a role</button>
+              <button class="fundraising-review-item role-reveal-card" type="button" data-role="Run a robot demo for visitors" onclick="revealFundraisingRole(this)">Click to reveal a role</button>
+              <button class="fundraising-review-item role-reveal-card" type="button" data-role="Invite a business to learn about 5041" onclick="revealFundraisingRole(this)">Click to reveal a role</button>
+            </div>
+            <p class="fundraising-review-feedback">0 of 8 roles selected.</p>
+          </section>
+        </section>
+
+        <section>
+          <section class="fundraising-vertical">
+            <span class="tag">Sponsors</span>
+            <h2>A sponsor conversation is a relationship, not a script</h2>
+            <div class="fundraising-process">
+              <div><span>1</span><p>Greet and introduce yourself</p></div>
+              <div><span>2</span><p>Explain who you represent</p></div>
+              <div><span>3</span><p>Connect to student impact</p></div>
+              <div><span>4</span><p>Make a specific ask</p></div>
+              <div><span>5</span><p>Thank them and follow up</p></div>
+            </div>
+            <div class="fundraising-callout">
+              <p>Students should speak honestly about what they have learned: engineering, programming, teamwork, leadership, problem solving, and community service.</p>
+            </div>
+          </section>
+
+          <section class="fundraising-vertical">
+            <span class="tag">Sponsor Conversations</span>
+            <h2>What potential sponsors need to hear</h2>
+            <div class="fundraising-grid-2">
+              <div class="fundraising-card">
+                <h3>Tell the team story</h3>
+                <ul>
+                  <li>Who we are and who we serve.</li>
+                  <li>What students build and learn.</li>
+                  <li>How support helps students directly.</li>
+                  <li>What the sponsor can do next.</li>
+                </ul>
+              </div>
+              <div class="fundraising-card">
+                <h3>Use a clear ask</h3>
+                <p>“Would your business consider supporting us with a sponsorship, materials, tools, food, printing, or help connecting us with others?”</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="fundraising-vertical sponsor-sort-slide">
+            <span class="tag">Check for Understanding</span>
+            <h2>Sort each sponsor action</h2>
+            <div class="sponsor-sort-bank">
+              <div class="sponsor-sort-chip" draggable="true" data-answer="risky">Start by demanding money</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="effective">Introduce yourself and your role</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="effective">Explain student impact</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="effective">Ask what the business values</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="risky">Use jargon without explaining it</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="risky">Forget to follow up</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="effective">Thank them even if they say no</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="risky">Promise things the team cannot deliver</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="risky">Interrupt or argue with concerns</div>
+              <div class="sponsor-sort-chip" draggable="true" data-answer="effective">Bring a sponsor packet or link</div>
+            </div>
+            <div class="sponsor-sort-targets">
+              <div class="sponsor-sort-zone" data-zone="effective"><h3>Builds Trust</h3><div class="sponsor-sort-list"></div></div>
+              <div class="sponsor-sort-zone" data-zone="risky"><h3>Risks Trust</h3><div class="sponsor-sort-list"></div></div>
+            </div>
+            <div class="activity-controls">
+              <button class="quiz-button check-sponsor-sort" type="button">Check Answers</button>
+              <button class="quiz-button secondary reset-sponsor-sort" type="button">Reset</button>
+              <p class="sponsor-sort-feedback"></p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="fundraising-vertical">
+            <span class="tag">Sales Campaigns</span>
+            <h2>Honey Den candy sales are practice for real communication</h2>
+            <div class="fundraising-grid-3">
+              <div class="fundraising-card"><h3>Know the product</h3><p>Be able to explain what is being sold, the cost, and how the money supports the team.</p></div>
+              <div class="fundraising-card"><h3>Make it easy</h3><p>Keep the ask short, polite, and clear. Respect a “no” and thank people anyway.</p></div>
+              <div class="fundraising-card"><h3>Track accurately</h3><p>Handle money, inventory, orders, and delivery carefully so the campaign stays trustworthy.</p></div>
+            </div>
+            <div class="fundraising-callout">
+              <p><strong>General skill:</strong> Candy sales, event concessions, sponsor outreach, and donation drives all use the same habits: clarity, confidence, honesty, and follow-through.</p>
+            </div>
+          </section>
+
+          <section class="fundraising-vertical">
+            <span class="tag">Sales Skills</span>
+            <h2>A good sales interaction is short, respectful, and specific</h2>
+            <div class="fundraising-script-card">
+              <h3>Example flow</h3>
+              <p><strong>Greeting:</strong> “Hi, I’m with 5041 CyBear Robotics.”</p>
+              <p><strong>Purpose:</strong> “We’re selling candy from the Honey Den to support robot parts, travel, tools, and STEM outreach.”</p>
+              <p><strong>Ask:</strong> “Would you like to buy one or donate to the team?”</p>
+              <p><strong>Close:</strong> “Thank you for supporting local robotics!”</p>
+            </div>
+          </section>
+
+<section class="fundraising-vertical sales-scenario-slide">
+  <span class="tag">Check for Learning</span>
+  <h2>Choose the strongest sales response</h2>
+
+  <div class="fundraising-scenario-card">
+    <p>A person says, “I do not really need candy.” What is the best response?</p>
+
+    <div class="sales-scenario-options">
+      <button type="button" data-correct="false" onclick="checkSalesScenarioAnswer(this)">
+        “Come on, everyone else is buying some.”
+      </button>
+
+      <button type="button" data-correct="true" onclick="checkSalesScenarioAnswer(this)">
+        “No problem. We also accept donations, or you can just take a flyer about the team.”
+      </button>
+
+      <button type="button" data-correct="false" onclick="checkSalesScenarioAnswer(this)">
+        “Then you must not care about robotics.”
+      </button>
+
+      <button type="button" data-correct="false" onclick="checkSalesScenarioAnswer(this)">
+        “I’ll come back later until you change your mind.”
+      </button>
+    </div>
+
+    <p class="sales-scenario-feedback">Choose one answer.</p>
+  </div>
+</section>
+</section>
+
+        <section>
+          <section class="fundraising-vertical">
+            <span class="tag">Combination Events</span>
+            <h2>Some events fundraise, recruit, and do outreach at the same time</h2>
+            <div class="fundraising-grid-3">
+              <div class="fundraising-card"><h3>Fundraising</h3><p>Collect donations, sell items, run concessions, host a dinner, or run a community activity.</p></div>
+              <div class="fundraising-card"><h3>Outreach</h3><p>Show the robot, explain FIRST, teach STEM activities, and represent the team.</p></div>
+              <div class="fundraising-card"><h3>Recruitment</h3><p>Invite students, families, mentors, sponsors, and volunteers to join or support 5041.</p></div>
+            </div>
+            <div class="fundraising-callout"><p>Examples include robot demonstrations at community events, Hoover Days activities, STEM camps, fairs, school nights, and sponsor open houses.</p></div>
+          </section>
+
+          <section class="fundraising-vertical">
+            <span class="tag">Event Planning</span>
+            <h2>Design events with clear student jobs</h2>
+            <div class="fundraising-grid-2">
+              <div class="fundraising-card">
+                <h3>Before the event</h3>
+                <ul>
+                  <li>Define the goal: money, outreach, recruitment, or all three.</li>
+                  <li>Assign student roles and shifts.</li>
+                  <li>Prepare talking points, flyers, and supplies.</li>
+                  <li>Practice the robot demo or sales pitch.</li>
+                </ul>
+              </div>
+              <div class="fundraising-card">
+                <h3>After the event</h3>
+                <ul>
+                  <li>Count money and return inventory.</li>
+                  <li>Record contacts and follow-up tasks.</li>
+                  <li>Post a thank you or send notes.</li>
+                  <li>Debrief what worked and what to improve.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="fundraising-vertical">
+            <span class="tag">Why Participation Matters</span>
+            <h2>Fundraising is a team responsibility</h2>
+            <div class="fundraising-grid-2">
+              <div class="fundraising-card">
+                <h3>It is not just for business team</h3>
+                <p>Mechanical, programming, awards, media, and drive team students all benefit from funded tools, parts, travel, and events.</p>
+              </div>
+              <div class="fundraising-card">
+                <h3>It builds professional skills</h3>
+                <p>Students practice communication, confidence, planning, follow-through, public speaking, money handling, and community leadership.</p>
+              </div>
+            </div>
+            <div class="fundraising-callout"><p><strong>5041 standard:</strong> Everyone has a place here, and everyone can help make the place possible for future students.</p></div>
+          </section>
+        </section>
+
+        <section id="quiz-intro" class="center fundraising-slide">
+          <span class="tag">Required Quiz</span>
+          <h2>Pass to complete the module</h2>
+          <p>Each question is on its own slide.</p>
+          <p class="small">Answer all 20 questions, then grade the quiz. Score at least 18 out of 20 to unlock the completion certificate.</p>
+          <div class="stripe"></div>
+        </section>
+        
+<section>
+        <section class="center name-entry-slide fundraising-slide" id="quiz-name">
+          <span class="tag">Before the Quiz</span>
+          <h2>Enter your name</h2>
+          <label class="name-entry-label" for="participantName">Student name for certificate</label>
+          <input id="participantName" class="name-entry-input" type="text" placeholder="Type your name here" autocomplete="name" />
+          <p class="small">This name will appear on your completion certificate.</p>
+        </section>
+
+        
+          <section class="quiz-slide fundraising-quiz" id="quiz-q1"><span class="tag">Quiz Question 1</span><div class="progress-note">1 of 20</div><div class="quiz-card"><p>Why is fundraising important for an FRC team?</p><label><input type="radio" name="q1" value="a" /> It replaces the need to learn robot skills.</label><label><input type="radio" name="q1" value="b" /> It supports access, materials, travel, registration, outreach, and sustainability.</label><label><input type="radio" name="q1" value="c" /> It only matters after competition season.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q2"><span class="tag">Quiz Question 2</span><div class="progress-note">2 of 20</div><div class="quiz-card"><p>What is the best first step before asking for support?</p><label><input type="radio" name="q2" value="a" /> Know the team need and the impact of support.</label><label><input type="radio" name="q2" value="b" /> Ask for the largest possible amount with no context.</label><label><input type="radio" name="q2" value="c" /> Avoid telling students what the money is for.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q3"><span class="tag">Quiz Question 3</span><div class="progress-note">3 of 20</div><div class="quiz-card"><p>Which student can help with fundraising?</p><label><input type="radio" name="q3" value="a" /> Only team captains.</label><label><input type="radio" name="q3" value="b" /> Only students on awards.</label><label><input type="radio" name="q3" value="c" /> Any student with a role that supports the effort.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q4"><span class="tag">Quiz Question 4</span><div class="progress-note">4 of 20</div><div class="quiz-card"><p>What should a sponsor conversation focus on?</p><label><input type="radio" name="q4" value="a" /> Student impact and a clear next step.</label><label><input type="radio" name="q4" value="b" /> Making the sponsor feel guilty.</label><label><input type="radio" name="q4" value="c" /> Using as many technical terms as possible.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q5"><span class="tag">Quiz Question 5</span><div class="progress-note">5 of 20</div><div class="quiz-card"><p>Which is the best example of a clear ask?</p><label><input type="radio" name="q5" value="a" /> “Do something for us.”</label><label><input type="radio" name="q5" value="b" /> “Would you consider sponsoring 5041 or supporting us with materials, tools, or a donation?”</label><label><input type="radio" name="q5" value="c" /> “You should already know what we need.”</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q6"><span class="tag">Quiz Question 6</span><div class="progress-note">6 of 20</div><div class="quiz-card"><p>If a potential sponsor says no, students should:</p><label><input type="radio" name="q6" value="a" /> Argue until they change their mind.</label><label><input type="radio" name="q6" value="b" /> Thank them respectfully and leave the door open for future contact.</label><label><input type="radio" name="q6" value="c" /> Complain publicly.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q7"><span class="tag">Quiz Question 7</span><div class="progress-note">7 of 20</div><div class="quiz-card"><p>Why is follow-up important?</p><label><input type="radio" name="q7" value="a" /> It helps maintain trust and keeps sponsor relationships alive.</label><label><input type="radio" name="q7" value="b" /> It is only needed if the sponsor gives a lot.</label><label><input type="radio" name="q7" value="c" /> It replaces the need for thank-you notes.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q8"><span class="tag">Quiz Question 8</span><div class="progress-note">8 of 20</div><div class="quiz-card"><p>What makes a student story powerful in fundraising?</p><label><input type="radio" name="q8" value="a" /> It is honest, specific, and connected to learning or growth.</label><label><input type="radio" name="q8" value="b" /> It exaggerates the team’s accomplishments.</label><label><input type="radio" name="q8" value="c" /> It avoids mentioning students.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q9"><span class="tag">Quiz Question 9</span><div class="progress-note">9 of 20</div><div class="quiz-card"><p>In a candy sale, what should students know?</p><label><input type="radio" name="q9" value="a" /> Only how to take the money.</label><label><input type="radio" name="q9" value="b" /> The product, cost, purpose, and how to handle orders or money accurately.</label><label><input type="radio" name="q9" value="c" /> Nothing; guessing is fine.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q10"><span class="tag">Quiz Question 10</span><div class="progress-note">10 of 20</div><div class="quiz-card"><p>What is a respectful response when someone does not want to buy candy?</p><label><input type="radio" name="q10" value="a" /> Pressure them until they buy.</label><label><input type="radio" name="q10" value="b" /> Thank them and offer another way to learn about or support the team.</label><label><input type="radio" name="q10" value="c" /> Tell them they are hurting the team.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q11"><span class="tag">Quiz Question 11</span><div class="progress-note">11 of 20</div><div class="quiz-card"><p>What skill connects sponsor talks and sales campaigns?</p><label><input type="radio" name="q11" value="a" /> Clear, respectful communication.</label><label><input type="radio" name="q11" value="b" /> Talking over people.</label><label><input type="radio" name="q11" value="c" /> Avoiding eye contact and details.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q12"><span class="tag">Quiz Question 12</span><div class="progress-note">12 of 20</div><div class="quiz-card"><p>Which is an example of a combination event?</p><label><input type="radio" name="q12" value="a" /> A robot demo that also recruits students and collects donations.</label><label><input type="radio" name="q12" value="b" /> A private meeting where no one knows the goal.</label><label><input type="radio" name="q12" value="c" /> A fundraiser with no student roles.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q13"><span class="tag">Quiz Question 13</span><div class="progress-note">13 of 20</div><div class="quiz-card"><p>What should be assigned before a fundraising event?</p><label><input type="radio" name="q13" value="a" /> Clear student roles, shifts, supplies, and talking points.</label><label><input type="radio" name="q13" value="b" /> Nothing; students can figure it out at the event.</label><label><input type="radio" name="q13" value="c" /> Only one person should know the plan.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q14"><span class="tag">Quiz Question 14</span><div class="progress-note">14 of 20</div><div class="quiz-card"><p>Why should technical students participate in fundraising?</p><label><input type="radio" name="q14" value="a" /> They benefit from the funded tools, parts, travel, and events.</label><label><input type="radio" name="q14" value="b" /> They should not; fundraising is unrelated to robots.</label><label><input type="radio" name="q14" value="c" /> Only if they are not busy during build season.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q15"><span class="tag">Quiz Question 15</span><div class="progress-note">15 of 20</div><div class="quiz-card"><p>Which is a good post-event habit?</p><label><input type="radio" name="q15" value="a" /> Ignore contacts after the event.</label><label><input type="radio" name="q15" value="b" /> Record contacts, count money, thank supporters, and debrief improvements.</label><label><input type="radio" name="q15" value="c" /> Throw away notes so no one has to follow up.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q16"><span class="tag">Quiz Question 16</span><div class="progress-note">16 of 20</div><div class="quiz-card"><p>What is resource mapping?</p><label><input type="radio" name="q16" value="a" /> Listing possible supporters, connections, materials, venues, and community partners.</label><label><input type="radio" name="q16" value="b" /> Drawing a robot wiring diagram.</label><label><input type="radio" name="q16" value="c" /> Only looking for national grants.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q17"><span class="tag">Quiz Question 17</span><div class="progress-note">17 of 20</div><div class="quiz-card"><p>What should students avoid promising sponsors?</p><label><input type="radio" name="q17" value="a" /> Things the team cannot realistically deliver.</label><label><input type="radio" name="q17" value="b" /> A sincere thank you.</label><label><input type="radio" name="q17" value="c" /> A follow-up message.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q18"><span class="tag">Quiz Question 18</span><div class="progress-note">18 of 20</div><div class="quiz-card"><p>How can fundraising support recruitment?</p><label><input type="radio" name="q18" value="a" /> By giving students public roles that show families what robotics offers.</label><label><input type="radio" name="q18" value="b" /> By keeping robotics hidden from the community.</label><label><input type="radio" name="q18" value="c" /> By avoiding all robot demonstrations.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q19"><span class="tag">Quiz Question 19</span><div class="progress-note">19 of 20</div><div class="quiz-card"><p>Which action builds long-term sponsor relations?</p><label><input type="radio" name="q19" value="a" /> Contacting sponsors only when money is urgently needed.</label><label><input type="radio" name="q19" value="b" /> Updating sponsors, thanking them, and showing how their support helped students.</label><label><input type="radio" name="q19" value="c" /> Sending vague messages with no team information.</label></div></section>
+          <section class="quiz-slide fundraising-quiz" id="quiz-q20"><span class="tag">Quiz Question 20</span><div class="progress-note">20 of 20</div><div class="quiz-card"><p>What is the best summary of this module?</p><label><input type="radio" name="q20" value="a" /> Fundraising is outreach, communication, and sustainability work that all students can support.</label><label><input type="radio" name="q20" value="b" /> Fundraising should be hidden from students.</label><label><input type="radio" name="q20" value="c" /> Sales and sponsor talks use completely unrelated skills.</label></div></section>
+
+          <section id="quiz-results" class="center fundraising-slide">
+            <span class="tag">Quiz Results</span>
+            <h2>Grade the quiz</h2>
+            <p class="small">You need at least 18 out of 20 to unlock the completion certificate.</p>
+            <div class="quiz-actions">
+              <button class="quiz-button" id="gradeQuiz" type="button">Grade Quiz</button>
+              <button class="quiz-button secondary" id="resetQuiz" type="button">Reset</button>
+            </div>
+            <p class="result" id="quizResult">Not submitted.</p>
+            <p class="small" id="quizHint">After passing, advance to the final completion certificate.</p>
+          </section>
+        </section>
+
+        <section id="complete" class="center certificate-slide locked">
+          <div class="certificate-card">
+            <div class="certificate-border">
+              <p class="certificate-small">5041 CyBear Robotics</p>
+              <h2>Certificate of Completion</h2>
+              <p class="certificate-text">Presented to</p>
+              <div id="certificateName" class="certificate-name">Student Name</div>
+              <p class="certificate-text">for successfully completing the</p>
+              <h3>Fundraising & Sponsor Engagement Training Module</h3>
+              <p id="completionNote" class="certificate-score">Complete after passing the required quiz.</p>
+              <div class="certificate-line"></div>
+              <p class="certificate-footer">Everyone has a place here.</p>
+              <div class="certificate-actions">
+                <button id="downloadCertificate" class="quiz-button certificate-download" type="button">Download Certificate PDF</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="fundraising.js"></script>
+  </body>
+</html>

@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>5041 Web Design Basics Training</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="web-design-basics-additions.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-background-image="assets/5041teamlogo.png"
+          data-background-size="contain"
+          data-background-opacity="0.12"
+          class="center web-hero"
+        >
+          <h1 class="cytitle">Web Design Basics</h1>
+        </section>
+
+        <section class="web-slide">
+          <span class="tag">Module Goals</span>
+          <h2>By the end, students should be able to:</h2>
+          <div class="bar"></div>
+          <ul>
+            <li>Explain the role of HTML, CSS, and JavaScript.</li>
+            <li>Read and edit a basic webpage file structure.</li>
+            <li>Use browser developer tools to inspect and debug pages.</li>
+            <li>Build a small interactive page from starter code.</li>
+          </ul>
+        </section>
+
+        <section>
+          <section class="web-vertical">
+            <span class="tag">Web Stack</span>
+            <h2>Three parts work together to make a webpage</h2>
+            <div class="web-grid-3 web-stack">
+              <div class="web-card"><h3>HTML</h3><p>The content and structure.</p></div>
+              <div class="web-card"><h3>CSS</h3><p>The appearance and layout.</p></div>
+              <div class="web-card"><h3>JavaScript</h3><p>The logic and interaction.</p></div>
+            </div>
+            <div class="web-callout">
+              <p>A strong web page separates meaning, style, and behavior so each part is easier to update.</p>
+            </div>
+          </section>
+
+          <section class="web-vertical image-slide">
+            <span class="tag">Files</span>
+            <h2>Project structure helps the browser find everything</h2>
+            <div class="web-split">
+              <div class="web-card">
+                <p>Most projects keep HTML in the main folder and place CSS, JavaScript, and image assets in their own folders.</p>
+                <p>Start by finding <span class="text-red">index.html</span>. It is usually the main page opened by the browser and is commonly used by GitHub Pages.</p>
+              </div>
+              <img src="assets/web-design/file-structure.png" alt="Example webpage file structure" class="web-img" />
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="web-vertical">
+            <span class="tag">HTML</span>
+            <h2>HTML describes structure and content</h2>
+            <div class="web-grid-2">
+              <div class="web-card">
+                <p>HTML uses elements to describe what content is: headings, paragraphs, images, links, lists, sections, forms, and buttons.</p>
+              </div>
+              <div class="web-code-card">
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, 5041!&lt;/h1&gt;
+    &lt;script src=&quot;js/script.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="web-vertical html-tags-slide">
+            <span class="tag">HTML Tags</span>
+            <h2>HTML elements are building blocks</h2>
+            <p class="web-intro">HTML tags structure web pages and format content for web browsers.</p>
+            <div class="web-grid-3">
+              <div class="web-card"><h3>Opening tag</h3><p>Starts an element, like <code>&lt;h1&gt;</code>.</p></div>
+              <div class="web-card"><h3>Content</h3><p>The text, image, link, or item shown on the page.</p></div>
+              <div class="web-card"><h3>Closing tag</h3><p>Ends an element, like <code>&lt;/h1&gt;</code>.</p></div>
+            </div>
+            <div class="web-code-card web-code-inline"><code>&lt;h1&gt;Hello, 5041!&lt;/h1&gt;</code></div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Common Tags</span>
+            <h2>These elements show up constantly</h2>
+            <div class="web-grid-3 compact-cards">
+              <div class="web-card"><h3>&lt;h1&gt;-&lt;h6&gt;</h3><p>Headings organize page sections.</p></div>
+              <div class="web-card"><h3>&lt;p&gt;</h3><p>Paragraph text for readable content.</p></div>
+              <div class="web-card"><h3>&lt;a&gt;</h3><p>Links to pages, files, or websites.</p></div>
+              <div class="web-card"><h3>&lt;img&gt;</h3><p>Displays images with alt text.</p></div>
+              <div class="web-card"><h3>&lt;button&gt;</h3><p>Clickable action on the page.</p></div>
+              <div class="web-card"><h3>&lt;form&gt;</h3><p>Collects user input.</p></div>
+            </div>
+            <div class="web-resource-links"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener noreferrer">HTML Element Reference</a></div>
+          </section>
+
+          <section class="web-vertical html-playground-slide">
+            <span class="tag">Interactive Tool</span>
+            <h2>Try writing HTML</h2>
+            <p class="web-intro">Type HTML in the editor and run it to see the preview update.</p>
+            <div class="web-playground">
+              <div class="web-editor-panel">
+                <h3>HTML Editor</h3>
+                <textarea class="html-editor" spellcheck="false">&lt;h1&gt;Welcome to 5041!&lt;/h1&gt;
+&lt;p&gt;This content was created with HTML.&lt;/p&gt;
+&lt;button&gt;Click Me&lt;/button&gt;</textarea>
+                <div class="web-tool-buttons">
+                  <button class="quiz-button run-html-button" type="button">Run HTML</button>
+                  <button class="quiz-button secondary reset-html-button" type="button">Reset</button>
+                </div>
+              </div>
+              <div class="web-preview-panel">
+                <h3>Preview</h3>
+                <iframe class="html-preview" title="HTML preview"></iframe>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="web-vertical">
+            <span class="tag">CSS</span>
+            <h2>CSS controls design</h2>
+            <div class="web-grid-2">
+              <div class="web-card">
+                <p>CSS chooses colors, fonts, sizes, spacing, layout, and responsive behavior.</p>
+              </div>
+              <div class="web-code-card">
+<pre><code>body {
+  font-family: Arial, sans-serif;
+  background: #1f1f1f;
+  color: white;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 12px;
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Adding CSS</span>
+            <h2>Use a separate CSS file when possible</h2>
+            <div class="web-grid-2">
+              <div class="web-card"><h3>Inline or internal</h3><p>CSS can be written directly in HTML, but it gets harder to reuse and maintain.</p></div>
+              <div class="web-card"><h3>External file</h3><p>A better practice is to link a separate CSS file inside the <code>&lt;head&gt;</code>.</p></div>
+            </div>
+            <div class="web-code-card web-code-inline"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</code></div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Selectors</span>
+            <h2>Selectors tell the browser what to style</h2>
+            <p class="web-intro">CSS selectors can target groups of elements, specific classes, or unique IDs.</p>
+            <div class="web-grid-3">
+              <div class="web-card"><h3>Element</h3><p><code>p</code> targets all paragraphs.</p></div>
+              <div class="web-card"><h3>Class</h3><p><code>.card</code> targets anything with <code>class=&quot;card&quot;</code>.</p></div>
+              <div class="web-card"><h3>ID</h3><p><code>#main-title</code> targets one unique element.</p></div>
+            </div>
+            <div class="web-code-card">
+<pre><code>p { font-size: 40px; }
+.card { border: 3px solid rgb(100, 50, 50); }
+#main-title { color: #980000; }</code></pre>
+            </div>
+          </section>
+
+          <section class="web-vertical html-playground-slide">
+            <span class="tag">Interactive Tool</span>
+            <h2>Try writing CSS</h2>
+            <p class="web-intro">Change the CSS in the style section and run the page.</p>
+            <div class="web-playground">
+              <div class="web-editor-panel">
+                <h3>CSS + HTML Editor</h3>
+                <textarea class="html-editor" spellcheck="false">&lt;style&gt;
+  body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    color: #000000;
+  }
+
+  h1 {
+    color: #980000;
+  }
+
+  button {
+    background: #980000;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+  }
+&lt;/style&gt;
+
+&lt;h1&gt;Welcome to 5041!&lt;/h1&gt;
+&lt;p&gt;This page has CSS styling.&lt;/p&gt;
+&lt;button&gt;Click Me&lt;/button&gt;</textarea>
+                <div class="web-tool-buttons">
+                  <button class="quiz-button run-html-button" type="button">Run HTML</button>
+                  <button class="quiz-button secondary reset-html-button" type="button">Reset</button>
+                </div>
+              </div>
+              <div class="web-preview-panel">
+                <h3>Preview</h3>
+                <iframe class="html-preview" title="CSS preview"></iframe>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="web-vertical image-slide">
+            <span class="tag">Box Model</span>
+            <h2>Every element is a box</h2>
+            <div class="web-split reverse">
+              <img src="assets/web-design/box-model.png" alt="CSS box model diagram" class="web-img" />
+              <div class="web-card">
+                <p>The CSS box model treats every HTML element as a box made of content, padding, border, and margin.</p>
+                <p>These layers determine the element’s size and the space around it.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Layout Tools</span>
+            <h2>Flexbox and Grid arrange content</h2>
+            <p class="web-intro">CSS layout tools control how elements are arranged and spaced on a webpage.</p>
+            <div class="web-grid-2">
+              <div class="web-card"><h3>Flexbox</h3><p>Best for arranging items in one row or one column.</p></div>
+              <div class="web-card"><h3>Grid</h3><p>Best for two-dimensional layouts with rows and columns.</p></div>
+            </div>
+          </section>
+
+          <section class="web-vertical layout-playground-slide">
+            <span class="tag">Interactive Tool</span>
+            <h2>Flexbox vs. Grid</h2>
+            <p class="web-intro">Edit either example to see how the layout changes.</p>
+            <div class="layout-playground-columns">
+              <div class="layout-playground-card">
+                <h3>Flexbox</h3>
+                <textarea id="flex-demo-code" spellcheck="false">&lt;style&gt;
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f3f3f3;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px;
+    border: 3px solid #980000;
+  }
+
+  .item {
+    flex: 1;
+    padding: 20px;
+    background: #980000;
+    color: white;
+    text-align: center;
+  }
+&lt;/style&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;One&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Two&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Three&lt;/div&gt;
+&lt;/div&gt;</textarea>
+                <iframe id="flex-demo-preview" class="layout-preview" title="Flexbox preview"></iframe>
+              </div>
+              <div class="layout-playground-card">
+                <h3>Grid</h3>
+                <textarea id="grid-demo-code" spellcheck="false">&lt;style&gt;
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f3f3f3;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 15px;
+    border: 3px solid #000000;
+  }
+
+  .item {
+    padding: 20px;
+    background: #666666;
+    color: white;
+    text-align: center;
+  }
+&lt;/style&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;One&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Two&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Three&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Four&lt;/div&gt;
+&lt;/div&gt;</textarea>
+                <iframe id="grid-demo-preview" class="layout-preview" title="Grid preview"></iframe>
+              </div>
+            </div>
+            <div class="web-tool-buttons center-buttons">
+              <button class="quiz-button" id="runLayoutDemos" type="button">Run Demos</button>
+              <button class="quiz-button secondary" id="resetLayoutDemos" type="button">Reset</button>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Responsive Design</span>
+            <h2>Pages need to work at different sizes</h2>
+            <div class="web-grid-2">
+              <div class="web-card">
+                <p>Screen sizes vary and browser windows can be resized during use.</p>
+                <p>Responsive pages adjust to different display sizes.</p>
+              </div>
+              <div class="web-code-card">
+<pre><code>@media only screen and (min-width: 400px) { ... }
+@media only screen and (min-width: 700px) { ... }
+@media only screen and (min-width: 1000px) { ... }</code></pre>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="web-vertical">
+            <span class="tag">JavaScript</span>
+            <h2>JavaScript adds behavior</h2>
+            <div class="web-grid-2">
+              <div class="web-card">
+                <p>JavaScript can respond to clicks, update text, validate forms, fetch data, and change the page without reloading.</p>
+              </div>
+              <div class="web-code-card">
+<pre><code>const button = document.querySelector('#refresh');
+
+button.addEventListener('click', function () {
+  console.log('Refresh requested');
+});</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Adding JavaScript</span>
+            <h2>Link JavaScript after the page content</h2>
+            <div class="web-grid-2">
+              <div class="web-card"><h3>Directly in HTML</h3><p>Useful for quick tests, but can become messy.</p></div>
+              <div class="web-card"><h3>Separate JS file</h3><p>A better practice is to add a separate JavaScript file near the end of the body.</p></div>
+            </div>
+            <div class="web-code-card web-code-inline"><code>&lt;script src=&quot;js/script.js&quot;&gt;&lt;/script&gt;</code></div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Learning JavaScript</span>
+            <h2>Spend time with the basics</h2>
+            <div class="web-card web-large-card">
+              <p>If JavaScript is new to you, practice variables, functions, conditionals, events, arrays, and DOM selection.</p>
+              <p>These skills make interactive websites and web apps possible.</p>
+            </div>
+            <div class="web-resource-links"><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript" target="_blank" rel="noopener noreferrer">Learn JavaScript</a></div>
+          </section>
+        </section>
+
+        <section>
+          <section class="web-vertical">
+            <span class="tag">Troubleshooting</span>
+            <h2>Debugging is a normal part of web design</h2>
+            <div class="web-card web-large-card">
+              <ul>
+                <li>Test one small change at a time.</li>
+                <li>Inspect elements and CSS with Developer Tools.</li>
+                <li>Confirm file paths, links, and filenames.</li>
+                <li>Refresh the page and clear the browser cache.</li>
+                <li>Use <code>console.log()</code> to check JavaScript values.</li>
+                <li>Validate HTML and CSS syntax.</li>
+                <li>Test in multiple browsers and screen sizes.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Beginner Bugs</span>
+            <h2>Most errors are small but specific</h2>
+            <div class="web-grid-4 compact-cards">
+              <div class="web-card"><h3>Wrong file path</h3><p>The browser cannot find the CSS, JS, or image file.</p></div>
+              <div class="web-card"><h3>Missing punctuation</h3><p>One missing quote, bracket, or semicolon can break code.</p></div>
+              <div class="web-card"><h3>Selector mismatch</h3><p>JavaScript or CSS targets a class or ID that does not exist.</p></div>
+              <div class="web-card"><h3>Cache confusion</h3><p>The browser shows an older copy. Hard refresh and test again.</p></div>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Browser DevTools</span>
+            <h2>Use DevTools to inspect and debug</h2>
+            <div class="web-grid-2">
+              <div class="web-card"><h3>Open</h3><p>Right-click a page and choose <span class="text-red">Inspect</span>.</p></div>
+              <div class="web-card"><h3>Elements</h3><p>View and test HTML and CSS.</p></div>
+              <div class="web-card"><h3>Console</h3><p>Read JavaScript errors and test commands.</p></div>
+              <div class="web-card"><h3>Network</h3><p>Check file and API requests.</p></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="web-vertical">
+            <span class="tag">Mini Challenge</span>
+            <h2>Build and debug a small page in JSFiddle</h2>
+            <div class="web-card web-large-card">
+              <ol>
+                <li>Open JSFiddle in a new page.</li>
+                <li>Copy in the HTML, CSS, and JavaScript starter code.</li>
+                <li>Troubleshoot and fix the image problem.</li>
+                <li>Create your own modification or add-on to the webpage.</li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">JSFiddle IDE</span>
+            <h2>An IDE combines coding, running, testing, and debugging</h2>
+            <div class="web-card web-large-card">
+              <p>An Integrated Development Environment combines tools for writing, running, testing, and debugging code in one place.</p>
+              <p>JSFiddle is useful for simple web development and testing. Visual Studio Code is another development tool for local projects.</p>
+            </div>
+            <div class="web-resource-links"><a href="https://jsfiddle.net/" target="_blank" rel="noopener noreferrer">Open JSFiddle</a></div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Starter HTML</span>
+            <h2>Copy into JSFiddle</h2>
+            <div class="copy-code-block web-copy-code-block">
+              <button class="copy-code-button" type="button">Copy</button>
+<pre><code class="language-html">&lt;main class=&quot;card&quot;&gt;
+  &lt;h1&gt;BEARY Viewer&lt;/h1&gt;
+  &lt;p&gt;Click the button to display BEARY the safety bear.&lt;/p&gt;
+
+  &lt;button id=&quot;beary-button&quot;&gt;Show BEARY&lt;/button&gt;
+
+  &lt;div id=&quot;image-container&quot;&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Starter CSS</span>
+            <h2>Copy into JSFiddle</h2>
+            <div class="copy-code-block web-copy-code-block">
+              <button class="copy-code-button" type="button">Copy</button>
+<pre><code class="language-css">body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Arial, sans-serif;
+  background: #1f1f1f;
+  color: white;
+}
+
+.card {
+  width: min(500px, 85%);
+  padding: 30px;
+  text-align: center;
+  background: #303030;
+  border-top: 6px solid #980000;
+  border-radius: 10px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #980000;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #666666;
+}
+
+#image-container {
+  margin-top: 24px;
+}
+
+#image-container img {
+  width: 100%;
+  border-radius: 8px;
+}</code></pre>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Starter JavaScript</span>
+            <h2>Copy into JSFiddle</h2>
+            <div class="copy-code-block web-copy-code-block">
+              <button class="copy-code-button" type="button">Copy</button>
+<pre><code class="language-js">const button = document.querySelector("#beary-buton");
+const imageContainer = document.querySelector("#image-container");
+
+button.addEventListener("click", function () {
+  const bearyImage = document.createElement("img");
+
+  bearyImage.src =
+    "https://github.com/5041CyBears/training-modules/blob/main/assets/BEARY.png?raw=true";
+
+  bearyImage.alt = "BEARY the Safety Bear";
+
+  imageContainer.replaceChildren(bearyImage);
+});</code></pre>
+            </div>
+          </section>
+
+          <section class="web-vertical debug-challenge-slide">
+            <span class="tag">Debug Challenge</span>
+            <h2>BEARY troubleshoot</h2>
+            <p class="web-intro">The page loads, but clicking the button does not display the image. Find and fix the error.</p>
+            <div class="web-grid-2">
+              <div class="web-card">
+                <h3>Debugging Strategy</h3>
+                <ol>
+                  <li>Follow the code in the order it runs.</li>
+                  <li>Identify which HTML element each JavaScript selector is trying to find.</li>
+                  <li>Compare the selector to the element’s actual HTML <code>id</code>.</li>
+                  <li>Check the browser console for an error involving <code>null</code>.</li>
+                </ol>
+              </div>
+              <details class="solution-box web-card">
+                <summary>Reveal Solution</summary>
+                <p>The selector contains a misspelling. It uses <code>#beary-buton</code> instead of <code>#beary-button</code>.</p>
+                <pre><code>const button = document.querySelector(&quot;#beary-button&quot;);</code></pre>
+              </details>
+            </div>
+          </section>
+
+          <section class="web-vertical">
+            <span class="tag">Customize</span>
+            <h2>Make the page your own</h2>
+            <div class="web-card web-large-card">
+              <ol>
+                <li>Change the page colors.</li>
+                <li>Change the font or text size.</li>
+                <li>Add a short safety fact.</li>
+                <li>Add a caption below the image.</li>
+                <li>Add a button to remove the image.</li>
+                <li>Add a reset button.</li>
+                <li>Hide the button after the image appears.</li>
+                <li>Add a second animal image button.</li>
+                <li>Make the layout responsive for smaller screens.</li>
+                <li>Let the user enter a custom image URL.</li>
+              </ol>
+            </div>
+          </section>
+        </section>
+
+        <section id="quiz-intro" class="center web-slide">
+          <span class="tag">Required Quiz</span>
+          <h2>Pass to complete the module</h2>
+          <p>Each question is on its own slide.</p>
+          <p class="small">Answer all 20 questions, then grade the quiz. Score at least 18 out of 20 to unlock the completion certificate.</p>
+          <div class="stripe"></div>
+        </section>
+
+<section>
+        <section class="center name-entry-slide web-slide" id="quiz-name">
+          <span class="tag">Before the Quiz</span>
+          <h2>Enter your name</h2>
+          <label class="name-entry-label" for="participantName">Student name for certificate</label>
+          <input id="participantName" class="name-entry-input" type="text" placeholder="Type your name here" autocomplete="name" />
+          <p class="small">This name will appear on your completion certificate.</p>
+        </section>
+
+        
+          <section class="quiz-slide web-quiz" id="quiz-q1"><span class="tag">Quiz Question 1</span><div class="progress-note">1 of 20</div><div class="quiz-card"><p>What is the main role of HTML?</p><label><input type="radio" name="q1" value="a" /> Page structure and content</label><label><input type="radio" name="q1" value="b" /> Server hosting</label><label><input type="radio" name="q1" value="c" /> Browser cache clearing</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q2"><span class="tag">Quiz Question 2</span><div class="progress-note">2 of 20</div><div class="quiz-card"><p>What is the main role of CSS?</p><label><input type="radio" name="q2" value="a" /> Database storage</label><label><input type="radio" name="q2" value="b" /> Appearance, spacing, and layout</label><label><input type="radio" name="q2" value="c" /> File permissions</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q3"><span class="tag">Quiz Question 3</span><div class="progress-note">3 of 20</div><div class="quiz-card"><p>What is the main role of JavaScript?</p><label><input type="radio" name="q3" value="a" /> Only image compression</label><label><input type="radio" name="q3" value="b" /> Printing paper copies</label><label><input type="radio" name="q3" value="c" /> Logic, interaction, and behavior</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q4"><span class="tag">Quiz Question 4</span><div class="progress-note">4 of 20</div><div class="quiz-card"><p>Which file is usually the main webpage opened by a browser or GitHub Pages?</p><label><input type="radio" name="q4" value="a" /> robot.java</label><label><input type="radio" name="q4" value="b" /> index.html</label><label><input type="radio" name="q4" value="c" /> README.pdf</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q5"><span class="tag">Quiz Question 5</span><div class="progress-note">5 of 20</div><div class="quiz-card"><p>Which tag is used for a paragraph?</p><label><input type="radio" name="q5" value="a" /> &lt;p&gt;</label><label><input type="radio" name="q5" value="b" /> &lt;img&gt;</label><label><input type="radio" name="q5" value="c" /> &lt;form&gt;</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q6"><span class="tag">Quiz Question 6</span><div class="progress-note">6 of 20</div><div class="quiz-card"><p>What does an opening tag do?</p><label><input type="radio" name="q6" value="a" /> Deletes a file</label><label><input type="radio" name="q6" value="b" /> Starts an element</label><label><input type="radio" name="q6" value="c" /> Uploads a page</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q7"><span class="tag">Quiz Question 7</span><div class="progress-note">7 of 20</div><div class="quiz-card"><p>Which selector targets a class named card?</p><label><input type="radio" name="q7" value="a" /> #card</label><label><input type="radio" name="q7" value="b" /> card</label><label><input type="radio" name="q7" value="c" /> .card</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q8"><span class="tag">Quiz Question 8</span><div class="progress-note">8 of 20</div><div class="quiz-card"><p>Which selector targets one unique ID named main-title?</p><label><input type="radio" name="q8" value="a" /> .main-title</label><label><input type="radio" name="q8" value="b" /> #main-title</label><label><input type="radio" name="q8" value="c" /> main-title()</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q9"><span class="tag">Quiz Question 9</span><div class="progress-note">9 of 20</div><div class="quiz-card"><p>What are the parts of the CSS box model?</p><label><input type="radio" name="q9" value="a" /> Content, padding, border, and margin</label><label><input type="radio" name="q9" value="b" /> Branch, commit, push, and merge</label><label><input type="radio" name="q9" value="c" /> Sensor, motor, breaker, and wire</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q10"><span class="tag">Quiz Question 10</span><div class="progress-note">10 of 20</div><div class="quiz-card"><p>Which layout tool is best for one row or one column?</p><label><input type="radio" name="q10" value="a" /> HTML title</label><label><input type="radio" name="q10" value="b" /> Flexbox</label><label><input type="radio" name="q10" value="c" /> Console logs</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q11"><span class="tag">Quiz Question 11</span><div class="progress-note">11 of 20</div><div class="quiz-card"><p>Which layout tool is best for rows and columns?</p><label><input type="radio" name="q11" value="a" /> Grid</label><label><input type="radio" name="q11" value="b" /> Alt text</label><label><input type="radio" name="q11" value="c" /> Cache</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q12"><span class="tag">Quiz Question 12</span><div class="progress-note">12 of 20</div><div class="quiz-card"><p>What does a media query help with?</p><label><input type="radio" name="q12" value="a" /> Making responsive styles for different screen sizes</label><label><input type="radio" name="q12" value="b" /> Naming folders only</label><label><input type="radio" name="q12" value="c" /> Replacing every HTML tag</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q13"><span class="tag">Quiz Question 13</span><div class="progress-note">13 of 20</div><div class="quiz-card"><p>Where should a separate JavaScript file usually be linked?</p><label><input type="radio" name="q13" value="a" /> Near the end of the body after page content</label><label><input type="radio" name="q13" value="b" /> Inside every image file</label><label><input type="radio" name="q13" value="c" /> Only in a printed worksheet</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q14"><span class="tag">Quiz Question 14</span><div class="progress-note">14 of 20</div><div class="quiz-card"><p>What is DevTools useful for?</p><label><input type="radio" name="q14" value="a" /> Inspecting HTML, testing CSS, and reading errors</label><label><input type="radio" name="q14" value="b" /> Charging batteries</label><label><input type="radio" name="q14" value="c" /> Replacing a web browser</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q15"><span class="tag">Quiz Question 15</span><div class="progress-note">15 of 20</div><div class="quiz-card"><p>What does console.log() help with?</p><label><input type="radio" name="q15" value="a" /> Measuring screen size only</label><label><input type="radio" name="q15" value="b" /> Checking JavaScript values while debugging</label><label><input type="radio" name="q15" value="c" /> Changing gear ratios</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q16"><span class="tag">Quiz Question 16</span><div class="progress-note">16 of 20</div><div class="quiz-card"><p>What should you check if an image or CSS file does not load?</p><label><input type="radio" name="q16" value="a" /> File paths, links, and filenames</label><label><input type="radio" name="q16" value="b" /> Only the font size</label><label><input type="radio" name="q16" value="c" /> The robot bumper color</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q17"><span class="tag">Quiz Question 17</span><div class="progress-note">17 of 20</div><div class="quiz-card"><p>What is a common cause of JavaScript selector errors?</p><label><input type="radio" name="q17" value="a" /> The CSS is too colorful</label><label><input type="radio" name="q17" value="b" /> The selector does not match an existing class or ID</label><label><input type="radio" name="q17" value="c" /> The browser window is square</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q18"><span class="tag">Quiz Question 18</span><div class="progress-note">18 of 20</div><div class="quiz-card"><p>What is JSFiddle useful for?</p><label><input type="radio" name="q18" value="a" /> Simple web development and testing</label><label><input type="radio" name="q18" value="b" /> Soldering wires</label><label><input type="radio" name="q18" value="c" /> Downloading robot firmware only</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q19"><span class="tag">Quiz Question 19</span><div class="progress-note">19 of 20</div><div class="quiz-card"><p>What is the bug in the starter JavaScript?</p><label><input type="radio" name="q19" value="a" /> The selector misspells #capybara-button</label><label><input type="radio" name="q19" value="b" /> The image alt text exists</label><label><input type="radio" name="q19" value="c" /> The button uses HTML</label></div></section>
+          <section class="quiz-slide web-quiz" id="quiz-q20"><span class="tag">Quiz Question 20</span><div class="progress-note">20 of 20</div><div class="quiz-card"><p>What is the best debugging habit?</p><label><input type="radio" name="q20" value="a" /> Make many changes at once and hope</label><label><input type="radio" name="q20" value="b" /> Test one small change at a time</label><label><input type="radio" name="q20" value="c" /> Ignore browser errors</label></div></section>
+
+          <section id="quiz-results" class="center web-slide">
+            <span class="tag">Quiz Results</span>
+            <h2>Grade the quiz</h2>
+            <p class="small">You need at least 18 out of 20 to unlock the completion certificate.</p>
+            <div class="quiz-actions">
+              <button class="quiz-button" id="gradeQuiz" type="button">Grade Quiz</button>
+              <button class="quiz-button secondary" id="resetQuiz" type="button">Reset</button>
+            </div>
+            <p class="result" id="quizResult">Not submitted.</p>
+            <p class="small" id="quizHint">After passing, advance to the final completion certificate.</p>
+          </section>
+        </section>
+
+        <section id="complete" class="center certificate-slide locked">
+          <div class="certificate-card">
+            <div class="certificate-border">
+              <p class="certificate-small">5041 CyBear Robotics</p>
+              <h2>Certificate of Completion</h2>
+              <p class="certificate-text">Presented to</p>
+              <div id="certificateName" class="certificate-name">Student Name</div>
+              <p class="certificate-text">for successfully completing the</p>
+              <h3>Web Design Basics Training Module</h3>
+              <p id="completionNote" class="certificate-score">Complete after passing the required quiz.</p>
+              <div class="certificate-line"></div>
+              <p class="certificate-footer">Everyone has a place here.</p>
+              <div class="certificate-actions">
+                <button id="downloadCertificate" class="quiz-button certificate-download" type="button">Download Certificate PDF</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="web-design-basics.js"></script>
+  </body>
+</html>
