@@ -79,8 +79,9 @@
       }
 
       .intro {
-        background: var(--white);
-        border-left: 12px solid var(--red);
+        background: var(--gray);
+        color:var(--white);
+        border-left: 12px solid var(white);
         padding: 1rem 1.25rem;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
@@ -143,7 +144,7 @@
       .module-link {
         display: inline-block;
         font-family: "Droid Sans", Arial, sans-serif;
-        font-weight: 700;
+        font-weight: 600;
         text-decoration: none;
         background: var(--red);
         color: var(--white);
@@ -299,6 +300,31 @@
         margin-top: 0.1rem;
         padding-left: 0.1rem;
       }
+
+      
+.hub-section-banner {
+  background: black;
+  color: #ffffff;
+  padding: 1rem 1.25rem;
+  margin: 2rem 0 1.25rem;
+  border-left: 12px solid #000000;
+  text-align: center;
+}
+
+.hub-section-banner h2 {
+  margin: 0;
+  font-family: "Audiowide", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  font-weight: 300;
+}
+
+.hub-section-banner p {
+  margin: 0.25rem 0 0;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 500;
+}
+
     </style>
   </head>
 
@@ -314,8 +340,18 @@
       </div>
     </header>
 
-    <section class="intro resource-intro">
-      <h2>5041 Time Clock</h2>
+ <main>
+
+<section class="hub-section-banner">
+  <h2>Resources</h2>
+</section>
+
+
+    <section class="module-grid" aria-label="Training module links">
+
+        <article class="module-card">
+          <div>
+            <h2>5041 Time Clock</h2>
       <p>A simple time clock app for authorized 5041 users.</p>
       <div class="button-row">
         <a
@@ -324,20 +360,39 @@
           >Time Clock</a
         >
       </div>
-    </section>
+        </article>
 
-    <section class="intro resource-intro">
-      <h2>Helpful FIRST Robotics Competition Resources</h2>
+        <article class="module-card">
+          <div>
+           <h2>Helpful FIRST Robotics Competition Resources</h2>
       <p>
         A collection of resources commonly used by 5041 and many by most FRC
         teams.
       </p>
-      <div class="button-row">
+          </div>
+<div class="button-row">
         <a class="module-link" href="frc-resources.html">Resource Links</a>
       </div>
-    </section>
+        </article>
 
-    <main>
+        <article class="module-card">
+          <div>
+      <h2>R.O.A.R Reporting Form</h2>
+      <p>
+        An online form to create R.O.A.R incident reports.
+      </p>
+          </div>
+      <div class="button-row">
+        <a class="module-link" href="roar-report-form.html">R.O.A.R. Form</a>
+      </div>
+        </article>
+
+      </section>
+
+<section class="hub-section-banner">
+  <h2>Training Modules</h2>
+</section>
+
       <section class="intro">
         <h2>Safety and Inclusion Training</h2>
         <p>Recommended for: all team members</p>
@@ -369,6 +424,19 @@
             <a class="module-link" href="inclusion.html">Open Module</a>
           </div>
         </article>
+
+  <article class="module-card">
+          <div>
+            <h2>R.O.A.R Reporting</h2>
+            <p>
+              The purpose and use of R.O.A.R reports.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="inclusion.html">Open Module</a>
+          </div>
+        </article>
+
       </section>
 
       <section class="intro">
@@ -394,10 +462,9 @@
 
         <article class="module-card coming-soon">
           <div>
-            <h2>FRC Scoring and Intake Systems</h2>
+            <h2>Manipulators and Intake Systems</h2>
             <p>
-              The basics on typical systems needed in FRC games including
-              shooters, roller intake systems, and some manipulator examples.
+              The basics on typical systems needed in FRC games to inatke and manipulate game elememnts.
             </p>
           </div>
           <div class="button-row">
@@ -468,8 +535,8 @@
 
         <article class="module-card coming-soon">
           <div>
-            <h2>Linear Motion</h2>
-            <p>Linear motion types and use cases in FRC</p>
+            <h2>Linear Motion and Elevators</h2>
+            <p>Linear motion types and use cases in FRC with focus on elevators</p>
           </div>
           <div class="button-row">
             <a class="module-link" href="safety-pit-readiness.html"
@@ -477,6 +544,19 @@
             >
           </div>
         </article>
+
+                <article class="module-card coming-soon">
+          <div>
+            <h2>Flywheel Shooters</h2>
+            <p>Design and creation of flywheel shooting devices commonly used in FRC</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety-pit-readiness.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+
       </section>
 
       <section class="intro">
@@ -487,7 +567,7 @@
       <section class="module-grid" aria-label="Training module links">
         <article class="module-card">
           <div>
-            <h2>Electrical & Wiring</h2>
+            <h2>Electronics, Sensors, and Wiring</h2>
             <p>
               Power layout, wire routing, labeling, protection, motor
               controllers, sensors, and inspection-ready wiring.
@@ -498,12 +578,25 @@
           </div>
         </article>
 
+<article class="module-card coming-soon">
+          <div>
+            <h2>FRC Software Overview</h2>
+            <p>
+              An overiview of common FRC software resources (VS CODE, Driver Station, Motor Controller Interfaces, radio configuration, Github, etc.)
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="programming-controls.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+
         <article class="module-card coming-soon">
           <div>
-            <h2>Programming & Controls</h2>
+            <h2>Java Basics</h2>
             <p>
-              Robot controls, sensors, autonomous planning, driver controls,
-              testing, debugging, and code documentation.
+              The basics of Java programming with a focus on its use in FIRST
             </p>
           </div>
           <div class="button-row">
@@ -537,6 +630,45 @@
             <a class="module-link" href="electronics.html">Open Module</a>
           </div>
         </article>
+
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Command Based Architecture</h2>
+            <p>An overview of command-based architecture in FRC which organizes robot code into subsystems that represent 
+              robot mechanisms and commands.</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety-pit-readiness.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+
+         <article class="module-card coming-soon">
+          <div>
+            <h2>Vision Processing</h2>
+            <p>The basics of vision processing and examples of its implementaiton in FRC.</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety-pit-readiness.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+
+                <article class="module-card coming-soon">
+          <div>
+            <h2>PID Loops</h2>
+            <p>PID loop control systems are used in programming to created controlled motion from motors 
+              through sensor feedback from encoders.</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="safety-pit-readiness.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+
       </section>
 
       <section class="intro">
