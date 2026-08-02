@@ -1,0 +1,428 @@
+/* 5041 FTC Training Hub shared styles */
+:root {
+  --red: #980000;
+  --black: #000000;
+  --gray: #666666;
+  --light: #f3f3f3;
+  --white: #ffffff;
+  --green: #2e7d32;
+  --yellow: #b8860b;
+  --shared-slide-width: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Droid Serif", Georgia, serif;
+  color: var(--black);
+  background: var(--light);
+}
+
+/* Hub pages */
+.hub-body {
+  background:
+    linear-gradient(135deg, rgba(152, 0, 0, 0.08), transparent 35%),
+    linear-gradient(315deg, rgba(0, 0, 0, 0.08), transparent 35%),
+    var(--light);
+}
+
+.site-header {
+  background: var(--black);
+  color: var(--white);
+  border-bottom: 10px solid var(--red);
+  padding: 1.75rem 1.25rem;
+}
+
+.header-inner,
+.hub-main,
+.site-footer {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-logo {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  background: rgba(255,255,255,.08);
+  padding: 6px;
+}
+
+.hub-eyebrow,
+.eyebrow {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+  margin-bottom: 0.6rem;
+}
+
+.site-title,
+.reveal .cytitle {
+  font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
+  letter-spacing: .02em;
+}
+
+.site-title {
+  margin: 0 0 .4rem;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1;
+}
+
+.site-header p {
+  max-width: 900px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.hub-main { padding: 2rem 1.25rem; }
+
+.resource-banner,
+.hub-section-banner,
+.hub-note {
+  background: var(--white);
+  border-left: 12px solid var(--red);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  box-shadow: 0 5px 18px rgba(0,0,0,.08);
+}
+
+.hub-section-banner {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  border-left-color: var(--black);
+  box-shadow: none;
+}
+
+.hub-section-banner h2,
+.resource-banner h2,
+.hub-note h2 {
+  margin: 0 0 .35rem;
+  font-family: "Droid Sans", Arial, sans-serif;
+}
+
+.hub-section-banner p,
+.resource-banner p,
+.hub-note p { margin: 0; line-height: 1.5; }
+
+.hub-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: .9rem; }
+
+.module-grid,
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.module-card,
+.resource-card {
+  background: var(--white);
+  border-top: 8px solid var(--red);
+  padding: 1.1rem;
+  min-height: 215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 5px 18px rgba(0,0,0,.08);
+}
+
+.module-card h3,
+.resource-card h3 {
+  margin: 0 0 .5rem;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 1.2rem;
+}
+
+.module-card p,
+.resource-card p {
+  margin: 0 0 1rem;
+  line-height: 1.45;
+}
+
+.module-meta {
+  font-family: "Droid Sans", Arial, sans-serif;
+  color: var(--gray);
+  font-size: .85rem;
+  margin-bottom: 1rem;
+}
+
+.hub-link,
+.resource-link,
+.back-link {
+  display: inline-block;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--red);
+  color: var(--white);
+  padding: .65rem .85rem;
+  border-radius: 4px;
+}
+
+.hub-link:hover,
+.hub-link:focus,
+.resource-link:hover,
+.resource-link:focus,
+.back-link:hover,
+.back-link:focus { background: var(--black); color: var(--white); }
+.back-link.secondary { background: var(--gray); }
+.site-footer { padding: 1rem 1.25rem 2rem; color: var(--gray); font-family: "Droid Sans", Arial, sans-serif; }
+
+/* Reveal shared */
+.reveal {
+  font-family: "Droid Serif", Georgia, serif;
+  color: var(--black);
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal .tag,
+.reveal .quiz-button,
+.reveal .small,
+.reveal .result {
+  font-family: "Droid Sans", Arial, sans-serif;
+}
+
+.reveal h1,
+.reveal .cytitle {
+  font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
+  color: var(--red);
+}
+
+.reveal h2 { font-size: 1.45em; margin-bottom: .45rem; }
+.reveal h3 { color: var(--black); }
+.reveal ul { margin-top: .35rem; }
+.reveal li { margin-bottom: .15rem; }
+
+.reveal .tag {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-size: .34em;
+  font-weight: 700;
+  padding: .18rem .5rem;
+  margin-bottom: .35rem;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.reveal .bar,
+.reveal .stripe {
+  width: min(920px, 92%);
+  height: 10px;
+  background: var(--red);
+  margin: .8rem auto;
+}
+
+.ftc-slide,
+.ftc-vertical,
+.ftc-quiz { width: 100%; }
+.ftc-hero h1 { max-width: 1100px; margin: 0 auto; }
+.ftc-hero .subtitle { font-size: .62em; font-weight: 700; margin-top: .6rem; color: var(--black); }
+
+.ftc-grid-2,
+.ftc-grid-3,
+.ftc-grid-4,
+.role-grid,
+.sort-targets {
+  display: grid;
+  gap: .8rem;
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0 auto;
+}
+.ftc-grid-2 { grid-template-columns: 1fr 1fr; }
+.ftc-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.ftc-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.role-grid { grid-template-columns: repeat(4, 1fr); }
+.sort-targets { grid-template-columns: repeat(4, 1fr); }
+
+.ftc-card,
+.role-card,
+.scenario-card,
+.sort-zone,
+.practice-card,
+.resource-mini-card,
+.rating-card {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: .75rem .85rem;
+  text-align: left;
+}
+
+.ftc-card.dark,
+.practice-card.good {
+  background: var(--black);
+  color: var(--white);
+}
+.ftc-card.dark h3,
+.ftc-card.dark p,
+.ftc-card.dark li,
+.practice-card.good h3,
+.practice-card.good p { color: var(--white); }
+
+.practice-card.risk {
+  background: #fdecea;
+  border-left-color: #b00020;
+}
+
+.ftc-card h3,
+.role-card h3,
+.scenario-card h3,
+.sort-zone h3,
+.practice-card h3,
+.resource-mini-card h3,
+.rating-card h3 {
+  font-size: .66em;
+  margin: 0 0 .35rem;
+}
+
+.ftc-card p,
+.role-card p,
+.scenario-card p,
+.practice-card p,
+.resource-mini-card p,
+.rating-card p {
+  margin: 0 0 .35rem;
+  font-size: .46em;
+  line-height: 1.25;
+}
+
+.ftc-card li,
+.practice-card li,
+.resource-mini-card li,
+.rating-card li {
+  font-size: .46em;
+  line-height: 1.25;
+  margin-bottom: .15rem;
+}
+
+.ftc-callout {
+  max-width: var(--shared-slide-width, 1120px);
+  margin: .8rem auto 0;
+  padding: .6rem .8rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  text-align: left;
+}
+.ftc-callout p { margin: 0; font-size: .52em; line-height: 1.25; }
+
+.role-card {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 115px;
+  color: var(--black);
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: .5em;
+  font-weight: 700;
+  line-height: 1.18;
+  text-align: center;
+  cursor: pointer;
+}
+.role-card.revealed { background: var(--black); color: var(--white); }
+.role-card.flipping { animation: ftc-card-flip .42s ease; }
+@keyframes ftc-card-flip { 0% {transform: rotateY(0);} 50% {transform: rotateY(90deg);} 100% {transform: rotateY(0);} }
+
+.sort-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0 auto .65rem;
+  padding: .45rem;
+  min-height: 82px;
+  background: var(--light);
+  border: 3px dashed var(--gray);
+  border-radius: 8px;
+}
+.sort-chip {
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-left: 8px solid var(--red);
+  border-radius: 8px;
+  padding: .32rem .5rem;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: .34em;
+  font-weight: 700;
+  cursor: grab;
+}
+.sort-chip.correct { background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; }
+.sort-chip.correct::after { content: " ✓"; color: #2e7d32; }
+.sort-chip.incorrect { background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; }
+.sort-chip.incorrect::after { content: " ✕"; color: #b00020; }
+.sort-chip.unplaced { opacity: .65; outline: 3px dashed var(--gray); outline-offset: 2px; }
+.sort-zone { min-height: 165px; max-height: 205px; overflow-y: auto; }
+.sort-zone h3 { font-size: .5em; text-align: center; margin: 0 0 .35rem; }
+.sort-list { display: flex; flex-direction: column; gap: .25rem; min-height: 100px; }
+
+.activity-controls,
+.quiz-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-top: .7rem;
+}
+.quiz-button {
+  background: var(--red);
+  color: var(--white);
+  border: 0;
+  border-radius: 6px;
+  padding: .48rem .72rem;
+  font-size: .42em;
+  font-weight: 700;
+  cursor: pointer;
+}
+.quiz-button.secondary { background: var(--black); }
+.quiz-button:hover, .quiz-button:focus, .role-card:hover, .role-card:focus-visible, .scenario-options button:hover, .scenario-options button:focus-visible { outline: 4px solid var(--red); outline-offset: 2px; }
+.feedback { margin: 0; font-size: .42em; font-family: "Droid Sans", Arial, sans-serif; font-weight: 700; }
+
+.scenario-card { max-width: 1000px; margin: 0 auto; }
+.scenario-card > p { font-size: .58em; font-weight: 700; }
+.scenario-options { display: grid; gap: .45rem; margin-top: .55rem; }
+.scenario-options button {
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: .45rem .6rem;
+  color: var(--black);
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: .42em;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+.scenario-options button.correct { background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; }
+.scenario-options button.incorrect { background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; }
+
+.rating-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; max-width: 900px; margin: .5rem auto; }
+.rating-card { text-align: center; min-height: 90px; cursor: pointer; border-left-width: 6px; }
+.rating-card.selected { background: var(--black); color: var(--white); }
+.rating-card.selected h3, .rating-card.selected p { color: var(--white); }
+.rating-output { text-align: center; font-size: .42em; font-weight: 700; }
+
+.resource-link-row { display: flex; justify-content: center; flex-wrap: wrap; gap: .45rem; margin-top: .65rem; }
+.resource-pill { display: inline-block; background: var(--red); color: var(--white) !important; font-family: "Droid Sans", Arial, sans-serif; font-weight: 700; font-size: .34em; text-decoration: none; padding: .35rem .55rem; border-radius: 6px; }
+.resource-pill:hover, .resource-pill:focus { background: var(--black); }
+
+@media (max-width: 900px) {
+  .ftc-grid-3, .ftc-grid-4, .role-grid, .sort-targets { grid-template-columns: 1fr 1fr; }
+  .ftc-grid-2 { grid-template-columns: 1fr; }
+}

@@ -172,6 +172,36 @@
           min-height: auto;
         }
       }
+      .back-link {
+  display: inline-block;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--red);
+  color: var(--white);
+  padding: .65rem .85rem;
+  border-radius: 4px;
+}
+
+.back-link:hover,
+.back-link:focus { background: var(--black); color: var(--white); }
+.back-link.secondary { background: var(--gray); }
+
+.resource-banner{
+  background: var(--white);
+  border-left: 12px solid var(--red);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  box-shadow: 0 5px 18px rgba(0,0,0,.08);
+}
+
+.resource-banner h2 {
+  margin: 0 0 .35rem;
+  font-family: "Droid Sans", Arial, sans-serif;
+}
+
+.resource-banner p{ margin: 0; line-height: 1.5; }
+
     </style>
   </head>
 
@@ -188,15 +218,10 @@
     </header>
 
     <main>
-      <section class="intro">
-        <h2>Helpful FIRST Robotics Competition Links</h2>
-        <p>
-          Use these resources for game rules, robot design, programming, safety,
-          scouting, documentation, team organization, and technical
-          troubleshooting.
-        </p>
-      </section>
-
+            <div class="hub-actions"><a class="back-link" href="index.html">Back to Training Hub</a></div>
+                 <section class="resource-banner"><h2>Use official resources first</h2>
+        <p>FRC rules, software, game materials, and documentation 
+          change over time. Check these sources before finalizing robot, code, outreach, or event decisions.</p></section>
       <section class="resource-grid" aria-label="FRC resource links">
         <article class="resource-card">
           <div>

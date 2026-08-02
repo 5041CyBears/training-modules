@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5041 CyBear Robotics R.O.A.R Report</title>
+  <link rel="stylesheet" href="roar-styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="brand-hero" aria-labelledby="pageTitle">
+      <div class="brand-angle brand-angle-black" aria-hidden="true"></div>
+      <div class="brand-angle brand-angle-red" aria-hidden="true"></div>
+
+      <div class="brand-content">
+        <div class="brand-copy">
+          <h1 id="pageTitle">R.O.A.R Report</h1>
+          <p class="muted">Report, Observe, Assess, Respond</p>
+        </div>
+
+        <div class="logo-panel text-logo" aria-label="5041 CyBear Robotics mark">
+        <img
+          src="assets/5041teamlogo.png"
+          alt="5041 CyBear Robotics logo"
+          class="team-logo"
+        />
+        </div>
+      </div>
+
+      <div class="hero-action-row">
+        <span class="loading-bar" aria-hidden="true"></span>
+        <div class="button-row">
+          <button id="clearBtn" class="secondary" type="button">Clear form</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid single-grid">
+      <form id="roarForm" class="card form-card">
+        <div class="section-heading">
+          <span class="corner-mark" aria-hidden="true"></span>
+          <div>
+            <h2>Submit a Report</h2>
+            <p class="muted small">Reports are saved to the connected Google Sheet.</p>
+          </div>
+        </div>
+
+        <label>
+          Report Title
+          <input id="reportingStudents" name="reportingStudents" type="text" autocomplete="name" />
+        </label>
+
+        <label>
+          Mentor/Student Reporter <span class="required">*</span>
+          <input id="reporter" name="reporter" type="text" autocomplete="name" required />
+        </label>
+
+        <div class="two-col">
+          <label>
+            Date <span class="required">*</span>
+            <input id="reportDate" name="reportDate" type="date" required />
+          </label>
+
+          <label>
+            Time
+            <input id="reportTime" name="reportTime" type="time" />
+          </label>
+        </div>
+
+        <fieldset class="report-type-box">
+          <legend>Report Type <span class="required">*</span></legend>
+
+          <label class="check-row">
+            <input type="checkbox" name="reportTypeBullying" />
+            <span>Bullying</span>
+          </label>
+
+          <label class="check-row">
+            <input id="harassmentToggle" type="checkbox" name="reportTypeHarassment" />
+            <span>Harassment</span>
+          </label>
+
+          <div class="sub-checks" aria-label="Harassment type options">
+            <label><input type="checkbox" name="harassmentVerbal" /> Verbal</label>
+            <label><input type="checkbox" name="harassmentPhysical" /> Physical</label>
+            <label><input type="checkbox" name="harassmentDigital" /> Digital</label>
+          </div>
+
+          <label class="check-row">
+            <input type="checkbox" name="reportTypeSexualHarassment" />
+            <span>Sexual Harassment</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="reportTypeMisconduct" />
+            <span>Misconduct</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="reportTypeRetaliation" />
+            <span>Retaliation</span>
+          </label>
+
+          <label class="check-row">
+            <input id="otherToggle" type="checkbox" name="reportTypeOther" />
+            <span>Other</span>
+          </label>
+
+          <input id="otherReportType" name="otherReportType" type="text" placeholder="Describe other report type" />
+        </fieldset>
+
+        <label>
+          Individual(s) Involved <span class="required">*</span>
+          <textarea id="individualsInvolved" name="individualsInvolved" rows="3" required></textarea>
+        </label>
+
+        <label>
+          Incident Date(s) <span class="required">*</span>
+          <input id="incidentDates" name="incidentDates" type="text" placeholder="Example: 2026-08-20, after practice" required />
+        </label>
+
+        <label>
+          Description of Incident(s) <span class="required">*</span>
+          <textarea id="incidentDescription" name="incidentDescription" rows="8" placeholder="Describe in as much detail as possible." required></textarea>
+        </label>
+
+        <div class="summary-box warning-box">
+          <span>Privacy reminder</span>
+          <strong>Submit reports only through approved team/school processes.</strong>
+          <p class="muted small">Reports may contain sensitive information. Limit access to appropriate adults.</p>
+        </div>
+
+        <button type="submit">Submit R.O.A.R Report</button>
+        <p id="formMessage" class="message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <iframe name="hiddenSubmitFrame" id="hiddenSubmitFrame" title="Hidden form submit target"></iframe>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

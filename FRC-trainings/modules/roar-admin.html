@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5041 CyBear Robotics R.O.A.R Reports</title>
+  <link rel="stylesheet" href="roar-styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="brand-hero" aria-labelledby="pageTitle">
+      <div class="brand-angle brand-angle-black" aria-hidden="true"></div>
+      <div class="brand-angle brand-angle-red" aria-hidden="true"></div>
+
+       <div class="brand-content">
+        <div class="brand-copy">
+          <h1 id="pageTitle">R.O.A.R Admin</h1>
+          <p class="muted">Report, Observe, Assess, Respond</p>
+        </div>
+
+        <div class="logo-panel text-logo" aria-label="5041 CyBear Robotics mark">
+        <img
+          src="assets/5041teamlogo.png"
+          alt="5041 CyBear Robotics logo"
+          class="team-logo"
+        />
+        </div>
+      </div>
+
+      <div class="hero-action-row">
+        <span class="loading-bar" aria-hidden="true"></span>
+        <div class="button-row">
+          <a class="button-link secondary" href="index.html">Submit report</a>
+          <button id="refreshReportBtn" class="secondary" type="button">Refresh reports</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="report-grid compact-report-grid">
+      <section class="card report-controls-card full-width-card">
+        <div class="section-heading">
+          <span class="corner-mark" aria-hidden="true"></span>
+          <div>
+            <h2>Admin Access</h2>
+            <p class="muted small">The PIN must match ADMIN_PIN in Code.gs.</p>
+          </div>
+        </div>
+
+        <form id="reportForm" class="report-form">
+          <label>
+            Admin PIN
+            <input id="adminPin" type="password" autocomplete="off" placeholder="Enter admin PIN" required />
+          </label>
+
+          <div class="two-col">
+            <label>
+              Start date
+              <input id="startDate" type="date" />
+            </label>
+
+            <label>
+              End date
+              <input id="endDate" type="date" />
+            </label>
+          </div>
+
+          <button type="submit">Load reports</button>
+          <p id="reportMessage" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card report-summary-card full-width-card">
+        <div class="section-heading compact-heading">
+          <span class="corner-mark" aria-hidden="true"></span>
+          <div>
+            <p class="eyebrow small-eyebrow">Selected Range</p>
+            <h2 id="selectedRangeLabel">Reports</h2>
+          </div>
+        </div>
+
+        <div class="totals report-totals">
+          <div>
+            <span>Total reports</span>
+            <strong id="totalReports">0</strong>
+          </div>
+          <div>
+            <span>Bullying</span>
+            <strong id="bullyingCount">0</strong>
+          </div>
+          <div>
+            <span>Harassment</span>
+            <strong id="harassmentCount">0</strong>
+          </div>
+          <div>
+            <span>Other categories</span>
+            <strong id="otherCount">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="card full-width-card">
+        <div class="entries-header">
+          <div class="section-heading compact-heading">
+            <span class="corner-mark" aria-hidden="true"></span>
+            <div>
+              <h2>Submitted Reports</h2>
+              <p class="muted small">Most recent reports appear first.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="reportsList" class="reports-list">
+          <p class="empty">No reports loaded yet.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="report.js"></script>
+</body>
+</html>

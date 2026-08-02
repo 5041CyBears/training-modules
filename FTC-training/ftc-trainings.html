@@ -324,6 +324,20 @@
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 500;
 }
+      .back-link {
+  display: inline-block;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--red);
+  color: var(--white);
+  padding: .65rem .85rem;
+  border-radius: 4px;
+}
+
+.back-link:hover,
+.back-link:focus { background: var(--black); color: var(--white); }
+.back-link.secondary { background: var(--gray); }
 
     </style>
   </head>
@@ -331,7 +345,7 @@
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <h1>5041 Resource and Training Hub</h1>
+        <h1>FTC Training</h1>
         <img
           src="assets/5041teamlogo.png"
           alt="5041 CyBear Robotics logo"
@@ -342,94 +356,170 @@
 
  <main>
 
-<section class="hub-section-banner">
-  <h2>Resources</h2>
-</section>
-
-    <section class="module-grid" aria-label="Training module links">
-
-        <article class="module-card">
-          <div>
-      <h2>5041 Time Clock</h2>
-      <p>
-        A simple time clock app for authorized 5041 users.
-      </p>
-          </div>
-      <div class="button-row">
-        <a class="module-link" href="https://5041cybears.github.io/Hours-Tracker-App/">Time Clock</a>
-      </div>
-        </article>
-
-        <article class="module-card">
-          <div>
-      <h2>R.O.A.R Reporting Form</h2>
-      <p>
-        An online form to create R.O.A.R incident reports.
-      </p>
-          </div>
-      <div class="button-row">
-        <a class="module-link" href="roar-report-form.html">R.O.A.R. Form</a>
-      </div>
-        </article>
-
- <article class="module-card">
-          <div>
-      <h2>FTC Resources</h2>
-      <p>
-        A collection of resources commonly used by FTC teams.
-      </p>
-          </div>
-      <div class="button-row">
-        <a class="module-link" href="ftc-resources.html">Resource Links</a>
-      </div>
-        </article>
-
-        <article class="module-card">
-          <div>
-           <h2>FRC Resources</h2>
-      <p>
-        A collection of resources commonly used by 5041 and many FRC teams.
-      </p>
-          </div>
-<div class="button-row">
-        <a class="module-link" href="frc-resources.html">Resource Links</a>
-      </div>
-        </article>
-
-      </section>
+<div class="hub-actions"><a class="back-link" href="../index.html">Back to Training Hub</a></div>
 
 <section class="hub-section-banner">
   <h2>Training Modules</h2>
 </section>
 
-  <section class="module-grid" aria-label="Training module links">
-       
-
-           <article class="module-card">
+      <section class="intro">
+        <h2>Foundational Training</h2>
+        <p>Recommended for: all team members</p>
+      </section>
+<section class="module-grid" aria-label="Training module links">
+        <article class="module-card">
           <div>
-           <h2>FTC Training Modules</h2>
-      <p>
-        A collection of training modules for a large variety of FTC subjects.
-      </p>
+            <h2>What is FIRST Tech Challenge?</h2>
+            <p>
+              An overview of the FTC program, its structure, and its values.
+            </p>
           </div>
-<div class="button-row">
-        <a class="module-link" href="FTC-training/ftc-trainings.html">Training Modules</a>
-      </div>
+          <div class="button-row">
+            <a class="module-link" href="modules/ftc-foundations.html">Open Module</a>
+          </div>
         </article>
 
- <article class="module-card">
+        <article class="module-card">
           <div>
-           <h2>FRC Training Modules</h2>
-      <p>
-        A collection of training modules for a large variety of FRC subjects.
-      </p>
+            <h2>Safety & Pit Readiness</h2>
+            <p>
+              Shop safety, robot handling, pit organization, match turnaround,
+              battery handling, and competition roles.
+            </p>
           </div>
-<div class="button-row">
-        <a class="module-link" href="FRC-trainings/frc-trainings.html">Training Modules</a>
-      </div>
+          <div class="button-row">
+            <a class="module-link" href="modules/safety.html">Open Module</a>
+          </div>
         </article>
-        </section>
 
+        <article class="module-card">
+          <div>
+            <h2>Creating an Inclusive and Productive Culture</h2>
+            <p>
+              Creating a culture for productive and positive teamwork and
+              learning.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="modules/inclusion.html">Open Module</a>
+          </div>
+        </article>
+
+
+  <article class="module-card coming-soon">
+          <div>
+            <h2>R.O.A.R Reporting</h2>
+            <p>
+              The purpose and use of R.O.A.R reports.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="inclusion.html">Open Module</a>
+          </div>
+        </article>
+
+      </section>
+
+      <section class="intro">
+        <h2>Mechanical Training</h2>
+        <p>Recommended for: all team mechanical team members</p>
+      </section>
+
+      <section class="module-grid" aria-label="Training module links">
+        <article class="module-card">
+          <div>
+            <h2>General Robot Design</h2>
+            <p>
+              Design process, CAD, load paths, strength, stiffness, weight
+              distribution, impact preparation, and repair access.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="general-robot-design.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+
+
+      </section>
+
+      <section class="intro">
+        <h2>Electrical and Programming Training</h2>
+        <p>Recommended for: all mechnical and programming team members</p>
+      </section>
+
+      <section class="module-grid" aria-label="Training module links">
+
+<article class="module-card coming-soon">
+          <div>
+            <h2>FTC Software Overview</h2>
+            <p>
+              An overiview of common FTC software resources
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="programming-controls.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+
+
+      </section>
+
+      <section class="intro">
+        <h2>Awards and Judging Training</h2>
+        <p>Recommended for: all team members</p>
+      </section>
+
+      <section class="module-grid" aria-label="Training module links">
+        <article class="module-card">
+          <div>
+            <h2>Talking to Judges</h2>
+            <p>How to talk to judges in the pits.</p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="judging.html">Open Module</a>
+          </div>
+        </article>
+
+        <article class="module-card coming-soon">
+          <div>
+            <h2>Submitted Awards</h2>
+            <p>
+              Basics and tips for submitted awards such as FIRST Leadership and
+              the Impact Award.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="electronics.html">Open Module</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="intro">
+        <h2>Business and Outreach Training</h2>
+        <p>Recommended for: all non-technical team members</p>
+      </section>
+
+      <section class="module-grid" aria-label="Training module links">
+        <article class="module-card">
+          <div>
+            <h2>Media Creation</h2>
+            <p>
+              Basics on the best practices for creation of media, use of styles
+              guide, and outreach documentation.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="module-link" href="media.html"
+              >Open Module</a
+            >
+          </div>
+        </article>
+
+      </section>
     </main>
 
     <footer>5041 CyBear Robotics · Everyone has a place here</footer>

@@ -1,0 +1,429 @@
+:root {
+  --red: #980000;
+  --black: #000000;
+  --gray: #666666;
+  --light: #f3f3f3;
+  --white: #ffffff;
+  --danger: #b00020;
+  --success: #2e7d32;
+  --warning: #b26a00;
+  --shared-width: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(152, 0, 0, 0.12), transparent 35%),
+    var(--light);
+  color: var(--black);
+  font-family: "Droid", sans-serif;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 1.5rem auto 2.5rem;
+}
+
+.brand-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  border-left: 10px solid var(--black);
+  border-top: 16px solid var(--red);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+  padding: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.brand-angle {
+  position: absolute;
+  pointer-events: none;
+  transform: skewX(-18deg);
+}
+
+.brand-angle-black {
+  right: -80px;
+  top: -45px;
+  width: 210px;
+  height: 115px;
+  background: var(--black);
+  opacity: 0.08;
+}
+
+.brand-angle-red {
+  right: 120px;
+  bottom: -70px;
+  width: 260px;
+  height: 95px;
+  background: var(--red);
+  opacity: 0.16;
+}
+
+.brand-content {
+  font-family: "Audiowide", sans-serif;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.brand-copy h1 {
+  font-family: "Audiowide", sans-serif;
+  margin: 0.1rem 0;
+  color: var(--red);
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  line-height: 0.95;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--red);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.small-eyebrow {
+  font-size: 0.72rem;
+}
+
+.muted {
+  color: var(--gray);
+}
+
+.small {
+  font-size: 0.9rem;
+}
+
+.logo-panel {
+  min-width: 190px;
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+  background: var(--black);
+  color: var(--white);
+  border-left: 10px solid var(--red);
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.text-logo span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--white);
+}
+
+.text-logo strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.hero-action-row {
+  position: relative;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.loading-bar {
+  height: 12px;
+  flex: 1;
+  background: linear-gradient(90deg, var(--red) 0 55%, var(--black) 55% 78%, var(--gray) 78% 100%);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.grid,
+.report-grid {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.single-grid {
+  grid-template-columns: 1fr;
+}
+
+.compact-report-grid {
+  grid-template-columns: 1fr;
+}
+
+.card {
+  background: var(--white);
+  border-left: 8px solid var(--red);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  padding: 1.2rem;
+}
+
+.full-width-card {
+  grid-column: 1 / -1;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.compact-heading {
+  margin-bottom: 0.7rem;
+}
+
+.corner-mark {
+  width: 16px;
+  height: 42px;
+  flex: 0 0 auto;
+  background: var(--red);
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 0 100%);
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.65rem;
+}
+
+form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+label,
+legend {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 800;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 2px solid var(--gray);
+  border-left: 8px solid var(--red);
+  padding: 0.7rem;
+  font: inherit;
+  background: var(--white);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.report-type-box {
+  border: 2px solid var(--black);
+  padding: 0.85rem;
+}
+
+.check-row,
+.sub-checks label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.check-row input,
+.sub-checks input {
+  width: auto;
+}
+
+.sub-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 0.1rem 0 0.5rem 1.5rem;
+  color: var(--gray);
+}
+
+.required {
+  color: var(--red);
+}
+
+.summary-box,
+.totals {
+  background: var(--light);
+  border-left: 8px solid var(--red);
+  padding: 0.85rem;
+}
+
+.warning-box strong {
+  display: block;
+  margin: 0.2rem 0;
+}
+
+button,
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  color: var(--white);
+  border: 0;
+  padding: 0.8rem 1rem;
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button.secondary,
+.button-link.secondary {
+  background: var(--black);
+}
+
+button:hover,
+button:focus,
+.button-link:hover,
+.button-link:focus {
+  outline: 3px solid var(--black);
+  outline-offset: 2px;
+}
+
+.message {
+  min-height: 1.3rem;
+  margin: 0.1rem 0 0;
+  font-weight: 800;
+}
+
+.message.success {
+  color: var(--success);
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.message.warning {
+  color: var(--warning);
+}
+
+.report-totals,
+.totals {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+
+.totals div {
+  background: var(--white);
+  border-left: 8px solid var(--red);
+  padding: 0.75rem;
+}
+
+.totals span {
+  display: block;
+  color: var(--gray);
+  font-size: 0.86rem;
+}
+
+.totals strong {
+  display: block;
+  font-size: 1.7rem;
+}
+
+.reports-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.report-card {
+  background: var(--light);
+  border: 2px solid var(--black);
+  border-left: 10px solid var(--red);
+  padding: 1rem;
+}
+
+.report-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid var(--gray);
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.report-pill {
+  align-self: flex-start;
+  background: var(--black);
+  color: var(--white);
+  border-left: 8px solid var(--red);
+  padding: 0.45rem 0.6rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.report-card dl {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0.45rem 0.85rem;
+  margin: 0;
+}
+
+.report-card dt {
+  font-weight: 800;
+}
+
+.report-card dd {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.empty {
+  color: var(--gray);
+  font-weight: 700;
+}
+
+#hiddenSubmitFrame {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .brand-content,
+  .hero-action-row,
+  .report-card header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logo-panel {
+    min-width: 0;
+    min-height: 90px;
+  }
+
+  .two-col,
+  .report-totals,
+  .totals,
+  .report-card dl {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-logo {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+#pageTitle {
+  font-family: "Audiowide", sans-serif;
+  font-size: 6em;
+}
