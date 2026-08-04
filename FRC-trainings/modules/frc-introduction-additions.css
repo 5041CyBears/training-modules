@@ -1,0 +1,423 @@
+/* 5041 FRC Introduction module additions */
+.frcintro-hero h1,
+.frcintro-hero .cytitle {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.frcintro-subtitle {
+  max-width: 880px;
+  margin: 0.8rem auto 0 !important;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.55em !important;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.frcintro-slide h2,
+.frcintro-vertical h2,
+.frcintro-quiz h2 {
+  font-size: 1.45em;
+  margin-bottom: 0.45rem;
+}
+
+.frcintro-grid-2,
+.frcintro-grid-3,
+.frcintro-grid-4,
+.frcintro-role-grid,
+.behavior-click-grid {
+  display: grid;
+  gap: 0.8rem;
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0 auto;
+}
+
+.frcintro-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.frcintro-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.frcintro-grid-4,
+.frcintro-role-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.behavior-click-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.frcintro-card,
+.frcintro-scenario-card,
+.behavior-card,
+.frcintro-role-card {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.frcintro-card.dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.frcintro-card.dark h3,
+.frcintro-card.dark p,
+.frcintro-card.dark li {
+  color: var(--white);
+}
+
+.frcintro-card h3,
+.frcintro-scenario-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.72em;
+}
+
+.frcintro-card p,
+.frcintro-scenario-card p {
+  margin: 0 0 0.35rem;
+  font-size: 0.45em;
+  line-height: 1.25;
+}
+
+.frcintro-card li {
+  font-size: 0.5em;
+  line-height: 1.22;
+  margin-bottom: 0.16rem;
+}
+
+.frcintro-callout {
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0.8rem auto 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.frcintro-callout p {
+  margin: 0;
+  font-size: 0.54em;
+  line-height: 1.25;
+}
+
+.frcintro-process {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.6rem;
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0 auto;
+}
+
+.frcintro-process div {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.65rem 0.45rem;
+  text-align: center;
+}
+
+.frcintro-process span {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 50%;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.42em;
+  margin-bottom: 0.25rem;
+}
+
+.frcintro-process p {
+  margin: 0;
+  font-size: 0.42em;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.frcintro-role-card,
+.frcintro-role-card[aria-pressed="true"] {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 120px;
+  background: var(--light) !important;
+  color: var(--black) !important;
+  border: 0 !important;
+  border-left: 10px solid var(--red) !important;
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem !important;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.45em;
+  font-weight: 700;
+  line-height: 1.18;
+  text-align: center;
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.frcintro-role-card.revealed,
+.frcintro-role-card[aria-pressed="true"].revealed {
+  background: var(--black) !important;
+  color: var(--white) !important;
+}
+
+.frcintro-role-card.role-flipping,
+.behavior-card.role-flipping {
+  animation: frcintro-card-flip 0.42s ease;
+}
+
+@keyframes frcintro-card-flip {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(90deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+.frcintro-role-card:hover,
+.frcintro-role-card:focus-visible,
+.behavior-card:hover,
+.behavior-card:focus-visible {
+  outline: 4px solid var(--red);
+  outline-offset: 2px;
+}
+
+.frcintro-role-feedback,
+.behavior-feedback,
+.season-sort-feedback,
+.regional-match-feedback,
+.values-choice-feedback {
+  margin: 0.65rem auto 0;
+  text-align: center;
+  font-size: 0.42em;
+  font-weight: 700;
+}
+
+.season-sort-bank,
+.season-sort-targets,
+.regional-match-bank,
+.regional-match-grid {
+  max-width: var(--shared-slide-width, 1120px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.season-sort-bank,
+.regional-match-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.45rem;
+  min-height: 86px;
+  margin-bottom: 0.6rem;
+  background: var(--light);
+  border: 3px dashed var(--gray);
+  border-radius: 8px;
+}
+
+.season-sort-chip,
+.regional-match-chip {
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-left: 8px solid var(--red);
+  border-radius: 8px;
+  padding: 0.32rem 0.48rem;
+  font-size: 0.34em;
+  font-weight: 700;
+  cursor: grab;
+}
+
+.season-sort-targets {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.55rem;
+}
+
+.season-sort-zone {
+  min-height: 150px;
+  max-height: 190px;
+  overflow-y: auto;
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.45rem;
+}
+
+.season-sort-zone h3,
+.regional-match-zone h3 {
+  font-size: 0.46em;
+  text-align: center;
+  margin: 0 0 0.35rem;
+}
+
+.season-sort-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-height: 100px;
+}
+
+.regional-match-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+}
+
+.regional-match-zone {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.4rem;
+  min-height: 110px;
+  text-align: center;
+}
+
+.regional-match-drop {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.season-sort-chip.correct,
+.regional-match-chip.correct,
+.values-choice-options button.correct,
+.behavior-card.correct {
+  background: #e6f4ea !important;
+  border-color: #2e7d32 !important;
+  border-left-color: #2e7d32 !important;
+  color: var(--black) !important;
+}
+
+.season-sort-chip.incorrect,
+.regional-match-chip.incorrect,
+.values-choice-options button.incorrect,
+.behavior-card.incorrect {
+  background: #fdecea !important;
+  border-color: #b00020 !important;
+  border-left-color: #b00020 !important;
+  color: var(--black) !important;
+}
+
+.season-sort-chip.unplaced,
+.regional-match-chip.unplaced {
+  opacity: 0.65;
+  outline: 3px dashed var(--gray);
+  outline-offset: 2px;
+}
+
+.values-choice-options {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.55rem;
+}
+
+.values-choice-options button {
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+  color: var(--black);
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.42em;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.behavior-card,
+.behavior-card[aria-pressed="true"] {
+  min-height: 118px;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.48em;
+  font-weight: 700;
+  line-height: 1.18;
+  text-align: center;
+  cursor: pointer;
+  border: 0 !important;
+  border-left: 10px solid var(--red) !important;
+  color: var(--black);
+}
+
+.behavior-card.selected {
+  background: var(--black);
+  color: var(--white);
+}
+
+.behavior-card.missed {
+  background: #fff8d6 !important;
+  border-color: #b8860b !important;
+  border-left-color: #b8860b !important;
+  color: var(--black) !important;
+}
+
+@media (max-width: 900px) {
+  .reveal .frcintro-grid-3,
+  .reveal .frcintro-grid-4,
+  .reveal .frcintro-role-grid,
+  .reveal .behavior-click-grid,
+  .reveal .frcintro-process,
+  .reveal .season-sort-targets,
+  .reveal .regional-match-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .reveal .frcintro-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Robust regional matching interaction */
+.reveal .regional-match-slide.present {
+  pointer-events: auto !important;
+  isolation: isolate;
+}
+
+.reveal .regional-match-slide .regional-match-bank,
+.reveal .regional-match-slide .regional-match-grid,
+.reveal .regional-match-slide .regional-match-zone,
+.reveal .regional-match-slide .regional-match-drop,
+.reveal .regional-match-slide .regional-match-chip,
+.reveal .regional-match-slide .activity-controls,
+.reveal .regional-match-slide .quiz-button {
+  position: relative;
+  pointer-events: auto !important;
+}
+
+.reveal .regional-match-slide .regional-match-bank,
+.reveal .regional-match-slide .regional-match-grid,
+.reveal .regional-match-slide .activity-controls {
+  z-index: 10;
+}
+
+.reveal .regional-match-slide .regional-match-zone,
+.reveal .regional-match-slide .regional-match-drop {
+  z-index: 11;
+}
+
+.reveal .regional-match-slide .regional-match-chip,
+.reveal .regional-match-slide .quiz-button {
+  z-index: 12;
+}
+
+.reveal .regional-match-slide .regional-match-chip {
+  -webkit-user-drag: element;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.reveal .regional-match-slide .regional-match-zone {
+  cursor: pointer;
+}
