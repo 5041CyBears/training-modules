@@ -927,49 +927,123 @@
             </div>
           </section>
 
-          <section class="safety-vertical">
-            <span class="tag">Safety Checklist</span>
-            <h2>Click each item as you review it</h2>
-            <div class="review-grid">
-              <button class="review-item" type="button">
-                Safety glasses available and worn
-              </button>
-              <button class="review-item" type="button">
-                First-aid kit location known
-              </button>
-              <button class="review-item" type="button">
-                Mentor present for power tools
-              </button>
-              <button class="review-item" type="button">
-                Walkways and exits clear
-              </button>
-              <button class="review-item" type="button">
-                Tools stored after use
-              </button>
-              <button class="review-item" type="button">
-                Damaged tools removed
-              </button>
-              <button class="review-item" type="button">
-                Battery area ventilated
-              </button>
-              <button class="review-item" type="button">
-                Battery cleanup materials available
-              </button>
-              <button class="review-item" type="button">
-                Robot power off before work
-              </button>
-              <button class="review-item" type="button">
-                Moving mechanisms secured
-              </button>
-              <button class="review-item" type="button">
-                No food near tools or robot
-              </button>
-              <button class="review-item" type="button">
-                Injuries reported immediately
-              </button>
-            </div>
-            <p class="review-feedback">0 of 12 reviewed.</p>
-          </section>
+          <section class="safety-vertical safety-review-slide">
+  <span class="tag">Safety Checklist</span>
+  <h2>Click each card to review the safety item</h2>
+
+  <div class="review-grid">
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Safety glasses available and worn"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="First-aid kit location known"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Mentor present for power tools"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Walkways and exits clear"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Tools stored after use"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Damaged tools removed"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Battery area ventilated"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Battery cleanup materials available"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Robot power off before work"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Moving mechanisms secured"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="No food near tools or robot"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+
+    <button
+      class="review-item safety-review-card"
+      type="button"
+      data-review="Injuries reported immediately"
+      onclick="revealSafetyReview(this)"
+    >
+      Click to review
+    </button>
+  </div>
+
+  <p class="review-feedback">0 of 12 reviewed.</p>
+</section>
+
         </section>
 
         <section id="quiz-intro" class="center">

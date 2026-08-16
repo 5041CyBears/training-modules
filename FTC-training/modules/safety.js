@@ -462,3 +462,35 @@ async function downloadCertificatePdf() {
 
   pdf.save(`${name}-${moduleName}-certificate.pdf`);
 }
+
+function revealSafetyReview(card) {
+  const slide = card.closest(".safety-review-slide");
+  const hiddenText = "Click to review";
+  const willReveal = !card.classList.contains("revealed");
+
+  card.classList.remove("role-flipping");
+  void card.offsetWidth;
+  card.classList.add("role-flipping");
+
+  window.setTimeout(() => {
+    card.classList.toggle("revealed", willReveal);
+    card.textContent = willReveal ? card.dataset.review : hiddenText;
+    card.setAttribute("aria-pressed", willReveal ? "true" : "false");
+
+    if (slide) {
+      const cards = slide.querySelectorAll(".safety-review-card");
+      const revealed = slide.querySelectorAll(".safety-review-card.revealed");
+      const feedback = slide.querySelector(".review-feedback");
+
+      if (feedback) {
+        feedback.textContent = `${revealed.length} of ${cards.length} safety items reviewed.`;
+      }
+    }
+  }, 170);
+
+  window.setTimeout(() => {
+    card.classList.remove("role-flipping");
+  }, 420);
+}
+
+window.revealSafetyReview = revealSafetyReview;

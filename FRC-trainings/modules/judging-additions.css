@@ -159,11 +159,10 @@
 
 .judge-wide-img {
   display: block;
-  width: 100%;
-  max-width: 1050px;
-  max-height: 490px;
+  width: auto;
+  max-height: 500px !important;
   object-fit: contain;
-  margin: 0 auto;
+  margin: 0 auto !important;
   border-radius: 8px;
   background: var(--white);
 }
@@ -241,7 +240,7 @@
 }
 
 .dialogue-card {
-  min-height: 245px;
+  min-height: 220px;
 }
 
 .dialogue-card p {
