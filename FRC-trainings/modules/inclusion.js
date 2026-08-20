@@ -412,3 +412,242 @@ function initGPCheck() {
     });
   });
 }
+let slideAudio = null;
+
+const audioControls = document.getElementById("slideAudioControls");
+const playPauseButton = document.getElementById("audioPlayPause");
+const restartButton = document.getElementById("audioRestart");
+const muteButton = document.getElementById("audioMute");
+const progressSlider = document.getElementById("audioProgress");
+const volumeSlider = document.getElementById("audioVolume");
+const currentTimeDisplay = document.getElementById("audioCurrentTime");
+const durationDisplay = document.getElementById("audioDuration");
+const audioSlideStatus = document.getElementById("audioSlideStatus");
+
+
+function formatAudioTime(seconds) {
+  if (!Number.isFinite(seconds)) {
+    return "0:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+
+  return `${minutes}:${remainingSeconds}`;
+}
+
+
+function updateAudioButton() {
+  if (!slideAudio || slideAudio.paused) {
+    playPauseButton.textContent = "▶";
+    playPauseButton.setAttribute("aria-label", "Play narration");
+  } else {
+    playPauseButton.textContent = "Ⅱ";
+    playPauseButton.setAttribute("aria-label", "Pause narration");
+  }
+}
+
+
+function updateMuteButton() {
+  if (!slideAudio) {
+    muteButton.textContent = "🔊";
+    return;
+  }
+
+  muteButton.textContent =
+    slideAudio.muted || slideAudio.volume === 0
+      ? "🔇"
+      : "🔊";
+}
+
+
+function stopSlideAudio() {
+  if (slideAudio) {
+    slideAudio.pause();
+    slideAudio.currentTime = 0;
+    slideAudio = null;
+  }
+
+  progressSlider.value = 0;
+  currentTimeDisplay.textContent = "0:00";
+  durationDisplay.textContent = "0:00";
+
+  updateAudioButton();
+}
+
+
+function loadAudioForSlide(slide) {
+
+  stopSlideAudio();
+
+  if (!slide) {
+    audioControls.classList.add("audio-hidden");
+    return;
+  }
+
+  const audioFile = slide.dataset.audio;
+
+  if (!audioFile) {
+    audioControls.classList.add("audio-hidden");
+    return;
+  }
+
+  audioControls.classList.remove("audio-hidden");
+
+  slideAudio = new Audio(audioFile);
+
+  slideAudio.volume = Number(volumeSlider.value);
+
+  /*
+   Optional slide label.
+
+   Example:
+   <section
+     data-audio="audio/slide-4.mp3"
+     data-audio-title="Drivetrain Types"
+   >
+  */
+
+  audioSlideStatus.textContent =
+    slide.dataset.audioTitle || "Slide Narration";
+
+
+  slideAudio.addEventListener("loadedmetadata", () => {
+    durationDisplay.textContent =
+      formatAudioTime(slideAudio.duration);
+  });
+
+
+  slideAudio.addEventListener("timeupdate", () => {
+
+    currentTimeDisplay.textContent =
+      formatAudioTime(slideAudio.currentTime);
+
+    if (slideAudio.duration) {
+      progressSlider.value =
+        (slideAudio.currentTime / slideAudio.duration) * 100;
+    }
+  });
+
+
+  slideAudio.addEventListener("play", () => {
+    updateAudioButton();
+  });
+
+
+  slideAudio.addEventListener("pause", () => {
+    updateAudioButton();
+  });
+
+
+  slideAudio.addEventListener("ended", () => {
+    updateAudioButton();
+    progressSlider.value = 100;
+  });
+
+
+  /*
+   Attempt automatic narration.
+   Browsers may block this until the user
+   interacts with the presentation once.
+  */
+
+  slideAudio.play().catch(() => {
+    console.log(
+      "Narration ready. Browser requires user interaction before autoplay."
+    );
+
+    updateAudioButton();
+  });
+}
+
+
+/* =========================================
+   PLAY / PAUSE
+   ========================================= */
+
+playPauseButton.addEventListener("click", () => {
+
+  if (!slideAudio) return;
+
+  if (slideAudio.paused) {
+    slideAudio.play();
+  } else {
+    slideAudio.pause();
+  }
+});
+
+
+/* =========================================
+   RESTART
+   ========================================= */
+
+restartButton.addEventListener("click", () => {
+
+  if (!slideAudio) return;
+
+  slideAudio.currentTime = 0;
+  slideAudio.play();
+});
+
+
+/* =========================================
+   MUTE
+   ========================================= */
+
+muteButton.addEventListener("click", () => {
+
+  if (!slideAudio) return;
+
+  slideAudio.muted = !slideAudio.muted;
+
+  updateMuteButton();
+});
+
+
+/* =========================================
+   VOLUME
+   ========================================= */
+
+volumeSlider.addEventListener("input", () => {
+
+  if (!slideAudio) return;
+
+  slideAudio.volume = Number(volumeSlider.value);
+
+  if (slideAudio.volume > 0) {
+    slideAudio.muted = false;
+  }
+
+  updateMuteButton();
+});
+
+
+/* =========================================
+   SEEK
+   ========================================= */
+
+progressSlider.addEventListener("input", () => {
+
+  if (!slideAudio || !slideAudio.duration) return;
+
+  slideAudio.currentTime =
+    (Number(progressSlider.value) / 100) *
+    slideAudio.duration;
+});
+
+
+/* =========================================
+   REVEAL.JS
+   ========================================= */
+
+Reveal.on("ready", (event) => {
+  loadAudioForSlide(event.currentSlide);
+});
+
+
+Reveal.on("slidechanged", (event) => {
+  loadAudioForSlide(event.currentSlide);
+});

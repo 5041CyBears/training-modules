@@ -338,6 +338,7 @@
 /* Compact layout for inclusion sort slide */
 .reveal .inclusion-sort-slide {
   height: 100%;
+  padding-top: 80px;
 }
 
 .reveal .inclusion-sort-slide h2 {
@@ -525,4 +526,230 @@
 
 .text-red {
   color: var(--red);
+}
+
+/* =========================================
+   5041 REVEAL AUDIO CONTROLS
+   ========================================= */
+
+.slide-audio-controls {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: stretch;
+
+  width: min(920px, calc(100vw - 40px));
+  min-height: 48px;
+
+  background: #000000;
+  color: #ffffff;
+
+  border: 2px solid #980000;
+  border-left: 12px solid #980000;
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.25);
+
+  font-family: "Droid Sans", Arial, sans-serif;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Hide the controls when a slide has no audio */
+.slide-audio-controls.audio-hidden {
+  opacity: 0;
+  pointer-events: none;
+
+  transform:
+    translateX(-50%)
+    translateY(-70px);
+}
+
+
+/* =========================================
+   LABEL
+   ========================================= */
+
+.audio-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 150px;
+  padding: 7px 14px;
+
+  background: #980000;
+  color: #ffffff;
+
+  text-align: left;
+}
+
+.audio-label-main {
+  font-family: "Audiowide", sans-serif;
+  font-size: 13px;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+.audio-slide-status {
+  margin-top: 2px;
+
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  opacity: 0.8;
+}
+
+
+/* =========================================
+   MAIN CONTROLS
+   ========================================= */
+
+.audio-buttons {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  gap: 7px;
+
+  padding: 6px 10px;
+}
+
+.audio-control-button {
+  appearance: none;
+
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 34px;
+
+  padding: 0;
+
+  background: #ffffff;
+  color: #000000;
+
+  border: 0;
+  border-left: 5px solid #980000;
+
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.audio-control-button:hover,
+.audio-control-button:focus-visible {
+  background: #980000;
+  color: #ffffff;
+
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.audio-control-button:active {
+  transform: translateY(2px);
+}
+
+.audio-play-button {
+  background: #980000;
+  color: #ffffff;
+
+  border-left-color: #ffffff;
+}
+
+
+/* =========================================
+   PROGRESS
+   ========================================= */
+
+.audio-progress-wrap {
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+
+  gap: 7px;
+
+  min-width: 180px;
+}
+
+.audio-time {
+  min-width: 34px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.audio-progress,
+.audio-volume {
+  accent-color: #980000;
+
+  cursor: pointer;
+}
+
+.audio-progress {
+  flex: 1;
+}
+
+
+/* =========================================
+   VOLUME
+   ========================================= */
+
+.audio-volume {
+  width: 80px;
+}
+
+
+/* =========================================
+   MOBILE / SMALL SCREEN
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  .slide-audio-controls {
+    width: calc(100vw - 20px);
+  }
+
+  .audio-label {
+    min-width: 95px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .audio-label-main {
+    font-size: 10px;
+  }
+
+  .audio-slide-status {
+    display: none;
+  }
+
+  .audio-volume {
+    display: none;
+  }
+
+  .audio-progress-wrap {
+    min-width: 100px;
+  }
 }

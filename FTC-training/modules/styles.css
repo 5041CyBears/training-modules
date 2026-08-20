@@ -1483,3 +1483,7 @@
   width: auto;
   flex: 0 0 auto;
 }
+
+.quiz-button + .quiz-button {
+  margin-left: 15px;
+}
