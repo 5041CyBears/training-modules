@@ -1,10 +1,46 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FRC-trainings/modules/gearing-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* 5041 Gearing and Gearboxes Training Module additions */
+/* STUDENT NOTE: Typography/spacing rule for `.gear-hero h1, .gear-hero .cytitle`. These values affect readability and vertical space on slides. */
 .gear-hero h1,
 .gear-hero .cytitle {
   max-width: 1080px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.gear-slide h2, .gear-vertical h2, .gear-quiz h2`. These values affect readability and vertical space on slides. */
 .gear-slide h2,
 .gear-vertical h2,
 .gear-quiz h2 {
@@ -12,6 +48,7 @@
   margin-bottom: 0.45rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-intro`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-intro {
   max-width: 1000px;
   margin: 0 auto 0.65rem;
@@ -19,6 +56,7 @@
   line-height: 1.22;
 }
 
+/* STUDENT NOTE: Layout rule for `.gear-grid-2, .gear-grid-3, .gear-grid-4, .gear-split, .gear-flow, .gear-table-wrap`. Grid properties here control columns, gaps, and alignment. */
 .gear-grid-2,
 .gear-grid-3,
 .gear-grid-4,
@@ -29,6 +67,7 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Layout rule for `.gear-grid-2, .gear-grid-3, .gear-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .gear-grid-2,
 .gear-grid-3,
 .gear-grid-4 {
@@ -36,19 +75,23 @@
   gap: 0.8rem;
 }
 
+/* STUDENT NOTE: Layout rule for `.gear-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .gear-grid-2 {
   grid-template-columns: repeat(2, 1fr);
   align-items: start;
 }
 
+/* STUDENT NOTE: Layout rule for `.gear-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .gear-grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* STUDENT NOTE: Layout rule for `.gear-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .gear-grid-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-card, .scenario-choice, .ratio-answer-card`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-card,
 .scenario-choice,
 .ratio-answer-card {
@@ -60,17 +103,20 @@
   height: fit-content
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-card.dark {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.gear-card.dark h3, .gear-card.dark p, .gear-card.dark li`. These values affect readability and vertical space on slides. */
 .gear-card.dark h3,
 .gear-card.dark p,
 .gear-card.dark li {
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.gear-card h3, .scenario-choice h3, .ratio-answer-card h3`. These values affect readability and vertical space on slides. */
 .gear-card h3,
 .scenario-choice h3,
 .ratio-answer-card h3 {
@@ -78,6 +124,7 @@
   font-size: 0.72em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.gear-card p, .scenario-choice p, .ratio-answer-card p`. These values affect readability and vertical space on slides. */
 .gear-card p,
 .scenario-choice p,
 .ratio-answer-card p {
@@ -86,12 +133,14 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-card li`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-card li {
   font-size: 0.5em;
   line-height: 1.22;
   margin-bottom: 0.16rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-card.smaller li`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-card.smaller li {
   font-size: 0.4em;
   line-height: 1.22;
@@ -99,11 +148,13 @@
 }
 
 
+/* STUDENT NOTE: Styles elements matched by `.gear-card ul`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-card ul {
   margin: 0.25rem 0 0; 
   padding-left: 0.85em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-callout {
   max-width: 1000px;
   margin: 0.8rem auto 0;
@@ -113,12 +164,14 @@
   border-radius: 8px;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.gear-callout p`. These values affect readability and vertical space on slides. */
 .gear-callout p {
   margin: 0;
   font-size: 0.56em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-flow`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-flow {
   display: grid;
   grid-template-columns: 1fr 0.18fr 1fr 0.18fr 1fr 0.18fr 1fr;
@@ -127,10 +180,12 @@
   margin-top: 0.75rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-flow.wide-flow`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-flow.wide-flow {
   grid-template-columns: 1fr 0.12fr 1fr 0.12fr 1fr 0.12fr 1fr 0.12fr 1fr;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-node`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-node {
   min-height: 92px;
   background: var(--white);
@@ -147,11 +202,13 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.red-node`. Search the HTML for these class/id names before changing a shared rule. */
 .red-node {
   background: var(--red);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-arrow`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-arrow {
   text-align: center;
   color: var(--red);
@@ -159,6 +216,7 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-split`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-split {
   display: grid;
   grid-template-columns: 46% 1fr;
@@ -166,10 +224,12 @@
   align-items: stretch;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-split.reverse`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-split.reverse {
   grid-template-columns: 1fr 46%;
 }
 
+/* STUDENT NOTE: Image styling for `.gear-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .gear-img {
   width: 100%;
   height: 400px;
@@ -179,6 +239,7 @@
   display: block;
 }
 
+/* STUDENT NOTE: Image styling for `.gear-img-tall`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .gear-img-tall {
   width: 100%;
   height: 480px;
@@ -187,6 +248,7 @@
   display: block;
 }
 
+/* STUDENT NOTE: Image styling for `.gear-img-small`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .gear-img-small {
   width: 100%;
   height: 325px;
@@ -196,11 +258,13 @@
   display: block;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-list-large li`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-list-large li {
   font-size: 0.56em;
   line-height: 1.24;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.formula`. Search the HTML for these class/id names before changing a shared rule. */
 .formula {
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 700;
@@ -208,6 +272,7 @@
   color: var(--red);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.formulabig`. Search the HTML for these class/id names before changing a shared rule. */
 .formulabig {
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 700;
@@ -216,6 +281,7 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.formulabig-2`. Search the HTML for these class/id names before changing a shared rule. */
 .formulabig-2 {
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 700;
@@ -224,15 +290,18 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.compact-cards .gear-card`. Search the HTML for these class/id names before changing a shared rule. */
 .compact-cards .gear-card {
   min-height: 135px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-table-wrap`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-table-wrap {
   width: 100%;
   overflow-x: auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-table`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-table {
   width: 100%;
   border-collapse: collapse;
@@ -242,6 +311,7 @@
   border-bottom: 2px solid var(--black);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-table th, .gear-table td`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-table th,
 .gear-table td {
   border: 2px solid #010101;
@@ -250,16 +320,19 @@
   vertical-align: top;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-table th`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-table th {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-table tr:nth-child(even) td`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-table tr:nth-child(even) td {
   background: #f7f7f7;
 }
 
 /* Sort activity */
+/* STUDENT NOTE: Styles elements matched by `.gear-sort-slide .sort-bank, .gear-sort-slide .sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-sort-slide .sort-bank,
 .gear-sort-slide .sort-targets {
   max-width: var(--shared-slide-width, 1120px);
@@ -267,6 +340,7 @@
   margin-right: auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-sort-slide .sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-sort-slide .sort-bank {
   display: flex;
   flex-wrap: wrap;
@@ -280,6 +354,7 @@
   overflow-y: auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-sort-slide .sort-chip`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-sort-slide .sort-chip {
   background: var(--white);
   border: 2px solid var(--red);
@@ -293,20 +368,24 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-sort-slide .sort-chip.dragging`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-sort-slide .sort-chip.dragging {
   opacity: 0.45;
 }
 
+/* STUDENT NOTE: Interaction state for `.gear-sort-slide .sort-chip.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .gear-sort-slide .sort-chip.correct {
   border-color: #2e7d32;
   background: #e6f4ea;
 }
 
+/* STUDENT NOTE: Interaction state for `.gear-sort-slide .sort-chip.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .gear-sort-slide .sort-chip.incorrect {
   border-color: #b00020;
   background: #fdecea;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-sort-slide .sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-sort-slide .sort-targets {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -314,6 +393,7 @@
   margin-top: 0.55rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-sort-slide .sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-sort-slide .sort-zone {
   min-height: 205px;
   background: var(--light);
@@ -323,12 +403,14 @@
   overflow-y: auto;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.gear-sort-slide .sort-zone h3`. These values affect readability and vertical space on slides. */
 .gear-sort-slide .sort-zone h3 {
   font-size: 0.52em;
   margin: 0 0 0.25rem;
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-sort-slide .sort-list`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-sort-slide .sort-list {
   display: flex;
   flex-direction: column;
@@ -336,11 +418,13 @@
   min-height: 135px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-sort-slide .drag-over`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-sort-slide .drag-over {
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.activity-controls`. Search the HTML for these class/id names before changing a shared rule. */
 .activity-controls {
   display: flex;
   align-items: center;
@@ -349,6 +433,7 @@
   margin-top: 0.55rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.activity-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .activity-feedback {
   min-width: 240px;
   margin: 0;
@@ -356,11 +441,13 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.hidden-answer`. Search the HTML for these class/id names before changing a shared rule. */
 .hidden-answer {
   opacity: 0.15;
   filter: grayscale(1);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.scenario-choice`. Search the HTML for these class/id names before changing a shared rule. */
 .scenario-choice {
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 700;
@@ -369,11 +456,13 @@
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.scenario-choice:hover, .scenario-choice:focus`. Search the HTML for these class/id names before changing a shared rule. */
 .scenario-choice:hover,
 .scenario-choice:focus {
   outline: 4px solid var(--red);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.scenario-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .scenario-feedback {
   max-width: 1000px;
   margin: 0.8rem auto 0;
@@ -382,30 +471,37 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.gear-card a`. Search the HTML for these class/id names before changing a shared rule. */
 .gear-card a {
   color: var(--red);
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .gear-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .gear-card.dark {
   background: var(--black) !important;
   color: var(--white) !important;
 }
 
+/* STUDENT NOTE: Responsive breakpoint. Rules inside this block apply only when the screen matches this condition. */
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.gear-grid-3, .gear-grid-4, .gear-sort-slide .sort-targets`. Grid properties here control columns, gaps, and alignment. */
   .gear-grid-3,
   .gear-grid-4,
   .gear-sort-slide .sort-targets {
     grid-template-columns: 1fr 1fr;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.gear-split, .gear-split.reverse`. Search the HTML for these class/id names before changing a shared rule. */
   .gear-split,
   .gear-split.reverse {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Image styling for `} .reveal img.img-gears`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 }
 
 .reveal img.img-gears {
+  /* STUDENT NOTE: Image styling for `width: 75%; height: auto; display: block; margin-left: auto; margin-right: auto; } .reveal img.img-gears-2`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   width: 75%;
   height: auto;
   display: block;
@@ -414,6 +510,7 @@
 }
 
 .reveal img.img-gears-2 {
+  /* STUDENT NOTE: Typography/spacing rule for `width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; } .reveal .symbol-key p`. These values affect readability and vertical space on slides. */
   width: 100%;
   height: auto;
   display: block;
@@ -423,6 +520,7 @@
 
 
 .reveal .symbol-key p {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1em; display: block; margin-left: auto; margin-right: auto; } .reveal .symbol-key .torque-line`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1em;
   display: block;
   margin-left: auto;
@@ -430,14 +528,17 @@
 }
 
 .reveal .symbol-key .torque-line {
+  /* STUDENT NOTE: Styles elements matched by `color: #701F28; } .text-red`. Search the HTML for these class/id names before changing a shared rule. */
   color: #701F28;
 }
 
 .text-red {
+  /* STUDENT NOTE: Styles elements matched by `color: var(--red); } .reveal .gear-lab-controls`. Search the HTML for these class/id names before changing a shared rule. */
   color: var(--red);
 }
 
 .reveal .gear-lab-controls {
+  /* STUDENT NOTE: Styles elements matched by `display: flex; justify-content: center; gap: 1rem; margin: 0.4rem auto 0.5rem; font-size: 0.42em; font-family: "", Arial, sans-serif; font-weight: 700; } .reveal .gear-lab-controls input`. Search the HTML for these class/id names before changing a shared rule. */
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -448,12 +549,14 @@
 }
 
 .reveal .gear-lab-controls input {
+  /* STUDENT NOTE: Typography/spacing rule for `width: 85px; padding: 0.2rem; font-size: 0.9em; } .reveal .gear-lab-bank`. These values affect readability and vertical space on slides. */
   width: 85px;
   padding: 0.2rem;
   font-size: 0.9em;
 }
 
 .reveal .gear-lab-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `display: flex; justify-content: center; align-items: center; gap: 0.8rem; min-height: 95px; max-width: 800px; margin: 0 auto 0.6rem; padding: 0.4rem; background: var(--light); border: 3px dashed var(--gray); border-radius: 8px; } .reveal .gear-token`. These values affect readability and vertical space on slides. */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -468,10 +571,11 @@
 }
 
 .reveal .gear-token {
+  /* STUDENT NOTE: Layout rule for `display: grid; place-items: center; position: relative; background-image: url(""); background-size: contain; background-repeat: no-repeat; background-position: center; color: var(--white); font-family: "", Arial, sans-serif; font-weight: 700; text-shadow: 1px 1px 3px var(--black); cursor: grab; user-select: none; border: none; box-shadow: none; } .reveal .gear-small`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   place-items: center;
   position: relative;
-  background-image: url("assets/gearing/gear.png");
+  background-image: url("../../shared/assets/gearing/gear.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -486,24 +590,28 @@
 }
 
 .reveal .gear-small {
+  /* STUDENT NOTE: Styles elements matched by `width: 58px; height: 58px; font-size: 0.34em; } .reveal .gear-medium`. Search the HTML for these class/id names before changing a shared rule. */
   width: 58px;
   height: 58px;
   font-size: 0.34em;
 }
 
 .reveal .gear-medium {
+  /* STUDENT NOTE: Styles elements matched by `width: 78px; height: 78px; font-size: 0.38em; } .reveal .gear-large`. Search the HTML for these class/id names before changing a shared rule. */
   width: 78px;
   height: 78px;
   font-size: 0.38em;
 }
 
 .reveal .gear-large {
+  /* STUDENT NOTE: Styles elements matched by `width: 98px; height: 98px; font-size: 0.42em; } .reveal .gear-axle-board`. Search the HTML for these class/id names before changing a shared rule. */
   width: 98px;
   height: 98px;
   font-size: 0.42em;
 }
 
 .reveal .gear-axle-board {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; max-width: var(--shared-slide-width, 1120px); margin: 0 auto; } .reveal .axle-slot`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.8rem;
@@ -512,6 +620,7 @@
 }
 
 .reveal .axle-slot {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.55rem; text-align: center; } .reveal .axle-slot h3`. These values affect readability and vertical space on slides. */
   background: var(--light);
   border-left: 10px solid var(--red);
   border-radius: 8px;
@@ -520,11 +629,13 @@
 }
 
 .reveal .axle-slot h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.55em; margin: 0 0 0.25rem; } .reveal .axle-drop-zone`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.55em;
   margin: 0 0 0.25rem;
 }
 
 .reveal .axle-drop-zone {
+  /* STUDENT NOTE: Layout rule for `height: 125px; display: grid; place-items: center; background: var(--white); border: 3px dashed var(--gray); border-radius: 8px; } .reveal .axle-slot.drag-over .axle-drop-zone`. Grid properties here control columns, gaps, and alignment. */
   height: 125px;
   display: grid;
   place-items: center;
@@ -534,11 +645,13 @@
 }
 
 .reveal .axle-slot.drag-over .axle-drop-zone {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red); outline-offset: 2px; } .reveal .axle-readout`. Search the HTML for these class/id names before changing a shared rule. */
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
 
 .reveal .axle-readout {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0.35rem 0 0; font-size: 0.36em; line-height: 1.15; font-weight: 700; } .reveal .gear-output-card`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0.35rem 0 0;
   font-size: 0.36em;
   line-height: 1.15;
@@ -546,6 +659,7 @@
 }
 
 .reveal .gear-output-card {
+  /* STUDENT NOTE: Typography/spacing rule for `max-width: var(--shared-slide-width, 1120px); margin: 0.55rem auto 0; padding: 0.45rem 0.65rem; background: var(--white); border-left: 10px solid var(--red); border-radius: 8px; text-align: center; } .reveal .gear-output-card p`. These values affect readability and vertical space on slides. */
   max-width: var(--shared-slide-width, 1120px);
   margin: 0.55rem auto 0;
   padding: 0.45rem 0.65rem;
@@ -556,67 +670,79 @@
 }
 
 .reveal .gear-output-card p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0 0 0.35rem; font-size: 0.44em; font-weight: 700; } .reveal .gear-xs`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0 0 0.35rem;
   font-size: 0.44em;
   font-weight: 700;
 }
 
 .reveal .gear-xs {
+  /* STUDENT NOTE: Styles elements matched by `width: 48px; height: 48px; font-size: 0.3em; } .reveal .gear-medium-small`. Search the HTML for these class/id names before changing a shared rule. */
   width: 48px;
   height: 48px;
   font-size: 0.3em;
 }
 
 .reveal .gear-medium-small {
+  /* STUDENT NOTE: Styles elements matched by `width: 68px; height: 68px; font-size: 0.35em; } .reveal .gear-xl`. Search the HTML for these class/id names before changing a shared rule. */
   width: 68px;
   height: 68px;
   font-size: 0.35em;
 }
 
 .reveal .gear-xl {
+  /* STUDENT NOTE: Styles elements matched by `width: 108px; height: 108px; font-size: 0.44em; } .reveal .gear-xxs`. Search the HTML for these class/id names before changing a shared rule. */
   width: 108px;
   height: 108px;
   font-size: 0.44em;
 }
 
 .reveal .gear-xxs {
+  /* STUDENT NOTE: Styles elements matched by `width: 42px; height: 42px; font-size: 0.28em; } .reveal .gear-xxl`. Search the HTML for these class/id names before changing a shared rule. */
   width: 42px;
   height: 42px;
   font-size: 0.28em;
 }
 
 .reveal .gear-xxl {
+  /* STUDENT NOTE: Styles elements matched by `width: 118px; height: 118px; font-size: 0.46em; } .reveal .gear-medium-big`. Search the HTML for these class/id names before changing a shared rule. */
   width: 118px;
   height: 118px;
   font-size: 0.46em;
 }
 
 .reveal .gear-medium-big {
+  /* STUDENT NOTE: Styles elements matched by `width: 88px; height: 88px; font-size: 0.48em; } .margin-bottom-small`. Search the HTML for these class/id names before changing a shared rule. */
   width: 88px;
   height: 88px;
   font-size: 0.48em;
 }
 
 .margin-bottom-small {
+  /* STUDENT NOTE: Styles elements matched by `margin-bottom: 0.65rem; } .margin-bottom-big`. Search the HTML for these class/id names before changing a shared rule. */
   margin-bottom: 0.65rem;
 }
 
 .margin-bottom-big {
+  /* STUDENT NOTE: Styles elements matched by `margin-bottom: 3rem; } .text-red`. Search the HTML for these class/id names before changing a shared rule. */
   margin-bottom: 3rem;
 }
 
 
 .text-red {
+  /* STUDENT NOTE: Typography/spacing rule for `color: var(--red); } .reveal .spur-dim-slide h2`. These values affect readability and vertical space on slides. */
   color: var(--red);
 }
 
 .reveal .spur-dim-slide h2 {
+  /* STUDENT NOTE: Layout rule for `font-size: 1.45em; margin-bottom: 0.45rem; } .reveal .spur-dim-grid-2, .reveal .spur-dim-grid-3`. Grid properties here control columns, gaps, and alignment. */
   font-size: 1.45em;
   margin-bottom: 0.45rem;
 }
 
 .reveal .spur-dim-grid-2,
 .reveal .spur-dim-grid-3 {
+  /* STUDENT NOTE: Layout rule for `display: grid; gap: 0.8rem; max-width: var(--shared-slide-width, 1120px); margin: 0 auto; } .reveal .spur-dim-grid-2`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   gap: 0.8rem;
   max-width: var(--shared-slide-width, 1120px);
@@ -624,14 +750,17 @@
 }
 
 .reveal .spur-dim-grid-2 {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: 1fr 1fr; } .reveal .spur-dim-grid-3`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: 1fr 1fr;
 }
 
 .reveal .spur-dim-grid-3 {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: repeat(3, 1fr); } .reveal .spur-dim-card`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: repeat(3, 1fr);
 }
 
 .reveal .spur-dim-card {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.75rem 0.85rem; text-align: left; } .reveal .spur-dim-large`. These values affect readability and vertical space on slides. */
   background: var(--light);
   border-left: 10px solid var(--red);
   border-radius: 8px;
@@ -640,28 +769,33 @@
 }
 
 .reveal .spur-dim-large {
+  /* STUDENT NOTE: Typography/spacing rule for `max-width: 950px; margin: 0 auto; } .reveal .spur-dim-card h3`. These values affect readability and vertical space on slides. */
   max-width: 950px;
   margin: 0 auto;
 }
 
 .reveal .spur-dim-card h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0 0 0.35rem; font-size: 0.72em; } .reveal .spur-dim-card p`. These values affect readability and vertical space on slides. */
   margin: 0 0 0.35rem;
   font-size: 0.72em;
 }
 
 .reveal .spur-dim-card p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0 0 0.45rem; font-size: 0.52em; line-height: 1.28; } .reveal .spur-dim-formula`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0 0 0.45rem;
   font-size: 0.52em;
   line-height: 1.28;
 }
 
 .reveal .spur-dim-formula {
+  /* STUDENT NOTE: Styles elements matched by `font-family: "", Arial, sans-serif; font-weight: 700; color: var(--red); text-align: center; } .reveal .spur-dim-formula2`. Search the HTML for these class/id names before changing a shared rule. */
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 700;
   color: var(--red);
   text-align: center;
 }
 .reveal .spur-dim-formula2 {
+  /* STUDENT NOTE: Styles elements matched by `font-family: "", Arial, sans-serif; font-weight: 700; color: var(--red); text-align: center; font-size: 0.42em; } .reveal .spur-dim-formula3`. Search the HTML for these class/id names before changing a shared rule. */
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 700;
   color: var(--red);
@@ -669,6 +803,7 @@
   font-size: 0.42em;
 }
 .reveal .spur-dim-formula3 {
+  /* STUDENT NOTE: Styles elements matched by `font-family: "", Arial, sans-serif; font-weight: 700; color: var(--black); text-align: center; font-size: 0.55em; margin-top: 0.75em; } .reveal .text-red`. Search the HTML for these class/id names before changing a shared rule. */
   font-family: "Droid Sans", Arial, sans-serif;
   font-weight: 700;
   color: var(--black);
@@ -678,11 +813,13 @@
 }
 
 .reveal .text-red {
+  /* STUDENT NOTE: Styles elements matched by `color: var(--red); font-weight: 700; } .reveal .gearbox-sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
   color: var(--red);
   font-weight: 700;
 }
 
 .reveal .gearbox-sort-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `display: flex; flex-wrap: wrap; gap: 0.35rem; max-width: var(--shared-slide-width, 1120px); margin: 0 auto 0.65rem; padding: 0.45rem; background: var(--light); border: 3px dashed var(--gray); border-radius: 8px; } .reveal .gearbox-sort-chip`. These values affect readability and vertical space on slides. */
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
@@ -695,6 +832,7 @@
 }
 
 .reveal .gearbox-sort-chip {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--white); border: 2px solid var(--red); border-left: 8px solid var(--red); border-radius: 8px; padding: 0.35rem 0.5rem; font-size: 0.38em; font-weight: 700; cursor: grab; } .reveal .gearbox-sort-targets`. These values affect readability and vertical space on slides. */
   background: var(--white);
   border: 2px solid var(--red);
   border-left: 8px solid var(--red);
@@ -706,6 +844,7 @@
 }
 
 .reveal .gearbox-sort-targets {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem; max-width: var(--shared-slide-width, 1120px); margin: 0 auto; } .reveal .gearbox-sort-zone`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.65rem;
@@ -714,6 +853,7 @@
 }
 
 .reveal .gearbox-sort-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 190px; background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.45rem; } .reveal .gearbox-sort-zone h3`. These values affect readability and vertical space on slides. */
   min-height: 190px;
   background: var(--light);
   border-left: 10px solid var(--red);
@@ -722,12 +862,14 @@
 }
 
 .reveal .gearbox-sort-zone h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.52em; text-align: center; margin: 0 0 0.35rem; } .reveal .gearbox-sort-list`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.52em;
   text-align: center;
   margin: 0 0 0.35rem;
 }
 
 .reveal .gearbox-sort-list {
+  /* STUDENT NOTE: Styles elements matched by `display: flex; flex-direction: column; gap: 0.25rem; min-height: 135px; } .reveal .gearbox-sort-feedback`. Search the HTML for these class/id names before changing a shared rule. */
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -735,6 +877,7 @@
 }
 
 .reveal .gearbox-sort-feedback {
+  /* STUDENT NOTE: Layout rule for `margin: 0; font-size: 0.42em; font-weight: 700; } .reveal .custom-gear-match-bank, .reveal .custom-gear-match-grid`. Grid properties here control columns, gaps, and alignment. */
   margin: 0;
   font-size: 0.42em;
   font-weight: 700;
@@ -742,11 +885,13 @@
 
 .reveal .custom-gear-match-bank,
 .reveal .custom-gear-match-grid {
+  /* STUDENT NOTE: Styles elements matched by `max-width: var(--shared-slide-width, 1120px); margin: 0 auto; } .reveal .custom-gear-match-bank`. Search the HTML for these class/id names before changing a shared rule. */
   max-width: var(--shared-slide-width, 1120px);
   margin: 0 auto;
 }
 
 .reveal .custom-gear-match-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0.45rem; margin-bottom: 0.55rem; background: var(--light); border: 3px dashed var(--gray); border-radius: 8px; } .reveal .custom-gear-match-chip`. These values affect readability and vertical space on slides. */
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
@@ -758,6 +903,7 @@
 }
 
 .reveal .custom-gear-match-chip {
+  /* STUDENT NOTE: Layout rule for `background: var(--white); border: 2px solid var(--red); border-left: 8px solid var(--red); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.34em; font-weight: 700; cursor: grab; } .reveal .custom-gear-match-grid`. Grid properties here control columns, gaps, and alignment. */
   background: var(--white);
   border: 2px solid var(--red);
   border-left: 8px solid var(--red);
@@ -769,12 +915,14 @@
 }
 
 .reveal .custom-gear-match-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem; } .reveal .custom-gear-match-zone`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.55rem;
 }
 
 .reveal .custom-gear-match-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.4rem; min-height: 115px; text-align: center; } .reveal .custom-gear-match-zone h3`. These values affect readability and vertical space on slides. */
   background: var(--light);
   border-left: 10px solid var(--red);
   border-radius: 8px;
@@ -784,11 +932,13 @@
 }
 
 .reveal .custom-gear-match-zone h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.46em; margin: 0 0 0.25rem; } .reveal .custom-gear-match-drop`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.46em;
   margin: 0 0 0.25rem;
 }
 
 .reveal .custom-gear-match-drop {
+  /* STUDENT NOTE: Styles elements matched by `min-height: 58px; display: flex; align-items: center; justify-content: center; } .reveal .custom-gear-match-feedback`. Search the HTML for these class/id names before changing a shared rule. */
   min-height: 58px;
   display: flex;
   align-items: center;

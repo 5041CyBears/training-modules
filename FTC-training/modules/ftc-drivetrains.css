@@ -1,10 +1,46 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FTC-training/modules/ftc-drivetrains.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* 5041 FTC Drivetrain Design Module */
+/* STUDENT NOTE: Typography/spacing rule for `.dt-hero h1, .dt-hero .cytitle`. These values affect readability and vertical space on slides. */
 .dt-hero h1,
 .dt-hero .cytitle {
   max-width: 1050px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.dt-slide h2, .dt-vertical h2, .dt-quiz h2`. These values affect readability and vertical space on slides. */
 .dt-slide h2,
 .dt-vertical h2,
 .dt-quiz h2 {
@@ -12,6 +48,7 @@
   margin-bottom: 0.42rem;
 }
 
+/* STUDENT NOTE: Image styling for `.dt-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .dt-img {
   display: block;
   margin: auto;
@@ -25,6 +62,7 @@
   object-fit: contain;
 }
 
+/* STUDENT NOTE: Layout rule for `.dt-grid-1, .dt-grid-2, .dt-grid-3, .dt-grid-4, .dt-click-grid, .dt-reveal-grid`. Grid properties here control columns, gaps, and alignment. */
 .dt-grid-1,
 .dt-grid-2,
 .dt-grid-3,
@@ -37,13 +75,20 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Layout rule for `.dt-grid-1`. Grid properties here control columns, gaps, and alignment. */
 .dt-grid-1 { grid-template-columns: 1fr; }
+/* STUDENT NOTE: Layout rule for `.dt-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .dt-grid-2 { grid-template-columns: 1fr 1fr; }
+/* STUDENT NOTE: Layout rule for `.dt-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .dt-grid-3 { grid-template-columns: repeat(3, 1fr); }
+/* STUDENT NOTE: Layout rule for `.dt-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .dt-grid-4 { grid-template-columns: repeat(4, 1fr); }
+/* STUDENT NOTE: Layout rule for `.dt-click-grid`. Grid properties here control columns, gaps, and alignment. */
 .dt-click-grid { grid-template-columns: repeat(3, 1fr); }
+/* STUDENT NOTE: Layout rule for `.dt-reveal-grid`. Grid properties here control columns, gaps, and alignment. */
 .dt-reveal-grid { grid-template-columns: repeat(4, 1fr); }
 
+/* STUDENT NOTE: Image styling for `.dt-card, .dt-scenario-card, .dt-calc-card, .dt-img-slot, .dt-check-card, .dt-reveal-card, .dt-order-card`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .dt-card,
 .dt-scenario-card,
 .dt-calc-card,
@@ -61,15 +106,18 @@
   box-sizing: border-box;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-card.dark {
   background: var(--black);
   color: var(--white);
 }
+/* STUDENT NOTE: Styles elements matched by `.dt-card.green`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-card.green {
   border-left: 10px solid rgb(9, 181, 9);
 }
 
 
+/* STUDENT NOTE: Typography/spacing rule for `.dt-card h3, .dt-scenario-card h3, .dt-calc-card h3`. These values affect readability and vertical space on slides. */
 .dt-card h3,
 .dt-scenario-card h3,
 .dt-calc-card h3 {
@@ -77,12 +125,14 @@
   font-size: 0.8em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.dt-card.dark h3`. These values affect readability and vertical space on slides. */
 .dt-card.dark h3{
   margin: 0 0 0.28rem;
   font-size: 0.8em;
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.dt-card p, .dt-scenario-card p, .dt-calc-card p`. These values affect readability and vertical space on slides. */
 .dt-card p,
 .dt-scenario-card p,
 .dt-calc-card p {
@@ -91,17 +141,20 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-card li`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-card li {
   font-size: 0.7em;
   line-height: 1.18;
   margin-bottom: 0.12rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-card ul`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-card ul {
   margin: 0.25rem 0 0;
   padding-left: 0.85em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-callout {
   max-width: var(--shared-slide-width, 1120px);
   margin: 0.7rem auto 0;
@@ -112,12 +165,14 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.dt-callout p`. These values affect readability and vertical space on slides. */
 .dt-callout p {
   margin: 0;
   font-size: 0.5em;
   line-height: 1.2;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-split`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-split {
   display: grid;
   grid-template-columns: 48% 1fr;
@@ -127,10 +182,12 @@
   align-items: stretch;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-split.reverse`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-split.reverse {
   grid-template-columns: 1fr 48%;
 }
 
+/* STUDENT NOTE: Image styling for `.dt-img-slot`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .dt-img-slot {
   display: grid;
   place-items: center;
@@ -148,12 +205,14 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Image styling for `.dt-img-slot.wide`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .dt-img-slot.wide {
   max-width: var(--shared-slide-width, 1120px);
   min-height: 150px;
   margin: 0.65rem auto 0;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-formula, .dt-formula-small`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-formula,
 .dt-formula-small {
   font-family: "Droid Sans", Arial, sans-serif;
@@ -162,6 +221,7 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-formula`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-formula {
   max-width: 900px;
   margin: 0.9rem auto 0;
@@ -172,18 +232,21 @@
   padding: 0.55rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-formula-small`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-formula-small {
   font-size: .7em !important;
   margin-bottom: 1rem !important;
 }
 
 /* Scenario buttons */
+/* STUDENT NOTE: Styles elements matched by `.dt-choice-options`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-choice-options {
   display: grid;
   gap: 0.45rem;
   margin-top: 0.55rem;
 }
 
+/* STUDENT NOTE: Button styling for `.dt-choice-options button, .dt-check-card, .dt-reveal-card, .dt-order-card`. Keep hover/selected/correct states visually consistent with the base button. */
 .dt-choice-options button,
 .dt-check-card,
 .dt-reveal-card,
@@ -203,6 +266,7 @@
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Button styling for `.dt-choice-options button.correct, .dt-check-card.correct, .dt-order-card.correct`. Keep hover/selected/correct states visually consistent with the base button. */
 .dt-choice-options button.correct,
 .dt-check-card.correct,
 .dt-order-card.correct {
@@ -211,6 +275,7 @@
   border-left-color: #2e7d32 !important;
 }
 
+/* STUDENT NOTE: Button styling for `.dt-choice-options button.incorrect, .dt-check-card.incorrect, .dt-order-card.incorrect`. Keep hover/selected/correct states visually consistent with the base button. */
 .dt-choice-options button.incorrect,
 .dt-check-card.incorrect,
 .dt-order-card.incorrect {
@@ -219,6 +284,7 @@
   border-left-color: #b00020 !important;
 }
 
+/* STUDENT NOTE: Interaction state for `.dt-check-card.missed, .dt-order-card.missed`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .dt-check-card.missed,
 .dt-order-card.missed {
   background: #fff8d6 !important;
@@ -226,6 +292,7 @@
   border-left-color: #b8860b !important;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-choice-feedback, .dt-check-feedback, .dt-reveal-feedback, .dt-order-feedback, .dt-sort-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-choice-feedback,
 .dt-check-feedback,
 .dt-reveal-feedback,
@@ -238,6 +305,7 @@
 }
 
 /* Sort activity */
+/* STUDENT NOTE: Styles elements matched by `.dt-sort-bank, .dt-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-sort-bank,
 .dt-sort-targets {
   max-width: var(--shared-slide-width, 1120px);
@@ -245,6 +313,7 @@
   margin-right: auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-sort-bank {
   display: flex;
   flex-wrap: wrap;
@@ -257,6 +326,7 @@
   border-radius: 8px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-sort-chip`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-sort-chip {
   background: var(--white);
   border: 2px solid var(--red);
@@ -268,12 +338,14 @@
   cursor: grab;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-sort-targets {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.8rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-sort-zone {
   min-height: 205px;
   max-height: 230px;
@@ -284,12 +356,14 @@
   padding: 0.55rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.dt-sort-zone h3`. These values affect readability and vertical space on slides. */
 .dt-sort-zone h3 {
   font-size: 0.58em;
   text-align: center;
   margin: 0 0 0.4rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-sort-list`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-sort-list {
   display: flex;
   flex-direction: column;
@@ -297,11 +371,13 @@
   min-height: 145px;
 }
 
+/* STUDENT NOTE: Interaction state for `.dt-sort-chip.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .dt-sort-chip.correct {
   border-color: #2e7d32;
   border-left-color: #2e7d32;
   background: #e6f4ea;
 }
+/* STUDENT NOTE: Interaction state for `.dt-sort-chip.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .dt-sort-chip.incorrect {
   border-color: #b00020;
   border-left-color: #b00020;
@@ -309,6 +385,7 @@
 }
 
 /* Reveal cards */
+/* STUDENT NOTE: Styles elements matched by `.dt-reveal-card`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-reveal-card {
   min-height: 150px;
   display: grid;
@@ -317,29 +394,38 @@
   transform-origin: center;
 }
 
+/* STUDENT NOTE: Interaction state for `.dt-reveal-card.revealed`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .dt-reveal-card.revealed {
   background: var(--black) !important;
   color: var(--white) !important;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dt-reveal-card.role-flipping`. Search the HTML for these class/id names before changing a shared rule. */
 .dt-reveal-card.role-flipping {
   animation: dt-card-flip 0.42s ease;
 }
 
+/* STUDENT NOTE: Animation timeline. Percentage steps inside define how an animated element changes over time. */
 @keyframes dt-card-flip {
+  /* STUDENT NOTE: Styles elements matched by `0%`. Search the HTML for these class/id names before changing a shared rule. */
   0% { transform: rotateY(0deg); }
+  /* STUDENT NOTE: Styles elements matched by `50%`. Search the HTML for these class/id names before changing a shared rule. */
   50% { transform: rotateY(90deg); }
+  /* STUDENT NOTE: Styles elements matched by `100%`. Search the HTML for these class/id names before changing a shared rule. */
   100% { transform: rotateY(0deg); }
+/* STUDENT NOTE: Styles elements matched by `} .dt-calc-card`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 /* Calculator */
 .dt-calc-card {
+  /* STUDENT NOTE: Layout rule for `max-width: 900px; margin: 0 auto; text-align: center; } .dt-calc-grid`. Grid properties here control columns, gaps, and alignment. */
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
 .dt-calc-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-bottom: 0.55rem; } .dt-calc-grid label`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.65rem;
@@ -347,6 +433,7 @@
 }
 
 .dt-calc-grid label {
+  /* STUDENT NOTE: Layout rule for `font-family: "", Arial, sans-serif; font-size: 0.42em; font-weight: 700; text-align: left; } .dt-calc-grid input`. Grid properties here control columns, gaps, and alignment. */
   font-family: "Droid Sans", Arial, sans-serif;
   font-size: 0.42em;
   font-weight: 700;
@@ -354,6 +441,7 @@
 }
 
 .dt-calc-grid input {
+  /* STUDENT NOTE: Typography/spacing rule for `display: block; width: 80%; margin-top: 0.2rem; padding: 0.35rem; font-size: 1em; border: 2px solid var(--gray); border-left: 8px solid var(--red); } .dt-calc-result`. These values affect readability and vertical space on slides. */
   display: block;
   width: 80%;
   margin-top: 0.2rem;
@@ -364,6 +452,7 @@
 }
 
 .dt-calc-result {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0.55rem 0 0 !important; font-size: 0.5em !important; font-weight: 700; } .dt-order-list`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0.55rem 0 0 !important;
   font-size: 0.5em !important;
   font-weight: 700;
@@ -371,6 +460,7 @@
 
 /* Ordered sequence */
 .dt-order-list {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; max-width: var(--shared-slide-width, 1120px); margin: 0 auto; } .dt-order-card.selected`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.6rem;
@@ -379,11 +469,13 @@
 }
 
 .dt-order-card.selected {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--black); color: var(--white); } .dt-order-card::before`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--black);
   color: var(--white);
 }
 
 .dt-order-card::before {
+  /* STUDENT NOTE: Layout rule for `content: attr(data-selected-order); display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 0.4rem; background: var(--red); color: var(--white); border-radius: 50%; } .dt-order-card:not(.selected)::before`. Grid properties here control columns, gaps, and alignment. */
   content: attr(data-selected-order);
   display: inline-grid;
   place-items: center;
@@ -396,11 +488,13 @@
 }
 
 .dt-order-card:not(.selected)::before {
+  /* STUDENT NOTE: Styles elements matched by `content: ""; display: none; } @media (max-width: 900px)`. Search the HTML for these class/id names before changing a shared rule. */
   content: "";
   display: none;
 }
 
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.reveal .dt-grid-3, .reveal .dt-grid-4, .reveal .dt-click-grid, .reveal .dt-reveal-grid, .reveal .dt-sort-targets`. Grid properties here control columns, gaps, and alignment. */
   .reveal .dt-grid-3,
   .reveal .dt-grid-4,
   .reveal .dt-click-grid,
@@ -408,25 +502,31 @@
   .reveal .dt-sort-targets {
     grid-template-columns: 1fr 1fr;
   }
+  /* STUDENT NOTE: Layout rule for `.reveal .dt-split, .reveal .dt-split.reverse, .reveal .dt-calc-grid, .reveal .dt-order-list`. Grid properties here control columns, gaps, and alignment. */
   .reveal .dt-split,
   .reveal .dt-split.reverse,
   .reveal .dt-calc-grid,
   .reveal .dt-order-list {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Styles elements matched by `} .activity-controls`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .activity-controls {
+  /* STUDENT NOTE: Button styling for `text-align: center; } .activity-controls button`. Keep hover/selected/correct states visually consistent with the base button. */
   text-align: center;
 }
 
 .activity-controls button {
+  /* STUDENT NOTE: Styles elements matched by `display: inline-block; } .center-text`. Search the HTML for these class/id names before changing a shared rule. */
   display: inline-block;
 }
 .center-text{
+  /* STUDENT NOTE: Interaction state for `text-align: center; } .dt-check-card.selected`. JavaScript may add/remove this class to provide visual feedback or control access. */
   text-align: center;
 }
 .dt-check-card.selected {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--black) !important; color: var(--white) !important; border-color: var(--red) !important; border-left-color: var(--red) !important; } .dt-check-card:hover`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--black) !important;
   color: var(--white) !important;
   border-color: var(--red) !important;
@@ -434,6 +534,7 @@
 }
 
 .dt-check-card:hover {
+  /* STUDENT NOTE: Button styling for `outline: 3px solid var(--red); outline-offset: 2px; } .dt-choice-options button.correct, .dt-check-card.correct, .dt-order-card.correct`. Keep hover/selected/correct states visually consistent with the base button. */
   outline: 3px solid var(--red);
   outline-offset: 2px;
 }
@@ -441,6 +542,7 @@
 .dt-choice-options button.correct,
 .dt-check-card.correct,
 .dt-order-card.correct {
+  /* STUDENT NOTE: Button styling for `background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; } .dt-choice-options button.incorrect, .dt-check-card.incorrect, .dt-order-card.incorrect`. Keep hover/selected/correct states visually consistent with the base button. */
   background: #e6f4ea !important;
   border-color: #2e7d32 !important;
   border-left-color: #2e7d32 !important;
@@ -449,6 +551,7 @@
 .dt-choice-options button.incorrect,
 .dt-check-card.incorrect,
 .dt-order-card.incorrect {
+  /* STUDENT NOTE: Interaction state for `background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; } .dt-check-card.missed, .dt-order-card.missed`. JavaScript may add/remove this class to provide visual feedback or control access. */
   background: #fdecea !important;
   border-color: #b00020 !important;
   border-left-color: #b00020 !important;

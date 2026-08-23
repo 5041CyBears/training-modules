@@ -1,3 +1,38 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB JAVASCRIPT
+
+   This file controls behavior and interactivity. HTML creates the elements and CSS
+   styles them; JavaScript finds those elements and changes them in response to the
+   user.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - document.querySelector(...) finds the first matching HTML element.
+   - document.querySelectorAll(...) finds all matching elements.
+   - element.closest(...) searches upward for a parent element. This is useful for
+     keeping an interaction limited to the current Reveal.js slide.
+   - element.dataset.name reads data-name="..." from HTML.
+   - classList.add/remove/toggle changes CSS classes so the appearance can respond
+     to clicks, correct answers, selected cards, etc.
+   - addEventListener(...) runs code when an event occurs, such as click, input,
+     dragstart, drop, or DOMContentLoaded.
+   - Reveal.on("slidechanged", ...) runs code when the presentation changes slides.
+   - Functions assigned to window (for example window.checkAnswer = checkAnswer)
+     are intentionally made global so HTML onclick="checkAnswer(this)" can call them.
+
+   WHEN BUILDING A NEW INTERACTION
+   1. Give the slide a unique class such as .my-activity-slide.
+   2. Give interactive elements useful classes and data-* attributes in the HTML.
+   3. In JavaScript, start from the clicked element and use closest(...) so one
+      activity does not accidentally change another slide.
+   4. Add/remove CSS state classes such as selected, correct, incorrect, or missed.
+   5. Reset every state your activity creates.
+   6. Test clicks, reset, repeated attempts, slide navigation, and browser refresh.
+   7. Check the Developer Tools Console for errors if nothing happens.
+============================================================================ */
+/* 5041 Training Hub script: FTC-training/modules/ftc-foundations.js
+   Organized during cleanup; functionality preserved. */
+
+// STUDENT NOTE: Reveal.js presentation settings. Width/height define the design canvas; Reveal scales that canvas to the browser window.
 Reveal.initialize({
   hash: true,
   slideNumber: true,
@@ -10,6 +45,7 @@ Reveal.initialize({
   maxScale: 1.7,
 });
 
+// STUDENT NOTE: Quiz answer key. The object keys must match the name/id convention used by the quiz inputs in the HTML.
 const ftcIntroCorrectAnswers = {
   q1: "b",
   q2: "b",
@@ -28,15 +64,18 @@ const ftcIntroCorrectAnswers = {
   q15: "b",
 };
 
+// STUDENT NOTE: Minimum number of correct answers required to unlock completion/certificate behavior.
 const passingScore = 13;
 let quizPassed = false;
 let participantName = "";
 
+// STUDENT NOTE: Helper function `getParticipantName`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getParticipantName() {
   const input = document.getElementById("participantName");
   return input ? input.value.trim() : "";
 }
 
+// STUDENT NOTE: UI/state helper `updateCertificateName`. It updates page content or control state to match the current application data.
 function updateCertificateName() {
   participantName = getParticipantName();
   const certificateName = document.getElementById("certificateName");
@@ -46,6 +85,7 @@ function updateCertificateName() {
   }
 }
 
+// STUDENT NOTE: UI/state helper `setCertificateDownloadEnabled`. It updates page content or control state to match the current application data.
 function setCertificateDownloadEnabled(enabled) {
   const button = document.getElementById("downloadCertificate");
 
@@ -54,6 +94,7 @@ function setCertificateDownloadEnabled(enabled) {
   }
 }
 
+// STUDENT NOTE: Helper function `getSafeFileName`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getSafeFileName(text) {
   return (
     text
@@ -63,6 +104,7 @@ function getSafeFileName(text) {
   );
 }
 
+// STUDENT NOTE: Download/export function `downloadCertificatePdf`. It converts page content into a downloadable artifact; external libraries used here must load before this function runs.
 async function downloadCertificatePdf() {
   if (!quizPassed) {
     alert("Complete and pass the quiz before downloading the certificate.");
@@ -110,6 +152,7 @@ async function downloadCertificatePdf() {
   pdf.save(`${name}-ftc-introduction-certificate.pdf`);
 }
 
+// STUDENT NOTE: Answer-checking function `gradeQuiz`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function gradeQuiz() {
   const result = document.getElementById("quizResult");
   const hint = document.getElementById("quizHint");
@@ -179,6 +222,7 @@ function gradeQuiz() {
   }
 }
 
+// STUDENT NOTE: Reset function `resetQuiz`. It should return this activity to its original state by clearing classes, values, and feedback created during interaction.
 function resetQuiz() {
   document.querySelectorAll("input[type='radio']").forEach((input) => {
     input.checked = false;
@@ -202,6 +246,7 @@ function resetQuiz() {
 }
 
 
+// STUDENT NOTE: Click interaction `revealFtcRole`. It changes classes/text so an element can reveal, hide, or select information without leaving the slide.
 function revealFtcRole(card) {
   const slide = card.closest(".ftcintro-role-slide");
   const hiddenText = "Reveal a value";
@@ -231,8 +276,10 @@ function revealFtcRole(card) {
     card.classList.remove("flipping");
   }, 420);
 }
+// STUDENT NOTE: Exposes `revealFtcRole` globally so inline HTML such as onclick="revealFtcRole(...)" can call it.
 window.revealFtcRole = revealFtcRole;
 
+// STUDENT NOTE: Answer-checking function `checkFtcScenario`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function checkFtcScenario(button) {
   const slide = button.closest(".ftcintro-scenario-slide");
   if (!slide) return;
@@ -256,8 +303,10 @@ function checkFtcScenario(button) {
       : "Not the best choice. FIRST teams compete hard while still treating others with respect and support.";
   }
 }
+// STUDENT NOTE: Exposes `checkFtcScenario` globally so inline HTML such as onclick="checkFtcScenario(...)" can call it.
 window.checkFtcScenario = checkFtcScenario;
 
+// STUDENT NOTE: Initialization function `initFtcIntroSortSlides`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initFtcIntroSortSlides() {
   document.querySelectorAll(".ftcintro-sort-slide").forEach((slide) => {
     if (slide.dataset.ftcintroSortReady === "true") return;
@@ -271,11 +320,13 @@ function initFtcIntroSortSlides() {
     chips.forEach((chip, index) => {
       chip.dataset.originalIndex = index;
 
+      // STUDENT NOTE: Event listener for `dragstart`. The callback below runs whenever that user/browser event occurs.
       chip.addEventListener("dragstart", () => {
         dragged = chip;
         chip.classList.add("dragging");
       });
 
+      // STUDENT NOTE: Event listener for `dragend`. The callback below runs whenever that user/browser event occurs.
       chip.addEventListener("dragend", () => {
         dragged = null;
         chip.classList.remove("dragging");
@@ -283,8 +334,10 @@ function initFtcIntroSortSlides() {
     });
 
     [...zones, bank].forEach((area) => {
+      // STUDENT NOTE: Event listener for `dragover`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("dragover", (event) => event.preventDefault());
 
+      // STUDENT NOTE: Event listener for `drop`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("drop", (event) => {
         event.preventDefault();
         if (!dragged) return;
@@ -301,6 +354,7 @@ function initFtcIntroSortSlides() {
   });
 }
 
+// STUDENT NOTE: Answer-checking function `checkFtcIntroSort`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function checkFtcIntroSort(button) {
   const slide = button.closest(".ftcintro-sort-slide");
   if (!slide) return;
@@ -346,8 +400,10 @@ function checkFtcIntroSort(button) {
     }
   }
 }
+// STUDENT NOTE: Exposes `checkFtcIntroSort` globally so inline HTML such as onclick="checkFtcIntroSort(...)" can call it.
 window.checkFtcIntroSort = checkFtcIntroSort;
 
+// STUDENT NOTE: Reset function `resetFtcIntroSort`. It should return this activity to its original state by clearing classes, values, and feedback created during interaction.
 function resetFtcIntroSort(button) {
   const slide = button.closest(".ftcintro-sort-slide");
   if (!slide) return;
@@ -367,19 +423,25 @@ function resetFtcIntroSort(button) {
     feedback.textContent = "";
   }
 }
+// STUDENT NOTE: Exposes `resetFtcIntroSort` globally so inline HTML such as onclick="resetFtcIntroSort(...)" can call it.
 window.resetFtcIntroSort = resetFtcIntroSort;
 
+// STUDENT NOTE: Event listener for `DOMContentLoaded`. The callback below runs whenever that user/browser event occurs.
 document.addEventListener("DOMContentLoaded", () => {
   const gradeButton = document.getElementById("gradeQuiz");
   const resetButton = document.getElementById("resetQuiz");
   const nameInput = document.getElementById("participantName");
   const downloadButton = document.getElementById("downloadCertificate");
 
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   if (gradeButton) gradeButton.addEventListener("click", gradeQuiz);
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   if (resetButton) resetButton.addEventListener("click", resetQuiz);
+  // STUDENT NOTE: Event listener for `input`. The callback below runs whenever that user/browser event occurs.
   if (nameInput) nameInput.addEventListener("input", updateCertificateName);
   if (downloadButton) {
     downloadButton.disabled = true;
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     downloadButton.addEventListener("click", downloadCertificatePdf);
   }
 
@@ -387,6 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFtcIntroSortSlides();
 });
 
+// STUDENT NOTE: Reveal.js `slidechanged` hook. Use these hooks when behavior should run as slides open or change.
 Reveal.on("slidechanged", (event) => {
   if (event.currentSlide && event.currentSlide.id === "complete" && !quizPassed) {
     const resultsSlide = document.getElementById("quiz-results");

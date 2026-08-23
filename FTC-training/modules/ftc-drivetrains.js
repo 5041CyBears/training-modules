@@ -1,3 +1,38 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB JAVASCRIPT
+
+   This file controls behavior and interactivity. HTML creates the elements and CSS
+   styles them; JavaScript finds those elements and changes them in response to the
+   user.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - document.querySelector(...) finds the first matching HTML element.
+   - document.querySelectorAll(...) finds all matching elements.
+   - element.closest(...) searches upward for a parent element. This is useful for
+     keeping an interaction limited to the current Reveal.js slide.
+   - element.dataset.name reads data-name="..." from HTML.
+   - classList.add/remove/toggle changes CSS classes so the appearance can respond
+     to clicks, correct answers, selected cards, etc.
+   - addEventListener(...) runs code when an event occurs, such as click, input,
+     dragstart, drop, or DOMContentLoaded.
+   - Reveal.on("slidechanged", ...) runs code when the presentation changes slides.
+   - Functions assigned to window (for example window.checkAnswer = checkAnswer)
+     are intentionally made global so HTML onclick="checkAnswer(this)" can call them.
+
+   WHEN BUILDING A NEW INTERACTION
+   1. Give the slide a unique class such as .my-activity-slide.
+   2. Give interactive elements useful classes and data-* attributes in the HTML.
+   3. In JavaScript, start from the clicked element and use closest(...) so one
+      activity does not accidentally change another slide.
+   4. Add/remove CSS state classes such as selected, correct, incorrect, or missed.
+   5. Reset every state your activity creates.
+   6. Test clicks, reset, repeated attempts, slide navigation, and browser refresh.
+   7. Check the Developer Tools Console for errors if nothing happens.
+============================================================================ */
+/* 5041 Training Hub script: FTC-training/modules/ftc-drivetrains.js
+   Organized during cleanup; functionality preserved. */
+
+// STUDENT NOTE: Reveal.js presentation settings. Width/height define the design canvas; Reveal scales that canvas to the browser window.
 Reveal.initialize({
   hash: true,
   slideNumber: true,
@@ -10,31 +45,38 @@ Reveal.initialize({
   maxScale: 1.7,
 });
 
+// STUDENT NOTE: Quiz answer key. The object keys must match the name/id convention used by the quiz inputs in the HTML.
 const drivetrainCorrectAnswers = {'q1': 'b', 'q2': 'a', 'q3': 'b', 'q4': 'b', 'q5': 'a', 'q6': 'b', 'q7': 'a', 'q8': 'a', 'q9': 'b', 'q10': 'a', 'q11': 'b', 'q12': 'a', 'q13': 'a', 'q14': 'a', 'q15': 'b', 'q16': 'a', 'q17': 'a', 'q18': 'b', 'q19': 'a', 'q20': 'b'};
+// STUDENT NOTE: Minimum number of correct answers required to unlock completion/certificate behavior.
 const passingScore = 18;
 let quizPassed = false;
 let participantName = "";
 
+// STUDENT NOTE: Helper function `getParticipantName`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getParticipantName() {
   const input = document.getElementById("participantName");
   return input ? input.value.trim() : "";
 }
 
+// STUDENT NOTE: UI/state helper `updateCertificateName`. It updates page content or control state to match the current application data.
 function updateCertificateName() {
   participantName = getParticipantName();
   const certificateName = document.getElementById("certificateName");
   if (certificateName) certificateName.textContent = participantName || "Student Name";
 }
 
+// STUDENT NOTE: UI/state helper `setCertificateDownloadEnabled`. It updates page content or control state to match the current application data.
 function setCertificateDownloadEnabled(enabled) {
   const button = document.getElementById("downloadCertificate");
   if (button) button.disabled = !enabled;
 }
 
+// STUDENT NOTE: Helper function `getSafeFileName`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getSafeFileName(text) {
   return (text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "certificate");
 }
 
+// STUDENT NOTE: Download/export function `downloadCertificatePdf`. It converts page content into a downloadable artifact; external libraries used here must load before this function runs.
 async function downloadCertificatePdf() {
   if (!quizPassed) {
     alert("Complete and pass the quiz before downloading the certificate.");
@@ -65,6 +107,7 @@ async function downloadCertificatePdf() {
   pdf.save(`${name}-ftc-drivetrain-design-certificate.pdf`);
 }
 
+// STUDENT NOTE: Answer-checking function `gradeQuiz`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function gradeQuiz() {
   const result = document.getElementById("quizResult");
   const hint = document.getElementById("quizHint");
@@ -124,6 +167,7 @@ function gradeQuiz() {
   }
 }
 
+// STUDENT NOTE: Reset function `resetQuiz`. It should return this activity to its original state by clearing classes, values, and feedback created during interaction.
 function resetQuiz() {
   document.querySelectorAll("input[type='radio']").forEach((input) => { input.checked = false; });
   quizPassed = false;
@@ -138,6 +182,7 @@ function resetQuiz() {
   if (note) note.textContent = "Complete after passing the required quiz.";
 }
 
+// STUDENT NOTE: Answer-checking function `checkDtChoice`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function checkDtChoice(button) {
   const slide = button.closest(".dt-scenario-slide");
   if (!slide) return;
@@ -148,8 +193,10 @@ function checkDtChoice(button) {
   button.classList.add(isCorrect ? "correct" : "incorrect");
   if (feedback) feedback.textContent = isCorrect ? "Correct. Build the reliable foundation first." : "Not the best first choice. Match the drivebase to time, experience, and strategy.";
 }
+// STUDENT NOTE: Exposes `checkDtChoice` globally so inline HTML such as onclick="checkDtChoice(...)" can call it.
 window.checkDtChoice = checkDtChoice;
 
+// STUDENT NOTE: Initialization function `initDtSort`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initDtSort() {
   document.querySelectorAll(".drivetrain-sort-slide").forEach((slide) => {
     if (slide.dataset.sortReady === "true") return;
@@ -163,11 +210,15 @@ function initDtSort() {
     let dragged = null;
     chips.forEach((chip, index) => {
       chip.dataset.originalIndex = index;
+      // STUDENT NOTE: Event listener for `dragstart`. The callback below runs whenever that user/browser event occurs.
       chip.addEventListener("dragstart", () => { dragged = chip; chip.classList.add("dragging"); });
+      // STUDENT NOTE: Event listener for `dragend`. The callback below runs whenever that user/browser event occurs.
       chip.addEventListener("dragend", () => { dragged = null; chip.classList.remove("dragging"); });
     });
     [...zones, bank].forEach((area) => {
+      // STUDENT NOTE: Event listener for `dragover`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("dragover", (event) => event.preventDefault());
+      // STUDENT NOTE: Event listener for `drop`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("drop", (event) => {
         event.preventDefault();
         if (!dragged) return;
@@ -176,6 +227,7 @@ function initDtSort() {
         else bank.appendChild(dragged);
       });
     });
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     if (checkButton) checkButton.addEventListener("click", () => {
       let correct = 0, placed = 0;
       chips.forEach((chip) => chip.classList.remove("correct", "incorrect"));
@@ -193,6 +245,7 @@ function initDtSort() {
         else feedback.textContent = `${correct}/${chips.length} correct. Move the red cards and try again.`;
       }
     });
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     if (resetButton) resetButton.addEventListener("click", () => {
       chips.sort((a,b) => Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex)).forEach((chip) => { chip.classList.remove("correct", "incorrect"); bank.appendChild(chip); });
       if (feedback) feedback.textContent = "";
@@ -200,6 +253,7 @@ function initDtSort() {
   });
 }
 
+// STUDENT NOTE: Click interaction `revealDtCard`. It changes classes/text so an element can reveal, hide, or select information without leaving the slide.
 function revealDtCard(card) {
   const slide = card.closest(".dt-wheel-reveal-slide");
   const hiddenText = card.dataset.title || card.textContent.trim();
@@ -221,8 +275,10 @@ function revealDtCard(card) {
   }, 170);
   window.setTimeout(() => card.classList.remove("role-flipping"), 420);
 }
+// STUDENT NOTE: Exposes `revealDtCard` globally so inline HTML such as onclick="revealDtCard(...)" can call it.
 window.revealDtCard = revealDtCard;
 
+// STUDENT NOTE: Calculator function `calculateDriveSpeed`. It reads numeric inputs, performs the calculation, then writes a student-readable result back into the page.
 function calculateDriveSpeed() {
   const diameter = Number(document.getElementById("wheelDiameter")?.value || 0);
   const rpm = Number(document.getElementById("wheelRpm")?.value || 0);
@@ -233,15 +289,19 @@ function calculateDriveSpeed() {
   const feetPerSecond = inchesPerMinute / 12 / 60;
   result.textContent = `Estimated free speed: ${feetPerSecond.toFixed(1)} ft/s. Real speed will be lower under load.`;
 }
+// STUDENT NOTE: Exposes `calculateDriveSpeed` globally so inline HTML such as onclick="calculateDriveSpeed(...)" can call it.
 window.calculateDriveSpeed = calculateDriveSpeed;
 
+// STUDENT NOTE: Click interaction `toggleDtCheckCard`. It changes classes/text so an element can reveal, hide, or select information without leaving the slide.
 function toggleDtCheckCard(card) {
   card.classList.toggle("selected");
   card.setAttribute("aria-pressed", card.classList.contains("selected") ? "true" : "false");
   card.classList.remove("correct", "incorrect", "missed");
 }
+// STUDENT NOTE: Exposes `toggleDtCheckCard` globally so inline HTML such as onclick="toggleDtCheckCard(...)" can call it.
 window.toggleDtCheckCard = toggleDtCheckCard;
 
+// STUDENT NOTE: Answer-checking function `checkDtCheckCards`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function checkDtCheckCards(button) {
   const slide = button.closest(".dt-balance-check-slide");
   if (!slide) return;
@@ -259,8 +319,10 @@ function checkDtCheckCards(button) {
   });
   if (feedback) feedback.textContent = correct === cards.length ? "Correct. Those choices improve repeatability." : `${correct}/${cards.length} correct. Green is correct, red should not be selected, yellow means a helpful choice was missed.`;
 }
+// STUDENT NOTE: Exposes `checkDtCheckCards` globally so inline HTML such as onclick="checkDtCheckCards(...)" can call it.
 window.checkDtCheckCards = checkDtCheckCards;
 
+// STUDENT NOTE: Reset function `resetDtCheckCards`. It should return this activity to its original state by clearing classes, values, and feedback created during interaction.
 function resetDtCheckCards(button) {
   const slide = button.closest(".dt-balance-check-slide");
   if (!slide) return;
@@ -268,8 +330,10 @@ function resetDtCheckCards(button) {
   const feedback = slide.querySelector(".dt-check-feedback");
   if (feedback) feedback.textContent = "Select the helpful design choices.";
 }
+// STUDENT NOTE: Exposes `resetDtCheckCards` globally so inline HTML such as onclick="resetDtCheckCards(...)" can call it.
 window.resetDtCheckCards = resetDtCheckCards;
 
+// STUDENT NOTE: Selection handler `selectDtOrderCard`. It records what the student selected and usually adds a CSS class so the choice is visible.
 function selectDtOrderCard(card) {
   const slide = card.closest(".dt-test-sequence-slide");
   if (!slide || card.classList.contains("selected")) return;
@@ -278,8 +342,10 @@ function selectDtOrderCard(card) {
   card.dataset.selectedOrder = selectedCount;
   card.classList.remove("correct", "incorrect", "missed");
 }
+// STUDENT NOTE: Exposes `selectDtOrderCard` globally so inline HTML such as onclick="selectDtOrderCard(...)" can call it.
 window.selectDtOrderCard = selectDtOrderCard;
 
+// STUDENT NOTE: Answer-checking function `checkDtOrder`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function checkDtOrder(button) {
   const slide = button.closest(".dt-test-sequence-slide");
   if (!slide) return;
@@ -296,8 +362,10 @@ function checkDtOrder(button) {
   });
   if (feedback) feedback.textContent = correct === cards.length ? "Correct order. Start safe and simple, then add complexity and stress." : `${correct}/${cards.length} in the correct order. Reset and try again.`;
 }
+// STUDENT NOTE: Exposes `checkDtOrder` globally so inline HTML such as onclick="checkDtOrder(...)" can call it.
 window.checkDtOrder = checkDtOrder;
 
+// STUDENT NOTE: Reset function `resetDtOrder`. It should return this activity to its original state by clearing classes, values, and feedback created during interaction.
 function resetDtOrder(button) {
   const slide = button.closest(".dt-test-sequence-slide");
   if (!slide) return;
@@ -305,24 +373,31 @@ function resetDtOrder(button) {
   const feedback = slide.querySelector(".dt-order-feedback");
   if (feedback) feedback.textContent = "Click the cards in the order you would test them.";
 }
+// STUDENT NOTE: Exposes `resetDtOrder` globally so inline HTML such as onclick="resetDtOrder(...)" can call it.
 window.resetDtOrder = resetDtOrder;
 
+// STUDENT NOTE: Event listener for `DOMContentLoaded`. The callback below runs whenever that user/browser event occurs.
 document.addEventListener("DOMContentLoaded", () => {
   const gradeButton = document.getElementById("gradeQuiz");
   const resetButton = document.getElementById("resetQuiz");
   const nameInput = document.getElementById("participantName");
   const downloadButton = document.getElementById("downloadCertificate");
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   if (gradeButton) gradeButton.addEventListener("click", gradeQuiz);
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   if (resetButton) resetButton.addEventListener("click", resetQuiz);
+  // STUDENT NOTE: Event listener for `input`. The callback below runs whenever that user/browser event occurs.
   if (nameInput) nameInput.addEventListener("input", updateCertificateName);
   if (downloadButton) {
     downloadButton.disabled = true;
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     downloadButton.addEventListener("click", downloadCertificatePdf);
   }
   updateCertificateName();
   initDtSort();
 });
 
+// STUDENT NOTE: Reveal.js `slidechanged` hook. Use these hooks when behavior should run as slides open or change.
 Reveal.on("slidechanged", (event) => {
   if (event.currentSlide && event.currentSlide.id === "complete" && !quizPassed) {
     const resultsSlide = document.getElementById("quiz-results");

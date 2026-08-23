@@ -1,10 +1,46 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FRC-trainings/modules/fundraising-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* 5041 Fundraising & Sponsor Engagement module additions */
+/* STUDENT NOTE: Typography/spacing rule for `.fundraising-hero h1, .fundraising-hero .cytitle`. These values affect readability and vertical space on slides. */
 .fundraising-hero h1,
 .fundraising-hero .cytitle {
   max-width: 1080px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.fundraising-slide h2, .fundraising-vertical h2, .fundraising-quiz h2`. These values affect readability and vertical space on slides. */
 .fundraising-slide h2,
 .fundraising-vertical h2,
 .fundraising-quiz h2 {
@@ -12,6 +48,7 @@
   margin-bottom: 0.45rem;
 }
 
+/* STUDENT NOTE: Layout rule for `.fundraising-grid-2, .fundraising-grid-3, .fundraising-grid-4, .fundraising-review-grid`. Grid properties here control columns, gaps, and alignment. */
 .fundraising-grid-2,
 .fundraising-grid-3,
 .fundraising-grid-4,
@@ -22,18 +59,22 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Layout rule for `.fundraising-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .fundraising-grid-2 {
   grid-template-columns: 1fr 1fr;
 }
 
+/* STUDENT NOTE: Layout rule for `.fundraising-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .fundraising-grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* STUDENT NOTE: Layout rule for `.fundraising-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .fundraising-grid-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-card, .fundraising-script-card, .fundraising-scenario-card, .fundraising-review-item`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-card,
 .fundraising-script-card,
 .fundraising-scenario-card,
@@ -45,17 +86,20 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-card.dark {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.fundraising-card.dark h3, .fundraising-card.dark p, .fundraising-card.dark li`. These values affect readability and vertical space on slides. */
 .fundraising-card.dark h3,
 .fundraising-card.dark p,
 .fundraising-card.dark li {
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.fundraising-card h3, .fundraising-script-card h3, .fundraising-scenario-card h3`. These values affect readability and vertical space on slides. */
 .fundraising-card h3,
 .fundraising-script-card h3,
 .fundraising-scenario-card h3 {
@@ -63,6 +107,7 @@
   font-size: 0.72em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.fundraising-card p, .fundraising-script-card p, .fundraising-scenario-card p`. These values affect readability and vertical space on slides. */
 .fundraising-card p,
 .fundraising-script-card p,
 .fundraising-scenario-card p {
@@ -71,6 +116,7 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-card li, .fundraising-script-card li`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-card li,
 .fundraising-script-card li {
   font-size: 0.5em;
@@ -78,11 +124,13 @@
   margin-bottom: 0.16rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-card ul`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-card ul {
   margin: 0.2rem 0 0;
   padding-left: 0.85em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-callout {
   max-width: var(--shared-slide-width, 1120px);
   margin: 0.8rem auto 0;
@@ -93,12 +141,14 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.fundraising-callout p`. These values affect readability and vertical space on slides. */
 .fundraising-callout p {
   margin: 0;
   font-size: 0.54em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-resource-links`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-resource-links {
   display: flex;
   justify-content: center;
@@ -108,6 +158,7 @@
   margin: 0.8rem auto 0;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-resource-links a`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-resource-links a {
   display: inline-block;
   background: var(--red);
@@ -120,6 +171,7 @@
   border-radius: 6px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-process`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-process {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -128,6 +180,7 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-process div`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-process div {
   background: var(--light);
   border-left: 10px solid var(--red);
@@ -136,6 +189,7 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-process span`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-process span {
   display: inline-grid;
   place-items: center;
@@ -150,6 +204,7 @@
   margin-bottom: 0.25rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.fundraising-process p`. These values affect readability and vertical space on slides. */
 .fundraising-process p {
   margin: 0;
   font-size: 0.42em;
@@ -157,11 +212,13 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-script-card`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-script-card {
   max-width: 950px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sponsor-sort-bank, .sponsor-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .sponsor-sort-bank,
 .sponsor-sort-targets {
   max-width: var(--shared-slide-width, 1120px);
@@ -169,6 +226,7 @@
   margin-right: auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sponsor-sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
 .sponsor-sort-bank {
   display: flex;
   flex-wrap: wrap;
@@ -181,6 +239,7 @@
   border-radius: 8px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sponsor-sort-chip`. Search the HTML for these class/id names before changing a shared rule. */
 .sponsor-sort-chip {
   background: var(--white);
   border: 2px solid var(--red);
@@ -192,24 +251,28 @@
   cursor: grab;
 }
 
+/* STUDENT NOTE: Interaction state for `.sponsor-sort-chip.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .sponsor-sort-chip.correct {
   border-color: #2e7d32;
   border-left-color: #2e7d32;
   background: #e6f4ea;
 }
 
+/* STUDENT NOTE: Interaction state for `.sponsor-sort-chip.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .sponsor-sort-chip.incorrect {
   border-color: #b00020;
   border-left-color: #b00020;
   background: #fdecea;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sponsor-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .sponsor-sort-targets {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.8rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sponsor-sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .sponsor-sort-zone {
   min-height: 230px;
   max-height: 250px;
@@ -220,12 +283,14 @@
   padding: 0.55rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.sponsor-sort-zone h3`. These values affect readability and vertical space on slides. */
 .sponsor-sort-zone h3 {
   font-size: 0.64em;
   text-align: center;
   margin: 0 0 0.4rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sponsor-sort-list`. Search the HTML for these class/id names before changing a shared rule. */
 .sponsor-sort-list {
   display: flex;
   flex-direction: column;
@@ -233,6 +298,7 @@
   min-height: 160px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sponsor-sort-feedback, .sales-scenario-feedback, .fundraising-review-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .sponsor-sort-feedback,
 .sales-scenario-feedback,
 .fundraising-review-feedback {
@@ -241,17 +307,20 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-scenario-card`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-scenario-card {
   max-width: 950px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sales-scenario-options`. Search the HTML for these class/id names before changing a shared rule. */
 .sales-scenario-options {
   display: grid;
   gap: 0.45rem;
   margin-top: 0.55rem;
 }
 
+/* STUDENT NOTE: Button styling for `.sales-scenario-options button`. Keep hover/selected/correct states visually consistent with the base button. */
 .sales-scenario-options button {
   background: var(--white);
   border: 2px solid var(--red);
@@ -266,22 +335,26 @@
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Button styling for `.sales-scenario-options button.correct`. Keep hover/selected/correct states visually consistent with the base button. */
 .sales-scenario-options button.correct {
   border-color: #2e7d32;
   border-left-color: #2e7d32;
   background: #e6f4ea;
 }
 
+/* STUDENT NOTE: Button styling for `.sales-scenario-options button.incorrect`. Keep hover/selected/correct states visually consistent with the base button. */
 .sales-scenario-options button.incorrect {
   border-color: #b00020;
   border-left-color: #b00020;
   background: #fdecea;
 }
 
+/* STUDENT NOTE: Layout rule for `.fundraising-review-grid`. Grid properties here control columns, gaps, and alignment. */
 .fundraising-review-grid {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-review-item`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-review-item {
   min-height: 110px;
   color: var(--black);
@@ -291,18 +364,22 @@
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-review-item.reviewed`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-review-item.reviewed {
   background: var(--black);
   color: var(--white);
   border-left-color: var(--red);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.fundraising-review-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .fundraising-review-feedback {
   text-align: center;
   margin-top: 0.65rem;
 }
 
+/* STUDENT NOTE: Responsive breakpoint. Rules inside this block apply only when the screen matches this condition. */
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.reveal .fundraising-grid-3, .reveal .fundraising-grid-4, .reveal .fundraising-process, .reveal .fundraising-review-grid`. Grid properties here control columns, gaps, and alignment. */
   .reveal .fundraising-grid-3,
   .reveal .fundraising-grid-4,
   .reveal .fundraising-process,
@@ -310,18 +387,22 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  /* STUDENT NOTE: Layout rule for `.reveal .sponsor-sort-targets, .reveal .fundraising-grid-2`. Grid properties here control columns, gaps, and alignment. */
   .reveal .sponsor-sort-targets,
   .reveal .fundraising-grid-2 {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Layout rule for `} .reveal .role-review-slide .fundraising-review-grid`. Grid properties here control columns, gaps, and alignment. */
 }
 
 /* Robust standalone fix for the clickable roles activity */
 .reveal .role-review-slide .fundraising-review-grid {
+  /* STUDENT NOTE: Styles elements matched by `pointer-events: auto; } .reveal .role-review-slide .fundraising-review-item`. Search the HTML for these class/id names before changing a shared rule. */
   pointer-events: auto;
 }
 
 .reveal .role-review-slide .fundraising-review-item {
+  /* STUDENT NOTE: Interaction state for `appearance: none; display: block; width: 100%; min-height: 110px; background: var(--light); color: var(--black); border: 0; border-left: 10px solid var(--red); border-radius: 8px; padding: 0.75rem 0.85rem; font-family: "", Arial, sans-serif; font-size: 0.42em; font-weight: 700; text-align: left; cursor: pointer; } .reveal .role-review-slide .fundraising-review-item.reviewed, .reveal .role-review-slide .fundraising-review-item.selected, .reveal .role-review-slide .fundraising-review-item[aria-pressed=""]`. JavaScript may add/remove this class to provide visual feedback or control access. */
   appearance: none;
   display: block;
   width: 100%;
@@ -342,6 +423,7 @@
 .reveal .role-review-slide .fundraising-review-item.reviewed,
 .reveal .role-review-slide .fundraising-review-item.selected,
 .reveal .role-review-slide .fundraising-review-item[aria-pressed="true"] {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--black); color: var(--white); border-left-color: var(--red); } .reveal .role-review-slide .fundraising-review-item:hover, .reveal .role-review-slide .fundraising-review-item:focus`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--black);
   color: var(--white);
   border-left-color: var(--red);
@@ -349,12 +431,14 @@
 
 .reveal .role-review-slide .fundraising-review-item:hover,
 .reveal .role-review-slide .fundraising-review-item:focus {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red); outline-offset: 2px; } .reveal .role-review-slide .flip-role-card`. Search the HTML for these class/id names before changing a shared rule. */
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
 
 /* Flip-card role reveal activity */
 .reveal .role-review-slide .flip-role-card {
+  /* STUDENT NOTE: Typography/spacing rule for `position: relative; min-height: 120px; padding: 0; background: transparent; border: 0; perspective: 900px; cursor: pointer; } .reveal .role-review-slide .flip-role-inner`. These values affect readability and vertical space on slides. */
   position: relative;
   min-height: 120px;
   padding: 0;
@@ -365,6 +449,7 @@
 }
 
 .reveal .role-review-slide .flip-role-inner {
+  /* STUDENT NOTE: Typography/spacing rule for `position: relative; display: block; width: 100%; min-height: 120px; transform-style: preserve-3d; transition: transform 0.45s ease; } .reveal .role-review-slide .flip-role-card.flipped .flip-role-inner, .reveal .role-review-slide .flip-role-card.reviewed .flip-role-inner`. These values affect readability and vertical space on slides. */
   position: relative;
   display: block;
   width: 100%;
@@ -375,11 +460,13 @@
 
 .reveal .role-review-slide .flip-role-card.flipped .flip-role-inner,
 .reveal .role-review-slide .flip-role-card.reviewed .flip-role-inner {
+  /* STUDENT NOTE: Styles elements matched by `transform: rotateY(180deg); } .reveal .role-review-slide .flip-role-front, .reveal .role-review-slide .flip-role-back`. Search the HTML for these class/id names before changing a shared rule. */
   transform: rotateY(180deg);
 }
 
 .reveal .role-review-slide .flip-role-front,
 .reveal .role-review-slide .flip-role-back {
+  /* STUDENT NOTE: Layout rule for `position: absolute; inset: 0; display: grid; place-items: center; min-height: 120px; padding: 0.75rem 0.85rem; border-left: 10px solid var(--red); border-radius: 8px; backface-visibility: hidden; font-family: "", Arial, sans-serif; font-size: .8em; font-weight: 700; line-height: 1.2; text-align: center; } .reveal .role-review-slide .flip-role-front`. Grid properties here control columns, gaps, and alignment. */
   position: absolute;
   inset: 0;
   display: grid;
@@ -397,11 +484,13 @@
 }
 
 .reveal .role-review-slide .flip-role-front {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--light); color: var(--black); } .reveal .role-review-slide .flip-role-back`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--light);
   color: var(--black);
 }
 
 .reveal .role-review-slide .flip-role-back {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--black); color: var(--white); transform: rotateY(180deg); } .reveal .role-review-slide .flip-role-card:hover .flip-role-front, .reveal .role-review-slide .flip-role-card:focus .flip-role-front, .reveal .role-review-slide .flip-role-card:hover .flip-role-back, .reveal .role-review-slide .flip-role-card:focus .flip-role-back`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--black);
   color: var(--white);
   transform: rotateY(180deg);
@@ -411,6 +500,7 @@
 .reveal .role-review-slide .flip-role-card:focus .flip-role-front,
 .reveal .role-review-slide .flip-role-card:hover .flip-role-back,
 .reveal .role-review-slide .flip-role-card:focus .flip-role-back {
+  /* STUDENT NOTE: Interaction state for `outline: 4px solid var(--red); outline-offset: 2px; } .reveal .role-review-slide .role-reveal-card, .reveal .role-review-slide .role-reveal-card.reviewed, .reveal .role-review-slide .role-reveal-card.selected, .reveal .role-review-slide .role-reveal-card[aria-pressed=""]`. JavaScript may add/remove this class to provide visual feedback or control access. */
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
@@ -420,6 +510,7 @@
 .reveal .role-review-slide .role-reveal-card.reviewed,
 .reveal .role-review-slide .role-reveal-card.selected,
 .reveal .role-review-slide .role-reveal-card[aria-pressed="true"] {
+  /* STUDENT NOTE: Layout rule for `appearance: none; display: grid !important; place-items: center; width: 100%; min-height: 120px; background: var(--light) !important; color: var(--black) !important; border: 0 !important; border-left: 10px solid var(--red) !important; border-radius: 8px; padding: 0.75rem 0.85rem !important; font-family: "", Arial, sans-serif; font-size: 0.8em; font-weight: 700; line-height: 1.2; text-align: center; cursor: pointer; transform-origin: center; transform-style: preserve-3d; transition: background 0.2s ease, color 0.2s ease; } .reveal .role-review-slide .role-reveal-card.revealed, .reveal .role-review-slide .role-reveal-card[aria-pressed=""].revealed`. Grid properties here control columns, gaps, and alignment. */
   appearance: none;
   display: grid !important;
   place-items: center;
@@ -444,30 +535,37 @@
 
 .reveal .role-review-slide .role-reveal-card.revealed,
 .reveal .role-review-slide .role-reveal-card[aria-pressed="true"].revealed {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--black) !important; color: var(--white) !important; } .reveal .role-review-slide .role-reveal-card.role-flipping`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--black) !important;
   color: var(--white) !important;
 }
 
 .reveal .role-review-slide .role-reveal-card.role-flipping {
+  /* STUDENT NOTE: Styles elements matched by `animation: role-card-flip 0.42s ease; } @keyframes role-card-flip`. Search the HTML for these class/id names before changing a shared rule. */
   animation: role-card-flip 0.42s ease;
 }
 
 @keyframes role-card-flip {
+  /* STUDENT NOTE: Styles elements matched by `0%`. Search the HTML for these class/id names before changing a shared rule. */
   0% {
     transform: rotateY(0deg);
   }
 
+  /* STUDENT NOTE: Styles elements matched by `50%`. Search the HTML for these class/id names before changing a shared rule. */
   50% {
     transform: rotateY(90deg);
   }
 
+  /* STUDENT NOTE: Styles elements matched by `100%`. Search the HTML for these class/id names before changing a shared rule. */
   100% {
     transform: rotateY(0deg);
   }
+/* STUDENT NOTE: Styles elements matched by `} .reveal .role-review-slide .role-reveal-card:hover, .reveal .role-review-slide .role-reveal-card:focus-visible`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .reveal .role-review-slide .role-reveal-card:hover,
 .reveal .role-review-slide .role-reveal-card:focus-visible {
+  /* STUDENT NOTE: Interaction state for `outline: 4px solid var(--red); outline-offset: 2px; } .reveal .role-review-slide .role-reveal-card, .reveal .role-review-slide .role-reveal-card.reviewed, .reveal .role-review-slide .role-reveal-card.selected, .reveal .role-review-slide .role-reveal-card.flipped, .reveal .role-review-slide .role-reveal-card[aria-pressed=""]`. JavaScript may add/remove this class to provide visual feedback or control access. */
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
@@ -480,6 +578,7 @@
 .reveal .role-review-slide .role-reveal-card.selected,
 .reveal .role-review-slide .role-reveal-card.flipped,
 .reveal .role-review-slide .role-reveal-card[aria-pressed="true"] {
+  /* STUDENT NOTE: Layout rule for `appearance: none !important; display: grid !important; place-items: center !important; width: 100% !important; min-height: 120px !important; background: var(--light) !important; color: var(--black) !important; border: 0 !important; border-left: 10px solid var(--red) !important; border-radius: 8px !important; padding: 0.75rem 0.85rem !important; font-family: "", Arial, sans-serif !important; font-size: 0.6em !important; font-weight: 700 !important; line-height: 1.2 !important; text-align: center !important; cursor: pointer !important; transform-origin: center !important; pointer-events: auto !important; } .reveal .role-review-slide .role-reveal-card.revealed, .reveal .role-review-slide .role-reveal-card.revealed[aria-pressed=""]`. Grid properties here control columns, gaps, and alignment. */
   appearance: none !important;
   display: grid !important;
   place-items: center !important;
@@ -503,28 +602,36 @@
 
 .reveal .role-review-slide .role-reveal-card.revealed,
 .reveal .role-review-slide .role-reveal-card.revealed[aria-pressed="true"] {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--black) !important; color: var(--white) !important; } .reveal .role-review-slide .role-reveal-card.role-flipping`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--black) !important;
   color: var(--white) !important;
 }
 
 .reveal .role-review-slide .role-reveal-card.role-flipping {
+  /* STUDENT NOTE: Styles elements matched by `animation: fundraising-role-card-flip 0.42s ease !important; } @keyframes fundraising-role-card-flip`. Search the HTML for these class/id names before changing a shared rule. */
   animation: fundraising-role-card-flip 0.42s ease !important;
 }
 
 @keyframes fundraising-role-card-flip {
+  /* STUDENT NOTE: Styles elements matched by `0%`. Search the HTML for these class/id names before changing a shared rule. */
   0% { transform: rotateY(0deg); }
+  /* STUDENT NOTE: Styles elements matched by `50%`. Search the HTML for these class/id names before changing a shared rule. */
   50% { transform: rotateY(90deg); }
+  /* STUDENT NOTE: Styles elements matched by `100%`. Search the HTML for these class/id names before changing a shared rule. */
   100% { transform: rotateY(0deg); }
+/* STUDENT NOTE: Styles elements matched by `} .reveal .role-review-slide .role-reveal-card:hover, .reveal .role-review-slide .role-reveal-card:focus-visible`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .reveal .role-review-slide .role-reveal-card:hover,
 .reveal .role-review-slide .role-reveal-card:focus-visible {
+  /* STUDENT NOTE: Button styling for `outline: 4px solid var(--red) !important; outline-offset: 2px !important; } .reveal .sales-scenario-slide .sales-scenario-options button`. Keep hover/selected/correct states visually consistent with the base button. */
   outline: 4px solid var(--red) !important;
   outline-offset: 2px !important;
 }
 
 /* Final sales scenario button fix */
 .reveal .sales-scenario-slide .sales-scenario-options button {
+  /* STUDENT NOTE: Button styling for `display: block; width: 100%; background: var(--white); color: var(--black); border: 2px solid var(--red); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.45rem 0.6rem; font-family: "", Arial, sans-serif; font-size: 0.42em; font-weight: 700; text-align: left; cursor: pointer; pointer-events: auto; } .reveal .sales-scenario-slide .sales-scenario-options button.correct`. Keep hover/selected/correct states visually consistent with the base button. */
   display: block;
   width: 100%;
   background: var(--white);
@@ -542,12 +649,14 @@
 }
 
 .reveal .sales-scenario-slide .sales-scenario-options button.correct {
+  /* STUDENT NOTE: Button styling for `background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; } .reveal .sales-scenario-slide .sales-scenario-options button.incorrect`. Keep hover/selected/correct states visually consistent with the base button. */
   background: #e6f4ea !important;
   border-color: #2e7d32 !important;
   border-left-color: #2e7d32 !important;
 }
 
 .reveal .sales-scenario-slide .sales-scenario-options button.incorrect {
+  /* STUDENT NOTE: Button styling for `background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; } .reveal .sales-scenario-slide .sales-scenario-options button:hover, .reveal .sales-scenario-slide .sales-scenario-options button:focus-visible`. Keep hover/selected/correct states visually consistent with the base button. */
   background: #fdecea !important;
   border-color: #b00020 !important;
   border-left-color: #b00020 !important;

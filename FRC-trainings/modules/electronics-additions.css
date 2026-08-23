@@ -1,8 +1,44 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FRC-trainings/modules/electronics-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* Additional styles for electronics.html */
+/* STUDENT NOTE: Styles elements matched by `.elec-hero .front-card`. Search the HTML for these class/id names before changing a shared rule. */
 .elec-hero .front-card {
   max-width: 900px;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.elec-slide h2, .elec-vertical h2, .elec-quiz h2`. These values affect readability and vertical space on slides. */
 .elec-slide h2,
 .elec-vertical h2,
 .elec-quiz h2 {
@@ -10,6 +46,7 @@
   margin-bottom: 0.45rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.elec-intro`. Search the HTML for these class/id names before changing a shared rule. */
 .elec-intro {
   max-width: 950px;
   margin: 0 auto 0.8rem;
@@ -17,6 +54,7 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Layout rule for `.elec-grid-2, .elec-grid-3, .elec-grid-4, .component-grid, .sensor-grid, .doc-grid`. Grid properties here control columns, gaps, and alignment. */
 .elec-grid-2,
 .elec-grid-3,
 .elec-grid-4,
@@ -29,25 +67,32 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Layout rule for `.elec-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .elec-grid-2 {
   grid-template-columns: 1fr 1fr;
 }
+/* STUDENT NOTE: Layout rule for `.elec-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .elec-grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
+/* STUDENT NOTE: Layout rule for `.elec-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .elec-grid-4 {
   grid-template-columns: repeat(4, 1fr);
 }
+/* STUDENT NOTE: Layout rule for `.component-grid`. Grid properties here control columns, gaps, and alignment. */
 .component-grid {
   grid-template-columns: repeat(3, 1fr);
 }
+/* STUDENT NOTE: Layout rule for `.sensor-grid`. Grid properties here control columns, gaps, and alignment. */
 .sensor-grid {
   grid-template-columns: repeat(3, 1fr);
 }
+/* STUDENT NOTE: Layout rule for `.doc-grid`. Grid properties here control columns, gaps, and alignment. */
 .doc-grid {
   grid-template-columns: repeat(2, 1fr);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.elec-card, .component-card, .sensor-card, .doc-card, .path-card`. Search the HTML for these class/id names before changing a shared rule. */
 .elec-card,
 .component-card,
 .sensor-card,
@@ -61,12 +106,14 @@
   margin-bottom: 0.1em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.elec-card.dark, .component-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
 .elec-card.dark,
 .component-card.dark {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.elec-card.dark h3, .elec-card.dark p, .elec-card.dark li, .component-card.dark h3, .component-card.dark p, .component-card.dark li`. These values affect readability and vertical space on slides. */
 .elec-card.dark h3,
 .elec-card.dark p,
 .elec-card.dark li,
@@ -76,6 +123,7 @@
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.elec-card h3, .component-card h3, .sensor-card h3, .doc-card h3, .path-card h3`. These values affect readability and vertical space on slides. */
 .elec-card h3,
 .component-card h3,
 .sensor-card h3,
@@ -85,6 +133,7 @@
   font-size: 0.72em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.elec-card p, .component-card p, .sensor-card p, .doc-card p, .path-card p`. These values affect readability and vertical space on slides. */
 .elec-card p,
 .component-card p,
 .sensor-card p,
@@ -95,6 +144,7 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.elec-card li, .component-card li, .sensor-card li, .doc-card li, .path-card li`. Search the HTML for these class/id names before changing a shared rule. */
 .elec-card li,
 .component-card li,
 .sensor-card li,
@@ -105,6 +155,7 @@
   margin-bottom: 0.16rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.elec-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .elec-callout {
   max-width: 950px;
   margin: 0.8rem auto 0;
@@ -114,18 +165,21 @@
   border-radius: 8px;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.elec-callout p`. These values affect readability and vertical space on slides. */
 .elec-callout p {
   margin: 0;
   font-size: 0.56em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.elec-mini`. Search the HTML for these class/id names before changing a shared rule. */
 .elec-mini {
   font-family: "Droid Sans", Arial, sans-serif;
   font-size: 0.42em;
   color: var(--gray);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.power-flow`. Search the HTML for these class/id names before changing a shared rule. */
 .power-flow {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -135,6 +189,7 @@
   margin: 0.8rem auto 0;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.power-node`. Search the HTML for these class/id names before changing a shared rule. */
 .power-node {
   background: var(--white);
   border: 3px solid var(--black);
@@ -151,6 +206,7 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.power-arrow`. Search the HTML for these class/id names before changing a shared rule. */
 .power-arrow {
   text-align: center;
   font-size: 1.1em;
@@ -159,6 +215,7 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.can-chain`. Search the HTML for these class/id names before changing a shared rule. */
 .can-chain {
   display: flex;
   gap: 0.35rem;
@@ -169,6 +226,7 @@
   flex-wrap: wrap;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.can-device`. Search the HTML for these class/id names before changing a shared rule. */
 .can-device {
   background: var(--white);
   border: 3px solid var(--black);
@@ -182,12 +240,14 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.can-wire`. Search the HTML for these class/id names before changing a shared rule. */
 .can-wire {
   font-size: 0.75em;
   color: var(--gray);
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-bank, .sort-targets, .troubleshooting-sort`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-bank,
 .sort-targets,
 .troubleshooting-sort {
@@ -195,6 +255,7 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-bank {
   display: flex;
   flex-wrap: wrap;
@@ -206,6 +267,7 @@
   min-height: 86px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-chip, .trouble-card`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-chip,
 .trouble-card {
   background: var(--white);
@@ -220,21 +282,25 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-chip.dragging, .trouble-card.dragging`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-chip.dragging,
 .trouble-card.dragging {
   opacity: 0.45;
 }
+/* STUDENT NOTE: Interaction state for `.sort-chip.correct, .trouble-card.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .sort-chip.correct,
 .trouble-card.correct {
   border-color: #2e7d32;
   background: #e6f4ea;
 }
+/* STUDENT NOTE: Interaction state for `.sort-chip.incorrect, .trouble-card.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .sort-chip.incorrect,
 .trouble-card.incorrect {
   border-color: #b00020;
   background: #fdecea;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-targets {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -242,6 +308,7 @@
   margin-top: 0.7rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-zone {
   min-height: 210px;
   background: var(--light);
@@ -250,12 +317,14 @@
   padding: 0.55rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.sort-zone h3`. These values affect readability and vertical space on slides. */
 .sort-zone h3 {
   font-size: 0.68em;
   text-align: center;
   margin: 0 0 0.4rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-list`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-list {
   display: flex;
   flex-direction: column;
@@ -263,6 +332,7 @@
   min-height: 150px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-bank.drag-over, .sort-zone.drag-over, .troubleshooting-sort.drag-over`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-bank.drag-over,
 .sort-zone.drag-over,
 .troubleshooting-sort.drag-over {
@@ -270,6 +340,7 @@
   outline-offset: 2px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.activity-controls`. Search the HTML for these class/id names before changing a shared rule. */
 .activity-controls {
   display: flex;
   align-items: center;
@@ -278,6 +349,7 @@
   margin-top: 0.55rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.activity-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .activity-feedback {
   min-width: 240px;
   margin: 0;
@@ -285,6 +357,7 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.troubleshooting-sort`. Search the HTML for these class/id names before changing a shared rule. */
 .troubleshooting-sort {
   display: grid;
   gap: 0.35rem;
@@ -294,10 +367,12 @@
   padding: 0.5rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.trouble-card`. Search the HTML for these class/id names before changing a shared rule. */
 .trouble-card {
   font-size: 0.44em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.documentation-table`. Search the HTML for these class/id names before changing a shared rule. */
 .documentation-table {
   width: 100%;
   max-width: 950px;
@@ -307,6 +382,7 @@
   font-family: "Droid Sans", Arial, sans-serif;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.documentation-table th, .documentation-table td`. Search the HTML for these class/id names before changing a shared rule. */
 .documentation-table th,
 .documentation-table td {
   border: 2px solid #cccccc;
@@ -314,25 +390,31 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.documentation-table th`. Search the HTML for these class/id names before changing a shared rule. */
 .documentation-table th {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.documentation-table tr:nth-child(even)`. Search the HTML for these class/id names before changing a shared rule. */
 .documentation-table tr:nth-child(even) {
   background: var(--light);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.battery-list`. Search the HTML for these class/id names before changing a shared rule. */
 .battery-list {
   columns: 2;
   column-gap: 2rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.battery-list li`. Search the HTML for these class/id names before changing a shared rule. */
 .battery-list li {
   break-inside: avoid;
 }
 
+/* STUDENT NOTE: Responsive breakpoint. Rules inside this block apply only when the screen matches this condition. */
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.elec-grid-3, .elec-grid-4, .component-grid, .sensor-grid, .doc-grid, .power-flow`. Grid properties here control columns, gaps, and alignment. */
   .elec-grid-3,
   .elec-grid-4,
   .component-grid,
@@ -342,17 +424,21 @@
     grid-template-columns: 1fr;
   }
 
+  /* STUDENT NOTE: Layout rule for `.elec-grid-2, .sort-targets`. Grid properties here control columns, gaps, and alignment. */
   .elec-grid-2,
   .sort-targets {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Typography/spacing rule for `} .wiring-structure-slide h2`. These values affect readability and vertical space on slides. */
 }
 .wiring-structure-slide h2 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1.45em; margin-bottom: 0.35rem; } .wiring-structure-intro`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1.45em;
   margin-bottom: 0.35rem;
 }
 
 .wiring-structure-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 1200px; margin: 0 auto 0.2rem; font-size: 0.2em; line-height: 1; text-align: center; } .wiring-layout-grid`. Grid properties here control columns, gaps, and alignment. */
   max-width: 1200px;
   margin: 0 auto 0.2rem;
   font-size: 0.2em;
@@ -361,6 +447,7 @@
 }
 
 .wiring-layout-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 1fr; gap: 0.2rem; max-width: 2000px; margin: 0 auto; align-items: start; } .wiring-layout-card`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.2rem;
@@ -370,6 +457,7 @@
 }
 
 .wiring-layout-card {
+  /* STUDENT NOTE: Image styling for `margin: 0; background: #f4f4f4; border-left: 8px solid #980000; border-radius: 8px; padding: 0.45rem; } .wiring-layout-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   margin: 0;
   background: #f4f4f4;
   border-left: 8px solid #980000;
@@ -378,6 +466,7 @@
 }
 
 .wiring-layout-card img {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; height: 300px; object-fit: contain; background: #ffffff; border-radius: 6px; display: block; } .wiring-layout-card figcaption`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   height: 300px;
   object-fit: contain;
@@ -387,6 +476,7 @@
 }
 
 .wiring-layout-card figcaption {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.38em; line-height: 1.15; margin-top: 0.3rem; text-align: center; } .wiring-structure-callout`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.38em;
   line-height: 1.15;
   margin-top: 0.3rem;
@@ -394,6 +484,7 @@
 }
 
 .wiring-structure-callout {
+  /* STUDENT NOTE: Typography/spacing rule for `max-width: 1000px; margin: 0.6rem auto 0; padding: 0.55rem 0.8rem; background: #ffffff; border-left: 8px solid #980000; border-radius: 8px; } .wiring-structure-callout p`. These values affect readability and vertical space on slides. */
   max-width: 1000px;
   margin: 0.6rem auto 0;
   padding: 0.55rem 0.8rem;
@@ -403,10 +494,12 @@
 }
 
 .wiring-structure-callout p {
+  /* STUDENT NOTE: Image styling for `margin: 0; font-size: 0.5em; } .image-focus-slide`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   margin: 0;
   font-size: 0.5em;
 }
 .image-focus-slide {
+  /* STUDENT NOTE: Layout rule for `height: 100%; display: grid; grid-template-rows: auto 1fr; gap: 0.35rem; } .image-focus-header`. Grid properties here control columns, gaps, and alignment. */
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -414,6 +507,7 @@
 }
 
 .image-focus-header {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: auto 1fr; gap: 0.3rem; align-items: center; max-width: 1150px; margin: 0 auto; } .image-focus-header .tag`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0.3rem;
@@ -423,11 +517,13 @@
 }
 
 .image-focus-header .tag {
+  /* STUDENT NOTE: Styles elements matched by `margin-bottom: 0; white-space: nowrap; } .wiring-layout-main`. Search the HTML for these class/id names before changing a shared rule. */
   margin-bottom: 0;
   white-space: nowrap;
 }
 
 .wiring-layout-main {
+  /* STUDENT NOTE: Layout rule for `width: 100%; height: 530px; max-height: calc(100vh - 145px); object-fit: contain; display: block; margin: 0 auto; background: #ffffff; } .component-grid`. Grid properties here control columns, gaps, and alignment. */
   width: 100%;
   height: 530px;
   max-height: calc(100vh - 145px);
@@ -438,6 +534,7 @@
 }
 
 .component-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; max-width: 1100px; margin: 0.8rem auto 0; } .component-card`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.7rem;
@@ -446,17 +543,20 @@
 }
 
 .component-card {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 145px; padding: 1rem 1.1rem; border-radius: 10px; } .component-card h3`. These values affect readability and vertical space on slides. */
   min-height: 145px;
   padding: 1rem 1.1rem;
   border-radius: 10px;
 }
 
 .component-card h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 2em; margin: 0 0 0.45rem; } .component-card p`. These values affect readability and vertical space on slides. */
   font-size: 2em;
   margin: 0 0 0.45rem;
 }
 
 .component-card p {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1em; line-height: 1.25; margin: 0; } .component-card:hover, .component-card:focus`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1em;
   line-height: 1.25;
   margin: 0;
@@ -464,23 +564,27 @@
 
 .component-card:hover,
 .component-card:focus {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red); outline-offset: 3px; transform: translateY(-2px); } .component-card.viewed`. Search the HTML for these class/id names before changing a shared rule. */
   outline: 4px solid var(--red);
   outline-offset: 3px;
   transform: translateY(-2px);
 }
 
 .component-card.viewed {
+  /* STUDENT NOTE: Typography/spacing rule for `border-left-color: var(--gray); opacity: 0.85; } .component-card.viewed h3::after`. These values affect readability and vertical space on slides. */
   border-left-color: var(--gray);
   opacity: 0.85;
 }
 
 .component-card.viewed h3::after {
+  /* STUDENT NOTE: Styles elements matched by `content: ""; color: var(--gray); font-weight: bold; } .component-modal`. Search the HTML for these class/id names before changing a shared rule. */
   content: " ✓";
   color: var(--gray);
   font-weight: bold;
 }
 
 .component-modal {
+  /* STUDENT NOTE: Typography/spacing rule for `position: fixed; inset: 0; background: rgba(0, 0, 0, 0.72); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 1.5rem; } .component-modal.open`. These values affect readability and vertical space on slides. */
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.72);
@@ -492,10 +596,12 @@
 }
 
 .component-modal.open {
+  /* STUDENT NOTE: Styles elements matched by `display: flex; } .component-modal-panel`. Search the HTML for these class/id names before changing a shared rule. */
   display: flex;
 }
 
 .component-modal-panel {
+  /* STUDENT NOTE: Typography/spacing rule for `position: relative; width: min(1000px, 95vw); max-height: 88vh; overflow: auto; background: #ffffff; border-left: 14px solid #980000; border-radius: 10px; padding: 1.2rem; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35); } .component-modal-close`. These values affect readability and vertical space on slides. */
   position: relative;
   width: min(1000px, 95vw);
   max-height: 88vh;
@@ -508,6 +614,7 @@
 }
 
 .component-modal-close {
+  /* STUDENT NOTE: Typography/spacing rule for `position: absolute; top: 0.4rem; right: 0.6rem; background: #980000; color: #ffffff; border: none; border-radius: 6px; font-size: 2rem; line-height: 1; width: 2.4rem; height: 2.4rem; cursor: pointer; } .component-modal-content`. These values affect readability and vertical space on slides. */
   position: absolute;
   top: 0.4rem;
   right: 0.6rem;
@@ -523,6 +630,7 @@
 }
 
 .component-modal-content {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 1fr 42%; gap: 1.2rem; align-items: start; } .component-modal-content h2`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: 1fr 42%;
   gap: 1.2rem;
@@ -530,17 +638,20 @@
 }
 
 .component-modal-content h2 {
+  /* STUDENT NOTE: Typography/spacing rule for `margin-top: 0; font-family: "", Arial, sans-serif; } .component-modal-content p, .component-modal-content li`. These values affect readability and vertical space on slides. */
   margin-top: 0;
   font-family: "Droid Sans", Arial, sans-serif;
 }
 
 .component-modal-content p,
 .component-modal-content li {
+  /* STUDENT NOTE: Image styling for `font-size: 1rem; line-height: 1.35; } .component-modal-content img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   font-size: 1rem;
   line-height: 1.35;
 }
 
 .component-modal-content img {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; max-height: 420px; object-fit: contain; background: #f3f3f3; border-radius: 8px; } @media (max-width: 800px)`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   max-height: 420px;
   object-fit: contain;
@@ -549,12 +660,15 @@
 }
 
 @media (max-width: 800px) {
+  /* STUDENT NOTE: Styles elements matched by `.component-modal-content`. Search the HTML for these class/id names before changing a shared rule. */
   .component-modal-content {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Image styling for `} .reveal .poster-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 }
 
 .reveal .poster-img {
+  /* STUDENT NOTE: Styles elements matched by `max-width: 100%; max-height: 520px; display: block; margin: 0.2em auto; border: 1px solid #ddd; } .awg-vertical-slide`. Search the HTML for these class/id names before changing a shared rule. */
   max-width: 100%;
   max-height: 520px;
   display: block;
@@ -562,14 +676,17 @@
   border: 1px solid #ddd;
 }
 .awg-vertical-slide {
+  /* STUDENT NOTE: Styles elements matched by `height: 100%; } .awg-vertical-slide .tag`. Search the HTML for these class/id names before changing a shared rule. */
   height: 100%;
 }
 
 .awg-vertical-slide .tag {
+  /* STUDENT NOTE: Image styling for `margin-bottom: 0.25rem; } .awg-image-wrap`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   margin-bottom: 0.25rem;
 }
 
 .awg-image-wrap {
+  /* STUDENT NOTE: Image styling for `background: #ffffff; border-left: 10px solid var(--red); border-radius: 8px; padding: 0.25rem; max-width: 1120px; margin: 0 auto 0.45rem; } .awg-main-image`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   background: #ffffff;
   border-left: 10px solid var(--red);
   border-radius: 8px;
@@ -579,6 +696,7 @@
 }
 
 .awg-main-image {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; height: 345px; object-fit: contain; display: block; } .awg-text-panel`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   height: 345px;
   object-fit: contain;
@@ -586,6 +704,7 @@
 }
 
 .awg-text-panel {
+  /* STUDENT NOTE: Typography/spacing rule for `background: #f4f4f4; border-left: 10px solid var(--red); border-radius: 8px; padding: 0.55rem 0.75rem; max-width: 1120px; margin: 0 auto; } .awg-text-panel h2`. These values affect readability and vertical space on slides. */
   background: #f4f4f4;
   border-left: 10px solid var(--red);
   border-radius: 8px;
@@ -595,17 +714,20 @@
 }
 
 .awg-text-panel h2 {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 0.78em; margin: 0 0 0.2rem; } .awg-text-panel p`. These values affect readability and vertical space on slides. */
   font-size: 0.78em;
   margin: 0 0 0.2rem;
 }
 
 .awg-text-panel p {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.43em; line-height: 1.18; margin: 0; } .awg-rule-box`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.43em;
   line-height: 1.18;
   margin: 0;
 }
 
 .awg-rule-box {
+  /* STUDENT NOTE: Layout rule for `background: #ffffff; border-left: 8px solid var(--gray); border-radius: 6px; padding: 0.35rem 0.5rem; margin: 0.35rem 0; font-size: 0.43em; line-height: 1.15; } .awg-type-grid`. Grid properties here control columns, gaps, and alignment. */
   background: #ffffff;
   border-left: 8px solid var(--gray);
   border-radius: 6px;
@@ -616,31 +738,37 @@
 }
 
 .awg-type-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.45rem; } .awg-type-grid h3`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.45rem;
 }
 
 .awg-type-grid h3 {
+  /* STUDENT NOTE: Layout rule for `font-size: 0.55em; margin: 0 0 0.15rem; } .awg-type-grid p`. Grid properties here control columns, gaps, and alignment. */
   font-size: 0.55em;
   margin: 0 0 0.15rem;
 }
 
 .awg-type-grid p {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.36em; line-height: 1.15; } .awg-note`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.36em;
   line-height: 1.15;
 }
 
 .awg-note {
+  /* STUDENT NOTE: Typography/spacing rule for `margin-top: 0.35rem; opacity: 0.8; } .wire-materials-slide h2`. These values affect readability and vertical space on slides. */
   margin-top: 0.35rem;
   opacity: 0.8;
 }
 .wire-materials-slide h2 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1.35em; margin-bottom: 0.3rem; } .wire-materials-intro`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1.35em;
   margin-bottom: 0.3rem;
 }
 
 .wire-materials-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 1050px; margin: 0 auto 0.55rem; font-size: 0.54em; line-height: 1.2; } .wire-materials-grid`. Grid properties here control columns, gaps, and alignment. */
   max-width: 1050px;
   margin: 0 auto 0.55rem;
   font-size: 0.54em;
@@ -648,6 +776,7 @@
 }
 
 .wire-materials-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; max-width: 1100px; margin: 0 auto; } .wire-material-card`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.65rem;
@@ -656,6 +785,7 @@
 }
 
 .wire-material-card {
+  /* STUDENT NOTE: Typography/spacing rule for `background: #f4f4f4; border-left: 9px solid var(--red); border-radius: 8px; padding: 0.55rem 0.65rem; min-height: 245px; } .wire-material-card h3`. These values affect readability and vertical space on slides. */
   background: #f4f4f4;
   border-left: 9px solid var(--red);
   border-radius: 8px;
@@ -664,33 +794,40 @@
 }
 
 .wire-material-card h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0 0 0.25rem; font-size: 0.68em; } .wire-material-card p, .wire-material-card li`. These values affect readability and vertical space on slides. */
   margin: 0 0 0.25rem;
   font-size: 0.68em;
 }
 
 .wire-material-card p,
 .wire-material-card li {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.4em; line-height: 1.18; } .wire-material-card ul`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.4em;
   line-height: 1.18;
 }
 
 .wire-material-card ul {
+  /* STUDENT NOTE: Styles elements matched by `margin-top: 0.25rem; } .wire-material-card.conductor`. Search the HTML for these class/id names before changing a shared rule. */
   margin-top: 0.25rem;
 }
 
 .wire-material-card.conductor {
+  /* STUDENT NOTE: Styles elements matched by `border-left-color: #000000; } .wire-material-card.strand`. Search the HTML for these class/id names before changing a shared rule. */
   border-left-color: #000000;
 }
 
 .wire-material-card.strand {
+  /* STUDENT NOTE: Styles elements matched by `border-left-color: var(--red); } .wire-material-card.insulation`. Search the HTML for these class/id names before changing a shared rule. */
   border-left-color: var(--red);
 }
 
 .wire-material-card.insulation {
+  /* STUDENT NOTE: Layout rule for `border-left-color: var(--gray); } .wire-importance-grid`. Grid properties here control columns, gaps, and alignment. */
   border-left-color: var(--gray);
 }
 
 .wire-importance-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; max-width: 1100px; margin: 0.65rem auto 0; } .importance-box`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.65rem;
@@ -699,6 +836,7 @@
 }
 
 .importance-box {
+  /* STUDENT NOTE: Typography/spacing rule for `background: #ffffff; border-left: 9px solid var(--red); border-radius: 8px; padding: 0.55rem 0.7rem; } .importance-box.gray`. These values affect readability and vertical space on slides. */
   background: #ffffff;
   border-left: 9px solid var(--red);
   border-radius: 8px;
@@ -706,41 +844,50 @@
 }
 
 .importance-box.gray {
+  /* STUDENT NOTE: Typography/spacing rule for `border-left-color: var(--gray); } .importance-box h3`. These values affect readability and vertical space on slides. */
   border-left-color: var(--gray);
 }
 
 .importance-box h3 {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0 0 0.25rem; font-size: 0.62em; } .importance-box li`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0 0 0.25rem;
   font-size: 0.62em;
 }
 
 .importance-box li {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.38em; line-height: 1.16; } .wire-materials-slide ul`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.38em;
   line-height: 1.16;
 }
 .wire-materials-slide ul {
+  /* STUDENT NOTE: Typography/spacing rule for `margin-left: 0.1em; padding-left: 0.5em; } .wire-materials-slide li`. These values affect readability and vertical space on slides. */
   margin-left: 0.1em;
   padding-left: 0.5em;
 }
 
 .wire-materials-slide li {
+  /* STUDENT NOTE: Typography/spacing rule for `text-align: left; padding-left: 0; } .connector-slide h2`. These values affect readability and vertical space on slides. */
   text-align: left;
   padding-left: 0;
 }
 .connector-slide h2 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1.4em; margin-bottom: 0.35rem; } .connector-slide`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1.4em;
   margin-bottom: 0.35rem;
 }
 
 .connector-slide {
+  /* STUDENT NOTE: Styles elements matched by `height: 100%; } .connector-slide .tag`. Search the HTML for these class/id names before changing a shared rule. */
   height: 100%;
 }
 
 .connector-slide .tag {
+  /* STUDENT NOTE: Styles elements matched by `margin-bottom: 0.2rem; } .connector-intro`. Search the HTML for these class/id names before changing a shared rule. */
   margin-bottom: 0.2rem;
 }
 
 .connector-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 1050px; margin: 0 auto 0.35rem; font-size: 0.48em; line-height: 1.15; } .connector-grid`. Grid properties here control columns, gaps, and alignment. */
   max-width: 1050px;
   margin: 0 auto 0.35rem;
   font-size: 0.48em;
@@ -748,6 +895,7 @@
 }
 
 .connector-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; gap: 0.55rem; max-width: 1100px; margin: 0 auto; align-items: stretch; } .connector-grid.three-up`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   gap: 0.55rem;
   max-width: 1100px;
@@ -756,14 +904,17 @@
 }
 
 .connector-grid.three-up {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: repeat(3, 1fr); } .connector-grid.two-up`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: repeat(3, 1fr);
 }
 
 .connector-grid.two-up {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: repeat(2, 1fr); } .connector-card`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: repeat(2, 1fr);
 }
 
 .connector-card {
+  /* STUDENT NOTE: Image styling for `background: #f4f4f4; border-left: 9px solid var(--red); border-radius: 8px; padding: 0.45rem 0.55rem; text-align: left; min-width: 0; } .connector-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   background: #f4f4f4;
   border-left: 9px solid var(--red);
   border-radius: 8px;
@@ -773,6 +924,7 @@
 }
 
 .connector-card img {
+  /* STUDENT NOTE: Typography/spacing rule for `width: 100%; height: 155px; object-fit: contain; background: #ffffff; border-radius: 6px; display: block; margin-bottom: 0.25rem; } .connector-card h3`. These values affect readability and vertical space on slides. */
   width: 100%;
   height: 155px;
   object-fit: contain;
@@ -783,26 +935,31 @@
 }
 
 .connector-card h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0 0 0.2rem; font-size: 0.62em; } .connector-card p, .connector-card li`. These values affect readability and vertical space on slides. */
   margin: 0 0 0.2rem;
   font-size: 0.62em;
 }
 
 .connector-card p,
 .connector-card li {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 0.36em; line-height: 1.12; } .connector-card p`. These values affect readability and vertical space on slides. */
   font-size: 0.36em;
   line-height: 1.12;
 }
 
 .connector-card p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0 0 0.25rem; } .connector-card ul`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0 0 0.25rem;
 }
 
 .connector-card ul {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0.15rem 0 0; padding-left: 0.85em; } .connector-callout`. These values affect readability and vertical space on slides. */
   margin: 0.15rem 0 0;
   padding-left: 0.85em;
 }
 
 .connector-callout {
+  /* STUDENT NOTE: Typography/spacing rule for `max-width: 1100px; margin: 0.45rem auto 0; padding: 0.42rem 0.65rem; background: #ffffff; border-left: 9px solid var(--gray); border-radius: 8px; } .connector-callout p`. These values affect readability and vertical space on slides. */
   max-width: 1100px;
   margin: 0.45rem auto 0;
   padding: 0.42rem 0.65rem;
@@ -812,12 +969,14 @@
 }
 
 .connector-callout p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0; font-size: 0.38em; line-height: 1.15; } .strip-crimp-layout`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0;
   font-size: 0.38em;
   line-height: 1.15;
 }
 
 .strip-crimp-layout {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; max-width: 1100px; margin: 0 auto; align-items: stretch; } .diagram-card`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.55rem;
@@ -827,6 +986,7 @@
 }
 
 .diagram-card {
+  /* STUDENT NOTE: Typography/spacing rule for `background: #f4f4f4; border-left: 9px solid var(--red); border-radius: 8px; padding: 0.45rem 0.55rem; text-align: left; min-width: 0; } .diagram-card h3`. These values affect readability and vertical space on slides. */
   background: #f4f4f4;
   border-left: 9px solid var(--red);
   border-radius: 8px;
@@ -836,11 +996,13 @@
 }
 
 .diagram-card h3 {
+  /* STUDENT NOTE: Image styling for `margin: 0 0 0.2rem; font-size: 0.62em; } .diagram-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   margin: 0 0 0.2rem;
   font-size: 0.62em;
 }
 
 .diagram-card img {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; height: 155px; object-fit: contain; background: #ffffff; border-radius: 6px; display: block; margin-bottom: 0.25rem; } .diagram-card ul`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   height: 155px;
   object-fit: contain;
@@ -851,16 +1013,19 @@
 }
 
 .diagram-card ul {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0.15rem 0 0; padding-left: 0.85em; } .diagram-card li`. These values affect readability and vertical space on slides. */
   margin: 0.15rem 0 0;
   padding-left: 0.85em;
 }
 
 .diagram-card li {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.36em; line-height: 1.12; } .diagram-svg`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.36em;
   line-height: 1.12;
 }
 
 .diagram-svg {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; height: 220px; display: block; background: #ffffff; border-radius: 6px; margin-bottom: 0.3rem; } @media (max-width: 900px)`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   height: 220px;
   display: block;
@@ -870,32 +1035,38 @@
 }
 
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.connector-grid.two-up, .strip-crimp-layout`. Grid properties here control columns, gaps, and alignment. */
   .connector-grid.two-up,
   .strip-crimp-layout {
     grid-template-columns: 1fr 1fr;
     gap: 0.35rem;
   }
 
+  /* STUDENT NOTE: Layout rule for `.connector-grid.three-up`. Grid properties here control columns, gaps, and alignment. */
   .connector-grid.three-up {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.35rem;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.connector-card, .diagram-card`. Search the HTML for these class/id names before changing a shared rule. */
   .connector-card,
   .diagram-card {
     padding: 0.32rem 0.38rem;
   }
 
+  /* STUDENT NOTE: Image styling for `.connector-card img, .diagram-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   .connector-card img,
   .diagram-card img {
     height: 125px;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.connector-card h3, .diagram-card h3`. These values affect readability and vertical space on slides. */
   .connector-card h3,
   .diagram-card h3 {
     font-size: 0.52em;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.connector-card p, .connector-card li, .diagram-card li`. These values affect readability and vertical space on slides. */
   .connector-card p,
   .connector-card li,
   .diagram-card li {
@@ -903,54 +1074,66 @@
     line-height: 1.08;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.connector-intro`. Search the HTML for these class/id names before changing a shared rule. */
   .connector-intro {
     font-size: 0.38em;
     margin-bottom: 0.25rem;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.connector-callout`. Search the HTML for these class/id names before changing a shared rule. */
   .connector-callout {
     margin-top: 0.3rem;
     padding: 0.3rem 0.45rem;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.connector-callout p`. These values affect readability and vertical space on slides. */
   .connector-callout p {
     font-size: 0.3em;
     line-height: 1.1;
   }
+/* STUDENT NOTE: Image styling for `} .strip-crimp-slide .diagram-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 }
 
 /* Connector slide fix: keep these slides side-by-side on narrower browser windows and scale content down instead of stacking. */
 .strip-crimp-slide .diagram-card img {
+  /* STUDENT NOTE: Styles elements matched by `height: 145px; } @media (max-width: 900px)`. Search the HTML for these class/id names before changing a shared rule. */
   height: 145px;
 }
 
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Image styling for `.strip-crimp-slide .diagram-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   .strip-crimp-slide .diagram-card img {
     height: 115px;
   }
+/* STUDENT NOTE: Styles elements matched by `} @media (min-width: 1200px)`. Search the HTML for these class/id names before changing a shared rule. */
 }
 @media (min-width: 1200px) {
+  /* STUDENT NOTE: Layout rule for `.connector-grid.two-up, .strip-crimp-layout`. Grid properties here control columns, gaps, and alignment. */
   .connector-grid.two-up,
   .strip-crimp-layout {
     max-width: 1250px;
     gap: 0.9rem;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.connector-card, .diagram-card`. Search the HTML for these class/id names before changing a shared rule. */
   .connector-card,
   .diagram-card {
     padding: 0.7rem 0.85rem;
   }
 
+  /* STUDENT NOTE: Image styling for `.connector-card img, .diagram-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   .connector-card img,
   .diagram-card img {
     height: 210px;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.connector-card h3, .diagram-card h3`. These values affect readability and vertical space on slides. */
   .connector-card h3,
   .diagram-card h3 {
     font-size: 0.78em;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.connector-card p, .connector-card li, .diagram-card li`. These values affect readability and vertical space on slides. */
   .connector-card p,
   .connector-card li,
   .diagram-card li {
@@ -958,32 +1141,39 @@
     line-height: 1.18;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.connector-intro`. Search the HTML for these class/id names before changing a shared rule. */
   .connector-intro {
     font-size: 0.58em;
     max-width: 1150px;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.connector-callout`. Search the HTML for these class/id names before changing a shared rule. */
   .connector-callout {
     max-width: 1250px;
     padding: 0.65rem 0.85rem;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.connector-callout p`. These values affect readability and vertical space on slides. */
   .connector-callout p {
     font-size: 0.5em;
   }
+/* STUDENT NOTE: Styles elements matched by `} .doanddont li`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .doanddont li {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 0.3em; line-height: 1.08; } .wire-slide h2`. These values affect readability and vertical space on slides. */
   font-size: 0.3em;
   line-height: 1.08;
 }
 
 .wire-slide h2 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1.4em; margin-bottom: 0.3rem; } .wire-intro`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1.4em;
   margin-bottom: 0.3rem;
 }
 
 .wire-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 1100px; margin: 0 auto 0.45rem; font-size: 0.52em; line-height: 1.2; } .wire-grid`. Grid properties here control columns, gaps, and alignment. */
   max-width: 1100px;
   margin: 0 auto 0.45rem;
   font-size: 0.52em;
@@ -991,6 +1181,7 @@
 }
 
 .wire-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; gap: 0.6rem; max-width: 1120px; margin: 0 auto; } .wire-grid.five-up`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   gap: 0.6rem;
   max-width: 1120px;
@@ -998,25 +1189,30 @@
 }
 
 .wire-grid.five-up {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: repeat(5, 1fr); } .wire-grid.three-up`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: repeat(5, 1fr);
 }
 
 .wire-grid.three-up {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: repeat(3, 1fr); } .wire-grid.two-up, .wire-grid.final-two-up`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: repeat(3, 1fr);
 }
 
 .wire-grid.two-up,
 .wire-grid.final-two-up {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: 1fr 1fr; } .wire-grid.small-top`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: 1fr 1fr;
 }
 
 .wire-grid.small-top {
+  /* STUDENT NOTE: Styles elements matched by `margin-top: 0.5rem; } .wire-card, .wire-panel, .slack-box`. Search the HTML for these class/id names before changing a shared rule. */
   margin-top: 0.5rem;
 }
 
 .wire-card,
 .wire-panel,
 .slack-box {
+  /* STUDENT NOTE: Image styling for `background: #f4f4f4; border-left: 8px solid var(--red); border-radius: 8px; padding: 0.5rem 0.6rem; text-align: left; min-width: 0; } .wire-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   background: #f4f4f4;
   border-left: 8px solid var(--red);
   border-radius: 8px;
@@ -1026,6 +1222,7 @@
 }
 
 .wire-card img {
+  /* STUDENT NOTE: Typography/spacing rule for `width: 100%; height: 125px; object-fit: contain; background: #ffffff; border-radius: 6px; display: block; margin-bottom: 0.25rem; } .wire-card h3, .wire-panel h3, .slack-box h3`. These values affect readability and vertical space on slides. */
   width: 100%;
   height: 125px;
   object-fit: contain;
@@ -1038,6 +1235,7 @@
 .wire-card h3,
 .wire-panel h3,
 .slack-box h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0 0 0.2rem; font-size: 0.68em; } .wire-card p, .wire-panel p, .wire-panel li, .wire-card li`. These values affect readability and vertical space on slides. */
   margin: 0 0 0.2rem;
   font-size: 0.68em;
 }
@@ -1046,23 +1244,27 @@
 .wire-panel p,
 .wire-panel li,
 .wire-card li {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.4em; line-height: 1.18; } .wire-panel ul, .checklist-panel ul`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.4em;
   line-height: 1.18;
 }
 
 .wire-panel ul,
 .checklist-panel ul {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0.15rem 0 0; padding-left: 0.95em; } .wire-panel li, .checklist-panel li`. These values affect readability and vertical space on slides. */
   margin: 0.15rem 0 0;
   padding-left: 0.95em;
 }
 
 .wire-panel li,
 .checklist-panel li {
+  /* STUDENT NOTE: Typography/spacing rule for `text-align: left; padding-left: 0; } .callout.wire-callout`. These values affect readability and vertical space on slides. */
   text-align: left;
   padding-left: 0;
 }
 
 .callout.wire-callout {
+  /* STUDENT NOTE: Typography/spacing rule for `max-width: 1120px; margin: 0.55rem auto 0; padding: 0.5rem 0.7rem; background: #ffffff; border-left: 8px solid var(--gray); border-radius: 8px; } .callout.wire-callout p`. These values affect readability and vertical space on slides. */
   max-width: 1120px;
   margin: 0.55rem auto 0;
   padding: 0.5rem 0.7rem;
@@ -1072,16 +1274,19 @@
 }
 
 .callout.wire-callout p {
+  /* STUDENT NOTE: Image styling for `margin: 0; font-size: 0.46em; line-height: 1.18; } .mini-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   margin: 0;
   font-size: 0.46em;
   line-height: 1.18;
 }
 
 .mini-card img {
+  /* STUDENT NOTE: Styles elements matched by `height: 100px; } .slack-diagram-row`. Search the HTML for these class/id names before changing a shared rule. */
   height: 100px;
 }
 
 .slack-diagram-row {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.55rem; max-width: 1120px; margin: 0.55rem auto 0; } .slack-box.bad`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.55rem;
@@ -1090,18 +1295,22 @@
 }
 
 .slack-box.bad {
+  /* STUDENT NOTE: Styles elements matched by `border-left-color: #c40000; } .slack-box.good`. Search the HTML for these class/id names before changing a shared rule. */
   border-left-color: #c40000;
 }
 
 .slack-box.good {
+  /* STUDENT NOTE: Styles elements matched by `border-left-color: #0a7a2f; } .slack-box.warn`. Search the HTML for these class/id names before changing a shared rule. */
   border-left-color: #0a7a2f;
 }
 
 .slack-box.warn {
+  /* STUDENT NOTE: Styles elements matched by `border-left-color: #d68a00; } .slack-diagram`. Search the HTML for these class/id names before changing a shared rule. */
   border-left-color: #d68a00;
 }
 
 .slack-diagram {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; height: 140px; display: block; background: #ffffff; border-radius: 6px; margin-top: 0.2rem; } .final-wire-slide .checklist-panel`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   height: 140px;
   display: block;
@@ -1111,12 +1320,14 @@
 }
 
 .final-wire-slide .checklist-panel {
+  /* STUDENT NOTE: Image styling for `display: flex; flex-direction: column; justify-content: flex-start; } .robot-example-image`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .robot-example-image {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; height: 380px; object-fit: contain; background: #ffffff; border-radius: 8px; display: block; margin: 0.2rem 0 0.3rem; } .robot-caption`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   height: 380px;
   object-fit: contain;
@@ -1127,41 +1338,49 @@
 }
 
 .robot-caption {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.4em; line-height: 1.18; margin: 0; } .robot-example-panel`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.4em;
   line-height: 1.18;
   margin: 0;
 }
 
 .robot-example-panel {
+  /* STUDENT NOTE: Styles elements matched by `border-left-color: var(--gray); } .checklist-panel`. Search the HTML for these class/id names before changing a shared rule. */
   border-left-color: var(--gray);
 }
 
 .checklist-panel {
+  /* STUDENT NOTE: Styles elements matched by `border-left-color: var(--red); } @media (max-width: 1100px)`. Search the HTML for these class/id names before changing a shared rule. */
   border-left-color: var(--red);
 }
 
 @media (max-width: 1100px) {
+  /* STUDENT NOTE: Layout rule for `.wire-grid.five-up`. Grid properties here control columns, gaps, and alignment. */
   .wire-grid.five-up {
     grid-template-columns: repeat(5, 1fr);
     gap: 0.35rem;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.wire-card, .wire-panel, .slack-box`. Search the HTML for these class/id names before changing a shared rule. */
   .wire-card,
   .wire-panel,
   .slack-box {
     padding: 0.35rem 0.4rem;
   }
 
+  /* STUDENT NOTE: Image styling for `.wire-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   .wire-card img {
     height: 95px;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.wire-card h3, .wire-panel h3, .slack-box h3`. These values affect readability and vertical space on slides. */
   .wire-card h3,
   .wire-panel h3,
   .slack-box h3 {
     font-size: 0.56em;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.wire-card p, .wire-panel p, .wire-panel li, .wire-card li, .robot-caption`. These values affect readability and vertical space on slides. */
   .wire-card p,
   .wire-panel p,
   .wire-panel li,
@@ -1171,27 +1390,34 @@
     line-height: 1.1;
   }
 
+  /* STUDENT NOTE: Image styling for `.robot-example-image`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   .robot-example-image {
     height: 280px;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.slack-diagram`. Search the HTML for these class/id names before changing a shared rule. */
   .slack-diagram {
     height: 115px;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.callout.wire-callout p`. These values affect readability and vertical space on slides. */
   .callout.wire-callout p {
     font-size: 0.36em;
   }
+/* STUDENT NOTE: Styles elements matched by `} .component-match-slide`. Search the HTML for these class/id names before changing a shared rule. */
 }
 .component-match-slide {
+  /* STUDENT NOTE: Styles elements matched by `height: 100%; } .component-match-slide .tag`. Search the HTML for these class/id names before changing a shared rule. */
   height: 100%;
 }
 
 .component-match-slide .tag {
+  /* STUDENT NOTE: Styles elements matched by `margin-bottom: 0.2rem; } .match-intro`. Search the HTML for these class/id names before changing a shared rule. */
   margin-bottom: 0.2rem;
 }
 
 .match-intro {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.38em; line-height: 1.1; margin: 0 auto 0.25rem; max-width: 1100px; } .match-layout`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.38em;
   line-height: 1.1;
   margin: 0 auto 0.25rem;
@@ -1199,6 +1425,7 @@
 }
 
 .match-layout {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 25% 1fr; gap: 0.45rem; max-width: 1160px; margin: 0 auto; align-items: start; } .match-bank-panel, .definition-grid-panel`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: 25% 1fr;
   gap: 0.45rem;
@@ -1209,6 +1436,7 @@
 
 .match-bank-panel,
 .definition-grid-panel {
+  /* STUDENT NOTE: Layout rule for `background: #f4f4f4; border-left: 8px solid var(--red); border-radius: 8px; padding: 0.35rem; text-align: left; } .match-bank-panel h3, .definition-grid-panel h3`. Grid properties here control columns, gaps, and alignment. */
   background: #f4f4f4;
   border-left: 8px solid var(--red);
   border-radius: 8px;
@@ -1218,11 +1446,13 @@
 
 .match-bank-panel h3,
 .definition-grid-panel h3 {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0 0 0.18rem; font-size: 0.5em; } .match-bank`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0 0 0.18rem;
   font-size: 0.5em;
 }
 
 .match-bank {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.22rem; min-height: 0; align-content: start; } .match-card`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.22rem;
@@ -1231,6 +1461,7 @@
 }
 
 .match-card {
+  /* STUDENT NOTE: Image styling for `background: #ffffff; border: 2px solid #cccccc; border-radius: 7px; padding: 0.12rem; cursor: grab; display: flex; align-items: center; justify-content: center; height: 150px; min-width: 0; } .match-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   background: #ffffff;
   border: 2px solid #cccccc;
   border-radius: 7px;
@@ -1244,6 +1475,7 @@
 }
 
 .match-card img {
+  /* STUDENT NOTE: Layout rule for `max-width: 100%; max-height: 100%; object-fit: contain; pointer-events: none; } .definition-grid`. Grid properties here control columns, gaps, and alignment. */
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -1251,12 +1483,14 @@
 }
 
 .definition-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.28rem; } .definition-box`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.28rem;
 }
 
 .definition-box {
+  /* STUDENT NOTE: Typography/spacing rule for `background: #ffffff; border: 2px solid #222222; border-radius: 8px; padding: 0; min-height: 0; } .drop-slot`. These values affect readability and vertical space on slides. */
   background: #ffffff;
   border: 2px solid #222222;
   border-radius: 8px;
@@ -1265,6 +1499,7 @@
 }
 
 .drop-slot {
+  /* STUDENT NOTE: Styles elements matched by `position: relative; height: 128px; border: 2px dashed #bbbbbb; border-radius: 6px; background: #fafafa; overflow: hidden; } .definition-text`. Search the HTML for these class/id names before changing a shared rule. */
   position: relative;
   height: 128px;
   border: 2px dashed #bbbbbb;
@@ -1274,6 +1509,7 @@
 }
 
 .definition-text {
+  /* STUDENT NOTE: Typography/spacing rule for `position: absolute; left: 0.18rem; right: 0.18rem; bottom: 0.18rem; min-height: 34px; margin: 0; padding: 0.18rem; background: rgba(255, 255, 255, 0.92); border-top: 2px solid #dddddd; border-radius: 4px; font-size: 0.22em; line-height: 1.05; text-align: center; z-index: 2; } .drop-slot`. These values affect readability and vertical space on slides. */
   position: absolute;
   left: 0.18rem;
   right: 0.18rem;
@@ -1291,6 +1527,7 @@
 }
 
 .drop-slot {
+  /* STUDENT NOTE: Styles elements matched by `position: relative; height: 135px; border: 2px dashed #bbbbbb; border-radius: 6px; background: #fafafa; overflow: hidden; } .definition-text`. Search the HTML for these class/id names before changing a shared rule. */
   position: relative;
   height: 135px;
   border: 2px dashed #bbbbbb;
@@ -1301,6 +1538,7 @@
 
 /* Smaller definition text at the bottom */
 .definition-text {
+  /* STUDENT NOTE: Typography/spacing rule for `position: absolute; left: 0.12rem; right: 0.12rem; bottom: 0.12rem; margin: 0; padding: 0.08rem 0.12rem; background: rgba(255, 255, 255, 0.94); border-top: 1px solid #dddddd; border-radius: 4px; font-size: 0.14em; line-height: 0.95; text-align: center; z-index: 2; } .drop-slot .match-card`. These values affect readability and vertical space on slides. */
   position: absolute;
   left: 0.12rem;
   right: 0.12rem;
@@ -1318,6 +1556,7 @@
 
 /* Make dropped image area larger */
 .drop-slot .match-card {
+  /* STUDENT NOTE: Image styling for `position: absolute; top: 0.08rem; left: 0.08rem; right: 0.08rem; bottom: 26px; width: auto; height: auto; border: none; background: transparent; padding: 0; z-index: 1; } .drop-slot .match-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   position: absolute;
   top: 0.08rem;
   left: 0.08rem;
@@ -1332,12 +1571,14 @@
 }
 
 .drop-slot .match-card img {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; height: 100%; object-fit: contain; } .match-controls`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
 .match-controls {
+  /* STUDENT NOTE: Styles elements matched by `display: flex; align-items: center; justify-content: center; gap: 0.45rem; margin-top: 0.28rem; } .match-check-btn, .match-reset-btn`. Search the HTML for these class/id names before changing a shared rule. */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1347,6 +1588,7 @@
 
 .match-check-btn,
 .match-reset-btn {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 0.34em; padding: 0.24rem 0.5rem; border: none; border-radius: 999px; background: var(--red); color: #ffffff; cursor: pointer; } .match-reset-btn`. These values affect readability and vertical space on slides. */
   font-size: 0.34em;
   padding: 0.24rem 0.5rem;
   border: none;
@@ -1357,35 +1599,42 @@
 }
 
 .match-reset-btn {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--gray); } .match-feedback`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--gray);
 }
 
 .match-feedback {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.34em; min-width: 220px; text-align: left; } @media (max-width: 1100px)`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.34em;
   min-width: 220px;
   text-align: left;
 }
 
 @media (max-width: 1100px) {
+  /* STUDENT NOTE: Styles elements matched by `.match-layout`. Search the HTML for these class/id names before changing a shared rule. */
   .match-layout {
     grid-template-columns: 24% 1fr;
     gap: 0.3rem;
   }
 
+  /* STUDENT NOTE: Layout rule for `.match-bank-panel, .definition-grid-panel`. Grid properties here control columns, gaps, and alignment. */
   .match-bank-panel,
   .definition-grid-panel {
     padding: 0.22rem;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.match-card`. Search the HTML for these class/id names before changing a shared rule. */
   .match-card {
     height: 72px;
     padding: 0.05rem;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.drop-slot`. Search the HTML for these class/id names before changing a shared rule. */
   .drop-slot {
     height: 112px;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.drop-slot .match-card`. Search the HTML for these class/id names before changing a shared rule. */
   .drop-slot .match-card {
     top: 0.05rem;
     left: 0.05rem;
@@ -1393,17 +1642,20 @@
     bottom: 22px;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.definition-text`. Search the HTML for these class/id names before changing a shared rule. */
   .definition-text {
     font-size: 0.15em;
     line-height: 0.9;
     padding: 0.05rem 0.08rem;
   }
 
+  /* STUDENT NOTE: Layout rule for `.match-bank-panel h3, .definition-grid-panel h3`. Grid properties here control columns, gaps, and alignment. */
   .match-bank-panel h3,
   .definition-grid-panel h3 {
     font-size: 0.38em;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.match-intro, .match-feedback, .match-check-btn, .match-reset-btn`. Search the HTML for these class/id names before changing a shared rule. */
   .match-intro,
   .match-feedback,
   .match-check-btn,
@@ -1411,16 +1663,20 @@
     font-size: 0.26em;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.match-controls`. Search the HTML for these class/id names before changing a shared rule. */
   .match-controls {
     margin-top: 0.15rem;
   }
+/* STUDENT NOTE: Styles elements matched by `} .drop-slot.filled .definition-text`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .drop-slot.filled .definition-text {
+  /* STUDENT NOTE: Styles elements matched by `display: none; } .wire-sort-slide .sort-chip`. Search the HTML for these class/id names before changing a shared rule. */
   display: none;
 }
 /* Smaller text for the wiring sort activity */
 .wire-sort-slide .sort-chip {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 0.34em; line-height: 1.05; padding: 0.18rem 0.35rem; min-height: 0; } .wire-sort-slide .sort-bank`. These values affect readability and vertical space on slides. */
   font-size: 0.34em;
   line-height: 1.05;
   padding: 0.18rem 0.35rem;
@@ -1429,6 +1685,7 @@
 
 /* Make the top bank take less vertical space */
 .wire-sort-slide .sort-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 95px; max-height: 155px; overflow-y: auto; padding: 0.35rem; gap: 0.25rem; align-content: start; } .wire-sort-slide .sort-targets`. These values affect readability and vertical space on slides. */
   min-height: 95px;
   max-height: 155px;
   overflow-y: auto;
@@ -1439,43 +1696,52 @@
 
 /* Make the target areas a little more compact too */
 .wire-sort-slide .sort-targets {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.5rem; margin-top: 0.45rem; } .wire-sort-slide .sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
   gap: 0.5rem;
   margin-top: 0.45rem;
 }
 
 .wire-sort-slide .sort-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 250px; padding: 0.45rem; } .wire-sort-slide .sort-zone h3`. These values affect readability and vertical space on slides. */
   min-height: 250px;
   padding: 0.45rem;
 }
 
 .wire-sort-slide .sort-zone h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.58em; margin-bottom: 0.25rem; } .wire-sort-slide .sort-list`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.58em;
   margin-bottom: 0.25rem;
 }
 
 .wire-sort-slide .sort-list {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.2rem; } .wire-sort-slide .activity-controls`. Search the HTML for these class/id names before changing a shared rule. */
   gap: 0.2rem;
 }
 
 /* Smaller bottom controls */
 .wire-sort-slide .activity-controls {
+  /* STUDENT NOTE: Button styling for `margin-top: 0.35rem; } .wire-sort-slide .quiz-button`. Keep hover/selected/correct states visually consistent with the base button. */
   margin-top: 0.35rem;
 }
 
 .wire-sort-slide .quiz-button {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 0.34em; padding: 0.24rem 0.55rem; } .wire-sort-slide .activity-feedback`. These values affect readability and vertical space on slides. */
   font-size: 0.34em;
   padding: 0.24rem 0.55rem;
 }
 
 .wire-sort-slide .activity-feedback {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.34em; } .sensor-click-slide`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.34em;
 }
 
 .sensor-click-slide {
+  /* STUDENT NOTE: Styles elements matched by `height: 100%; } .sensor-click-intro`. Search the HTML for these class/id names before changing a shared rule. */
   height: 100%;
 }
 
 .sensor-click-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 1050px; margin: 0 auto 0.45rem; font-size: 0.42em; line-height: 1.15; text-align: center; } .sensor-click-grid`. Grid properties here control columns, gaps, and alignment. */
   max-width: 1050px;
   margin: 0 auto 0.45rem;
   font-size: 0.42em;
@@ -1484,6 +1750,7 @@
 }
 
 .sensor-click-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem; max-width: 1120px; margin: 0 auto; } .sensor-click-card`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.55rem;
@@ -1492,6 +1759,7 @@
 }
 
 .sensor-click-card {
+  /* STUDENT NOTE: Image styling for `min-height: 215px; padding: 0.45rem 0.5rem; border-radius: 9px; background: #f4f4f4; border: none; border-left: 9px solid var(--red); color: #000000; font-family: inherit; text-align: left; cursor: pointer; } .sensor-click-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   min-height: 215px;
   padding: 0.45rem 0.5rem;
   border-radius: 9px;
@@ -1505,6 +1773,7 @@
 }
 
 .sensor-click-card img {
+  /* STUDENT NOTE: Typography/spacing rule for `width: 100%; height: 105px; object-fit: contain; background: #ffffff; border-radius: 6px; display: block; margin-bottom: 0.3rem; } .sensor-click-card h3`. These values affect readability and vertical space on slides. */
   width: 100%;
   height: 105px;
   object-fit: contain;
@@ -1515,11 +1784,13 @@
 }
 
 .sensor-click-card h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 2.5em; margin: 0 0 0.18rem; } .sensor-click-card p`. These values affect readability and vertical space on slides. */
   font-size: 2.5em;
   margin: 0 0 0.18rem;
 }
 
 .sensor-click-card p {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1em; line-height: 1.12; margin: 0; } .sensor-click-card:hover, .sensor-click-card:focus`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1em;
   line-height: 1.12;
   margin: 0;
@@ -1527,61 +1798,73 @@
 
 .sensor-click-card:hover,
 .sensor-click-card:focus {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red); outline-offset: 3px; transform: translateY(-2px); } .sensor-click-card.viewed`. Search the HTML for these class/id names before changing a shared rule. */
   outline: 4px solid var(--red);
   outline-offset: 3px;
   transform: translateY(-2px);
 }
 
 .sensor-click-card.viewed {
+  /* STUDENT NOTE: Typography/spacing rule for `border-left-color: var(--gray); opacity: 0.86; } .sensor-click-card.viewed h3::after`. These values affect readability and vertical space on slides. */
   border-left-color: var(--gray);
   opacity: 0.86;
 }
 
 .sensor-click-card.viewed h3::after {
+  /* STUDENT NOTE: Styles elements matched by `content: ""; color: var(--gray); font-weight: bold; } .sensor-note`. Search the HTML for these class/id names before changing a shared rule. */
   content: " ✓";
   color: var(--gray);
   font-weight: bold;
 }
 
 .sensor-note {
+  /* STUDENT NOTE: Styles elements matched by `margin-top: 0.4rem; font-size: 0.34em; line-height: 1.12; } @media (max-width: 1100px)`. Search the HTML for these class/id names before changing a shared rule. */
   margin-top: 0.4rem;
   font-size: 0.34em;
   line-height: 1.12;
 }
 
 @media (max-width: 1100px) {
+  /* STUDENT NOTE: Layout rule for `.sensor-click-grid`. Grid properties here control columns, gaps, and alignment. */
   .sensor-click-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 0.35rem;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.sensor-click-card`. Search the HTML for these class/id names before changing a shared rule. */
   .sensor-click-card {
     min-height: 175px;
     padding: 0.32rem 0.38rem;
   }
 
+  /* STUDENT NOTE: Image styling for `.sensor-click-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   .sensor-click-card img {
     height: 82px;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.sensor-click-card h3`. These values affect readability and vertical space on slides. */
   .sensor-click-card h3 {
     font-size: 0.46em;
   }
 
+  /* STUDENT NOTE: Typography/spacing rule for `.sensor-click-card p, .sensor-click-intro, .sensor-note`. These values affect readability and vertical space on slides. */
   .sensor-click-card p,
   .sensor-click-intro,
   .sensor-note {
     font-size: 0.28em;
   }
+/* STUDENT NOTE: Styles elements matched by `} .label-doc-slide .elec-card, .label-doc-slide .doc-card, .label-doc-slide .panel, .label-example-card`. Search the HTML for these class/id names before changing a shared rule. */
 }
 .label-doc-slide .elec-card,
 .label-doc-slide .doc-card,
 .label-doc-slide .panel,
 .label-example-card {
+  /* STUDENT NOTE: Styles elements matched by `padding: 0.55rem 0.65rem; } .label-doc-intro`. Search the HTML for these class/id names before changing a shared rule. */
   padding: 0.55rem 0.65rem;
 }
 
 .label-doc-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 1000px; margin: 0 auto 0.55rem; font-size: 0.54em; line-height: 1.18; } .label-example-grid`. Grid properties here control columns, gaps, and alignment. */
   max-width: 1000px;
   margin: 0 auto 0.55rem;
   font-size: 0.54em;
@@ -1589,6 +1872,7 @@
 }
 
 .label-example-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(1, 1fr); gap: 0.25rem; max-width: 1600px; margin: 0 auto; } .label-example-card`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 0.25rem;
@@ -1597,6 +1881,7 @@
 }
 
 .label-example-card {
+  /* STUDENT NOTE: Typography/spacing rule for `background: #f4f4f4; border-left: 9px solid var(--red); border-radius: 8px; text-align: left; } .label-example-card h3`. These values affect readability and vertical space on slides. */
   background: #f4f4f4;
   border-left: 9px solid var(--red);
   border-radius: 8px;
@@ -1604,16 +1889,19 @@
 }
 
 .label-example-card h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.68em; margin: 0 0 0.25rem; text-align: center; } .label-example-card ul`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.68em;
   margin: 0 0 0.25rem;
   text-align: center;
 }
 
 .label-example-card ul {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0.15rem 0 0; padding-left: 2em; } .label-example-card li`. These values affect readability and vertical space on slides. */
   margin: 0.15rem 0 0;
   padding-left: 2em;
 }
 .label-example-card li {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 0.7em; line-height: 1.4; text-align: left; padding-left: 2; } .label-code`. These values affect readability and vertical space on slides. */
   font-size: 0.7em;
   line-height: 1.4;
   text-align: left;
@@ -1621,6 +1909,7 @@
 }
 
 .label-code {
+  /* STUDENT NOTE: Image styling for `background: #ffffff; border-left: 7px solid var(--gray); border-radius: 6px; padding: 0.35rem 0.45rem; font-family: monospace; font-size: 0.42em; margin: 0 0 0.35rem; } .label-example-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   background: #ffffff;
   border-left: 7px solid var(--gray);
   border-radius: 6px;
@@ -1632,6 +1921,7 @@
 
 /* Maximize image width */
 .label-example-card img {
+  /* STUDENT NOTE: Styles elements matched by `width: 100%; max-width: 100%; height: auto; max-height: 470px; object-fit: contain; display: block; margin: 0 auto; background: #ffffff; border-radius: 6px; } .compact-doc-table`. Search the HTML for these class/id names before changing a shared rule. */
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -1644,19 +1934,23 @@
 }
 
 .compact-doc-table {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.34em; } .documentation-table-wrap`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.34em;
 }
 
 .documentation-table-wrap {
+  /* STUDENT NOTE: Styles elements matched by `max-width: 1100px; margin: 0 auto; } .label-process-strip`. Search the HTML for these class/id names before changing a shared rule. */
   max-width: 1100px;
   margin: 0 auto;
 }
 
 .label-process-strip {
+  /* STUDENT NOTE: Image styling for `margin-bottom: 0.7rem; } .reveal img.max-width-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   margin-bottom: 0.7rem;
 }
 
 .reveal img.max-width-img {
+  /* STUDENT NOTE: Shared CSS variables. Change these carefully because many pages may reuse these values. */
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -1670,6 +1964,7 @@
    Uses the widest recurring content width from the judging/motors/safety modules.
    Keep this block at the bottom of the file so it overrides earlier module rules. */
 :root {
+  /* STUDENT NOTE: Layout rule for `--shared-slide-width: 1120px; } .reveal .slides section > :is( [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], .quiz-card, .sort-bank, .sort-targets, .troubleshooting-sort, .order-list, .documentation-table, .component-grid, .sensor-grid, .doc-grid, figure, table, ul, ol )`. Grid properties here control columns, gaps, and alignment. */
   --shared-slide-width: 1120px;
 }
 
@@ -1703,6 +1998,7 @@
   ul,
   ol
 ) {
+  /* STUDENT NOTE: Layout rule for `max-width: var(--shared-slide-width); } .reveal :is( .elec-grid-2, .elec-grid-3, .elec-grid-4, .component-grid, .sensor-grid, .doc-grid, .power-flow, .can-chain, .sort-bank, .sort-targets, .troubleshooting-sort, .documentation-table-wrap, .judge-grid-2, .judge-grid-3, .judge-grid-4, .judge-photo-split, .dialogue-grid, .response-grid, .judge-sort-bank, .judge-sort-targets, .award-chip-grid, .award-output, .motor-grid-2, .motor-grid-3, .motor-grid-4, .motor-click-grid, .motor-flow, .speed-torque-layout, .safety-grid-2, .safety-grid-3, .safety-grid-4, .safety-source-grid, .safety-tool-grid, .safety-split, .review-grid, .safety-resource-grid, .impact-repair-grid, .three-choice-grid, .maintenance-grid, .weight-card-grid, .weight-do-dont, .wd-layout )`. Grid properties here control columns, gaps, and alignment. */
   max-width: var(--shared-slide-width);
 }
 
@@ -1751,6 +2047,7 @@
   .weight-do-dont,
   .wd-layout
 ) {
+  /* STUDENT NOTE: Styles elements matched by `max-width: var(--shared-slide-width); } .margin-bottom-small`. Search the HTML for these class/id names before changing a shared rule. */
   max-width: var(--shared-slide-width);
 }
 

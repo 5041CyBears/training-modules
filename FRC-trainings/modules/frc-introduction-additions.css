@@ -1,10 +1,46 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FRC-trainings/modules/frc-introduction-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* 5041 FRC Introduction module additions */
+/* STUDENT NOTE: Typography/spacing rule for `.frcintro-hero h1, .frcintro-hero .cytitle`. These values affect readability and vertical space on slides. */
 .frcintro-hero h1,
 .frcintro-hero .cytitle {
   max-width: 1120px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-subtitle`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-subtitle {
   max-width: 880px;
   margin: 0.8rem auto 0 !important;
@@ -14,6 +50,7 @@
   color: var(--black);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.frcintro-slide h2, .frcintro-vertical h2, .frcintro-quiz h2`. These values affect readability and vertical space on slides. */
 .frcintro-slide h2,
 .frcintro-vertical h2,
 .frcintro-quiz h2 {
@@ -21,6 +58,7 @@
   margin-bottom: 0.45rem;
 }
 
+/* STUDENT NOTE: Layout rule for `.frcintro-grid-2, .frcintro-grid-3, .frcintro-grid-4, .frcintro-role-grid, .behavior-click-grid`. Grid properties here control columns, gaps, and alignment. */
 .frcintro-grid-2,
 .frcintro-grid-3,
 .frcintro-grid-4,
@@ -32,23 +70,28 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Layout rule for `.frcintro-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .frcintro-grid-2 {
   grid-template-columns: 1fr 1fr;
 }
 
+/* STUDENT NOTE: Layout rule for `.frcintro-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .frcintro-grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* STUDENT NOTE: Layout rule for `.frcintro-grid-4, .frcintro-role-grid`. Grid properties here control columns, gaps, and alignment. */
 .frcintro-grid-4,
 .frcintro-role-grid {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* STUDENT NOTE: Layout rule for `.behavior-click-grid`. Grid properties here control columns, gaps, and alignment. */
 .behavior-click-grid {
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-card, .frcintro-scenario-card, .behavior-card, .frcintro-role-card`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-card,
 .frcintro-scenario-card,
 .behavior-card,
@@ -60,23 +103,27 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-card.dark {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.frcintro-card.dark h3, .frcintro-card.dark p, .frcintro-card.dark li`. These values affect readability and vertical space on slides. */
 .frcintro-card.dark h3,
 .frcintro-card.dark p,
 .frcintro-card.dark li {
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.frcintro-card h3, .frcintro-scenario-card h3`. These values affect readability and vertical space on slides. */
 .frcintro-card h3,
 .frcintro-scenario-card h3 {
   margin: 0 0 0.35rem;
   font-size: 0.72em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.frcintro-card p, .frcintro-scenario-card p`. These values affect readability and vertical space on slides. */
 .frcintro-card p,
 .frcintro-scenario-card p {
   margin: 0 0 0.35rem;
@@ -84,12 +131,14 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-card li`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-card li {
   font-size: 0.5em;
   line-height: 1.22;
   margin-bottom: 0.16rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-callout {
   max-width: var(--shared-slide-width, 1120px);
   margin: 0.8rem auto 0;
@@ -100,12 +149,14 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.frcintro-callout p`. These values affect readability and vertical space on slides. */
 .frcintro-callout p {
   margin: 0;
   font-size: 0.54em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-process`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-process {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -114,6 +165,7 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-process div`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-process div {
   background: var(--light);
   border-left: 10px solid var(--red);
@@ -122,6 +174,7 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-process span`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-process span {
   display: inline-grid;
   place-items: center;
@@ -136,6 +189,7 @@
   margin-bottom: 0.25rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.frcintro-process p`. These values affect readability and vertical space on slides. */
 .frcintro-process p {
   margin: 0;
   font-size: 0.42em;
@@ -143,6 +197,7 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-role-card, .frcintro-role-card[aria-pressed=""]`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-role-card,
 .frcintro-role-card[aria-pressed="true"] {
   appearance: none;
@@ -165,27 +220,35 @@
   transform-origin: center;
 }
 
+/* STUDENT NOTE: Interaction state for `.frcintro-role-card.revealed, .frcintro-role-card[aria-pressed=""].revealed`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .frcintro-role-card.revealed,
 .frcintro-role-card[aria-pressed="true"].revealed {
   background: var(--black) !important;
   color: var(--white) !important;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.frcintro-role-card.role-flipping, .behavior-card.role-flipping`. Search the HTML for these class/id names before changing a shared rule. */
 .frcintro-role-card.role-flipping,
 .behavior-card.role-flipping {
   animation: frcintro-card-flip 0.42s ease;
 }
 
+/* STUDENT NOTE: Animation timeline. Percentage steps inside define how an animated element changes over time. */
 @keyframes frcintro-card-flip {
+  /* STUDENT NOTE: Styles elements matched by `0%`. Search the HTML for these class/id names before changing a shared rule. */
   0% { transform: rotateY(0deg); }
+  /* STUDENT NOTE: Styles elements matched by `50%`. Search the HTML for these class/id names before changing a shared rule. */
   50% { transform: rotateY(90deg); }
+  /* STUDENT NOTE: Styles elements matched by `100%`. Search the HTML for these class/id names before changing a shared rule. */
   100% { transform: rotateY(0deg); }
+/* STUDENT NOTE: Styles elements matched by `} .frcintro-role-card:hover, .frcintro-role-card:focus-visible, .behavior-card:hover, .behavior-card:focus-visible`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .frcintro-role-card:hover,
 .frcintro-role-card:focus-visible,
 .behavior-card:hover,
 .behavior-card:focus-visible {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red); outline-offset: 2px; } .frcintro-role-feedback, .behavior-feedback, .season-sort-feedback, .regional-match-feedback, .values-choice-feedback`. Search the HTML for these class/id names before changing a shared rule. */
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
@@ -195,6 +258,7 @@
 .season-sort-feedback,
 .regional-match-feedback,
 .values-choice-feedback {
+  /* STUDENT NOTE: Layout rule for `margin: 0.65rem auto 0; text-align: center; font-size: 0.42em; font-weight: 700; } .season-sort-bank, .season-sort-targets, .regional-match-bank, .regional-match-grid`. Grid properties here control columns, gaps, and alignment. */
   margin: 0.65rem auto 0;
   text-align: center;
   font-size: 0.42em;
@@ -205,6 +269,7 @@
 .season-sort-targets,
 .regional-match-bank,
 .regional-match-grid {
+  /* STUDENT NOTE: Styles elements matched by `max-width: var(--shared-slide-width, 1120px); margin-left: auto; margin-right: auto; } .season-sort-bank, .regional-match-bank`. Search the HTML for these class/id names before changing a shared rule. */
   max-width: var(--shared-slide-width, 1120px);
   margin-left: auto;
   margin-right: auto;
@@ -212,6 +277,7 @@
 
 .season-sort-bank,
 .regional-match-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0.45rem; min-height: 86px; margin-bottom: 0.6rem; background: var(--light); border: 3px dashed var(--gray); border-radius: 8px; } .season-sort-chip, .regional-match-chip`. These values affect readability and vertical space on slides. */
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
@@ -225,6 +291,7 @@
 
 .season-sort-chip,
 .regional-match-chip {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--white); border: 2px solid var(--red); border-left: 8px solid var(--red); border-radius: 8px; padding: 0.32rem 0.48rem; font-size: 0.34em; font-weight: 700; cursor: grab; } .season-sort-targets`. These values affect readability and vertical space on slides. */
   background: var(--white);
   border: 2px solid var(--red);
   border-left: 8px solid var(--red);
@@ -236,12 +303,14 @@
 }
 
 .season-sort-targets {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.55rem; } .season-sort-zone`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 0.55rem;
 }
 
 .season-sort-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 150px; max-height: 190px; overflow-y: auto; background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.45rem; } .season-sort-zone h3, .regional-match-zone h3`. These values affect readability and vertical space on slides. */
   min-height: 150px;
   max-height: 190px;
   overflow-y: auto;
@@ -253,12 +322,14 @@
 
 .season-sort-zone h3,
 .regional-match-zone h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.46em; text-align: center; margin: 0 0 0.35rem; } .season-sort-list`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.46em;
   text-align: center;
   margin: 0 0 0.35rem;
 }
 
 .season-sort-list {
+  /* STUDENT NOTE: Layout rule for `display: flex; flex-direction: column; gap: 0.25rem; min-height: 100px; } .regional-match-grid`. Grid properties here control columns, gaps, and alignment. */
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -266,12 +337,14 @@
 }
 
 .regional-match-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.55rem; } .regional-match-zone`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.55rem;
 }
 
 .regional-match-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.4rem; min-height: 110px; text-align: center; } .regional-match-drop`. These values affect readability and vertical space on slides. */
   background: var(--light);
   border-left: 10px solid var(--red);
   border-radius: 8px;
@@ -281,6 +354,7 @@
 }
 
 .regional-match-drop {
+  /* STUDENT NOTE: Button styling for `min-height: 54px; display: flex; align-items: center; justify-content: center; } .season-sort-chip.correct, .regional-match-chip.correct, .values-choice-options button.correct, .behavior-card.correct`. Keep hover/selected/correct states visually consistent with the base button. */
   min-height: 54px;
   display: flex;
   align-items: center;
@@ -291,6 +365,7 @@
 .regional-match-chip.correct,
 .values-choice-options button.correct,
 .behavior-card.correct {
+  /* STUDENT NOTE: Button styling for `background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; color: var(--black) !important; } .season-sort-chip.incorrect, .regional-match-chip.incorrect, .values-choice-options button.incorrect, .behavior-card.incorrect`. Keep hover/selected/correct states visually consistent with the base button. */
   background: #e6f4ea !important;
   border-color: #2e7d32 !important;
   border-left-color: #2e7d32 !important;
@@ -301,6 +376,7 @@
 .regional-match-chip.incorrect,
 .values-choice-options button.incorrect,
 .behavior-card.incorrect {
+  /* STUDENT NOTE: Styles elements matched by `background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; color: var(--black) !important; } .season-sort-chip.unplaced, .regional-match-chip.unplaced`. Search the HTML for these class/id names before changing a shared rule. */
   background: #fdecea !important;
   border-color: #b00020 !important;
   border-left-color: #b00020 !important;
@@ -309,18 +385,21 @@
 
 .season-sort-chip.unplaced,
 .regional-match-chip.unplaced {
+  /* STUDENT NOTE: Styles elements matched by `opacity: 0.65; outline: 3px dashed var(--gray); outline-offset: 2px; } .values-choice-options`. Search the HTML for these class/id names before changing a shared rule. */
   opacity: 0.65;
   outline: 3px dashed var(--gray);
   outline-offset: 2px;
 }
 
 .values-choice-options {
+  /* STUDENT NOTE: Button styling for `display: grid; gap: 0.45rem; margin-top: 0.55rem; } .values-choice-options button`. Keep hover/selected/correct states visually consistent with the base button. */
   display: grid;
   gap: 0.45rem;
   margin-top: 0.55rem;
 }
 
 .values-choice-options button {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--white); border: 2px solid var(--red); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.45rem 0.6rem; color: var(--black); font-family: "", Arial, sans-serif; font-size: 0.42em; font-weight: 700; text-align: left; cursor: pointer; pointer-events: auto; } .behavior-card, .behavior-card[aria-pressed=""]`. These values affect readability and vertical space on slides. */
   background: var(--white);
   border: 2px solid var(--red);
   border-left: 10px solid var(--red);
@@ -337,6 +416,7 @@
 
 .behavior-card,
 .behavior-card[aria-pressed="true"] {
+  /* STUDENT NOTE: Interaction state for `min-height: 118px; font-family: "", Arial, sans-serif; font-size: 0.48em; font-weight: 700; line-height: 1.18; text-align: center; cursor: pointer; border: 0 !important; border-left: 10px solid var(--red) !important; color: var(--black); } .behavior-card.selected`. JavaScript may add/remove this class to provide visual feedback or control access. */
   min-height: 118px;
   font-family: "Droid Sans", Arial, sans-serif;
   font-size: 0.48em;
@@ -350,11 +430,13 @@
 }
 
 .behavior-card.selected {
+  /* STUDENT NOTE: Interaction state for `background: var(--black); color: var(--white); } .behavior-card.missed`. JavaScript may add/remove this class to provide visual feedback or control access. */
   background: var(--black);
   color: var(--white);
 }
 
 .behavior-card.missed {
+  /* STUDENT NOTE: Styles elements matched by `background: #fff8d6 !important; border-color: #b8860b !important; border-left-color: #b8860b !important; color: var(--black) !important; } @media (max-width: 900px)`. Search the HTML for these class/id names before changing a shared rule. */
   background: #fff8d6 !important;
   border-color: #b8860b !important;
   border-left-color: #b8860b !important;
@@ -362,6 +444,7 @@
 }
 
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.reveal .frcintro-grid-3, .reveal .frcintro-grid-4, .reveal .frcintro-role-grid, .reveal .behavior-click-grid, .reveal .frcintro-process, .reveal .season-sort-targets, .reveal .regional-match-grid`. Grid properties here control columns, gaps, and alignment. */
   .reveal .frcintro-grid-3,
   .reveal .frcintro-grid-4,
   .reveal .frcintro-role-grid,
@@ -372,14 +455,17 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  /* STUDENT NOTE: Layout rule for `.reveal .frcintro-grid-2`. Grid properties here control columns, gaps, and alignment. */
   .reveal .frcintro-grid-2 {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Styles elements matched by `} .reveal .regional-match-slide.present`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 
 /* Robust regional matching interaction */
 .reveal .regional-match-slide.present {
+  /* STUDENT NOTE: Button styling for `pointer-events: auto !important; isolation: isolate; } .reveal .regional-match-slide .regional-match-bank, .reveal .regional-match-slide .regional-match-grid, .reveal .regional-match-slide .regional-match-zone, .reveal .regional-match-slide .regional-match-drop, .reveal .regional-match-slide .regional-match-chip, .reveal .regional-match-slide .activity-controls, .reveal .regional-match-slide .quiz-button`. Keep hover/selected/correct states visually consistent with the base button. */
   pointer-events: auto !important;
   isolation: isolate;
 }
@@ -391,6 +477,7 @@
 .reveal .regional-match-slide .regional-match-chip,
 .reveal .regional-match-slide .activity-controls,
 .reveal .regional-match-slide .quiz-button {
+  /* STUDENT NOTE: Layout rule for `position: relative; pointer-events: auto !important; } .reveal .regional-match-slide .regional-match-bank, .reveal .regional-match-slide .regional-match-grid, .reveal .regional-match-slide .activity-controls`. Grid properties here control columns, gaps, and alignment. */
   position: relative;
   pointer-events: auto !important;
 }
@@ -398,20 +485,24 @@
 .reveal .regional-match-slide .regional-match-bank,
 .reveal .regional-match-slide .regional-match-grid,
 .reveal .regional-match-slide .activity-controls {
+  /* STUDENT NOTE: Styles elements matched by `z-index: 10; } .reveal .regional-match-slide .regional-match-zone, .reveal .regional-match-slide .regional-match-drop`. Search the HTML for these class/id names before changing a shared rule. */
   z-index: 10;
 }
 
 .reveal .regional-match-slide .regional-match-zone,
 .reveal .regional-match-slide .regional-match-drop {
+  /* STUDENT NOTE: Button styling for `z-index: 11; } .reveal .regional-match-slide .regional-match-chip, .reveal .regional-match-slide .quiz-button`. Keep hover/selected/correct states visually consistent with the base button. */
   z-index: 11;
 }
 
 .reveal .regional-match-slide .regional-match-chip,
 .reveal .regional-match-slide .quiz-button {
+  /* STUDENT NOTE: Styles elements matched by `z-index: 12; } .reveal .regional-match-slide .regional-match-chip`. Search the HTML for these class/id names before changing a shared rule. */
   z-index: 12;
 }
 
 .reveal .regional-match-slide .regional-match-chip {
+  /* STUDENT NOTE: Styles elements matched by `-webkit-user-drag: element; user-select: none; -webkit-user-select: none; touch-action: manipulation; } .reveal .regional-match-slide .regional-match-zone`. Search the HTML for these class/id names before changing a shared rule. */
   -webkit-user-drag: element;
   user-select: none;
   -webkit-user-select: none;

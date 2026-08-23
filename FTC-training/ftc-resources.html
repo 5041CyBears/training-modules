@@ -1,48 +1,103 @@
+<!-- 5041 Training Hub page: FTC-training/ftc-resources.html
+     Cleaned export: shared assets/CSS/JS references are centralized where possible. -->
 <!doctype html>
+<!-- ============================================================================
+STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB
+
+This file is intentionally commented for students who will build, edit, and extend
+training modules and resource pages.
+
+HOW TO READ THIS HTML
+1. HTML controls CONTENT and STRUCTURE: headings, paragraphs, images, buttons,
+   links, forms, and Reveal.js slides.
+2. CSS controls APPEARANCE: colors, spacing, sizing, grids, fonts, and responsive
+   layout. Look at the class="..." values here, then search for those class names
+   in the linked CSS files.
+3. JavaScript controls BEHAVIOR: quizzes, click-to-reveal cards, drag-and-drop,
+   calculators, certificates, form actions, and other interactions. Interactive
+   elements often connect to JavaScript through classes, ids, data-* attributes,
+   or onclick="..." handlers.
+4. In Reveal.js, each <section> is a slide. A <section> nested inside another
+   <section> is a VERTICAL slide. Sibling top-level <section> elements move
+   horizontally.
+5. Relative file paths matter. For example, "../../shared/assets/..." means go up
+   two folders, then enter shared/assets. If a page moves folders, its paths may
+   need to change.
+6. Prefer reusing existing shared classes, scripts, and assets before creating a
+   duplicate. This keeps the training hub consistent and easier to maintain.
+7. When creating a new module, copy a similar working module first, rename its
+   module-specific classes/functions, then change content one section at a time.
+
+SAFE EDITING WORKFLOW
+- Change one thing at a time and refresh/test after each change.
+- Keep closing tags paired with opening tags.
+- Keep class names exactly matched between HTML and CSS/JavaScript.
+- Keep ids unique on a page.
+- Do not remove data-* attributes from interactive elements unless you also update
+  the JavaScript that reads them.
+- Open the browser Developer Tools Console when an interaction stops working.
+============================================================================ -->
 <html lang="en">
+  <!-- STUDENT NOTE: <head> contains page metadata and links to CSS/fonts/libraries. It is not visible slide content. -->
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>5041 FTC Resource Links</title>
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: https://fonts.googleapis.com. Link order matters because later CSS can override earlier CSS. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: https://fonts.gstatic.com. Link order matters because later CSS can override earlier CSS. -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap. Link order matters because later CSS can override earlier CSS. -->
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="ftc-training.css" />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: ../shared/css/ftc-training.css. Link order matters because later CSS can override earlier CSS. -->
+    <link rel="stylesheet" href="../shared/css/ftc-training.css" />
   </head>
+  <!-- STUDENT NOTE: Visible page content begins in <body>. Reveal.js presentation markup is usually inside .reveal > .slides. -->
   <body class="hub-body">
-    <header class="site-header"><div class="header-inner brand-row"><img src="assets/5041teamlogo.png" alt="5041 CyBear Robotics logo" class="brand-logo" /><div><span class="hub-eyebrow">5041 FTC Support</span><h1 class="site-title">FTC Resource Links</h1><p>Common FTC resources for teams supported by 5041 CyBear Robotics.</p></div></div></header>
+    <header class="site-header"><div class="header-inner brand-row"><img src="../shared/assets/5041teamlogo.png" alt="5041 CyBear Robotics logo" class="brand-logo" /><div><span class="hub-eyebrow">5041 FTC Support</span><h1 class="site-title">FTC Resource Links</h1><p>Common FTC resources for teams supported by 5041 CyBear Robotics.</p></div></div></header>
+    <!-- STUDENT NOTE: <main> marks the primary content of this non-slide page for structure and accessibility. -->
     <main class="hub-main">
-      <div class="hub-actions"><a class="back-link" href="index.html">Back to Training Hub</a></div>
+      <div class="hub-actions"><a class="back-link" href="ftc-trainings.html">Back to Training Hub</a></div>
+      <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: resource-banner. -->
       <section class="resource-banner"><h2>Use official resources first</h2><p>FTC rules, software, game materials, and documentation change over time. Check these sources before finalizing robot, code, outreach, or event decisions.</p></section>
+      <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: resource-grid. -->
       <section class="resource-grid">
+        <!-- STUDENT NOTE: Resource card. To add another resource, copy this whole <article>, then change the title, description, and href URL. -->
         <article class="resource-card">
           <div><h3>FTC Game &amp; Season Materials</h3><p>Current and archived game manuals, team updates, animations, field resources, and season materials.</p></div>
           <a class="resource-link" href="https://ftc-resources.firstinspires.org/ftc/game" target="_blank" rel="noopener">Open Resource</a>
         </article>
+        <!-- STUDENT NOTE: Resource card. To add another resource, copy this whole <article>, then change the title, description, and href URL. -->
         <article class="resource-card">
           <div><h3>FIRST FTC Resource Library</h3><p>Central FIRST Tech Challenge resource hub for game, team, event, volunteer, and archive resources.</p></div>
           <a class="resource-link" href="https://ftc-resources.firstinspires.org/ftc" target="_blank" rel="noopener">Open Resource</a>
         </article>
+        <!-- STUDENT NOTE: Resource card. To add another resource, copy this whole <article>, then change the title, description, and href URL. -->
         <article class="resource-card">
           <div><h3>Team Management Resources</h3><p>Mentor resources, team organization, fundraising, outreach, and season management tools.</p></div>
           <a class="resource-link" href="https://www.firstinspires.org/resources/library/ftc/team-management-resources" target="_blank" rel="noopener">Open Resource</a>
         </article>
+        <!-- STUDENT NOTE: Resource card. To add another resource, copy this whole <article>, then change the title, description, and href URL. -->
         <article class="resource-card">
           <div><h3>FTC Docs</h3><p>Control system, programming, robot configuration, sensor, vision, and troubleshooting documentation.</p></div>
           <a class="resource-link" href="https://ftc-docs.firstinspires.org/" target="_blank" rel="noopener">Open Resource</a>
         </article>
+        <!-- STUDENT NOTE: Resource card. To add another resource, copy this whole <article>, then change the title, description, and href URL. -->
         <article class="resource-card">
           <div><h3>FTC SDK GitHub</h3><p>Official Android Studio project and SDK source for FTC robot programming.</p></div>
           <a class="resource-link" href="https://github.com/FIRST-Tech-Challenge/FtcRobotController" target="_blank" rel="noopener">Open Resource</a>
         </article>
+        <!-- STUDENT NOTE: Resource card. To add another resource, copy this whole <article>, then change the title, description, and href URL. -->
         <article class="resource-card">
           <div><h3>Robot Building Resources</h3><p>Robot build guides, CAD resources, drivetrain ideas, wiring resources, and starter bot information.</p></div>
           <a class="resource-link" href="https://www.firstinspires.org/resources/library/ftc/robot-building-resources" target="_blank" rel="noopener">Open Resource</a>
         </article>
+        <!-- STUDENT NOTE: Resource card. To add another resource, copy this whole <article>, then change the title, description, and href URL. -->
         <article class="resource-card">
           <div><h3>Programming Resources</h3><p>Blocks, OnBot Java, Android Studio, software setup, and control system programming support.</p></div>
           <a class="resource-link" href="https://www.firstinspires.org/resources/library/ftc/programming-resources" target="_blank" rel="noopener">Open Resource</a>
         </article>
+        <!-- STUDENT NOTE: Resource card. To add another resource, copy this whole <article>, then change the title, description, and href URL. -->
         <article class="resource-card">
           <div><h3>FIRST Branding &amp; Marketing</h3><p>Branding, logos, style expectations, and marketing support for communicating professionally.</p></div>
           <a class="resource-link" href="https://www.firstinspires.org/brand" target="_blank" rel="noopener">Open Resource</a>

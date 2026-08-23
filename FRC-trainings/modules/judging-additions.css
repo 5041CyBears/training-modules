@@ -1,10 +1,46 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FRC-trainings/modules/judging-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* 5041 Pit Judging Training Module additions */
+/* STUDENT NOTE: Typography/spacing rule for `.judge-hero h1, .judge-hero .cytitle`. These values affect readability and vertical space on slides. */
 .judge-hero h1,
 .judge-hero .cytitle {
   max-width: 1050px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-hero-subtitle`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-hero-subtitle {
   max-width: 900px;
   margin: 0.6rem auto 0;
@@ -14,6 +50,7 @@
   color: var(--gray);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.judge-slide h2, .judge-vertical h2, .judge-quiz h2`. These values affect readability and vertical space on slides. */
 .judge-slide h2,
 .judge-vertical h2,
 .judge-quiz h2 {
@@ -21,6 +58,7 @@
   margin-bottom: 0.42rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-intro`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-intro {
   max-width: 1050px;
   margin: 0 auto 0.65rem;
@@ -29,6 +67,7 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Layout rule for `.judge-grid-2, .judge-grid-3, .judge-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .judge-grid-2,
 .judge-grid-3,
 .judge-grid-4 {
@@ -38,16 +77,20 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Layout rule for `.judge-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .judge-grid-2 {
   grid-template-columns: 1fr 1fr;
 }
+/* STUDENT NOTE: Layout rule for `.judge-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .judge-grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
+/* STUDENT NOTE: Layout rule for `.judge-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .judge-grid-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-card, .script-card, .evidence-card, .dialogue-card, .award-output, .response-card, .judge-sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-card,
 .script-card,
 .evidence-card,
@@ -62,12 +105,14 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.center-list-card`. Search the HTML for these class/id names before changing a shared rule. */
 .center-list-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.judge-card h3, .script-card h3, .evidence-card h3, .dialogue-card h3, .award-output h3, .judge-sort-zone h3`. These values affect readability and vertical space on slides. */
 .judge-card h3,
 .script-card h3,
 .evidence-card h3,
@@ -78,6 +123,7 @@
   font-size: 0.68em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.judge-card p, .script-card p, .evidence-card p, .dialogue-card p, .award-output p`. These values affect readability and vertical space on slides. */
 .judge-card p,
 .script-card p,
 .evidence-card p,
@@ -88,6 +134,7 @@
   line-height: 1.18;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-card li, .award-output li, .judge-sort-zone li`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-card li,
 .award-output li,
 .judge-sort-zone li {
@@ -96,18 +143,21 @@
   margin-bottom: 0.12rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-card ul, .award-output ul`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-card ul,
 .award-output ul {
   margin: 0.25rem 0 0;
   padding-left: 0.9em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-list-large li`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-list-large li {
   font-size: 0.5em;
   line-height: 1.2;
   margin-bottom: 0.18rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-callout {
   max-width: 1050px;
   margin: 0.7rem auto 0;
@@ -117,12 +167,14 @@
   border-radius: 8px;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.judge-callout p`. These values affect readability and vertical space on slides. */
 .judge-callout p {
   margin: 0;
   font-size: 0.5em;
   line-height: 1.18;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-photo-split`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-photo-split {
   display: grid;
   grid-template-columns: 52% 1fr;
@@ -132,6 +184,7 @@
   align-items: stretch;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-photo-card`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-photo-card {
   margin: 0;
   background: var(--white);
@@ -140,6 +193,7 @@
   border-left: 10px solid var(--red);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-photo`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-photo {
   width: 100%;
   height: 360px;
@@ -149,6 +203,7 @@
   background: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-photo-card figcaption`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-photo-card figcaption {
   font-size: 0.34em;
   line-height: 1.1;
@@ -157,6 +212,7 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Image styling for `.judge-wide-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .judge-wide-img {
   display: block;
   width: auto;
@@ -167,26 +223,31 @@
   background: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-process`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-process {
   max-width: 900px;
   margin: 0.45rem auto 0.75rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.good-script`. Search the HTML for these class/id names before changing a shared rule. */
 .good-script {
   max-width: 1050px;
   margin: 0 auto 0.75rem;
   background: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.good-script p`. These values affect readability and vertical space on slides. */
 .good-script p {
   font-size: 0.55em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Layout rule for `.compact-grid .judge-card`. Grid properties here control columns, gaps, and alignment. */
 .compact-grid .judge-card {
   min-height: 125px;
 }
 
+/* STUDENT NOTE: Layout rule for `.award-chip-grid`. Grid properties here control columns, gaps, and alignment. */
 .award-chip-grid {
   display: flex;
   flex-wrap: wrap;
@@ -196,6 +257,7 @@
   justify-content: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.award-chip`. Search the HTML for these class/id names before changing a shared rule. */
 .award-chip {
   background: var(--white);
   color: var(--black);
@@ -209,6 +271,7 @@
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Interaction state for `.award-chip:hover, .award-chip:focus, .award-chip.active`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .award-chip:hover,
 .award-chip:focus,
 .award-chip.active {
@@ -217,6 +280,7 @@
   outline: none;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.award-output`. Search the HTML for these class/id names before changing a shared rule. */
 .award-output {
   max-width: 1050px;
   min-height: 260px;
@@ -224,12 +288,14 @@
   background: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.award-output p`. These values affect readability and vertical space on slides. */
 .award-output p {
   margin-top: 0.45rem;
   padding-top: 0.4rem;
   border-top: 2px solid #dddddd;
 }
 
+/* STUDENT NOTE: Layout rule for `.dialogue-grid`. Grid properties here control columns, gaps, and alignment. */
 .dialogue-grid {
   display: grid;
   grid-template-columns: 0.85fr 1fr 1.35fr;
@@ -239,34 +305,42 @@
   align-items: stretch;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dialogue-card`. Search the HTML for these class/id names before changing a shared rule. */
 .dialogue-card {
   min-height: 220px;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.dialogue-card p`. These values affect readability and vertical space on slides. */
 .dialogue-card p {
   font-size: 0.5em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.dialogue-card.judge`. Search the HTML for these class/id names before changing a shared rule. */
 .dialogue-card.judge {
   border-left-color: var(--gray);
   background: var(--white);
 }
+/* STUDENT NOTE: Styles elements matched by `.dialogue-card.weak`. Search the HTML for these class/id names before changing a shared rule. */
 .dialogue-card.weak {
   border-left-color: #b00020;
   background: #fdecea;
 }
+/* STUDENT NOTE: Styles elements matched by `.dialogue-card.strong`. Search the HTML for these class/id names before changing a shared rule. */
 .dialogue-card.strong {
   border-left-color: #2e7d32;
   background: #e6f4ea;
 }
+/* STUDENT NOTE: Typography/spacing rule for `.dialogue-card.weak h3`. These values affect readability and vertical space on slides. */
 .dialogue-card.weak h3 {
   color: #b00020;
 }
+/* STUDENT NOTE: Typography/spacing rule for `.dialogue-card.strong h3`. These values affect readability and vertical space on slides. */
 .dialogue-card.strong h3 {
   color: #2e7d32;
 }
 
+/* STUDENT NOTE: Layout rule for `.response-grid`. Grid properties here control columns, gaps, and alignment. */
 .response-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -275,6 +349,7 @@
   margin: 0 auto 0.55rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.response-card`. Search the HTML for these class/id names before changing a shared rule. */
 .response-card {
   min-height: 200px;
   font-family: "Droid Serif", Georgia, serif;
@@ -286,22 +361,26 @@
   line-height: 1.24;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.response-card:hover, .response-card:focus`. Search the HTML for these class/id names before changing a shared rule. */
 .response-card:hover,
 .response-card:focus {
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
 
+/* STUDENT NOTE: Interaction state for `.response-card.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .response-card.correct {
   border-left-color: #2e7d32;
   background: #e6f4ea;
 }
 
+/* STUDENT NOTE: Interaction state for `.response-card.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .response-card.incorrect {
   border-left-color: #b00020;
   background: #fdecea;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-sort-bank {
   max-width: 1080px;
   min-height: 105px;
@@ -315,6 +394,7 @@
   border-radius: 8px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-sort-chip`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-sort-chip {
   background: var(--white);
   border: 2px solid var(--red);
@@ -328,6 +408,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-sort-targets {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -336,14 +417,17 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-sort-zone {
   min-height: 250px;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.judge-sort-zone h3`. These values affect readability and vertical space on slides. */
 .judge-sort-zone h3 {
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-sort-list`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-sort-list {
   display: flex;
   flex-direction: column;
@@ -351,23 +435,28 @@
   min-height: 190px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-sort-chip.dragging`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-sort-chip.dragging {
   opacity: 0.45;
 }
+/* STUDENT NOTE: Interaction state for `.judge-sort-chip.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .judge-sort-chip.correct {
   border-color: #2e7d32;
   background: #e6f4ea;
 }
+/* STUDENT NOTE: Interaction state for `.judge-sort-chip.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .judge-sort-chip.incorrect {
   border-color: #b00020;
   background: #fdecea;
 }
+/* STUDENT NOTE: Styles elements matched by `.judge-sort-bank.drag-over, .judge-sort-zone.drag-over`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-sort-bank.drag-over,
 .judge-sort-zone.drag-over {
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.activity-controls`. Search the HTML for these class/id names before changing a shared rule. */
 .activity-controls {
   display: flex;
   align-items: center;
@@ -376,6 +465,7 @@
   margin-top: 0.55rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.activity-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .activity-feedback {
   min-width: 240px;
   margin: 0;
@@ -383,22 +473,26 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Button styling for `.judge-sort-slide .quiz-button, .response-choice-slide .quiz-button`. Keep hover/selected/correct states visually consistent with the base button. */
 .judge-sort-slide .quiz-button,
 .response-choice-slide .quiz-button {
   font-size: 0.42em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-quiz .quiz-card`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-quiz .quiz-card {
   max-width: 880px;
   margin: 0.7em auto;
   padding: 1em 1.1em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.judge-quiz .quiz-card p`. These values affect readability and vertical space on slides. */
 .judge-quiz .quiz-card p {
   font-size: 0.72em;
   line-height: 1.2;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.judge-quiz .quiz-card label`. Search the HTML for these class/id names before changing a shared rule. */
 .judge-quiz .quiz-card label {
   display: block;
   font-size: 0.62em;
@@ -407,7 +501,9 @@
   font-family: "Droid Serif", Georgia, serif;
 }
 
+/* STUDENT NOTE: Responsive breakpoint. Rules inside this block apply only when the screen matches this condition. */
 @media (max-width: 1000px) {
+  /* STUDENT NOTE: Layout rule for `.judge-photo-split, .dialogue-grid, .response-grid, .judge-grid-3, .judge-grid-4`. Grid properties here control columns, gaps, and alignment. */
   .judge-photo-split,
   .dialogue-grid,
   .response-grid,
@@ -415,15 +511,18 @@
   .judge-grid-4 {
     grid-template-columns: 1fr;
   }
+  /* STUDENT NOTE: Styles elements matched by `.judge-photo`. Search the HTML for these class/id names before changing a shared rule. */
   .judge-photo {
     height: 260px;
   }
+/* STUDENT NOTE: Typography/spacing rule for `} .reveal .judge-slide h2, .reveal .judge-vertical h2, .reveal .judge-quiz h2, .reveal .judge-sort-slide h2`. These values affect readability and vertical space on slides. */
 }
 
 .reveal .judge-slide h2,
 .reveal .judge-vertical h2,
 .reveal .judge-quiz h2,
 .reveal .judge-sort-slide h2 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1.42em; margin-bottom: 0.42rem; } .reveal .judge-card, .reveal .script-card, .reveal .evidence-card, .reveal .dialogue-card, .reveal .award-output, .reveal .response-card, .reveal .judge-sort-zone, .reveal .quiz-card`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1.42em;
   margin-bottom: 0.42rem;
 }
@@ -436,6 +535,7 @@
 .reveal .response-card,
 .reveal .judge-sort-zone,
 .reveal .quiz-card {
+  /* STUDENT NOTE: Typography/spacing rule for `text-align: left; } .judge-slide h2, .judge-vertical h2, .judge-quiz h2, .judge-sort-slide h2, .reveal .judge-slide h2, .reveal .judge-vertical h2, .reveal .judge-quiz h2, .reveal .judge-sort-slide h2`. These values affect readability and vertical space on slides. */
   text-align: left;
 }
 
@@ -452,12 +552,14 @@
 .reveal .judge-vertical h2,
 .reveal .judge-quiz h2,
 .reveal .judge-sort-slide h2 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1.45em; margin-bottom: 0.45rem; } .judge-intro, .reveal .judge-intro`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 1.45em;
   margin-bottom: 0.45rem;
 }
 
 .judge-intro,
 .reveal .judge-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 950px; margin: 0 auto 0.8rem; font-size: 0.62em; line-height: 1.25; text-align: center; } .judge-grid-2, .judge-grid-3, .judge-grid-4, .reveal .judge-grid-2, .reveal .judge-grid-3, .reveal .judge-grid-4`. Grid properties here control columns, gaps, and alignment. */
   max-width: 950px;
   margin: 0 auto 0.8rem;
   font-size: 0.62em;
@@ -471,6 +573,7 @@
 .reveal .judge-grid-2,
 .reveal .judge-grid-3,
 .reveal .judge-grid-4 {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.8rem; max-width: 1050px; margin: 0 auto; } .judge-card, .script-card, .evidence-card, .dialogue-card, .award-output, .response-card, .judge-sort-zone, .reveal .judge-card, .reveal .script-card, .reveal .evidence-card, .reveal .dialogue-card, .reveal .award-output, .reveal .response-card, .reveal .judge-sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
   gap: 0.8rem;
   max-width: 1050px;
   margin: 0 auto;
@@ -490,6 +593,7 @@
 .reveal .award-output,
 .reveal .response-card,
 .reveal .judge-sort-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.75rem 0.85rem; text-align: left; } .judge-card h3, .script-card h3, .evidence-card h3, .dialogue-card h3, .award-output h3, .judge-sort-zone h3, .reveal .judge-card h3, .reveal .script-card h3, .reveal .evidence-card h3, .reveal .dialogue-card h3, .reveal .award-output h3, .reveal .judge-sort-zone h3`. These values affect readability and vertical space on slides. */
   background: var(--light);
   border-left: 10px solid var(--red);
   border-radius: 8px;
@@ -509,6 +613,7 @@
 .reveal .dialogue-card h3,
 .reveal .award-output h3,
 .reveal .judge-sort-zone h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0 0 0.35rem; font-size: 0.72em; } .judge-card p, .script-card p, .evidence-card p, .dialogue-card p, .award-output p, .reveal .judge-card p, .reveal .script-card p, .reveal .evidence-card p, .reveal .dialogue-card p, .reveal .award-output p`. These values affect readability and vertical space on slides. */
   margin: 0 0 0.35rem;
   font-size: 0.72em;
 }
@@ -523,6 +628,7 @@
 .reveal .evidence-card p,
 .reveal .dialogue-card p,
 .reveal .award-output p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0; font-size: 0.45em; line-height: 1.25; } .judge-card li, .award-output li, .judge-sort-zone li, .reveal .judge-card li, .reveal .award-output li, .reveal .judge-sort-zone li`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0;
   font-size: 0.45em;
   line-height: 1.25;
@@ -534,6 +640,7 @@
 .reveal .judge-card li,
 .reveal .award-output li,
 .reveal .judge-sort-zone li {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.5em; line-height: 1.22; margin-bottom: 0.16rem; } .judge-callout, .reveal .judge-callout`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.5em;
   line-height: 1.22;
   margin-bottom: 0.16rem;
@@ -541,6 +648,7 @@
 
 .judge-callout,
 .reveal .judge-callout {
+  /* STUDENT NOTE: Typography/spacing rule for `max-width: 950px; margin: 0.8rem auto 0; padding: 0.6rem 0.8rem; background: var(--white); border-left: 10px solid var(--red); border-radius: 8px; } .judge-callout p, .reveal .judge-callout p`. These values affect readability and vertical space on slides. */
   max-width: 950px;
   margin: 0.8rem auto 0;
   padding: 0.6rem 0.8rem;
@@ -551,6 +659,7 @@
 
 .judge-callout p,
 .reveal .judge-callout p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0; font-size: 0.56em; line-height: 1.25; } .judge-sort-bank, .judge-sort-targets, .reveal .judge-sort-bank, .reveal .judge-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0;
   font-size: 0.56em;
   line-height: 1.25;
@@ -560,6 +669,7 @@
 .judge-sort-targets,
 .reveal .judge-sort-bank,
 .reveal .judge-sort-targets {
+  /* STUDENT NOTE: Styles elements matched by `max-width: 1050px; margin-left: auto; margin-right: auto; } .judge-sort-bank, .reveal .judge-sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
   max-width: 1050px;
   margin-left: auto;
   margin-right: auto;
@@ -567,6 +677,7 @@
 
 .judge-sort-bank,
 .reveal .judge-sort-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `gap: 0.4rem; padding: 0.45rem; min-height: 86px; } .judge-sort-chip, .reveal .judge-sort-chip`. These values affect readability and vertical space on slides. */
   gap: 0.4rem;
   padding: 0.45rem;
   min-height: 86px;
@@ -574,6 +685,7 @@
 
 .judge-sort-chip,
 .reveal .judge-sort-chip {
+  /* STUDENT NOTE: Styles elements matched by `padding: 0.35rem 0.5rem; font-size: 0.42em; line-height: 1.15; } .judge-sort-targets, .reveal .judge-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
   padding: 0.35rem 0.5rem;
   font-size: 0.42em;
   line-height: 1.15;
@@ -581,18 +693,21 @@
 
 .judge-sort-targets,
 .reveal .judge-sort-targets {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.8rem; margin-top: 0.7rem; } .judge-sort-zone, .reveal .judge-sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
   gap: 0.8rem;
   margin-top: 0.7rem;
 }
 
 .judge-sort-zone,
 .reveal .judge-sort-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 210px; padding: 0.55rem; } .judge-sort-zone h3, .reveal .judge-sort-zone h3`. These values affect readability and vertical space on slides. */
   min-height: 210px;
   padding: 0.55rem;
 }
 
 .judge-sort-zone h3,
 .reveal .judge-sort-zone h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.68em; text-align: center; margin: 0 0 0.4rem; } .judge-sort-list, .reveal .judge-sort-list`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.68em;
   text-align: center;
   margin: 0 0 0.4rem;
@@ -600,18 +715,21 @@
 
 .judge-sort-list,
 .reveal .judge-sort-list {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.35rem; min-height: 150px; } .activity-controls, .reveal .activity-controls`. Search the HTML for these class/id names before changing a shared rule. */
   gap: 0.35rem;
   min-height: 150px;
 }
 
 .activity-controls,
 .reveal .activity-controls {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.65rem; margin-top: 0.55rem; } .activity-feedback, .reveal .activity-feedback`. Search the HTML for these class/id names before changing a shared rule. */
   gap: 0.65rem;
   margin-top: 0.55rem;
 }
 
 .activity-feedback,
 .reveal .activity-feedback {
+  /* STUDENT NOTE: Shared CSS variables. Change these carefully because many pages may reuse these values. */
   min-width: 240px;
   font-size: 0.46em;
 }
@@ -620,6 +738,7 @@
    Uses the widest recurring content width from the judging/motors/safety modules.
    Keep this block at the bottom of the file so it overrides earlier module rules. */
 :root {
+  /* STUDENT NOTE: Layout rule for `--shared-slide-width: 1120px; } .reveal .slides section > :is( [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], .quiz-card, .sort-bank, .sort-targets, .troubleshooting-sort, .order-list, .documentation-table, .component-grid, .sensor-grid, .doc-grid, figure, table, ul, ol )`. Grid properties here control columns, gaps, and alignment. */
   --shared-slide-width: 1120px;
 }
 
@@ -653,6 +772,7 @@
   ul,
   ol
 ) {
+  /* STUDENT NOTE: Layout rule for `max-width: var(--shared-slide-width); } .reveal :is( .elec-grid-2, .elec-grid-3, .elec-grid-4, .component-grid, .sensor-grid, .doc-grid, .power-flow, .can-chain, .sort-bank, .sort-targets, .troubleshooting-sort, .documentation-table-wrap, .judge-grid-2, .judge-grid-3, .judge-grid-4, .judge-photo-split, .dialogue-grid, .response-grid, .judge-sort-bank, .judge-sort-targets, .award-chip-grid, .award-output, .motor-grid-2, .motor-grid-3, .motor-grid-4, .motor-click-grid, .motor-flow, .speed-torque-layout, .safety-grid-2, .safety-grid-3, .safety-grid-4, .safety-source-grid, .safety-tool-grid, .safety-split, .review-grid, .safety-resource-grid, .impact-repair-grid, .three-choice-grid, .maintenance-grid, .weight-card-grid, .weight-do-dont, .wd-layout )`. Grid properties here control columns, gaps, and alignment. */
   max-width: var(--shared-slide-width);
 }
 

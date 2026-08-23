@@ -1,10 +1,46 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FRC-trainings/modules/media-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* 5041 Media Creation module additions */
+/* STUDENT NOTE: Typography/spacing rule for `.media-hero h1, .media-hero .cytitle`. These values affect readability and vertical space on slides. */
 .media-hero h1,
 .media-hero .cytitle {
   max-width: 1080px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.hero-subtitle`. Search the HTML for these class/id names before changing a shared rule. */
 .hero-subtitle {
   max-width: 880px;
   margin: 0.6rem auto 0;
@@ -14,6 +50,7 @@
   color: var(--gray);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-slide h2, .media-vertical h2, .media-quiz h2`. These values affect readability and vertical space on slides. */
 .media-slide h2,
 .media-vertical h2,
 .media-quiz h2 {
@@ -21,6 +58,7 @@
   margin-bottom: 0.45rem;
 }
 
+/* STUDENT NOTE: Layout rule for `.media-grid-2, .media-grid-3, .media-grid-4, .media-review-grid, .media-split, .media-color-grid`. Grid properties here control columns, gaps, and alignment. */
 .media-grid-2,
 .media-grid-3,
 .media-grid-4,
@@ -33,27 +71,33 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Layout rule for `.media-grid-2, .media-split`. Grid properties here control columns, gaps, and alignment. */
 .media-grid-2,
 .media-split {
   grid-template-columns: 1fr 1fr;
 }
 
+/* STUDENT NOTE: Layout rule for `.media-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .media-grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* STUDENT NOTE: Layout rule for `.media-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .media-grid-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* STUDENT NOTE: Layout rule for `.media-review-grid`. Grid properties here control columns, gaps, and alignment. */
 .media-review-grid {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* STUDENT NOTE: Layout rule for `.media-color-grid`. Grid properties here control columns, gaps, and alignment. */
 .media-color-grid {
   grid-template-columns: repeat(5, 1fr);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-card, .media-scenario-card, .media-review-item, .media-sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .media-card,
 .media-scenario-card,
 .media-review-item,
@@ -65,12 +109,14 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-card.dark, .media-motto`. Search the HTML for these class/id names before changing a shared rule. */
 .media-card.dark,
 .media-motto {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-card.dark h3, .media-card.dark p, .media-card.dark li, .media-motto h3, .media-motto p`. These values affect readability and vertical space on slides. */
 .media-card.dark h3,
 .media-card.dark p,
 .media-card.dark li,
@@ -79,16 +125,19 @@
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-card.good`. Search the HTML for these class/id names before changing a shared rule. */
 .media-card.good {
   border-left-color: #2e7d32;
   background: #e6f4ea;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-card.risk`. Search the HTML for these class/id names before changing a shared rule. */
 .media-card.risk {
   border-left-color: #b00020;
   background: #fdecea;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-card h3, .media-scenario-card h3, .media-review-item h3, .media-sort-zone h3`. These values affect readability and vertical space on slides. */
 .media-card h3,
 .media-scenario-card h3,
 .media-review-item h3,
@@ -97,6 +146,7 @@
   font-size: 0.72em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-card p, .media-scenario-card p, .media-review-item p, .media-sort-zone p`. These values affect readability and vertical space on slides. */
 .media-card p,
 .media-scenario-card p,
 .media-review-item p,
@@ -106,17 +156,20 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-card li`. Search the HTML for these class/id names before changing a shared rule. */
 .media-card li {
   font-size: 0.5em;
   line-height: 1.22;
   margin-bottom: 0.16rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-card ul`. Search the HTML for these class/id names before changing a shared rule. */
 .media-card ul {
   margin: 0.2rem 0 0;
   padding-left: 0.85em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .media-callout {
   max-width: 950px;
   margin: 0.8rem auto 0;
@@ -126,16 +179,19 @@
   border-radius: 8px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-callout.gray`. Search the HTML for these class/id names before changing a shared rule. */
 .media-callout.gray {
   border-left-color: var(--gray);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-callout p`. These values affect readability and vertical space on slides. */
 .media-callout p {
   margin: 0;
   font-size: 0.56em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-motto`. Search the HTML for these class/id names before changing a shared rule. */
 .media-motto {
   max-width: 950px;
   margin: 0 auto 0.8rem;
@@ -145,22 +201,26 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-motto h3`. These values affect readability and vertical space on slides. */
 .media-motto h3 {
   margin: 0 0 0.35rem;
   font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
   font-size: 1.05em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-motto p`. These values affect readability and vertical space on slides. */
 .media-motto p {
   margin: 0;
   font-size: 0.55em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.compact-cards .media-card`. Search the HTML for these class/id names before changing a shared rule. */
 .compact-cards .media-card {
   min-height: 130px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-swatch`. Search the HTML for these class/id names before changing a shared rule. */
 .media-swatch {
   min-height: 145px;
   padding: 0.75rem;
@@ -172,12 +232,14 @@
   gap: 0.3rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-swatch h3`. These values affect readability and vertical space on slides. */
 .media-swatch h3 {
   font-size: 0.52em;
   margin: 0;
   font-family: "Droid Sans", Arial, sans-serif;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-swatch p`. These values affect readability and vertical space on slides. */
 .media-swatch p {
   font-size: 0.38em;
   margin: 0;
@@ -185,35 +247,42 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-swatch.red`. Search the HTML for these class/id names before changing a shared rule. */
 .media-swatch.red {
   background: #980000;
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-swatch.black`. Search the HTML for these class/id names before changing a shared rule. */
 .media-swatch.black {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-swatch.black h3`. These values affect readability and vertical space on slides. */
 .media-swatch.black h3 {
   color: white;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-swatch.gray`. Search the HTML for these class/id names before changing a shared rule. */
 .media-swatch.gray {
   background: var(--gray);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-swatch.light`. Search the HTML for these class/id names before changing a shared rule. */
 .media-swatch.light {
   background: var(--light);
   color: var(--black);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-swatch.white`. Search the HTML for these class/id names before changing a shared rule. */
 .media-swatch.white {
   background: var(--white);
   color: var(--black);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-timeline`. Search the HTML for these class/id names before changing a shared rule. */
 .media-timeline {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -223,6 +292,7 @@
   counter-reset: step;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-timeline div`. Search the HTML for these class/id names before changing a shared rule. */
 .media-timeline div {
   background: var(--light);
   border-left: 10px solid var(--red);
@@ -231,6 +301,7 @@
   position: relative;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-timeline div::before`. Search the HTML for these class/id names before changing a shared rule. */
 .media-timeline div::before {
   counter-increment: step;
   content: counter(step);
@@ -242,17 +313,20 @@
   color: rgba(152, 0, 0, 0.25);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-timeline h3`. These values affect readability and vertical space on slides. */
 .media-timeline h3 {
   font-size: 0.72em;
   margin: 0 0 0.35rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-timeline p`. These values affect readability and vertical space on slides. */
 .media-timeline p {
   font-size: 0.45em;
   line-height: 1.25;
   margin: 0;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-review-item`. Search the HTML for these class/id names before changing a shared rule. */
 .media-review-item {
   appearance: none;
   display: block;
@@ -265,6 +339,7 @@
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-review-item.reviewed, .media-review-item[aria-pressed=""]`. Search the HTML for these class/id names before changing a shared rule. */
 .media-review-item.reviewed,
 .media-review-item[aria-pressed="true"] {
   background: var(--black);
@@ -272,6 +347,7 @@
   border-left-color: var(--red);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-review-item:hover, .media-review-item:focus, .media-choice-option:hover, .media-choice-option:focus`. Search the HTML for these class/id names before changing a shared rule. */
 .media-review-item:hover,
 .media-review-item:focus,
 .media-choice-option:hover,
@@ -280,6 +356,7 @@
   outline-offset: 2px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-review-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .media-review-feedback {
   margin: 0.7rem auto 0;
   max-width: var(--shared-slide-width, 1120px);
@@ -288,23 +365,27 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-scenario-card`. Search the HTML for these class/id names before changing a shared rule. */
 .media-scenario-card {
   max-width: 960px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-scenario-card p`. These values affect readability and vertical space on slides. */
 .media-scenario-card p {
   margin: 0 0 0.55rem;
   font-size: 0.52em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-choice-options`. Search the HTML for these class/id names before changing a shared rule. */
 .media-choice-options {
   display: grid;
   gap: 0.45rem;
   margin-top: 0.6rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-choice-option`. Search the HTML for these class/id names before changing a shared rule. */
 .media-choice-option {
   background: var(--white);
   color: var(--black);
@@ -319,24 +400,28 @@
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Interaction state for `.media-choice-option.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .media-choice-option.correct {
   border-color: #2e7d32;
   border-left-color: #2e7d32;
   background: #e6f4ea;
 }
 
+/* STUDENT NOTE: Interaction state for `.media-choice-option.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .media-choice-option.incorrect {
   border-color: #b00020;
   border-left-color: #b00020;
   background: #fdecea;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-choice-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .media-choice-feedback {
   margin-top: 0.55rem !important;
   font-weight: 700;
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-sort-bank, .media-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .media-sort-bank,
 .media-sort-targets {
   max-width: var(--shared-slide-width, 1120px);
@@ -344,6 +429,7 @@
   margin-right: auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
 .media-sort-bank {
   display: flex;
   flex-wrap: wrap;
@@ -355,6 +441,7 @@
   border-radius: 8px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-sort-chip`. Search the HTML for these class/id names before changing a shared rule. */
 .media-sort-chip {
   background: var(--white);
   border: 2px solid var(--red);
@@ -366,23 +453,27 @@
   cursor: grab;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .media-sort-targets {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.6rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .media-sort-zone {
   min-height: 185px;
   padding: 0.45rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.media-sort-zone h3`. These values affect readability and vertical space on slides. */
 .media-sort-zone h3 {
   font-size: 0.54em;
   text-align: center;
   margin: 0 0 0.35rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-sort-list`. Search the HTML for these class/id names before changing a shared rule. */
 .media-sort-list {
   display: flex;
   flex-direction: column;
@@ -390,18 +481,21 @@
   min-height: 130px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.media-sort-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .media-sort-feedback {
   margin: 0;
   font-size: 0.42em;
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .media-card strong, .reveal .text-red`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .media-card strong,
 .reveal .text-red {
   color: var(--red);
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal #quiz-results .quiz-actions, .reveal .certificate-actions`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal #quiz-results .quiz-actions,
 .reveal .certificate-actions {
   display: flex;
@@ -412,6 +506,7 @@
   margin: 0.8rem auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .name-entry-label`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .name-entry-label {
   display: block;
   width: 100%;
@@ -423,6 +518,7 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .name-entry-input`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .name-entry-input {
   display: block;
   width: min(720px, 90%);
@@ -438,7 +534,9 @@
   border-left: 12px solid var(--red);
 }
 
+/* STUDENT NOTE: Responsive breakpoint. Rules inside this block apply only when the screen matches this condition. */
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.media-grid-2, .media-grid-3, .media-grid-4, .media-review-grid, .media-color-grid, .media-sort-targets, .media-timeline`. Grid properties here control columns, gaps, and alignment. */
   .media-grid-2,
   .media-grid-3,
   .media-grid-4,
@@ -448,10 +546,12 @@
   .media-timeline {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Layout rule for `} .reveal .media-role-grid`. Grid properties here control columns, gaps, and alignment. */
 }
 
 /* Media role reveal cards */
 .reveal .media-role-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; max-width: var(--shared-slide-width, 1120px); margin: 0 auto; } .reveal .media-role-card, .reveal .media-role-card[aria-pressed=""]`. Grid properties here control columns, gaps, and alignment. */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.8rem;
@@ -461,6 +561,7 @@
 
 .reveal .media-role-card,
 .reveal .media-role-card[aria-pressed="true"] {
+  /* STUDENT NOTE: Layout rule for `appearance: none; display: grid; place-items: center; width: 100%; min-height: 120px; background: var(--light) !important; color: var(--black) !important; border: 0 !important; border-left: 10px solid var(--red) !important; border-radius: 8px; padding: 0.75rem 0.85rem !important; font-family: "", Arial, sans-serif; font-size: 0.5em; font-weight: 700; line-height: 1.18; text-align: center; cursor: pointer; transform-origin: center; } .reveal .media-role-card.revealed, .reveal .media-role-card[aria-pressed=""].revealed`. Grid properties here control columns, gaps, and alignment. */
   appearance: none;
   display: grid;
   place-items: center;
@@ -483,35 +584,43 @@
 
 .reveal .media-role-card.revealed,
 .reveal .media-role-card[aria-pressed="true"].revealed {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--black) !important; color: var(--white) !important; } .reveal .media-role-card.role-flipping`. Search the HTML for these class/id names before changing a shared rule. */
   background: var(--black) !important;
   color: var(--white) !important;
 }
 
 .reveal .media-role-card.role-flipping {
+  /* STUDENT NOTE: Styles elements matched by `animation: media-card-flip 0.42s ease; } @keyframes media-card-flip`. Search the HTML for these class/id names before changing a shared rule. */
   animation: media-card-flip 0.42s ease;
 }
 
 @keyframes media-card-flip {
+  /* STUDENT NOTE: Styles elements matched by `0%`. Search the HTML for these class/id names before changing a shared rule. */
   0% {
     transform: rotateY(0deg);
   }
 
+  /* STUDENT NOTE: Styles elements matched by `50%`. Search the HTML for these class/id names before changing a shared rule. */
   50% {
     transform: rotateY(90deg);
   }
 
+  /* STUDENT NOTE: Styles elements matched by `100%`. Search the HTML for these class/id names before changing a shared rule. */
   100% {
     transform: rotateY(0deg);
   }
+/* STUDENT NOTE: Styles elements matched by `} .reveal .media-role-card:hover, .reveal .media-role-card:focus-visible`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .reveal .media-role-card:hover,
 .reveal .media-role-card:focus-visible {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red); outline-offset: 2px; } .reveal .media-role-feedback`. Search the HTML for these class/id names before changing a shared rule. */
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
 
 .reveal .media-role-feedback {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0.65rem auto 0; text-align: center; font-size: 0.42em; font-weight: 700; } @media (max-width: 900px)`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0.65rem auto 0;
   text-align: center;
   font-size: 0.42em;
@@ -519,16 +628,20 @@
 }
 
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.reveal .media-role-grid`. Grid properties here control columns, gaps, and alignment. */
   .reveal .media-role-grid {
     grid-template-columns: 1fr 1fr;
   }
+/* STUDENT NOTE: Styles elements matched by `} .white`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .white{
+  /* STUDENT NOTE: Image styling for `color: var(--white); } .reveal img.slide-width-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
   color: var(--white);
 }
 
 .reveal img.slide-width-img {
+  /* STUDENT NOTE: Styles elements matched by `display: block; width: 100%; max-width: var(--shared-slide-width, 1120px); height: auto; margin: 0 auto; margin-bottom: 0.1em; } .media-resource-links`. Search the HTML for these class/id names before changing a shared rule. */
   display: block;
   width: 100%;
   max-width: var(--shared-slide-width, 1120px);
@@ -538,6 +651,7 @@
 }
 
 .media-resource-links {
+  /* STUDENT NOTE: Styles elements matched by `display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; max-width: var(--shared-slide-width, 1120px); margin: 0.8rem auto 0; } .media-resource-links a`. Search the HTML for these class/id names before changing a shared rule. */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -547,6 +661,7 @@
 }
 
 .media-resource-links a {
+  /* STUDENT NOTE: Interaction state for `display: inline-block; background: var(--red); color: var(--white); font-family: "", Arial, sans-serif; font-weight: 700; font-size: 0.6em; text-decoration: none; padding: 0.35rem 0.55rem; border-radius: 6px; } .reveal .media-sort-chip.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
   display: inline-block;
   background: var(--red);
   color: var(--white);
@@ -560,6 +675,7 @@
 
 /* Media workflow sort answer highlighting */
 .reveal .media-sort-chip.correct {
+  /* STUDENT NOTE: Interaction state for `background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; color: var(--black) !important; } .reveal .media-sort-chip.correct::after`. JavaScript may add/remove this class to provide visual feedback or control access. */
   background: #e6f4ea !important;
   border-color: #2e7d32 !important;
   border-left-color: #2e7d32 !important;
@@ -567,12 +683,14 @@
 }
 
 .reveal .media-sort-chip.correct::after {
+  /* STUDENT NOTE: Interaction state for `content: ""; font-weight: 700; color: #2e7d32; } .reveal .media-sort-chip.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
   content: " ✓";
   font-weight: 700;
   color: #2e7d32;
 }
 
 .reveal .media-sort-chip.incorrect {
+  /* STUDENT NOTE: Interaction state for `background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; color: var(--black) !important; } .reveal .media-sort-chip.incorrect::after`. JavaScript may add/remove this class to provide visual feedback or control access. */
   background: #fdecea !important;
   border-color: #b00020 !important;
   border-left-color: #b00020 !important;
@@ -580,12 +698,14 @@
 }
 
 .reveal .media-sort-chip.incorrect::after {
+  /* STUDENT NOTE: Styles elements matched by `content: ""; font-weight: 700; color: #b00020; } .reveal .media-sort-chip.unplaced`. Search the HTML for these class/id names before changing a shared rule. */
   content: " ✕";
   font-weight: 700;
   color: #b00020;
 }
 
 .reveal .media-sort-chip.unplaced {
+  /* STUDENT NOTE: Styles elements matched by `opacity: 0.65; outline: 3px dashed var(--gray); outline-offset: 2px; } .reveal .media-sort-feedback`. Search the HTML for these class/id names before changing a shared rule. */
   opacity: 0.65;
   outline: 3px dashed var(--gray);
   outline-offset: 2px;

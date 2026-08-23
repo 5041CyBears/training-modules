@@ -1,5 +1,44 @@
+<!-- 5041 Training Hub page: FRC-trainings/modules/general-robot-design.html
+     Cleaned export: shared assets/CSS/JS references are centralized where possible. -->
 <!doctype html>
+<!-- ============================================================================
+STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB
+
+This file is intentionally commented for students who will build, edit, and extend
+training modules and resource pages.
+
+HOW TO READ THIS HTML
+1. HTML controls CONTENT and STRUCTURE: headings, paragraphs, images, buttons,
+   links, forms, and Reveal.js slides.
+2. CSS controls APPEARANCE: colors, spacing, sizing, grids, fonts, and responsive
+   layout. Look at the class="..." values here, then search for those class names
+   in the linked CSS files.
+3. JavaScript controls BEHAVIOR: quizzes, click-to-reveal cards, drag-and-drop,
+   calculators, certificates, form actions, and other interactions. Interactive
+   elements often connect to JavaScript through classes, ids, data-* attributes,
+   or onclick="..." handlers.
+4. In Reveal.js, each <section> is a slide. A <section> nested inside another
+   <section> is a VERTICAL slide. Sibling top-level <section> elements move
+   horizontally.
+5. Relative file paths matter. For example, "../../shared/assets/..." means go up
+   two folders, then enter shared/assets. If a page moves folders, its paths may
+   need to change.
+6. Prefer reusing existing shared classes, scripts, and assets before creating a
+   duplicate. This keeps the training hub consistent and easier to maintain.
+7. When creating a new module, copy a similar working module first, rename its
+   module-specific classes/functions, then change content one section at a time.
+
+SAFE EDITING WORKFLOW
+- Change one thing at a time and refresh/test after each change.
+- Keep closing tags paired with opening tags.
+- Keep class names exactly matched between HTML and CSS/JavaScript.
+- Keep ids unique on a page.
+- Do not remove data-* attributes from interactive elements unless you also update
+  the JavaScript that reads them.
+- Open the browser Developer Tools Console when an interaction stops working.
+============================================================================ -->
 <html lang="en">
+  <!-- STUDENT NOTE: <head> contains page metadata and links to CSS/fonts/libraries. It is not visible slide content. -->
   <head>
     <meta charset="utf-8" />
     <meta
@@ -15,19 +54,26 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
     />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: https://fonts.googleapis.com. Link order matters because later CSS can override earlier CSS. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: https://fonts.gstatic.com. Link order matters because later CSS can override earlier CSS. -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: ../../shared/css/styles.css. Link order matters because later CSS can override earlier CSS. -->
+    <link rel="stylesheet" href="../../shared/css/styles.css" />
   </head>
+  <!-- STUDENT NOTE: Visible page content begins in <body>. Reveal.js presentation markup is usually inside .reveal > .slides. -->
   <body>
+    <!-- STUDENT NOTE: Reveal.js presentation wrapper. Reveal expects a .reveal element containing a .slides element. -->
     <div class="reveal">
+      <!-- STUDENT NOTE: Every direct child <section> of .slides is a horizontal slide or a vertical slide stack. -->
       <div class="slides">
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section
-          data-background-image="assets/5041teamlogo.png"
+          data-background-image="../../shared/assets/5041teamlogo.png"
           data-background-size="contain"
           data-background-opacity="0.2"
           class="center"
@@ -35,6 +81,7 @@
           <h1 class="cytitle">General Robot Design Training Module</h1>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
           <span class="tag">Module Goals</span>
           <h2>By the end, students should be able to:</h2>
@@ -57,6 +104,7 @@
           </ul>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
           <span class="tag">General Design Checklist</span>
           <div class="two">
@@ -97,7 +145,9 @@
           </p>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <span class="tag">5041 Design Process</span>
             <h2>Use the team process before expensive material is cut</h2>
@@ -117,15 +167,17 @@
               into CAD and durable materials after the design has been decided.
             </p>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <span class="tag">5041 Design Process Poster</span>
             <h2>Team process reference</h2>
             <img
               class="poster-img"
-              src="assets/5041_design_process_poster.png"
+              src="../../shared/assets/5041_design_process_poster.png"
               alt="5041 Design Process Poster with six steps"
             />
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <h2>Steps 1–2: Objectives, criteria, and constraints</h2>
             <div class="two">
@@ -146,6 +198,7 @@
               </div>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <h2>Steps 3–4: Prototype possible solutions</h2>
             <div class="two">
@@ -166,6 +219,7 @@
               </div>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <h2>Steps 5–6: Test, finalize, and implement</h2>
             <div class="two">
@@ -186,6 +240,7 @@
               </div>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: process-sort-slide; interactive slide; keep its classes/data-* attributes synchronized with JavaScript. -->
           <section class="process-sort-slide">
             <span class="tag">5041 Design Process</span>
             <h2>Put the design process in the correct order</h2>
@@ -220,7 +275,9 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <span class="tag">CAD, CAD, CAD</span>
             <h2>CAD should answer practical questions and document design</h2>
@@ -236,12 +293,13 @@
               <li>act as validation before fabrication starts</li>
             </ul>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <span class="tag">CAD Basics</span>
             <h2>What is CAD?</h2>
             <div class="image-text-layout">
               <img
-                src="assets/cadexample.jpg"
+                src="../../shared/assets/cadexample.jpg"
                 alt="Computer-aided design technical drawing"
                 class="slide-image"
               />
@@ -261,9 +319,10 @@
               </div>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <img
-              src="assets/Onshape_logo_full.png"
+              src="../../shared/assets/Onshape_logo_full.png"
               alt="Onshape logo"
               class="onshape-logo"
             />
@@ -290,6 +349,7 @@
               Logo: Conrado.arias, CC BY-SA 4.0, via Wikimedia Commons
             </p>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: mechanism-motion-slide. -->
           <section class="mechanism-motion-slide">
             <span class="tag">CAD and Geometric Contraints</span>
             <p>
@@ -316,6 +376,7 @@
               </div>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: reefscape-comparison-slide. -->
           <section class="reefscape-comparison-slide">
             <div class="callout reefscape-callout">
               <p>
@@ -327,7 +388,7 @@
             <div class="reefscape-images">
               <figure>
                 <img
-                  src="assets/ursula-coral-high.jpg"
+                  src="../../shared/assets/ursula-coral-high.jpg"
                   alt="Ursula depositing coral at a higher reef level"
                 />
                 <figcaption>
@@ -337,7 +398,7 @@
               </figure>
               <figure>
                 <img
-                  src="assets/ursula-coral-low.jpg"
+                  src="../../shared/assets/ursula-coral-low.jpg"
                   alt="Ursula depositing coral at a lower reef level"
                 />
                 <figcaption>
@@ -346,6 +407,7 @@
               </figure>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: cad-example-slide. -->
           <section class="cad-example-slide">
             <span class="tag">CAD as a Prototyping Platform</span>
             <div class="cad-example-layout">
@@ -364,7 +426,7 @@
               </div>
               <figure>
                 <img
-                  src="assets/hookiteration.png"
+                  src="../../shared/assets/hookiteration.png"
                   alt="Iterations of Bearthoven's 2024 climber hook design"
                 />
                 <figcaption>
@@ -375,6 +437,7 @@
               </figure>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: cad-example-slide. -->
           <section class="cad-example-slide">
             <span class="tag">Precision Design</span>
             <div class="cad-example-layout">
@@ -396,7 +459,7 @@
               </div>
               <figure>
                 <img
-                  src="assets/gearbox.gif"
+                  src="../../shared/assets/gearbox.gif"
                   alt="CAD animation of Kuruk's 2026 polycarbonate gearbox"
                 />
                 <figcaption>
@@ -407,6 +470,7 @@
               </figure>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: cad-example-slide. -->
           <section class="cad-example-slide">
             <span class="tag">Robot Documentation</span>
             <div class="cad-example-layout">
@@ -427,7 +491,7 @@
               </div>
               <figure>
                 <img
-                  src="assets/ursula-drawing.jpg"
+                  src="../../shared/assets/ursula-drawing.jpg"
                   alt="Dimensioned CAD drawing of Ursula's 2025 robot scoring geometry"
                 />
                 <figcaption>
@@ -438,6 +502,7 @@
               </figure>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: cad-next-steps-slide. -->
           <section class="cad-next-steps-slide">
             <span class="tag">CAD Next Steps</span>
             <p class="cad-next-intro">
@@ -481,14 +546,16 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <span class="tag">Frame First</span>
             <h2>Start with the frame and load paths</h2>
             <div class="bar"></div>
             <p class="bigq">“When it gets hit, where does the force go?”</p>
             <img
-              src="assets/Force Path Flow Chart.png"
+              src="../../shared/assets/Force Path Flow Chart.png"
               alt="Force Flow Chart"
             />
             <div class="center">
@@ -497,6 +564,7 @@
               </p>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: impact-direction-slide. -->
           <section class="impact-direction-slide">
             <span class="tag">Impact Direction Matters</span>
             <p class="impact-intro">
@@ -508,7 +576,7 @@
               <figure class="impact-card good-impact">
                 <h3>Front Impact: Better Load Distribution</h3>
                 <img
-                  src="assets/fromfrontimpact.gif"
+                  src="../../shared/assets/fromfrontimpact.gif"
                   alt="Front impact on FRC robot frame"
                 />
                 <figcaption>
@@ -519,7 +587,7 @@
               <figure class="impact-card bad-impact">
                 <h3>Side Impact: Less Support</h3>
                 <img
-                  src="assets/fromsideimpact.gif"
+                  src="../../shared/assets/fromsideimpact.gif"
                   alt="Side impact on FRC robot frame"
                 />
                 <figcaption>
@@ -529,6 +597,7 @@
               </figure>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: frame-sort-slide; interactive slide; keep its classes/data-* attributes synchronized with JavaScript. -->
           <section class="frame-sort-slide">
             <h2>Frame Design Rules of Thumb</h2>
             <p class="small sort-directions">
@@ -612,7 +681,9 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <span class="tag">Strength and Stiffness</span>
             <h2>Strength = Not Breaking. Stiffness = Accuracy.</h2>
@@ -623,6 +694,7 @@
               throw off alignment.
             </p>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: strength-stiffness-slide. -->
           <section class="strength-stiffness-slide">
             <span class="tag">Strength vs. Stiffness</span>
             <div class="strength-stiffness-layout">
@@ -645,7 +717,7 @@
             <div class="image-row">
               <figure>
                 <img
-                  src="assets/beam-deflection.png"
+                  src="../../shared/assets/beam-deflection.png"
                   alt="Cantilever beam deflection diagram"
                 />
                 <figcaption>
@@ -655,7 +727,7 @@
               </figure>
               <figure>
                 <img
-                  src="assets/triangle.gif"
+                  src="../../shared/assets/triangle.gif"
                   alt="Ursula triangle support structure"
                 />
                 <figcaption>
@@ -664,6 +736,7 @@
               </figure>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <h2>Areas that need stiffness</h2>
             <div class="three">
@@ -693,6 +766,7 @@
               </div>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
             <h2>Stiffness quick fixes</h2>
             <ul>
@@ -707,7 +781,9 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: weight-overview-slide. -->
           <section class="weight-overview-slide">
             <span class="tag">Robot Weight</span>
             <p class="weight-intro">
@@ -740,6 +816,7 @@
               </div>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: weight-dos-slide. -->
           <section class="weight-dos-slide">
             <span class="tag">Weight Dos and Donts</span>
             <div class="two weight-do-dont">
@@ -768,6 +845,7 @@
               </p>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: wd-balance-slide. -->
           <section class="wd-balance-slide">
             <span class="tag">Interactive Balance Challenge</span>
             <p class="wd-directions">
@@ -848,7 +926,9 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: impact-repair-slide. -->
           <section class="impact-repair-slide">
             <span class="tag">Impact + Repair</span>
             <h2>Prepare for Impacts, Design for Repair</h2>
@@ -880,6 +960,7 @@
               </p>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: impact-repair-slide. -->
           <section class="impact-repair-slide">
             <span class="tag">Impact Preparation</span>
             <h2>Protect Important Parts</h2>
@@ -912,6 +993,7 @@
               </p>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: impact-repair-slide. -->
           <section class="impact-repair-slide">
             <span class="tag">Impact Design Choices</span>
             <h2>Strong, Flexible, or Replaceable</h2>
@@ -946,7 +1028,9 @@
               </p>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. Duplicate this section as a starting point for another slide. -->
           <section>
+            <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: impact-repair-slide. -->
             <section class="impact-repair-slide">
               <span class="tag">Maintenance Access</span>
               <h2>Make Maintenance Easy</h2>
@@ -984,6 +1068,7 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: center; id: quiz-intro. -->
         <section id="quiz-intro" class="center">
           <span class="tag">Required Quiz</span>
           <h2>Pass to complete the module</h2>
@@ -995,7 +1080,9 @@
           <div class="stripe"></div>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide name-entry-slide; id: quiz-name; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide name-entry-slide" id="quiz-name">
             <span class="tag">Before You Begin</span>
             <h2>Enter Your Name</h2>
@@ -1020,6 +1107,7 @@
               </p>
             </div>
           </section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q1; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q1">
             <span class="tag">Quiz Question 1</span>
             <div class="progress-note">1 of 20</div>
@@ -1042,6 +1130,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q2; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q2">
             <span class="tag">Quiz Question 2</span>
             <div class="progress-note">2 of 20</div>
@@ -1062,6 +1151,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q3; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q3">
             <span class="tag">Quiz Question 3</span>
             <div class="progress-note">3 of 20</div>
@@ -1082,6 +1172,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q4; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q4">
             <span class="tag">Quiz Question 4</span>
             <div class="progress-note">4 of 20</div>
@@ -1104,6 +1195,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q5; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q5">
             <span class="tag">Quiz Question 5</span>
             <div class="progress-note">5 of 20</div>
@@ -1126,6 +1218,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q6; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q6">
             <span class="tag">Quiz Question 6</span>
             <div class="progress-note">6 of 20</div>
@@ -1148,6 +1241,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q7; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q7">
             <span class="tag">Quiz Question 7</span>
             <div class="progress-note">7 of 20</div>
@@ -1168,6 +1262,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q8; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q8">
             <span class="tag">Quiz Question 8</span>
             <div class="progress-note">8 of 20</div>
@@ -1191,6 +1286,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q9; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q9">
             <span class="tag">Quiz Question 9</span>
             <div class="progress-note">9 of 20</div>
@@ -1212,6 +1308,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q10; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q10">
             <span class="tag">Quiz Question 10</span>
             <div class="progress-note">10 of 20</div>
@@ -1232,6 +1329,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q11; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q11">
             <span class="tag">Quiz Question 11</span>
             <div class="progress-note">11 of 20</div>
@@ -1253,6 +1351,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q12; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q12">
             <span class="tag">Quiz Question 12</span>
             <div class="progress-note">12 of 20</div>
@@ -1274,6 +1373,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q13; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q13">
             <span class="tag">Quiz Question 13</span>
             <div class="progress-note">13 of 20</div>
@@ -1294,6 +1394,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q14; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q14">
             <span class="tag">Quiz Question 14</span>
             <div class="progress-note">14 of 20</div>
@@ -1314,6 +1415,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q15; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q15">
             <span class="tag">Quiz Question 15</span>
             <div class="progress-note">15 of 20</div>
@@ -1334,6 +1436,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q16; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q16">
             <span class="tag">Quiz Question 16</span>
             <div class="progress-note">16 of 20</div>
@@ -1354,6 +1457,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q17; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q17">
             <span class="tag">Quiz Question 17</span>
             <div class="progress-note">17 of 20</div>
@@ -1374,6 +1478,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q18; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q18">
             <span class="tag">Quiz Question 18</span>
             <div class="progress-note">18 of 20</div>
@@ -1394,6 +1499,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q19; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q19">
             <span class="tag">Quiz Question 19</span>
             <div class="progress-note">19 of 20</div>
@@ -1414,6 +1520,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide; id: quiz-q20; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide" id="quiz-q20">
             <span class="tag">Quiz Question 20</span>
             <div class="progress-note">20 of 20</div>
@@ -1438,6 +1545,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: center; id: quiz-results. -->
           <section id="quiz-results" class="center">
             <span class="tag">Quiz Results</span>
             <h2>Grade the quiz</h2>
@@ -1460,6 +1568,7 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: center certificate-slide locked; id: complete. -->
         <section id="complete" class="center certificate-slide locked">
           <div class="certificate-card">
             <div class="certificate-border">
@@ -1497,11 +1606,17 @@
       </div>
     </div>
     
+    <!-- STUDENT NOTE: Loads JavaScript from https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js. Scripts near the end of <body> run after most HTML has been parsed. -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <!-- STUDENT NOTE: Loads JavaScript from https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js. Scripts near the end of <body> run after most HTML has been parsed. -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+    <!-- STUDENT NOTE: Loads JavaScript from https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js. Scripts near the end of <body> run after most HTML has been parsed. -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+    <!-- STUDENT NOTE: Loads JavaScript from https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js. Scripts near the end of <body> run after most HTML has been parsed. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<!-- STUDENT NOTE: Loads JavaScript from https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js. Scripts near the end of <body> run after most HTML has been parsed. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="scripts.js"></script>
+    <!-- STUDENT NOTE: Loads JavaScript from ../../shared/js/scripts.js. Scripts near the end of <body> run after most HTML has been parsed. -->
+    <script src="../../shared/js/scripts.js"></script>
   </body>
 </html>

@@ -1,4 +1,39 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FTC-training/modules/ftc-foundations-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* 5041 FTC Introduction module additions */
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-hero .ftcintro-subtitle`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-hero .ftcintro-subtitle {
   max-width: 900px;
   margin: 0.4rem auto 0;
@@ -8,12 +43,14 @@
   color: var(--black);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.reveal .ftcintro-slide h2, .reveal .ftcintro-vertical h2`. These values affect readability and vertical space on slides. */
 .reveal .ftcintro-slide h2,
 .reveal .ftcintro-vertical h2 {
   font-size: 1.45em;
   margin-bottom: 0.45rem;
 }
 
+/* STUDENT NOTE: Layout rule for `.reveal .ftcintro-grid-2, .reveal .ftcintro-grid-3, .reveal .ftcintro-grid-4, .reveal .ftcintro-role-grid, .reveal .ftcintro-sort-targets`. Grid properties here control columns, gaps, and alignment. */
 .reveal .ftcintro-grid-2,
 .reveal .ftcintro-grid-3,
 .reveal .ftcintro-grid-4,
@@ -25,10 +62,14 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Layout rule for `.reveal .ftcintro-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .reveal .ftcintro-grid-2 { grid-template-columns: repeat(2, 1fr); }
+/* STUDENT NOTE: Layout rule for `.reveal .ftcintro-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .reveal .ftcintro-grid-3 { grid-template-columns: repeat(3, 1fr); }
+/* STUDENT NOTE: Layout rule for `.reveal .ftcintro-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .reveal .ftcintro-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-card, .reveal .ftcintro-scenario-card`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-card,
 .reveal .ftcintro-scenario-card {
   background: var(--light);
@@ -38,23 +79,27 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-card.dark {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.reveal .ftcintro-card.dark h3, .reveal .ftcintro-card.dark p, .reveal .ftcintro-card.dark li`. These values affect readability and vertical space on slides. */
 .reveal .ftcintro-card.dark h3,
 .reveal .ftcintro-card.dark p,
 .reveal .ftcintro-card.dark li {
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.reveal .ftcintro-card h3, .reveal .ftcintro-scenario-card h3`. These values affect readability and vertical space on slides. */
 .reveal .ftcintro-card h3,
 .reveal .ftcintro-scenario-card h3 {
   margin: 0 0 0.35rem;
   font-size: 0.7em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.reveal .ftcintro-card p, .reveal .ftcintro-scenario-card p`. These values affect readability and vertical space on slides. */
 .reveal .ftcintro-card p,
 .reveal .ftcintro-scenario-card p {
   margin: 0 0 0.35rem;
@@ -62,17 +107,20 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-card li`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-card li {
   font-size: 0.46em;
   line-height: 1.22;
   margin-bottom: 0.16rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-card ul`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-card ul {
   margin: 0.2rem 0 0;
   padding-left: 0.9em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-callout {
   max-width: var(--shared-slide-width, 1120px);
   margin: 0.8rem auto 0;
@@ -83,12 +131,14 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.reveal .ftcintro-callout p`. These values affect readability and vertical space on slides. */
 .reveal .ftcintro-callout p {
   margin: 0;
   font-size: 0.52em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-process`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-process {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -97,6 +147,7 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-process div`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-process div {
   background: var(--light);
   border-left: 10px solid var(--red);
@@ -105,6 +156,7 @@
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-process span`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-process span {
   display: inline-grid;
   place-items: center;
@@ -119,6 +171,7 @@
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.reveal .ftcintro-process p`. These values affect readability and vertical space on slides. */
 .reveal .ftcintro-process p {
   margin: 0;
   font-size: 0.44em;
@@ -127,10 +180,12 @@
 }
 
 /* Reveal/value cards */
+/* STUDENT NOTE: Layout rule for `.reveal .ftcintro-role-grid`. Grid properties here control columns, gaps, and alignment. */
 .reveal .ftcintro-role-grid {
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-role-card, .reveal .ftcintro-role-card[aria-pressed=""]`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-role-card,
 .reveal .ftcintro-role-card[aria-pressed="true"] {
   appearance: none;
@@ -152,24 +207,32 @@
   transform-origin: center;
 }
 
+/* STUDENT NOTE: Interaction state for `.reveal .ftcintro-role-card.revealed`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .reveal .ftcintro-role-card.revealed {
   background: var(--black) !important;
   color: var(--white) !important;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .ftcintro-role-card.flipping`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .ftcintro-role-card.flipping {
   animation: ftcintro-card-flip 0.42s ease;
 }
 
+/* STUDENT NOTE: Animation timeline. Percentage steps inside define how an animated element changes over time. */
 @keyframes ftcintro-card-flip {
+  /* STUDENT NOTE: Styles elements matched by `0%`. Search the HTML for these class/id names before changing a shared rule. */
   0% { transform: rotateY(0deg); }
+  /* STUDENT NOTE: Styles elements matched by `50%`. Search the HTML for these class/id names before changing a shared rule. */
   50% { transform: rotateY(90deg); }
+  /* STUDENT NOTE: Styles elements matched by `100%`. Search the HTML for these class/id names before changing a shared rule. */
   100% { transform: rotateY(0deg); }
+/* STUDENT NOTE: Styles elements matched by `} .reveal .ftcintro-role-feedback, .reveal .ftcintro-scenario-feedback, .reveal .ftcintro-sort-feedback`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .reveal .ftcintro-role-feedback,
 .reveal .ftcintro-scenario-feedback,
 .reveal .ftcintro-sort-feedback {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0.6rem auto 0; text-align: center; font-size: 0.42em; font-weight: 700; font-family: "", Arial, sans-serif; } .reveal .ftcintro-scenario-card`. Search the HTML for these class/id names before changing a shared rule. */
   margin: 0.6rem auto 0;
   text-align: center;
   font-size: 0.42em;
@@ -179,17 +242,20 @@
 
 /* Scenario */
 .reveal .ftcintro-scenario-card {
+  /* STUDENT NOTE: Styles elements matched by `max-width: 980px; margin: 0 auto; } .reveal .ftcintro-scenario-options`. Search the HTML for these class/id names before changing a shared rule. */
   max-width: 980px;
   margin: 0 auto;
 }
 
 .reveal .ftcintro-scenario-options {
+  /* STUDENT NOTE: Button styling for `display: grid; gap: 0.45rem; margin-top: 0.55rem; } .reveal .ftcintro-scenario-options button`. Keep hover/selected/correct states visually consistent with the base button. */
   display: grid;
   gap: 0.45rem;
   margin-top: 0.55rem;
 }
 
 .reveal .ftcintro-scenario-options button {
+  /* STUDENT NOTE: Button styling for `background: var(--white); border: 2px solid var(--red); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.45rem 0.6rem; color: var(--black); font-family: "", Arial, sans-serif; font-size: 0.4em; font-weight: 700; text-align: left; cursor: pointer; } .reveal .ftcintro-scenario-options button.correct`. Keep hover/selected/correct states visually consistent with the base button. */
   background: var(--white);
   border: 2px solid var(--red);
   border-left: 10px solid var(--red);
@@ -204,12 +270,14 @@
 }
 
 .reveal .ftcintro-scenario-options button.correct {
+  /* STUDENT NOTE: Button styling for `border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; background: #e6f4ea !important; } .reveal .ftcintro-scenario-options button.incorrect`. Keep hover/selected/correct states visually consistent with the base button. */
   border-color: #2e7d32 !important;
   border-left-color: #2e7d32 !important;
   background: #e6f4ea !important;
 }
 
 .reveal .ftcintro-scenario-options button.incorrect {
+  /* STUDENT NOTE: Styles elements matched by `border-color: #b00020 !important; border-left-color: #b00020 !important; background: #fdecea !important; } .reveal .ftcintro-sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
   border-color: #b00020 !important;
   border-left-color: #b00020 !important;
   background: #fdecea !important;
@@ -217,6 +285,7 @@
 
 /* Sort activities */
 .reveal .ftcintro-sort-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0.45rem; min-height: 90px; max-width: var(--shared-slide-width, 1120px); margin: 0 auto 0.55rem; background: var(--light); border: 3px dashed var(--gray); border-radius: 8px; } .reveal .ftcintro-sort-chip`. These values affect readability and vertical space on slides. */
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
@@ -230,6 +299,7 @@
 }
 
 .reveal .ftcintro-sort-chip {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--white); border: 2px solid var(--red); border-left: 8px solid var(--red); border-radius: 8px; padding: 0.32rem 0.45rem; font-size: 0.34em; font-weight: 700; font-family: "", Arial, sans-serif; cursor: grab; } .reveal .ftcintro-sort-targets.five-targets`. These values affect readability and vertical space on slides. */
   background: var(--white);
   border: 2px solid var(--red);
   border-left: 8px solid var(--red);
@@ -242,15 +312,18 @@
 }
 
 .reveal .ftcintro-sort-targets.five-targets {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: repeat(5, 1fr); gap: 0.55rem; } .reveal .ftcintro-sort-targets.three-targets`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: repeat(5, 1fr);
   gap: 0.55rem;
 }
 
 .reveal .ftcintro-sort-targets.three-targets {
+  /* STUDENT NOTE: Layout rule for `grid-template-columns: repeat(3, 1fr); } .reveal .ftcintro-sort-zone`. Grid properties here control columns, gaps, and alignment. */
   grid-template-columns: repeat(3, 1fr);
 }
 
 .reveal .ftcintro-sort-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 155px; background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.42rem; text-align: center; } .reveal .ftcintro-sort-zone h3`. These values affect readability and vertical space on slides. */
   min-height: 155px;
   background: var(--light);
   border-left: 10px solid var(--red);
@@ -260,11 +333,13 @@
 }
 
 .reveal .ftcintro-sort-zone h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.46em; margin: 0 0 0.25rem; } .reveal .ftcintro-sort-list`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.46em;
   margin: 0 0 0.25rem;
 }
 
 .reveal .ftcintro-sort-list {
+  /* STUDENT NOTE: Interaction state for `display: flex; flex-direction: column; gap: 0.25rem; min-height: 88px; } .reveal .ftcintro-sort-chip.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -272,6 +347,7 @@
 }
 
 .reveal .ftcintro-sort-chip.correct {
+  /* STUDENT NOTE: Interaction state for `background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; color: var(--black) !important; } .reveal .ftcintro-sort-chip.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
   background: #e6f4ea !important;
   border-color: #2e7d32 !important;
   border-left-color: #2e7d32 !important;
@@ -279,6 +355,7 @@
 }
 
 .reveal .ftcintro-sort-chip.incorrect {
+  /* STUDENT NOTE: Styles elements matched by `background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; color: var(--black) !important; } .reveal .ftcintro-sort-chip.unplaced`. Search the HTML for these class/id names before changing a shared rule. */
   background: #fdecea !important;
   border-color: #b00020 !important;
   border-left-color: #b00020 !important;
@@ -286,6 +363,7 @@
 }
 
 .reveal .ftcintro-sort-chip.unplaced {
+  /* STUDENT NOTE: Styles elements matched by `opacity: 0.65; outline: 3px dashed var(--gray); outline-offset: 2px; } .reveal .ftcintro-resource-row`. Search the HTML for these class/id names before changing a shared rule. */
   opacity: 0.65;
   outline: 3px dashed var(--gray);
   outline-offset: 2px;
@@ -293,6 +371,7 @@
 
 /* Resource links */
 .reveal .ftcintro-resource-row {
+  /* STUDENT NOTE: Styles elements matched by `display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem; max-width: var(--shared-slide-width, 1120px); margin: 0 auto; } .reveal .ftcintro-resource-row a`. Search the HTML for these class/id names before changing a shared rule. */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -302,6 +381,7 @@
 }
 
 .reveal .ftcintro-resource-row a {
+  /* STUDENT NOTE: Typography/spacing rule for `display: inline-block; background: var(--red); color: var(--white); font-family: "", Arial, sans-serif; font-weight: 700; font-size: 0.38em; text-decoration: none; padding: 0.4rem 0.6rem; border-radius: 6px; } .reveal .ftcintro-resource-row a:hover, .reveal .ftcintro-resource-row a:focus`. These values affect readability and vertical space on slides. */
   display: inline-block;
   background: var(--red);
   color: var(--white);
@@ -315,6 +395,7 @@
 
 .reveal .ftcintro-resource-row a:hover,
 .reveal .ftcintro-resource-row a:focus {
+  /* STUDENT NOTE: Button styling for `background: var(--black); color: var(--white); } .reveal .ftcintro-role-card:hover, .reveal .ftcintro-role-card:focus-visible, .reveal .ftcintro-scenario-options button:hover, .reveal .ftcintro-scenario-options button:focus-visible, .reveal .ftcintro-sort-chip:hover, .reveal .ftcintro-sort-chip:focus-visible`. Keep hover/selected/correct states visually consistent with the base button. */
   background: var(--black);
   color: var(--white);
 }
@@ -325,11 +406,13 @@
 .reveal .ftcintro-scenario-options button:focus-visible,
 .reveal .ftcintro-sort-chip:hover,
 .reveal .ftcintro-sort-chip:focus-visible {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red); outline-offset: 2px; } @media (max-width: 900px)`. Search the HTML for these class/id names before changing a shared rule. */
   outline: 4px solid var(--red);
   outline-offset: 2px;
 }
 
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.reveal .ftcintro-grid-3, .reveal .ftcintro-grid-4, .reveal .ftcintro-role-grid, .reveal .ftcintro-process, .reveal .ftcintro-sort-targets.five-targets`. Grid properties here control columns, gaps, and alignment. */
   .reveal .ftcintro-grid-3,
   .reveal .ftcintro-grid-4,
   .reveal .ftcintro-role-grid,
@@ -338,20 +421,24 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  /* STUDENT NOTE: Layout rule for `.reveal .ftcintro-grid-2, .reveal .ftcintro-sort-targets.three-targets`. Grid properties here control columns, gaps, and alignment. */
   .reveal .ftcintro-grid-2,
   .reveal .ftcintro-sort-targets.three-targets {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Styles elements matched by `} .reveal .ftcintro-quiz .quiz-card`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 
 /* FTC Intro quiz support */
 .reveal .ftcintro-quiz .quiz-card {
+  /* STUDENT NOTE: Typography/spacing rule for `max-width: 980px; margin: 0 auto; } .reveal .ftcintro-quiz .quiz-card p`. These values affect readability and vertical space on slides. */
   max-width: 980px;
   margin: 0 auto;
 }
 
 .reveal .ftcintro-quiz .quiz-card p {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.56em; } .reveal .ftcintro-quiz .quiz-card label`. Search the HTML for these class/id names before changing a shared rule. */
   font-size: 0.56em;
 }
 

@@ -1,3 +1,35 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* STUDENT NOTE: Shared CSS variables. Change these carefully because many pages may reuse these values. */
 :root {
   --red: #980000;
   --black: #000000;
@@ -10,10 +42,12 @@
   --shared-width: 1120px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `*`. Search the HTML for these class/id names before changing a shared rule. */
 * {
   box-sizing: border-box;
 }
 
+/* STUDENT NOTE: Styles elements matched by `body`. Search the HTML for these class/id names before changing a shared rule. */
 body {
   margin: 0;
   background:
@@ -23,11 +57,13 @@ body {
   font-family: "Droid", sans-serif;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.app-shell`. Search the HTML for these class/id names before changing a shared rule. */
 .app-shell {
   width: min(1180px, calc(100% - 2rem));
   margin: 1.5rem auto 2.5rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.brand-hero`. Search the HTML for these class/id names before changing a shared rule. */
 .brand-hero {
   position: relative;
   overflow: hidden;
@@ -39,12 +75,14 @@ body {
   margin-bottom: 1.2rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.brand-angle`. Search the HTML for these class/id names before changing a shared rule. */
 .brand-angle {
   position: absolute;
   pointer-events: none;
   transform: skewX(-18deg);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.brand-angle-black`. Search the HTML for these class/id names before changing a shared rule. */
 .brand-angle-black {
   right: -80px;
   top: -45px;
@@ -54,6 +92,7 @@ body {
   opacity: 0.08;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.brand-angle-red`. Search the HTML for these class/id names before changing a shared rule. */
 .brand-angle-red {
   right: 120px;
   bottom: -70px;
@@ -63,6 +102,7 @@ body {
   opacity: 0.16;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.brand-content`. Search the HTML for these class/id names before changing a shared rule. */
 .brand-content {
   font-family: "Audiowide", sans-serif;
   position: relative;
@@ -72,6 +112,7 @@ body {
   gap: 1.25rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.brand-copy h1`. These values affect readability and vertical space on slides. */
 .brand-copy h1 {
   font-family: "Audiowide", sans-serif;
   margin: 0.1rem 0;
@@ -80,6 +121,7 @@ body {
   line-height: 0.95;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.eyebrow`. Search the HTML for these class/id names before changing a shared rule. */
 .eyebrow {
   margin: 0;
   color: var(--red);
@@ -88,18 +130,22 @@ body {
   letter-spacing: 0.08em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.small-eyebrow`. Search the HTML for these class/id names before changing a shared rule. */
 .small-eyebrow {
   font-size: 0.72rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.muted`. Search the HTML for these class/id names before changing a shared rule. */
 .muted {
   color: var(--gray);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.small`. Search the HTML for these class/id names before changing a shared rule. */
 .small {
   font-size: 0.9rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.logo-panel`. Search the HTML for these class/id names before changing a shared rule. */
 .logo-panel {
   min-width: 190px;
   min-height: 120px;
@@ -112,6 +158,7 @@ body {
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.text-logo span`. Search the HTML for these class/id names before changing a shared rule. */
 .text-logo span {
   display: block;
   font-size: 2.5rem;
@@ -119,12 +166,14 @@ body {
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.text-logo strong`. Search the HTML for these class/id names before changing a shared rule. */
 .text-logo strong {
   display: block;
   font-size: 1.25rem;
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.hero-action-row`. Search the HTML for these class/id names before changing a shared rule. */
 .hero-action-row {
   position: relative;
   margin-top: 1rem;
@@ -134,32 +183,38 @@ body {
   gap: 1rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.loading-bar`. Search the HTML for these class/id names before changing a shared rule. */
 .loading-bar {
   height: 12px;
   flex: 1;
   background: linear-gradient(90deg, var(--red) 0 55%, var(--black) 55% 78%, var(--gray) 78% 100%);
 }
 
+/* STUDENT NOTE: Button styling for `.button-row`. Keep hover/selected/correct states visually consistent with the base button. */
 .button-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
 }
 
+/* STUDENT NOTE: Layout rule for `.grid, .report-grid`. Grid properties here control columns, gaps, and alignment. */
 .grid,
 .report-grid {
   display: grid;
   gap: 1.1rem;
 }
 
+/* STUDENT NOTE: Layout rule for `.single-grid`. Grid properties here control columns, gaps, and alignment. */
 .single-grid {
   grid-template-columns: 1fr;
 }
 
+/* STUDENT NOTE: Layout rule for `.compact-report-grid`. Grid properties here control columns, gaps, and alignment. */
 .compact-report-grid {
   grid-template-columns: 1fr;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.card`. Search the HTML for these class/id names before changing a shared rule. */
 .card {
   background: var(--white);
   border-left: 8px solid var(--red);
@@ -167,10 +222,12 @@ body {
   padding: 1.2rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.full-width-card`. Search the HTML for these class/id names before changing a shared rule. */
 .full-width-card {
   grid-column: 1 / -1;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.section-heading`. Search the HTML for these class/id names before changing a shared rule. */
 .section-heading {
   display: flex;
   align-items: flex-start;
@@ -178,10 +235,12 @@ body {
   margin-bottom: 1rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.compact-heading`. Search the HTML for these class/id names before changing a shared rule. */
 .compact-heading {
   margin-bottom: 0.7rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.corner-mark`. Search the HTML for these class/id names before changing a shared rule. */
 .corner-mark {
   width: 16px;
   height: 42px;
@@ -190,16 +249,19 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 72%, 0 100%);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `h2`. These values affect readability and vertical space on slides. */
 h2 {
   margin: 0;
   font-size: 1.65rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `form`. Search the HTML for these class/id names before changing a shared rule. */
 form {
   display: grid;
   gap: 0.9rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `label, legend`. Search the HTML for these class/id names before changing a shared rule. */
 label,
 legend {
   display: grid;
@@ -207,6 +269,7 @@ legend {
   font-weight: 800;
 }
 
+/* STUDENT NOTE: Styles elements matched by `input, textarea`. Search the HTML for these class/id names before changing a shared rule. */
 input,
 textarea {
   width: 100%;
@@ -217,21 +280,25 @@ textarea {
   background: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `textarea`. Search the HTML for these class/id names before changing a shared rule. */
 textarea {
   resize: vertical;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.two-col`. Search the HTML for these class/id names before changing a shared rule. */
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.8rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.report-type-box`. Search the HTML for these class/id names before changing a shared rule. */
 .report-type-box {
   border: 2px solid var(--black);
   padding: 0.85rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.check-row, .sub-checks label`. Search the HTML for these class/id names before changing a shared rule. */
 .check-row,
 .sub-checks label {
   display: flex;
@@ -240,11 +307,13 @@ textarea {
   font-weight: 600;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.check-row input, .sub-checks input`. Search the HTML for these class/id names before changing a shared rule. */
 .check-row input,
 .sub-checks input {
   width: auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.sub-checks`. Search the HTML for these class/id names before changing a shared rule. */
 .sub-checks {
   display: flex;
   flex-wrap: wrap;
@@ -253,10 +322,12 @@ textarea {
   color: var(--gray);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.required`. Search the HTML for these class/id names before changing a shared rule. */
 .required {
   color: var(--red);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.summary-box, .totals`. Search the HTML for these class/id names before changing a shared rule. */
 .summary-box,
 .totals {
   background: var(--light);
@@ -264,11 +335,13 @@ textarea {
   padding: 0.85rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.warning-box strong`. Search the HTML for these class/id names before changing a shared rule. */
 .warning-box strong {
   display: block;
   margin: 0.2rem 0;
 }
 
+/* STUDENT NOTE: Button styling for `button, .button-link`. Keep hover/selected/correct states visually consistent with the base button. */
 button,
 .button-link {
   display: inline-flex;
@@ -284,11 +357,13 @@ button,
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Button styling for `button.secondary, .button-link.secondary`. Keep hover/selected/correct states visually consistent with the base button. */
 button.secondary,
 .button-link.secondary {
   background: var(--black);
 }
 
+/* STUDENT NOTE: Button styling for `button:hover, button:focus, .button-link:hover, .button-link:focus`. Keep hover/selected/correct states visually consistent with the base button. */
 button:hover,
 button:focus,
 .button-link:hover,
@@ -297,24 +372,29 @@ button:focus,
   outline-offset: 2px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.message`. Search the HTML for these class/id names before changing a shared rule. */
 .message {
   min-height: 1.3rem;
   margin: 0.1rem 0 0;
   font-weight: 800;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.message.success`. Search the HTML for these class/id names before changing a shared rule. */
 .message.success {
   color: var(--success);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.message.error`. Search the HTML for these class/id names before changing a shared rule. */
 .message.error {
   color: var(--danger);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.message.warning`. Search the HTML for these class/id names before changing a shared rule. */
 .message.warning {
   color: var(--warning);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.report-totals, .totals`. Search the HTML for these class/id names before changing a shared rule. */
 .report-totals,
 .totals {
   display: grid;
@@ -322,28 +402,33 @@ button:focus,
   gap: 0.6rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.totals div`. Search the HTML for these class/id names before changing a shared rule. */
 .totals div {
   background: var(--white);
   border-left: 8px solid var(--red);
   padding: 0.75rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.totals span`. Search the HTML for these class/id names before changing a shared rule. */
 .totals span {
   display: block;
   color: var(--gray);
   font-size: 0.86rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.totals strong`. Search the HTML for these class/id names before changing a shared rule. */
 .totals strong {
   display: block;
   font-size: 1.7rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reports-list`. Search the HTML for these class/id names before changing a shared rule. */
 .reports-list {
   display: grid;
   gap: 1rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.report-card`. Search the HTML for these class/id names before changing a shared rule. */
 .report-card {
   background: var(--light);
   border: 2px solid var(--black);
@@ -351,6 +436,7 @@ button:focus,
   padding: 1rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.report-card header`. Search the HTML for these class/id names before changing a shared rule. */
 .report-card header {
   display: flex;
   justify-content: space-between;
@@ -360,6 +446,7 @@ button:focus,
   margin-bottom: 0.8rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.report-pill`. Search the HTML for these class/id names before changing a shared rule. */
 .report-pill {
   align-self: flex-start;
   background: var(--black);
@@ -370,6 +457,7 @@ button:focus,
   font-weight: 800;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.report-card dl`. Search the HTML for these class/id names before changing a shared rule. */
 .report-card dl {
   display: grid;
   grid-template-columns: 180px 1fr;
@@ -377,25 +465,31 @@ button:focus,
   margin: 0;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.report-card dt`. Search the HTML for these class/id names before changing a shared rule. */
 .report-card dt {
   font-weight: 800;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.report-card dd`. Search the HTML for these class/id names before changing a shared rule. */
 .report-card dd {
   margin: 0;
   white-space: pre-wrap;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.empty`. Search the HTML for these class/id names before changing a shared rule. */
 .empty {
   color: var(--gray);
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `#hiddenSubmitFrame`. Search the HTML for these class/id names before changing a shared rule. */
 #hiddenSubmitFrame {
   display: none;
 }
 
+/* STUDENT NOTE: Responsive breakpoint. Rules inside this block apply only when the screen matches this condition. */
 @media (max-width: 800px) {
+  /* STUDENT NOTE: Styles elements matched by `.brand-content, .hero-action-row, .report-card header`. Search the HTML for these class/id names before changing a shared rule. */
   .brand-content,
   .hero-action-row,
   .report-card header {
@@ -403,20 +497,24 @@ button:focus,
     align-items: stretch;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.logo-panel`. Search the HTML for these class/id names before changing a shared rule. */
   .logo-panel {
     min-width: 0;
     min-height: 90px;
   }
 
+  /* STUDENT NOTE: Styles elements matched by `.two-col, .report-totals, .totals, .report-card dl`. Search the HTML for these class/id names before changing a shared rule. */
   .two-col,
   .report-totals,
   .totals,
   .report-card dl {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Styles elements matched by `} .team-logo`. Search the HTML for these class/id names before changing a shared rule. */
 }
 
 .team-logo {
+  /* STUDENT NOTE: Styles elements matched by `height: 200px; width: auto; object-fit: contain; display: block; } #pageTitle`. Search the HTML for these class/id names before changing a shared rule. */
   height: 200px;
   width: auto;
   object-fit: contain;

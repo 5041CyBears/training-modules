@@ -1,4 +1,39 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: FRC-trainings/modules/web-design-basics-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
 /* 5041 Web Design Basics module additions */
+/* STUDENT NOTE: Styles elements matched by `.web-hero .web-hero-subtitle`. Search the HTML for these class/id names before changing a shared rule. */
 .web-hero .web-hero-subtitle {
   max-width: 880px;
   margin: 1rem auto 0;
@@ -7,6 +42,7 @@
   font-family: "Droid Serif", Georgia, serif;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.web-slide h2, .web-vertical h2, .web-quiz h2`. These values affect readability and vertical space on slides. */
 .web-slide h2,
 .web-vertical h2,
 .web-quiz h2 {
@@ -14,6 +50,7 @@
   margin-bottom: 0.45rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-intro`. Search the HTML for these class/id names before changing a shared rule. */
 .web-intro {
   max-width: 950px;
   margin: 0 auto 0.8rem;
@@ -21,6 +58,7 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Layout rule for `.web-grid-2, .web-grid-3, .web-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .web-grid-2,
 .web-grid-3,
 .web-grid-4 {
@@ -31,10 +69,14 @@
   align-items: start;
 }
 
+/* STUDENT NOTE: Layout rule for `.web-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .web-grid-2 { grid-template-columns: 1fr 1fr; }
+/* STUDENT NOTE: Layout rule for `.web-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .web-grid-3 { grid-template-columns: repeat(3, 1fr); }
+/* STUDENT NOTE: Layout rule for `.web-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .web-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
+/* STUDENT NOTE: Styles elements matched by `.web-split`. Search the HTML for these class/id names before changing a shared rule. */
 .web-split {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
@@ -44,10 +86,12 @@
   align-items: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-split.reverse`. Search the HTML for these class/id names before changing a shared rule. */
 .web-split.reverse {
   grid-template-columns: 1.15fr 1fr;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-card, .web-code-card, .layout-playground-card, .web-preview-panel, .web-editor-panel`. Search the HTML for these class/id names before changing a shared rule. */
 .web-card,
 .web-code-card,
 .layout-playground-card,
@@ -61,11 +105,13 @@
   height: fit-content;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
 .web-card.dark {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.web-card.dark h3, .web-card.dark p, .web-card.dark li, .web-card.dark code, .web-card.dark summary`. These values affect readability and vertical space on slides. */
 .web-card.dark h3,
 .web-card.dark p,
 .web-card.dark li,
@@ -74,6 +120,7 @@
   color: var(--white);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.web-card h3, .web-code-card h3, .web-editor-panel h3, .web-preview-panel h3, .layout-playground-card h3`. These values affect readability and vertical space on slides. */
 .web-card h3,
 .web-code-card h3,
 .web-editor-panel h3,
@@ -83,6 +130,7 @@
   font-size: 0.72em;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.web-card p, .web-card li, .web-code-card p, .layout-playground-card p`. These values affect readability and vertical space on slides. */
 .web-card p,
 .web-card li,
 .web-code-card p,
@@ -91,21 +139,25 @@
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.web-card p`. These values affect readability and vertical space on slides. */
 .web-card p {
   margin: 0 0 0.45rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-card ul, .web-card ol`. Search the HTML for these class/id names before changing a shared rule. */
 .web-card ul,
 .web-card ol {
   margin: 0.2rem 0 0;
   padding-left: 1.1em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-large-card`. Search the HTML for these class/id names before changing a shared rule. */
 .web-large-card {
   max-width: 950px;
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .web-callout {
   max-width: var(--shared-slide-width, 1120px);
   margin: 0.8rem auto 0;
@@ -116,12 +168,14 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.web-callout p`. These values affect readability and vertical space on slides. */
 .web-callout p {
   margin: 0;
   font-size: 0.54em;
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Image styling for `.web-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 .web-img {
   display: block;
   max-width: 100%;
@@ -132,17 +186,20 @@
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-code-card`. Search the HTML for these class/id names before changing a shared rule. */
 .web-code-card {
   background: var(--black);
   color: var(--white);
   overflow: auto;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.web-code-card pre`. These values affect readability and vertical space on slides. */
 .web-code-card pre {
   margin: 0;
   width: 100%;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-code-card code, .web-copy-code-block code`. Search the HTML for these class/id names before changing a shared rule. */
 .web-code-card code,
 .web-copy-code-block code {
   color: var(--white);
@@ -152,17 +209,20 @@
   white-space: pre-wrap;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-code-inline`. Search the HTML for these class/id names before changing a shared rule. */
 .web-code-inline {
   max-width: 950px;
   margin: 0.75rem auto 0;
   text-align: center;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.text-red`. Search the HTML for these class/id names before changing a shared rule. */
 .text-red {
   color: var(--red);
   font-weight: 700;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-resource-links`. Search the HTML for these class/id names before changing a shared rule. */
 .web-resource-links {
   display: flex;
   justify-content: center;
@@ -172,6 +232,7 @@
   margin: 0.8rem auto 0;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-resource-links a`. Search the HTML for these class/id names before changing a shared rule. */
 .web-resource-links a {
   display: inline-block;
   background: var(--red);
@@ -184,12 +245,14 @@
   border-radius: 6px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-resource-links a:hover, .web-resource-links a:focus`. Search the HTML for these class/id names before changing a shared rule. */
 .web-resource-links a:hover,
 .web-resource-links a:focus {
   background: var(--black);
   color: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-playground`. Search the HTML for these class/id names before changing a shared rule. */
 .web-playground {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -198,6 +261,7 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-editor-panel textarea, .layout-playground-card textarea`. Search the HTML for these class/id names before changing a shared rule. */
 .web-editor-panel textarea,
 .layout-playground-card textarea {
   display: block;
@@ -214,6 +278,7 @@
   background: var(--white);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.html-preview, .layout-preview`. Search the HTML for these class/id names before changing a shared rule. */
 .html-preview,
 .layout-preview {
   width: 100%;
@@ -223,6 +288,7 @@
   border-radius: 6px;
 }
 
+/* STUDENT NOTE: Button styling for `.web-tool-buttons`. Keep hover/selected/correct states visually consistent with the base button. */
 .web-tool-buttons {
   display: flex;
   justify-content: center;
@@ -230,6 +296,7 @@
   margin-top: 0.5rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.layout-playground-columns`. Search the HTML for these class/id names before changing a shared rule. */
 .layout-playground-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -238,15 +305,18 @@
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.layout-playground-card textarea`. Search the HTML for these class/id names before changing a shared rule. */
 .layout-playground-card textarea {
   height: 205px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.layout-preview`. Search the HTML for these class/id names before changing a shared rule. */
 .layout-preview {
   height: 150px;
   margin-top: 0.45rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.web-copy-code-block`. Search the HTML for these class/id names before changing a shared rule. */
 .web-copy-code-block {
   position: relative;
   max-width: 1000px;
@@ -259,12 +329,14 @@
   text-align: left;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.web-copy-code-block pre`. These values affect readability and vertical space on slides. */
 .web-copy-code-block pre {
   margin: 0;
   max-height: 465px;
   overflow: auto;
 }
 
+/* STUDENT NOTE: Button styling for `.copy-code-button`. Keep hover/selected/correct states visually consistent with the base button. */
 .copy-code-button {
   position: absolute;
   top: 0.45rem;
@@ -280,6 +352,7 @@
   cursor: pointer;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.solution-box summary`. Search the HTML for these class/id names before changing a shared rule. */
 .solution-box summary {
   cursor: pointer;
   font-family: "Droid Sans", Arial, sans-serif;
@@ -288,15 +361,19 @@
   margin-bottom: 0.35rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.solution-box pre`. These values affect readability and vertical space on slides. */
 .solution-box pre {
   overflow: auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.compact-cards .web-card`. Search the HTML for these class/id names before changing a shared rule. */
 .compact-cards .web-card {
   min-height: 120px;
 }
 
+/* STUDENT NOTE: Responsive breakpoint. Rules inside this block apply only when the screen matches this condition. */
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.reveal .web-grid-2, .reveal .web-grid-3, .reveal .web-grid-4, .reveal .web-split, .reveal .web-split.reverse, .reveal .web-playground, .reveal .layout-playground-columns`. Grid properties here control columns, gaps, and alignment. */
   .reveal .web-grid-2,
   .reveal .web-grid-3,
   .reveal .web-grid-4,
@@ -306,6 +383,7 @@
   .reveal .layout-playground-columns {
     grid-template-columns: 1fr;
   }
+/* STUDENT NOTE: Image styling for `} .reveal img.web-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
 }
 
 .reveal img.web-img {

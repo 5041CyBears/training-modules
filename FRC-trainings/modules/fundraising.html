@@ -1,5 +1,44 @@
+<!-- 5041 Training Hub page: FRC-trainings/modules/fundraising.html
+     Cleaned export: shared assets/CSS/JS references are centralized where possible. -->
 <!doctype html>
+<!-- ============================================================================
+STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB
+
+This file is intentionally commented for students who will build, edit, and extend
+training modules and resource pages.
+
+HOW TO READ THIS HTML
+1. HTML controls CONTENT and STRUCTURE: headings, paragraphs, images, buttons,
+   links, forms, and Reveal.js slides.
+2. CSS controls APPEARANCE: colors, spacing, sizing, grids, fonts, and responsive
+   layout. Look at the class="..." values here, then search for those class names
+   in the linked CSS files.
+3. JavaScript controls BEHAVIOR: quizzes, click-to-reveal cards, drag-and-drop,
+   calculators, certificates, form actions, and other interactions. Interactive
+   elements often connect to JavaScript through classes, ids, data-* attributes,
+   or onclick="..." handlers.
+4. In Reveal.js, each <section> is a slide. A <section> nested inside another
+   <section> is a VERTICAL slide. Sibling top-level <section> elements move
+   horizontally.
+5. Relative file paths matter. For example, "../../shared/assets/..." means go up
+   two folders, then enter shared/assets. If a page moves folders, its paths may
+   need to change.
+6. Prefer reusing existing shared classes, scripts, and assets before creating a
+   duplicate. This keeps the training hub consistent and easier to maintain.
+7. When creating a new module, copy a similar working module first, rename its
+   module-specific classes/functions, then change content one section at a time.
+
+SAFE EDITING WORKFLOW
+- Change one thing at a time and refresh/test after each change.
+- Keep closing tags paired with opening tags.
+- Keep class names exactly matched between HTML and CSS/JavaScript.
+- Keep ids unique on a page.
+- Do not remove data-* attributes from interactive elements unless you also update
+  the JavaScript that reads them.
+- Open the browser Developer Tools Console when an interaction stops working.
+============================================================================ -->
 <html lang="en">
+  <!-- STUDENT NOTE: <head> contains page metadata and links to CSS/fonts/libraries. It is not visible slide content. -->
   <head>
     <meta charset="utf-8" />
     <meta
@@ -16,21 +55,29 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
     />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: https://fonts.googleapis.com. Link order matters because later CSS can override earlier CSS. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: https://fonts.gstatic.com. Link order matters because later CSS can override earlier CSS. -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Audiowide&family=Droid+Sans:wght@400;700&family=Droid+Serif:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: ../../shared/css/styles.css. Link order matters because later CSS can override earlier CSS. -->
+    <link rel="stylesheet" href="../../shared/css/styles.css" />
+    <!-- STUDENT NOTE: Loads a stylesheet/font resource: fundraising-additions.css. Link order matters because later CSS can override earlier CSS. -->
     <link rel="stylesheet" href="fundraising-additions.css" />
   </head>
 
+  <!-- STUDENT NOTE: Visible page content begins in <body>. Reveal.js presentation markup is usually inside .reveal > .slides. -->
   <body>
+    <!-- STUDENT NOTE: Reveal.js presentation wrapper. Reveal expects a .reveal element containing a .slides element. -->
     <div class="reveal">
+      <!-- STUDENT NOTE: Every direct child <section> of .slides is a horizontal slide or a vertical slide stack. -->
       <div class="slides">
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section
-          data-background-image="assets/5041teamlogo.png"
+          data-background-image="../../shared/assets/5041teamlogo.png"
           data-background-size="contain"
           data-background-opacity="0.10"
           class="center fundraising-hero"
@@ -38,6 +85,7 @@
           <h1 class="cytitle">Fundraising & Sponsor Engagement</h1>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: fundraising-slide. -->
         <section class="fundraising-slide">
           <span class="tag">Module Goals</span>
           <h2>By the end, students should be able to:</h2>
@@ -52,7 +100,9 @@
           </ul>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Why It Matters</span>
             <h2>Fundraising keeps the program open, prepared, and growing</h2>
@@ -75,6 +125,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">FIRST Resources</span>
             <h2>Good fundraising has a plan, an ask, and a thank you</h2>
@@ -92,7 +143,9 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Student Engagement</span>
             <h2>Every student can help fundraising succeed</h2>
@@ -106,6 +159,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical role-review-slide. -->
           <section class="fundraising-vertical role-review-slide">
             <span class="tag">Participation Check</span>
             <h2>Click the roles you could help with this season</h2>
@@ -123,7 +177,9 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Sponsors</span>
             <h2>A sponsor conversation is a relationship, not a script</h2>
@@ -139,6 +195,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Sponsor Conversations</span>
             <h2>What potential sponsors need to hear</h2>
@@ -159,6 +216,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical sponsor-sort-slide; interactive slide; keep its classes/data-* attributes synchronized with JavaScript. -->
           <section class="fundraising-vertical sponsor-sort-slide">
             <span class="tag">Check for Understanding</span>
             <h2>Sort each sponsor action</h2>
@@ -186,7 +244,9 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Sales Campaigns</span>
             <h2>Honey Den candy sales are practice for real communication</h2>
@@ -200,6 +260,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Sales Skills</span>
             <h2>A good sales interaction is short, respectful, and specific</h2>
@@ -212,6 +273,7 @@
             </div>
           </section>
 
+<!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical sales-scenario-slide; interactive slide; keep its classes/data-* attributes synchronized with JavaScript. -->
 <section class="fundraising-vertical sales-scenario-slide">
   <span class="tag">Check for Learning</span>
   <h2>Choose the strongest sales response</h2>
@@ -242,7 +304,9 @@
 </section>
 </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
         <section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Combination Events</span>
             <h2>Some events fundraise, recruit, and do outreach at the same time</h2>
@@ -254,6 +318,7 @@
             <div class="fundraising-callout"><p>Examples include robot demonstrations at community events, Hoover Days activities, STEM camps, fairs, school nights, and sponsor open houses.</p></div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Event Planning</span>
             <h2>Design events with clear student jobs</h2>
@@ -279,6 +344,7 @@
             </div>
           </section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: fundraising-vertical. -->
           <section class="fundraising-vertical">
             <span class="tag">Why Participation Matters</span>
             <h2>Fundraising is a team responsibility</h2>
@@ -296,6 +362,7 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: center fundraising-slide; id: quiz-intro. -->
         <section id="quiz-intro" class="center fundraising-slide">
           <span class="tag">Required Quiz</span>
           <h2>Pass to complete the module</h2>
@@ -304,7 +371,9 @@
           <div class="stripe"></div>
         </section>
         
+<!-- STUDENT NOTE: Horizontal Reveal.js slide. Duplicate this section as a starting point for another slide. -->
 <section>
+        <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: center name-entry-slide fundraising-slide; id: quiz-name. -->
         <section class="center name-entry-slide fundraising-slide" id="quiz-name">
           <span class="tag">Before the Quiz</span>
           <h2>Enter your name</h2>
@@ -314,27 +383,48 @@
         </section>
 
         
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q1; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q1"><span class="tag">Quiz Question 1</span><div class="progress-note">1 of 20</div><div class="quiz-card"><p>Why is fundraising important for an FRC team?</p><label><input type="radio" name="q1" value="a" /> It replaces the need to learn robot skills.</label><label><input type="radio" name="q1" value="b" /> It supports access, materials, travel, registration, outreach, and sustainability.</label><label><input type="radio" name="q1" value="c" /> It only matters after competition season.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q2; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q2"><span class="tag">Quiz Question 2</span><div class="progress-note">2 of 20</div><div class="quiz-card"><p>What is the best first step before asking for support?</p><label><input type="radio" name="q2" value="a" /> Know the team need and the impact of support.</label><label><input type="radio" name="q2" value="b" /> Ask for the largest possible amount with no context.</label><label><input type="radio" name="q2" value="c" /> Avoid telling students what the money is for.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q3; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q3"><span class="tag">Quiz Question 3</span><div class="progress-note">3 of 20</div><div class="quiz-card"><p>Which student can help with fundraising?</p><label><input type="radio" name="q3" value="a" /> Only team captains.</label><label><input type="radio" name="q3" value="b" /> Only students on awards.</label><label><input type="radio" name="q3" value="c" /> Any student with a role that supports the effort.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q4; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q4"><span class="tag">Quiz Question 4</span><div class="progress-note">4 of 20</div><div class="quiz-card"><p>What should a sponsor conversation focus on?</p><label><input type="radio" name="q4" value="a" /> Student impact and a clear next step.</label><label><input type="radio" name="q4" value="b" /> Making the sponsor feel guilty.</label><label><input type="radio" name="q4" value="c" /> Using as many technical terms as possible.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q5; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q5"><span class="tag">Quiz Question 5</span><div class="progress-note">5 of 20</div><div class="quiz-card"><p>Which is the best example of a clear ask?</p><label><input type="radio" name="q5" value="a" /> “Do something for us.”</label><label><input type="radio" name="q5" value="b" /> “Would you consider sponsoring 5041 or supporting us with materials, tools, or a donation?”</label><label><input type="radio" name="q5" value="c" /> “You should already know what we need.”</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q6; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q6"><span class="tag">Quiz Question 6</span><div class="progress-note">6 of 20</div><div class="quiz-card"><p>If a potential sponsor says no, students should:</p><label><input type="radio" name="q6" value="a" /> Argue until they change their mind.</label><label><input type="radio" name="q6" value="b" /> Thank them respectfully and leave the door open for future contact.</label><label><input type="radio" name="q6" value="c" /> Complain publicly.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q7; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q7"><span class="tag">Quiz Question 7</span><div class="progress-note">7 of 20</div><div class="quiz-card"><p>Why is follow-up important?</p><label><input type="radio" name="q7" value="a" /> It helps maintain trust and keeps sponsor relationships alive.</label><label><input type="radio" name="q7" value="b" /> It is only needed if the sponsor gives a lot.</label><label><input type="radio" name="q7" value="c" /> It replaces the need for thank-you notes.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q8; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q8"><span class="tag">Quiz Question 8</span><div class="progress-note">8 of 20</div><div class="quiz-card"><p>What makes a student story powerful in fundraising?</p><label><input type="radio" name="q8" value="a" /> It is honest, specific, and connected to learning or growth.</label><label><input type="radio" name="q8" value="b" /> It exaggerates the team’s accomplishments.</label><label><input type="radio" name="q8" value="c" /> It avoids mentioning students.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q9; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q9"><span class="tag">Quiz Question 9</span><div class="progress-note">9 of 20</div><div class="quiz-card"><p>In a candy sale, what should students know?</p><label><input type="radio" name="q9" value="a" /> Only how to take the money.</label><label><input type="radio" name="q9" value="b" /> The product, cost, purpose, and how to handle orders or money accurately.</label><label><input type="radio" name="q9" value="c" /> Nothing; guessing is fine.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q10; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q10"><span class="tag">Quiz Question 10</span><div class="progress-note">10 of 20</div><div class="quiz-card"><p>What is a respectful response when someone does not want to buy candy?</p><label><input type="radio" name="q10" value="a" /> Pressure them until they buy.</label><label><input type="radio" name="q10" value="b" /> Thank them and offer another way to learn about or support the team.</label><label><input type="radio" name="q10" value="c" /> Tell them they are hurting the team.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q11; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q11"><span class="tag">Quiz Question 11</span><div class="progress-note">11 of 20</div><div class="quiz-card"><p>What skill connects sponsor talks and sales campaigns?</p><label><input type="radio" name="q11" value="a" /> Clear, respectful communication.</label><label><input type="radio" name="q11" value="b" /> Talking over people.</label><label><input type="radio" name="q11" value="c" /> Avoiding eye contact and details.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q12; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q12"><span class="tag">Quiz Question 12</span><div class="progress-note">12 of 20</div><div class="quiz-card"><p>Which is an example of a combination event?</p><label><input type="radio" name="q12" value="a" /> A robot demo that also recruits students and collects donations.</label><label><input type="radio" name="q12" value="b" /> A private meeting where no one knows the goal.</label><label><input type="radio" name="q12" value="c" /> A fundraiser with no student roles.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q13; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q13"><span class="tag">Quiz Question 13</span><div class="progress-note">13 of 20</div><div class="quiz-card"><p>What should be assigned before a fundraising event?</p><label><input type="radio" name="q13" value="a" /> Clear student roles, shifts, supplies, and talking points.</label><label><input type="radio" name="q13" value="b" /> Nothing; students can figure it out at the event.</label><label><input type="radio" name="q13" value="c" /> Only one person should know the plan.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q14; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q14"><span class="tag">Quiz Question 14</span><div class="progress-note">14 of 20</div><div class="quiz-card"><p>Why should technical students participate in fundraising?</p><label><input type="radio" name="q14" value="a" /> They benefit from the funded tools, parts, travel, and events.</label><label><input type="radio" name="q14" value="b" /> They should not; fundraising is unrelated to robots.</label><label><input type="radio" name="q14" value="c" /> Only if they are not busy during build season.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q15; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q15"><span class="tag">Quiz Question 15</span><div class="progress-note">15 of 20</div><div class="quiz-card"><p>Which is a good post-event habit?</p><label><input type="radio" name="q15" value="a" /> Ignore contacts after the event.</label><label><input type="radio" name="q15" value="b" /> Record contacts, count money, thank supporters, and debrief improvements.</label><label><input type="radio" name="q15" value="c" /> Throw away notes so no one has to follow up.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q16; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q16"><span class="tag">Quiz Question 16</span><div class="progress-note">16 of 20</div><div class="quiz-card"><p>What is resource mapping?</p><label><input type="radio" name="q16" value="a" /> Listing possible supporters, connections, materials, venues, and community partners.</label><label><input type="radio" name="q16" value="b" /> Drawing a robot wiring diagram.</label><label><input type="radio" name="q16" value="c" /> Only looking for national grants.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q17; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q17"><span class="tag">Quiz Question 17</span><div class="progress-note">17 of 20</div><div class="quiz-card"><p>What should students avoid promising sponsors?</p><label><input type="radio" name="q17" value="a" /> Things the team cannot realistically deliver.</label><label><input type="radio" name="q17" value="b" /> A sincere thank you.</label><label><input type="radio" name="q17" value="c" /> A follow-up message.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q18; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q18"><span class="tag">Quiz Question 18</span><div class="progress-note">18 of 20</div><div class="quiz-card"><p>How can fundraising support recruitment?</p><label><input type="radio" name="q18" value="a" /> By giving students public roles that show families what robotics offers.</label><label><input type="radio" name="q18" value="b" /> By keeping robotics hidden from the community.</label><label><input type="radio" name="q18" value="c" /> By avoiding all robot demonstrations.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q19; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q19"><span class="tag">Quiz Question 19</span><div class="progress-note">19 of 20</div><div class="quiz-card"><p>Which action builds long-term sponsor relations?</p><label><input type="radio" name="q19" value="a" /> Contacting sponsors only when money is urgently needed.</label><label><input type="radio" name="q19" value="b" /> Updating sponsors, thanking them, and showing how their support helped students.</label><label><input type="radio" name="q19" value="c" /> Sending vague messages with no team information.</label></div></section>
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: quiz-slide fundraising-quiz; id: quiz-q20; quiz content; answer inputs are usually graded by the module JavaScript. -->
           <section class="quiz-slide fundraising-quiz" id="quiz-q20"><span class="tag">Quiz Question 20</span><div class="progress-note">20 of 20</div><div class="quiz-card"><p>What is the best summary of this module?</p><label><input type="radio" name="q20" value="a" /> Fundraising is outreach, communication, and sustainability work that all students can support.</label><label><input type="radio" name="q20" value="b" /> Fundraising should be hidden from students.</label><label><input type="radio" name="q20" value="c" /> Sales and sponsor talks use completely unrelated skills.</label></div></section>
 
+          <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: center fundraising-slide; id: quiz-results. -->
           <section id="quiz-results" class="center fundraising-slide">
             <span class="tag">Quiz Results</span>
             <h2>Grade the quiz</h2>
@@ -348,6 +438,7 @@
           </section>
         </section>
 
+        <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: center certificate-slide locked; id: complete. -->
         <section id="complete" class="center certificate-slide locked">
           <div class="certificate-card">
             <div class="certificate-border">
@@ -369,9 +460,13 @@
       </div>
     </div>
 
+    <!-- STUDENT NOTE: Loads JavaScript from https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js. Scripts near the end of <body> run after most HTML has been parsed. -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <!-- STUDENT NOTE: Loads JavaScript from https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js. Scripts near the end of <body> run after most HTML has been parsed. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- STUDENT NOTE: Loads JavaScript from https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js. Scripts near the end of <body> run after most HTML has been parsed. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- STUDENT NOTE: Loads JavaScript from fundraising.js. Scripts near the end of <body> run after most HTML has been parsed. -->
     <script src="fundraising.js"></script>
   </body>
 </html>

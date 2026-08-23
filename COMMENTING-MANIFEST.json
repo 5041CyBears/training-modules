@@ -1,0 +1,450 @@
+{
+  "summary": {
+    "html_files": 27,
+    "html_educational_comment_blocks": 1210,
+    "css_files": 28,
+    "css_educational_comment_blocks": 3260,
+    "js_files": 32,
+    "js_educational_comment_blocks": 896,
+    "total_code_files": 87,
+    "total_educational_comment_blocks": 5366,
+    "validation": "All 87 original HTML/CSS/JS files matched byte-for-byte after removing only the newly inserted student comments; no functional code or styling declarations were changed."
+  },
+  "files": [
+    {
+      "file": "FRC-trainings/frc-trainings.html",
+      "type": "html",
+      "educational_comment_blocks": 17
+    },
+    {
+      "file": "FRC-trainings/modules/electronics.html",
+      "type": "html",
+      "educational_comment_blocks": 87
+    },
+    {
+      "file": "FRC-trainings/modules/frc-introduction.html",
+      "type": "html",
+      "educational_comment_blocks": 54
+    },
+    {
+      "file": "FRC-trainings/modules/fundraising.html",
+      "type": "html",
+      "educational_comment_blocks": 58
+    },
+    {
+      "file": "FRC-trainings/modules/gearing.html",
+      "type": "html",
+      "educational_comment_blocks": 75
+    },
+    {
+      "file": "FRC-trainings/modules/general-robot-design.html",
+      "type": "html",
+      "educational_comment_blocks": 78
+    },
+    {
+      "file": "FRC-trainings/modules/inclusion.html",
+      "type": "html",
+      "educational_comment_blocks": 60
+    },
+    {
+      "file": "FRC-trainings/modules/judging.html",
+      "type": "html",
+      "educational_comment_blocks": 65
+    },
+    {
+      "file": "FRC-trainings/modules/media.html",
+      "type": "html",
+      "educational_comment_blocks": 70
+    },
+    {
+      "file": "FRC-trainings/modules/motors.html",
+      "type": "html",
+      "educational_comment_blocks": 63
+    },
+    {
+      "file": "FRC-trainings/modules/roar-admin.html",
+      "type": "html",
+      "educational_comment_blocks": 14
+    },
+    {
+      "file": "FRC-trainings/modules/roar-report-form.html",
+      "type": "html",
+      "educational_comment_blocks": 11
+    },
+    {
+      "file": "FRC-trainings/modules/safety.html",
+      "type": "html",
+      "educational_comment_blocks": 71
+    },
+    {
+      "file": "FRC-trainings/modules/web-design-basics.html",
+      "type": "html",
+      "educational_comment_blocks": 74
+    },
+    {
+      "file": "FRC-trainings/roar-admin.html",
+      "type": "html",
+      "educational_comment_blocks": 14
+    },
+    {
+      "file": "FRC-trainings/roar-report-form.html",
+      "type": "html",
+      "educational_comment_blocks": 11
+    },
+    {
+      "file": "FTC-training/ftc-resources.html",
+      "type": "html",
+      "educational_comment_blocks": 18
+    },
+    {
+      "file": "FTC-training/ftc-trainings.html",
+      "type": "html",
+      "educational_comment_blocks": 17
+    },
+    {
+      "file": "FTC-training/modules/ftc-drivetrain.html",
+      "type": "html",
+      "educational_comment_blocks": 74
+    },
+    {
+      "file": "FTC-training/modules/ftc-foundations.html",
+      "type": "html",
+      "educational_comment_blocks": 56
+    },
+    {
+      "file": "FTC-training/modules/inclusion.html",
+      "type": "html",
+      "educational_comment_blocks": 60
+    },
+    {
+      "file": "FTC-training/modules/safety.html",
+      "type": "html",
+      "educational_comment_blocks": 71
+    },
+    {
+      "file": "frc-resources.html",
+      "type": "html",
+      "educational_comment_blocks": 27
+    },
+    {
+      "file": "ftc-resources.html",
+      "type": "html",
+      "educational_comment_blocks": 30
+    },
+    {
+      "file": "index.html",
+      "type": "html",
+      "educational_comment_blocks": 10
+    },
+    {
+      "file": "roar-admin.html",
+      "type": "html",
+      "educational_comment_blocks": 14
+    },
+    {
+      "file": "roar-report-form.html",
+      "type": "html",
+      "educational_comment_blocks": 11
+    },
+    {
+      "file": "FRC-trainings/modules/electronics-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 264
+    },
+    {
+      "file": "FRC-trainings/modules/frc-introduction-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 58
+    },
+    {
+      "file": "FRC-trainings/modules/fundraising-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 76
+    },
+    {
+      "file": "FRC-trainings/modules/gearing-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 117
+    },
+    {
+      "file": "FRC-trainings/modules/inclusion-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 100
+    },
+    {
+      "file": "FRC-trainings/modules/judging-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 87
+    },
+    {
+      "file": "FRC-trainings/modules/media-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 87
+    },
+    {
+      "file": "FRC-trainings/modules/motors-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 97
+    },
+    {
+      "file": "FRC-trainings/modules/roar-styles.css",
+      "type": "css",
+      "educational_comment_blocks": 68
+    },
+    {
+      "file": "FRC-trainings/modules/safety-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 119
+    },
+    {
+      "file": "FRC-trainings/modules/styles.css",
+      "type": "css",
+      "educational_comment_blocks": 204
+    },
+    {
+      "file": "FRC-trainings/modules/web-design-basics-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 45
+    },
+    {
+      "file": "FRC-trainings/roar-styles.css",
+      "type": "css",
+      "educational_comment_blocks": 68
+    },
+    {
+      "file": "FRC-trainings/styles.css",
+      "type": "css",
+      "educational_comment_blocks": 204
+    },
+    {
+      "file": "FTC-training/ftc-training.css",
+      "type": "css",
+      "educational_comment_blocks": 91
+    },
+    {
+      "file": "FTC-training/modules/ftc-drivetrains.css",
+      "type": "css",
+      "educational_comment_blocks": 70
+    },
+    {
+      "file": "FTC-training/modules/ftc-foundations-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 54
+    },
+    {
+      "file": "FTC-training/modules/inclusion-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 78
+    },
+    {
+      "file": "FTC-training/modules/safety-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 119
+    },
+    {
+      "file": "FTC-training/modules/styles.css",
+      "type": "css",
+      "educational_comment_blocks": 205
+    },
+    {
+      "file": "FTC-training/styles.css",
+      "type": "css",
+      "educational_comment_blocks": 204
+    },
+    {
+      "file": "ftc-training.css",
+      "type": "css",
+      "educational_comment_blocks": 91
+    },
+    {
+      "file": "roar-styles.css",
+      "type": "css",
+      "educational_comment_blocks": 68
+    },
+    {
+      "file": "shared/css/ftc-training.css",
+      "type": "css",
+      "educational_comment_blocks": 91
+    },
+    {
+      "file": "shared/css/roar-styles.css",
+      "type": "css",
+      "educational_comment_blocks": 68
+    },
+    {
+      "file": "shared/css/safety-additions.css",
+      "type": "css",
+      "educational_comment_blocks": 119
+    },
+    {
+      "file": "shared/css/styles.css",
+      "type": "css",
+      "educational_comment_blocks": 204
+    },
+    {
+      "file": "styles.css",
+      "type": "css",
+      "educational_comment_blocks": 204
+    },
+    {
+      "file": "FRC-trainings/app.js",
+      "type": "js",
+      "educational_comment_blocks": 15
+    },
+    {
+      "file": "FRC-trainings/config.js",
+      "type": "js",
+      "educational_comment_blocks": 2
+    },
+    {
+      "file": "FRC-trainings/modules/app.js",
+      "type": "js",
+      "educational_comment_blocks": 15
+    },
+    {
+      "file": "FRC-trainings/modules/config.js",
+      "type": "js",
+      "educational_comment_blocks": 2
+    },
+    {
+      "file": "FRC-trainings/modules/electronics.js",
+      "type": "js",
+      "educational_comment_blocks": 51
+    },
+    {
+      "file": "FRC-trainings/modules/frc-introduction.js",
+      "type": "js",
+      "educational_comment_blocks": 57
+    },
+    {
+      "file": "FRC-trainings/modules/fundraising.js",
+      "type": "js",
+      "educational_comment_blocks": 32
+    },
+    {
+      "file": "FRC-trainings/modules/gearing.js",
+      "type": "js",
+      "educational_comment_blocks": 58
+    },
+    {
+      "file": "FRC-trainings/modules/inclusion.js",
+      "type": "js",
+      "educational_comment_blocks": 49
+    },
+    {
+      "file": "FRC-trainings/modules/judging.js",
+      "type": "js",
+      "educational_comment_blocks": 29
+    },
+    {
+      "file": "FRC-trainings/modules/media.js",
+      "type": "js",
+      "educational_comment_blocks": 31
+    },
+    {
+      "file": "FRC-trainings/modules/motors.js",
+      "type": "js",
+      "educational_comment_blocks": 33
+    },
+    {
+      "file": "FRC-trainings/modules/report.js",
+      "type": "js",
+      "educational_comment_blocks": 13
+    },
+    {
+      "file": "FRC-trainings/modules/safety.js",
+      "type": "js",
+      "educational_comment_blocks": 39
+    },
+    {
+      "file": "FRC-trainings/modules/scripts.js",
+      "type": "js",
+      "educational_comment_blocks": 38
+    },
+    {
+      "file": "FRC-trainings/modules/web-design-basics.js",
+      "type": "js",
+      "educational_comment_blocks": 32
+    },
+    {
+      "file": "FRC-trainings/report.js",
+      "type": "js",
+      "educational_comment_blocks": 13
+    },
+    {
+      "file": "FRC-trainings/scripts.js",
+      "type": "js",
+      "educational_comment_blocks": 38
+    },
+    {
+      "file": "FTC-training/ftc-interactions.js",
+      "type": "js",
+      "educational_comment_blocks": 16
+    },
+    {
+      "file": "FTC-training/modules/ftc-drivetrains.js",
+      "type": "js",
+      "educational_comment_blocks": 42
+    },
+    {
+      "file": "FTC-training/modules/ftc-foundations.js",
+      "type": "js",
+      "educational_comment_blocks": 30
+    },
+    {
+      "file": "FTC-training/modules/inclusion.js",
+      "type": "js",
+      "educational_comment_blocks": 32
+    },
+    {
+      "file": "FTC-training/modules/safety.js",
+      "type": "js",
+      "educational_comment_blocks": 39
+    },
+    {
+      "file": "ftc-interactions.js",
+      "type": "js",
+      "educational_comment_blocks": 16
+    },
+    {
+      "file": "report.js",
+      "type": "js",
+      "educational_comment_blocks": 13
+    },
+    {
+      "file": "scripts.js",
+      "type": "js",
+      "educational_comment_blocks": 38
+    },
+    {
+      "file": "shared/js/app.js",
+      "type": "js",
+      "educational_comment_blocks": 15
+    },
+    {
+      "file": "shared/js/config.js",
+      "type": "js",
+      "educational_comment_blocks": 2
+    },
+    {
+      "file": "shared/js/ftc-interactions.js",
+      "type": "js",
+      "educational_comment_blocks": 16
+    },
+    {
+      "file": "shared/js/report.js",
+      "type": "js",
+      "educational_comment_blocks": 13
+    },
+    {
+      "file": "shared/js/safety.js",
+      "type": "js",
+      "educational_comment_blocks": 39
+    },
+    {
+      "file": "shared/js/scripts.js",
+      "type": "js",
+      "educational_comment_blocks": 38
+    }
+  ]
+}

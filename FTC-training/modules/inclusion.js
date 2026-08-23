@@ -1,3 +1,38 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB JAVASCRIPT
+
+   This file controls behavior and interactivity. HTML creates the elements and CSS
+   styles them; JavaScript finds those elements and changes them in response to the
+   user.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - document.querySelector(...) finds the first matching HTML element.
+   - document.querySelectorAll(...) finds all matching elements.
+   - element.closest(...) searches upward for a parent element. This is useful for
+     keeping an interaction limited to the current Reveal.js slide.
+   - element.dataset.name reads data-name="..." from HTML.
+   - classList.add/remove/toggle changes CSS classes so the appearance can respond
+     to clicks, correct answers, selected cards, etc.
+   - addEventListener(...) runs code when an event occurs, such as click, input,
+     dragstart, drop, or DOMContentLoaded.
+   - Reveal.on("slidechanged", ...) runs code when the presentation changes slides.
+   - Functions assigned to window (for example window.checkAnswer = checkAnswer)
+     are intentionally made global so HTML onclick="checkAnswer(this)" can call them.
+
+   WHEN BUILDING A NEW INTERACTION
+   1. Give the slide a unique class such as .my-activity-slide.
+   2. Give interactive elements useful classes and data-* attributes in the HTML.
+   3. In JavaScript, start from the clicked element and use closest(...) so one
+      activity does not accidentally change another slide.
+   4. Add/remove CSS state classes such as selected, correct, incorrect, or missed.
+   5. Reset every state your activity creates.
+   6. Test clicks, reset, repeated attempts, slide navigation, and browser refresh.
+   7. Check the Developer Tools Console for errors if nothing happens.
+============================================================================ */
+/* 5041 Training Hub script: FTC-training/modules/inclusion.js
+   Organized during cleanup; functionality preserved. */
+
+// STUDENT NOTE: Reveal.js presentation settings. Width/height define the design canvas; Reveal scales that canvas to the browser window.
 Reveal.initialize({
   hash: true,
   slideNumber: true,
@@ -10,6 +45,7 @@ Reveal.initialize({
   maxScale: 1.7,
 });
 
+// STUDENT NOTE: Quiz answer key. The object keys must match the name/id convention used by the quiz inputs in the HTML.
 const inclusionCorrectAnswers = {
   q1: "b",
   q2: "a",
@@ -33,15 +69,18 @@ const inclusionCorrectAnswers = {
   q20: "b",
 };
 
+// STUDENT NOTE: Minimum number of correct answers required to unlock completion/certificate behavior.
 const passingScore = 18;
 let quizPassed = false;
 let participantName = "";
 
+// STUDENT NOTE: Helper function `getParticipantName`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getParticipantName() {
   const input = document.getElementById("participantName");
   return input ? input.value.trim() : "";
 }
 
+// STUDENT NOTE: UI/state helper `updateCertificateName`. It updates page content or control state to match the current application data.
 function updateCertificateName() {
   participantName = getParticipantName();
   const certificateName = document.getElementById("certificateName");
@@ -51,6 +90,7 @@ function updateCertificateName() {
   }
 }
 
+// STUDENT NOTE: UI/state helper `setCertificateDownloadEnabled`. It updates page content or control state to match the current application data.
 function setCertificateDownloadEnabled(enabled) {
   const button = document.getElementById("downloadCertificate");
 
@@ -59,6 +99,7 @@ function setCertificateDownloadEnabled(enabled) {
   }
 }
 
+// STUDENT NOTE: Helper function `getSafeFileName`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getSafeFileName(text) {
   return (
     text
@@ -68,6 +109,7 @@ function getSafeFileName(text) {
   );
 }
 
+// STUDENT NOTE: Download/export function `downloadCertificatePdf`. It converts page content into a downloadable artifact; external libraries used here must load before this function runs.
 async function downloadCertificatePdf() {
   if (!quizPassed) {
     alert("Complete and pass the quiz before downloading the certificate.");
@@ -125,6 +167,7 @@ async function downloadCertificatePdf() {
   pdf.save(`${name}-inclusive-safe-team-culture-certificate.pdf`);
 }
 
+// STUDENT NOTE: Answer-checking function `gradeQuiz`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function gradeQuiz() {
   let score = 0;
   let unanswered = 0;
@@ -189,6 +232,7 @@ function gradeQuiz() {
   }
 }
 
+// STUDENT NOTE: Reset function `resetQuiz`. It should return this activity to its original state by clearing classes, values, and feedback created during interaction.
 function resetQuiz() {
   Object.keys(inclusionCorrectAnswers).forEach((questionName) => {
     document
@@ -217,6 +261,7 @@ function resetQuiz() {
   if (note) note.textContent = "Complete after passing the required quiz.";
 }
 
+// STUDENT NOTE: Initialization function `initCategorySort`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initCategorySort(slideSelector) {
   document.querySelectorAll(slideSelector).forEach((slide) => {
     if (slide.dataset.sortInit === "true") return;
@@ -232,10 +277,12 @@ function initCategorySort(slideSelector) {
 
     chips.forEach((chip, index) => {
       chip.dataset.originalIndex = index;
+      // STUDENT NOTE: Event listener for `dragstart`. The callback below runs whenever that user/browser event occurs.
       chip.addEventListener("dragstart", () => {
         draggedChip = chip;
         chip.classList.add("dragging");
       });
+      // STUDENT NOTE: Event listener for `dragend`. The callback below runs whenever that user/browser event occurs.
       chip.addEventListener("dragend", () => {
         chip.classList.remove("dragging");
         draggedChip = null;
@@ -243,11 +290,14 @@ function initCategorySort(slideSelector) {
     });
 
     dropAreas.forEach((area) => {
+      // STUDENT NOTE: Event listener for `dragover`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("dragover", (event) => {
         event.preventDefault();
         area.classList.add("drag-over");
       });
+      // STUDENT NOTE: Event listener for `dragleave`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("dragleave", () => area.classList.remove("drag-over"));
+      // STUDENT NOTE: Event listener for `drop`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("drop", (event) => {
         event.preventDefault();
         area.classList.remove("drag-over");
@@ -263,6 +313,7 @@ function initCategorySort(slideSelector) {
     });
 
     if (checkButton) {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       checkButton.addEventListener("click", () => {
         let placed = 0;
         let correct = 0;
@@ -289,6 +340,7 @@ function initCategorySort(slideSelector) {
     }
 
     if (resetButton) {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       resetButton.addEventListener("click", () => {
         chips
           .sort((a, b) => Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex))
@@ -302,12 +354,14 @@ function initCategorySort(slideSelector) {
   });
 }
 
+// STUDENT NOTE: Initialization function `initScenario`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initScenario() {
   document.querySelectorAll(".scenario-slide").forEach((slide) => {
     const buttons = slide.querySelectorAll(".scenario-options button");
     const feedback = slide.querySelector(".scenario-feedback");
 
     buttons.forEach((button) => {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       button.addEventListener("click", () => {
         buttons.forEach((b) => b.classList.remove("correct", "incorrect"));
         const correct = button.dataset.correct === "true";
@@ -322,17 +376,20 @@ function initScenario() {
   });
 }
 
+// STUDENT NOTE: Initialization function `initReviewChecklist`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initReviewChecklist() {
   document.querySelectorAll(".review-slide").forEach((slide) => {
     const items = slide.querySelectorAll(".review-item");
     const feedback = slide.querySelector(".review-feedback");
 
+    // STUDENT NOTE: UI/state helper `updateCount`. It updates page content or control state to match the current application data.
     function updateCount() {
       const count = slide.querySelectorAll(".review-item.reviewed").length;
       if (feedback) feedback.textContent = `${count} of ${items.length} reviewed.`;
     }
 
     items.forEach((item) => {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       item.addEventListener("click", () => {
         item.classList.toggle("reviewed");
         updateCount();
@@ -343,17 +400,22 @@ function initReviewChecklist() {
   });
 }
 
+// STUDENT NOTE: Event listener for `DOMContentLoaded`. The callback below runs whenever that user/browser event occurs.
 document.addEventListener("DOMContentLoaded", () => {
   const gradeButton = document.getElementById("gradeQuiz");
   const resetButton = document.getElementById("resetQuiz");
   const nameInput = document.getElementById("participantName");
   const downloadButton = document.getElementById("downloadCertificate");
 
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   if (gradeButton) gradeButton.addEventListener("click", gradeQuiz);
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   if (resetButton) resetButton.addEventListener("click", resetQuiz);
+  // STUDENT NOTE: Event listener for `input`. The callback below runs whenever that user/browser event occurs.
   if (nameInput) nameInput.addEventListener("input", updateCertificateName);
   if (downloadButton) {
     downloadButton.disabled = true;
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     downloadButton.addEventListener("click", downloadCertificatePdf);
   }
 
@@ -365,6 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+// STUDENT NOTE: Reveal.js `slidechanged` hook. Use these hooks when behavior should run as slides open or change.
 Reveal.on("slidechanged", (event) => {
   if (event.currentSlide && event.currentSlide.id === "complete" && !quizPassed) {
     const resultsSlide = document.getElementById("quiz-results");
@@ -386,12 +449,14 @@ Reveal.on("slidechanged", (event) => {
   }
 });
 
+// STUDENT NOTE: Initialization function `initGPCheck`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initGPCheck() {
   document.querySelectorAll(".gp-check-slide").forEach((slide) => {
     const buttons = slide.querySelectorAll(".gp-check-option");
     const feedback = slide.querySelector(".gp-check-feedback");
 
     buttons.forEach((button) => {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       button.addEventListener("click", () => {
         buttons.forEach((item) => {
           item.classList.remove("correct", "incorrect");

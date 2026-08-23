@@ -1,0 +1,1049 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
+/* 5041 Training Hub stylesheet: shared/css/safety-additions.css
+   Organized during cleanup; selectors preserved to maintain module appearance. */
+
+/* 5041 Safety Training Module additions */
+/* STUDENT NOTE: Typography/spacing rule for `.safety-hero h1, .safety-hero .cytitle`. These values affect readability and vertical space on slides. */
+.safety-hero h1,
+.safety-hero .cytitle {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* STUDENT NOTE: Typography/spacing rule for `.safety-slide h2, .safety-vertical h2, .safety-quiz h2`. These values affect readability and vertical space on slides. */
+.safety-slide h2,
+.safety-vertical h2,
+.safety-quiz h2 {
+  font-size: 1.42em;
+  margin-bottom: 0.42rem;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-intro`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-intro {
+  max-width: 1050px;
+  margin: 0 auto 0.65rem;
+  font-size: 0.58em;
+  line-height: 1.22;
+}
+
+/* STUDENT NOTE: Layout rule for `.safety-grid-2, .safety-grid-3, .safety-grid-4, .safety-source-grid, .safety-tool-grid`. Grid properties here control columns, gaps, and alignment. */
+.safety-grid-2,
+.safety-grid-3,
+.safety-grid-4,
+.safety-source-grid,
+.safety-tool-grid {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* STUDENT NOTE: Layout rule for `.safety-grid-2`. Grid properties here control columns, gaps, and alignment. */
+.safety-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+/* STUDENT NOTE: Layout rule for `.safety-grid-3`. Grid properties here control columns, gaps, and alignment. */
+.safety-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+/* STUDENT NOTE: Layout rule for `.safety-grid-4`. Grid properties here control columns, gaps, and alignment. */
+.safety-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+/* STUDENT NOTE: Layout rule for `.safety-source-grid`. Grid properties here control columns, gaps, and alignment. */
+.safety-source-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+/* STUDENT NOTE: Layout rule for `.safety-tool-grid`. Grid properties here control columns, gaps, and alignment. */
+.safety-tool-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* STUDENT NOTE: Image styling for `.safety-card, .safety-source-card, .safety-tool-card, .safety-image-card, .safety-action-card, .safety-step-card`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+.safety-card,
+.safety-source-card,
+.safety-tool-card,
+.safety-image-card,
+.safety-action-card,
+.safety-step-card {
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-card-center`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-card-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-card-center.gray`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-card-center.gray {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* STUDENT NOTE: Typography/spacing rule for `.safety-card-center h3`. These values affect readability and vertical space on slides. */
+.safety-card-center h3 {
+  margin: 0 0 0.28rem;
+  font-size: 0.68em;
+}
+
+/* STUDENT NOTE: Typography/spacing rule for `.safety-card-center p`. These values affect readability and vertical space on slides. */
+.safety-card-center p {
+  margin: 0;
+  font-size: 0.42em;
+  line-height: 1.18;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-card-center li`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-card-center li {
+  font-size: 0.43em;
+  line-height: 1.18;
+  margin-bottom: 0.12rem;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-card-center ul`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-card-center ul {
+  margin: 0.25rem 0 0;
+  padding-left: 0.85em;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-card.gray, .safety-source-card.gray, .safety-tool-card.gray`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-card.gray,
+.safety-source-card.gray,
+.safety-tool-card.gray {
+  border-left-color: var(--gray);
+}
+/* STUDENT NOTE: Styles elements matched by `.safety-card.dark`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-card.dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* STUDENT NOTE: Typography/spacing rule for `.safety-card h3, .safety-source-card h3, .safety-tool-card h3, .safety-action-card h3, .safety-step-card h3`. These values affect readability and vertical space on slides. */
+.safety-card h3,
+.safety-source-card h3,
+.safety-tool-card h3,
+.safety-action-card h3,
+.safety-step-card h3 {
+  margin: 0 0 0.28rem;
+  font-size: 0.68em;
+}
+
+/* STUDENT NOTE: Typography/spacing rule for `.safety-card p, .safety-source-card p, .safety-tool-card p, .safety-action-card p, .safety-step-card p`. These values affect readability and vertical space on slides. */
+.safety-card p,
+.safety-source-card p,
+.safety-tool-card p,
+.safety-action-card p,
+.safety-step-card p {
+  margin: 0;
+  font-size: 0.42em;
+  line-height: 1.18;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-card li, .safety-source-card li, .safety-tool-card li, .safety-action-card li, .safety-step-card li`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-card li,
+.safety-source-card li,
+.safety-tool-card li,
+.safety-action-card li,
+.safety-step-card li {
+  font-size: 0.43em;
+  line-height: 1.18;
+  margin-bottom: 0.12rem;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-card ul, .safety-tool-card ul, .safety-action-card ul, .safety-step-card ul`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-card ul,
+.safety-tool-card ul,
+.safety-action-card ul,
+.safety-step-card ul {
+  margin: 0.25rem 0 0;
+  padding-left: 0.85em;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-callout`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-callout {
+  max-width: 1050px;
+  margin: 0.7rem auto 0;
+  padding: 0.55rem 0.75rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+}
+/* STUDENT NOTE: Typography/spacing rule for `.safety-callout p`. These values affect readability and vertical space on slides. */
+.safety-callout p {
+  margin: 0;
+  font-size: 0.5em;
+  line-height: 1.18;
+}
+/* STUDENT NOTE: Styles elements matched by `.safety-callout.gray`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-callout.gray {
+  border-left-color: var(--gray);
+}
+
+/* STUDENT NOTE: Image styling for `.safety-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+.safety-img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 6px;
+  display: block;
+  margin: 0 0 0;
+}
+
+/* STUDENT NOTE: Image styling for `.safety-img.tall`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+.safety-img.tall {
+  height: 400px;
+}
+/* STUDENT NOTE: Image styling for `.safety-img.wide`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+.safety-img.wide {
+  height: 360px;
+}
+/* STUDENT NOTE: Image styling for `.safety-img.small`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+.safety-img.small {
+  height: 150px;
+}
+/* STUDENT NOTE: Image styling for `.safety-image-card img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+.safety-image-card img {
+  width: 100%;
+  height: 480px;
+  object-fit: contain;
+  background: #fff;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-split`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-split {
+  display: grid;
+  grid-template-columns: 46% 1fr;
+  gap: 0.75rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-split.reverse`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-split.reverse {
+  grid-template-columns: 1fr 46%;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-list-large li`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-list-large li {
+  font-size: 0.52em;
+  line-height: 1.22;
+  margin-bottom: 0.22rem;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.safety-badge-row`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: center;
+  max-width: 1050px;
+  margin: 0.4rem auto 0;
+}
+/* STUDENT NOTE: Styles elements matched by `.safety-badge`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-badge {
+  font-family: "Droid Sans", Arial, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.38em;
+  font-weight: 700;
+}
+/* STUDENT NOTE: Styles elements matched by `.safety-badge.red`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-badge.red {
+  background: var(--red);
+}
+/* STUDENT NOTE: Styles elements matched by `.safety-badge.gray`. Search the HTML for these class/id names before changing a shared rule. */
+.safety-badge.gray {
+  background: var(--gray);
+}
+
+/* STUDENT NOTE: Layout rule for `.reveal .review-grid`. Grid properties here control columns, gaps, and alignment. */
+.reveal .review-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+  max-width: var(--shared-slide-width, 1120px);
+  margin: 0 auto;
+}
+
+/* STUDENT NOTE: Styles elements matched by `.reveal .safety-review-card, .reveal .safety-review-card[aria-pressed=""]`. Search the HTML for these class/id names before changing a shared rule. */
+.reveal .safety-review-card,
+.reveal .safety-review-card[aria-pressed="true"] {
+  appearance: none;
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  min-height: 105px;
+
+  background: var(--light, #f3f3f3) !important;
+  color: var(--black, #000000) !important;
+
+  border: 0 !important;
+  border-left: 10px solid var(--red, #980000) !important;
+  border-radius: 8px;
+
+  padding: 0.7rem 0.75rem !important;
+
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.46em;
+  font-weight: 700;
+  line-height: 1.18;
+  text-align: center;
+
+  cursor: pointer;
+  transform-origin: center;
+}
+
+/* Revealed/reviewed side */
+/* STUDENT NOTE: Interaction state for `.reveal .safety-review-card.revealed, .reveal .safety-review-card[aria-pressed=""].revealed`. JavaScript may add/remove this class to provide visual feedback or control access. */
+.reveal .safety-review-card.revealed,
+.reveal .safety-review-card[aria-pressed="true"].revealed {
+  background: var(--black, #000000) !important;
+  color: var(--white, #ffffff) !important;
+  border-left-color: var(--red, #980000) !important;
+}
+
+/* Flip animation */
+/* STUDENT NOTE: Styles elements matched by `.reveal .safety-review-card.review-flipping`. Search the HTML for these class/id names before changing a shared rule. */
+.reveal .safety-review-card.review-flipping {
+  animation: safety-review-flip 0.42s ease;
+}
+
+/* STUDENT NOTE: Animation timeline. Percentage steps inside define how an animated element changes over time. */
+@keyframes safety-review-flip {
+  /* STUDENT NOTE: Styles elements matched by `0%`. Search the HTML for these class/id names before changing a shared rule. */
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  /* STUDENT NOTE: Styles elements matched by `50%`. Search the HTML for these class/id names before changing a shared rule. */
+  50% {
+    transform: rotateY(90deg);
+  }
+
+  /* STUDENT NOTE: Styles elements matched by `100%`. Search the HTML for these class/id names before changing a shared rule. */
+  100% {
+    transform: rotateY(0deg);
+  }
+/* STUDENT NOTE: Styles elements matched by `} .reveal .safety-review-card:hover, .reveal .safety-review-card:focus-visible`. Search the HTML for these class/id names before changing a shared rule. */
+}
+
+.reveal .safety-review-card:hover,
+.reveal .safety-review-card:focus-visible {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red, #980000); outline-offset: 2px; } .reveal .review-feedback`. Search the HTML for these class/id names before changing a shared rule. */
+  outline: 4px solid var(--red, #980000);
+  outline-offset: 2px;
+}
+
+.reveal .review-feedback {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0.7rem auto 0; text-align: center; font-size: 0.42em; font-weight: 700; } .reveal .safety-review-card.role-flipping`. Search the HTML for these class/id names before changing a shared rule. */
+  margin: 0.7rem auto 0;
+  text-align: center;
+  font-size: 0.42em;
+  font-weight: 700;
+}
+.reveal .safety-review-card.role-flipping {
+  /* STUDENT NOTE: Styles elements matched by `animation: safety-review-flip 0.42s ease; } @media (max-width: 900px)`. Search the HTML for these class/id names before changing a shared rule. */
+  animation: safety-review-flip 0.42s ease;
+}
+
+@media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.reveal .review-grid`. Grid properties here control columns, gaps, and alignment. */
+  .reveal .review-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+/* STUDENT NOTE: Styles elements matched by `} .safety-sort-slide .sort-bank, .safety-sort-slide .sort-targets, .safety-order-slide .order-list`. Search the HTML for these class/id names before changing a shared rule. */
+}
+/* Sort interactives */
+.safety-sort-slide .sort-bank,
+.safety-sort-slide .sort-targets,
+.safety-order-slide .order-list {
+  /* STUDENT NOTE: Styles elements matched by `max-width: 1050px; margin: 0 auto; } .safety-sort-slide .sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.safety-sort-slide .sort-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `display: flex; flex-wrap: wrap; gap: 0.3rem; padding: 0.35rem; background: var(--light); border: 3px dashed var(--gray); border-radius: 8px; min-height: 86px; max-height: 150px; overflow-y: auto; } .safety-sort-slide .sort-chip, .safety-order-slide .order-card`. These values affect readability and vertical space on slides. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 0.35rem;
+  background: var(--light);
+  border: 3px dashed var(--gray);
+  border-radius: 8px;
+  min-height: 86px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.safety-sort-slide .sort-chip,
+.safety-order-slide .order-card {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--white); border: 2px solid var(--red); border-radius: 7px; padding: 0.22rem 0.42rem; font-size: 0.34em; line-height: 1.1; font-weight: 700; color: #222; cursor: grab; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12); } .safety-sort-slide .sort-chip.dragging, .safety-order-slide .order-card.dragging`. These values affect readability and vertical space on slides. */
+  background: var(--white);
+  border: 2px solid var(--red);
+  border-radius: 7px;
+  padding: 0.22rem 0.42rem;
+  font-size: 0.34em;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #222;
+  cursor: grab;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.safety-sort-slide .sort-chip.dragging,
+.safety-order-slide .order-card.dragging {
+  /* STUDENT NOTE: Interaction state for `opacity: 0.45; } .safety-sort-slide .sort-chip.correct, .safety-order-slide .order-card.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
+  opacity: 0.45;
+}
+.safety-sort-slide .sort-chip.correct,
+.safety-order-slide .order-card.correct {
+  /* STUDENT NOTE: Interaction state for `border-color: #2e7d32; background: #e6f4ea; } .safety-sort-slide .sort-chip.incorrect, .safety-order-slide .order-card.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
+  border-color: #2e7d32;
+  background: #e6f4ea;
+}
+.safety-sort-slide .sort-chip.incorrect,
+.safety-order-slide .order-card.incorrect {
+  /* STUDENT NOTE: Styles elements matched by `border-color: #b00020; background: #fdecea; } .safety-sort-slide .sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
+  border-color: #b00020;
+  background: #fdecea;
+}
+
+.safety-sort-slide .sort-targets {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.6rem; } .safety-sort-slide .sort-zone`. Grid properties here control columns, gaps, and alignment. */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.safety-sort-slide .sort-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 230px; background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.45rem; } .safety-sort-slide .sort-zone.gray`. These values affect readability and vertical space on slides. */
+  min-height: 230px;
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.45rem;
+}
+.safety-sort-slide .sort-zone.gray {
+  /* STUDENT NOTE: Typography/spacing rule for `border-left-color: var(--gray); } .safety-sort-slide .sort-zone h3`. These values affect readability and vertical space on slides. */
+  border-left-color: var(--gray);
+}
+.safety-sort-slide .sort-zone h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.58em; margin: 0 0 0.25rem; text-align: center; } .safety-sort-slide .sort-list`. Search the HTML for these class/id names before changing a shared rule. */
+  font-size: 0.58em;
+  margin: 0 0 0.25rem;
+  text-align: center;
+}
+.safety-sort-slide .sort-list {
+  /* STUDENT NOTE: Styles elements matched by `display: flex; flex-direction: column; gap: 0.22rem; min-height: 160px; } .safety-sort-slide .drag-over, .safety-order-slide .drag-over`. Search the HTML for these class/id names before changing a shared rule. */
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  min-height: 160px;
+}
+.safety-sort-slide .drag-over,
+.safety-order-slide .drag-over {
+  /* STUDENT NOTE: Styles elements matched by `outline: 4px solid var(--red); outline-offset: 2px; } .activity-controls`. Search the HTML for these class/id names before changing a shared rule. */
+  outline: 4px solid var(--red);
+  outline-offset: 2px;
+}
+
+.activity-controls {
+  /* STUDENT NOTE: Styles elements matched by `display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 0.45rem; } .activity-feedback`. Search the HTML for these class/id names before changing a shared rule. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.45rem;
+}
+.activity-feedback {
+  /* STUDENT NOTE: Button styling for `min-width: 260px; margin: 0; font-size: 0.4em; font-weight: 700; } .quiz-button, .safety-button`. Keep hover/selected/correct states visually consistent with the base button. */
+  min-width: 260px;
+  margin: 0;
+  font-size: 0.4em;
+  font-weight: 700;
+}
+.quiz-button,
+.safety-button {
+  /* STUDENT NOTE: Button styling for `font-size: 0.38em; padding: 0.32rem 0.7rem; background: var(--red); color: var(--white); border: none; border-radius: 999px; font-family: "", Arial, sans-serif; font-weight: 700; cursor: pointer; } .quiz-button.secondary, .safety-button.secondary`. Keep hover/selected/correct states visually consistent with the base button. */
+  font-size: 0.38em;
+  padding: 0.32rem 0.7rem;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.quiz-button.secondary,
+.safety-button.secondary {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--gray); } .safety-order-slide .order-list`. Search the HTML for these class/id names before changing a shared rule. */
+  background: var(--gray);
+}
+
+.safety-order-slide .order-list {
+  /* STUDENT NOTE: Layout rule for `display: grid; gap: 0.3rem; background: var(--light); border: 3px dashed var(--gray); border-radius: 8px; padding: 0.45rem; } .safety-order-slide .order-card`. Grid properties here control columns, gaps, and alignment. */
+  display: grid;
+  gap: 0.3rem;
+  background: var(--light);
+  border: 3px dashed var(--gray);
+  border-radius: 8px;
+  padding: 0.45rem;
+}
+.safety-order-slide .order-card {
+  /* STUDENT NOTE: Typography/spacing rule for `font-size: 0.42em; padding: 0.35rem 0.5rem; } @media (max-width: 1100px)`. These values affect readability and vertical space on slides. */
+  font-size: 0.42em;
+  padding: 0.35rem 0.5rem;
+}
+
+@media (max-width: 1100px) {
+  /* STUDENT NOTE: Layout rule for `.safety-grid-4, .safety-tool-grid`. Grid properties here control columns, gaps, and alignment. */
+  .safety-grid-4,
+  .safety-tool-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.45rem;
+  }
+  /* STUDENT NOTE: Layout rule for `.safety-grid-3, .safety-source-grid`. Grid properties here control columns, gaps, and alignment. */
+  .safety-grid-3,
+  .safety-source-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.45rem;
+  }
+  /* STUDENT NOTE: Styles elements matched by `.safety-card, .safety-source-card, .safety-tool-card`. Search the HTML for these class/id names before changing a shared rule. */
+  .safety-card,
+  .safety-source-card,
+  .safety-tool-card {
+    padding: 0.45rem 0.5rem;
+  }
+  /* STUDENT NOTE: Typography/spacing rule for `.safety-card h3, .safety-source-card h3, .safety-tool-card h3`. These values affect readability and vertical space on slides. */
+  .safety-card h3,
+  .safety-source-card h3,
+  .safety-tool-card h3 {
+    font-size: 0.55em;
+  }
+  /* STUDENT NOTE: Typography/spacing rule for `.safety-card p, .safety-source-card p, .safety-tool-card p, .safety-card li, .safety-tool-card li`. These values affect readability and vertical space on slides. */
+  .safety-card p,
+  .safety-source-card p,
+  .safety-tool-card p,
+  .safety-card li,
+  .safety-tool-card li {
+    font-size: 0.34em;
+  }
+  /* STUDENT NOTE: Image styling for `.safety-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+  .safety-img {
+    height: 160px;
+  }
+  /* STUDENT NOTE: Image styling for `.safety-img.wide`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+  .safety-img.wide {
+    height: 270px;
+  }
+  /* STUDENT NOTE: Image styling for `.safety-img.tall`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+  .safety-img.tall {
+    height: 320px;
+  }
+  /* STUDENT NOTE: Styles elements matched by `.safety-intro`. Search the HTML for these class/id names before changing a shared rule. */
+  .safety-intro {
+    font-size: 0.45em;
+  }
+  /* STUDENT NOTE: Layout rule for `.review-grid`. Grid properties here control columns, gaps, and alignment. */
+  .review-grid {
+    gap: 0.35rem;
+  }
+  /* STUDENT NOTE: Styles elements matched by `.review-item`. Search the HTML for these class/id names before changing a shared rule. */
+  .review-item {
+    font-size: 0.34em;
+  }
+/* STUDENT NOTE: Image styling for `} .pdf-image-link`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+}
+
+.pdf-image-link {
+  /* STUDENT NOTE: Image styling for `display: block; max-width: 500px; margin: 0 auto; text-decoration: none; } .pdf-preview-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.pdf-preview-img {
+  /* STUDENT NOTE: Image styling for `width: 100%; max-height: 500px; object-fit: contain; display: block; background: #ffffff; border: 2.5px solid #980000; border-radius: 2.5px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); } .pdf-image-link:hover .pdf-preview-img, .pdf-image-link:focus .pdf-preview-img`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+  background: #ffffff;
+  border: 2.5px solid #980000;
+  border-radius: 2.5px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.pdf-image-link:hover .pdf-preview-img,
+.pdf-image-link:focus .pdf-preview-img {
+  /* STUDENT NOTE: Styles elements matched by `outline: 3px solid #980000; outline-offset: 4px; transform: scale(1.01); } .safety-resource-slide`. Search the HTML for these class/id names before changing a shared rule. */
+  outline: 3px solid #980000;
+  outline-offset: 4px;
+  transform: scale(1.01);
+}
+
+.safety-resource-slide {
+  /* STUDENT NOTE: Styles elements matched by `height: 100%; } .safety-resource-intro`. Search the HTML for these class/id names before changing a shared rule. */
+  height: 100%;
+}
+
+.safety-resource-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 1000px; margin: 0 auto 0.7rem; font-size: 0.5em; line-height: 1.2; text-align: center; } .safety-resource-grid`. Grid properties here control columns, gaps, and alignment. */
+  max-width: 1000px;
+  margin: 0 auto 0.7rem;
+  font-size: 0.5em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.safety-resource-grid {
+  /* STUDENT NOTE: Layout rule for `display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; max-width: 1120px; margin: 0 auto; } .safety-resource-card`. Grid properties here control columns, gaps, and alignment. */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.safety-resource-card {
+  /* STUDENT NOTE: Typography/spacing rule for `background: #f4f4f4; border-left: 10px solid var(--red); border-radius: 8px; padding: 0.75rem 0.85rem; text-align: left; } .safety-resource-card h3`. These values affect readability and vertical space on slides. */
+  background: #f4f4f4;
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.safety-resource-card h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0 0 0.3rem; font-size: 0.72em; } .safety-resource-card p`. These values affect readability and vertical space on slides. */
+  margin: 0 0 0.3rem;
+  font-size: 0.72em;
+}
+
+.safety-resource-card p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0 0 0.55rem; font-size: 0.42em; line-height: 1.18; } .resource-link-list`. Search the HTML for these class/id names before changing a shared rule. */
+  margin: 0 0 0.55rem;
+  font-size: 0.42em;
+  line-height: 1.18;
+}
+
+.resource-link-list {
+  /* STUDENT NOTE: Layout rule for `display: grid; gap: 0.28rem; } .resource-link-list a`. Grid properties here control columns, gaps, and alignment. */
+  display: grid;
+  gap: 0.28rem;
+}
+
+.resource-link-list a {
+  /* STUDENT NOTE: Typography/spacing rule for `display: block; background: #ffffff; border-left: 7px solid var(--red); border-radius: 6px; padding: 0.3rem 0.45rem; color: #000000; font-family: "", Arial, sans-serif; font-size: 0.36em; font-weight: 700; text-decoration: none; } .resource-link-list a:hover, .resource-link-list a:focus`. These values affect readability and vertical space on slides. */
+  display: block;
+  background: #ffffff;
+  border-left: 7px solid var(--red);
+  border-radius: 6px;
+  padding: 0.3rem 0.45rem;
+  color: #000000;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-size: 0.36em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.resource-link-list a:hover,
+.resource-link-list a:focus {
+  /* STUDENT NOTE: Styles elements matched by `background: var(--red); color: #ffffff; } .safety-resource-slide .elec-callout`. Search the HTML for these class/id names before changing a shared rule. */
+  background: var(--red);
+  color: #ffffff;
+}
+
+.safety-resource-slide .elec-callout {
+  /* STUDENT NOTE: Styles elements matched by `margin-top: 0.65rem; } @media (max-width: 900px)`. Search the HTML for these class/id names before changing a shared rule. */
+  margin-top: 0.65rem;
+}
+
+@media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.safety-resource-grid`. Grid properties here control columns, gaps, and alignment. */
+  .safety-resource-grid {
+    grid-template-columns: 1fr;
+  }
+/* STUDENT NOTE: Styles elements matched by `} .tool-safety-slide .safety-card`. Search the HTML for these class/id names before changing a shared rule. */
+}
+
+.tool-safety-slide .safety-card {
+  /* STUDENT NOTE: Styles elements matched by `min-height: 430px; display: flex; flex-direction: column; justify-content: center; } .tool-safety-slide .safety-list-large`. Search the HTML for these class/id names before changing a shared rule. */
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tool-safety-slide .safety-list-large {
+  /* STUDENT NOTE: Typography/spacing rule for `margin-top: 0; margin-bottom: 0; } .safety-slide h2, .safety-vertical h2, .safety-quiz h2, .safety-sort-slide h2, .safety-order-slide h2, .safety-resource-slide h2, .reveal .safety-slide h2, .reveal .safety-vertical h2, .reveal .safety-quiz h2, .reveal .safety-sort-slide h2, .reveal .safety-order-slide h2, .reveal .safety-resource-slide h2`. These values affect readability and vertical space on slides. */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Electronics style match patch
+   Keeps the module-specific layout, but matches the electronics module's
+   title sizing, content width, card spacing, card typography, and sort styling.
+   This patch intentionally does NOT force slide titles to text-align:center. */
+
+.safety-slide h2,
+.safety-vertical h2,
+.safety-quiz h2,
+.safety-sort-slide h2,
+.safety-order-slide h2,
+.safety-resource-slide h2,
+.reveal .safety-slide h2,
+.reveal .safety-vertical h2,
+.reveal .safety-quiz h2,
+.reveal .safety-sort-slide h2,
+.reveal .safety-order-slide h2,
+.reveal .safety-resource-slide h2 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 1.45em; margin-bottom: 0.45rem; } .safety-intro, .safety-resource-intro, .reveal .safety-intro, .reveal .safety-resource-intro`. Search the HTML for these class/id names before changing a shared rule. */
+  font-size: 1.45em;
+  margin-bottom: 0.45rem;
+}
+
+.safety-intro,
+.safety-resource-intro,
+.reveal .safety-intro,
+.reveal .safety-resource-intro {
+  /* STUDENT NOTE: Layout rule for `max-width: 950px; margin: 0 auto 0.8rem; font-size: 0.62em; line-height: 1.25; } .safety-grid-2, .safety-grid-3, .safety-grid-4, .safety-source-grid, .safety-tool-grid, .safety-resource-grid, .reveal .safety-grid-2, .reveal .safety-grid-3, .reveal .safety-grid-4, .reveal .safety-source-grid, .reveal .safety-tool-grid, .reveal .safety-resource-grid`. Grid properties here control columns, gaps, and alignment. */
+  max-width: 950px;
+  margin: 0 auto 0.8rem;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+
+.safety-grid-2,
+.safety-grid-3,
+.safety-grid-4,
+.safety-source-grid,
+.safety-tool-grid,
+.safety-resource-grid,
+.reveal .safety-grid-2,
+.reveal .safety-grid-3,
+.reveal .safety-grid-4,
+.reveal .safety-source-grid,
+.reveal .safety-tool-grid,
+.reveal .safety-resource-grid {
+  /* STUDENT NOTE: Image styling for `gap: 0.8rem; max-width: 1050px; margin: 0 auto; } .safety-card, .safety-card-center, .safety-source-card, .safety-tool-card, .safety-image-card, .safety-action-card, .safety-step-card, .safety-resource-card, .review-item, .reveal .safety-card, .reveal .safety-card-center, .reveal .safety-source-card, .reveal .safety-tool-card, .reveal .safety-image-card, .reveal .safety-action-card, .reveal .safety-step-card, .reveal .safety-resource-card, .reveal .review-item`. max-width/max-height/object-fit are commonly used to keep images inside the slide. */
+  gap: 0.8rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.safety-card,
+.safety-card-center,
+.safety-source-card,
+.safety-tool-card,
+.safety-image-card,
+.safety-action-card,
+.safety-step-card,
+.safety-resource-card,
+.review-item,
+.reveal .safety-card,
+.reveal .safety-card-center,
+.reveal .safety-source-card,
+.reveal .safety-tool-card,
+.reveal .safety-image-card,
+.reveal .safety-action-card,
+.reveal .safety-step-card,
+.reveal .safety-resource-card,
+.reveal .review-item {
+  /* STUDENT NOTE: Typography/spacing rule for `background: var(--light); border-left: 10px solid var(--red); border-radius: 8px; padding: 0.75rem 0.85rem; text-align: left; } .safety-card h3, .safety-card-center h3, .safety-source-card h3, .safety-tool-card h3, .safety-action-card h3, .safety-step-card h3, .safety-resource-card h3, .reveal .safety-card h3, .reveal .safety-card-center h3, .reveal .safety-source-card h3, .reveal .safety-tool-card h3, .reveal .safety-action-card h3, .reveal .safety-step-card h3, .reveal .safety-resource-card h3`. These values affect readability and vertical space on slides. */
+  background: var(--light);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.safety-card h3,
+.safety-card-center h3,
+.safety-source-card h3,
+.safety-tool-card h3,
+.safety-action-card h3,
+.safety-step-card h3,
+.safety-resource-card h3,
+.reveal .safety-card h3,
+.reveal .safety-card-center h3,
+.reveal .safety-source-card h3,
+.reveal .safety-tool-card h3,
+.reveal .safety-action-card h3,
+.reveal .safety-step-card h3,
+.reveal .safety-resource-card h3 {
+  /* STUDENT NOTE: Typography/spacing rule for `margin: 0 0 0.35rem; font-size: 0.72em; } .safety-card p, .safety-card-center p, .safety-source-card p, .safety-tool-card p, .safety-action-card p, .safety-step-card p, .safety-resource-card p, .reveal .safety-card p, .reveal .safety-card-center p, .reveal .safety-source-card p, .reveal .safety-tool-card p, .reveal .safety-action-card p, .reveal .safety-step-card p, .reveal .safety-resource-card p`. These values affect readability and vertical space on slides. */
+  margin: 0 0 0.35rem;
+  font-size: 0.72em;
+}
+
+.safety-card p,
+.safety-card-center p,
+.safety-source-card p,
+.safety-tool-card p,
+.safety-action-card p,
+.safety-step-card p,
+.safety-resource-card p,
+.reveal .safety-card p,
+.reveal .safety-card-center p,
+.reveal .safety-source-card p,
+.reveal .safety-tool-card p,
+.reveal .safety-action-card p,
+.reveal .safety-step-card p,
+.reveal .safety-resource-card p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0; font-size: 0.45em; line-height: 1.25; } .safety-card li, .safety-card-center li, .safety-source-card li, .safety-tool-card li, .safety-action-card li, .safety-step-card li, .reveal .safety-card li, .reveal .safety-card-center li, .reveal .safety-source-card li, .reveal .safety-tool-card li, .reveal .safety-action-card li, .reveal .safety-step-card li`. Search the HTML for these class/id names before changing a shared rule. */
+  margin: 0;
+  font-size: 0.45em;
+  line-height: 1.25;
+}
+
+.safety-card li,
+.safety-card-center li,
+.safety-source-card li,
+.safety-tool-card li,
+.safety-action-card li,
+.safety-step-card li,
+.reveal .safety-card li,
+.reveal .safety-card-center li,
+.reveal .safety-source-card li,
+.reveal .safety-tool-card li,
+.reveal .safety-action-card li,
+.reveal .safety-step-card li {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.5em; line-height: 1.22; margin-bottom: 0.16rem; } .safety-callout, .reveal .safety-callout`. Search the HTML for these class/id names before changing a shared rule. */
+  font-size: 0.5em;
+  line-height: 1.22;
+  margin-bottom: 0.16rem;
+}
+
+.safety-callout,
+.reveal .safety-callout {
+  /* STUDENT NOTE: Typography/spacing rule for `max-width: 950px; margin: 0.8rem auto 0; padding: 0.6rem 0.8rem; background: var(--white); border-left: 10px solid var(--red); border-radius: 8px; } .safety-callout p, .reveal .safety-callout p`. These values affect readability and vertical space on slides. */
+  max-width: 950px;
+  margin: 0.8rem auto 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--white);
+  border-left: 10px solid var(--red);
+  border-radius: 8px;
+}
+
+.safety-callout p,
+.reveal .safety-callout p {
+  /* STUDENT NOTE: Styles elements matched by `margin: 0; font-size: 0.56em; line-height: 1.25; } .safety-sort-slide .sort-bank, .safety-sort-slide .sort-targets, .safety-order-slide .order-list, .reveal .safety-sort-slide .sort-bank, .reveal .safety-sort-slide .sort-targets, .reveal .safety-order-slide .order-list`. Search the HTML for these class/id names before changing a shared rule. */
+  margin: 0;
+  font-size: 0.56em;
+  line-height: 1.25;
+}
+
+.safety-sort-slide .sort-bank,
+.safety-sort-slide .sort-targets,
+.safety-order-slide .order-list,
+.reveal .safety-sort-slide .sort-bank,
+.reveal .safety-sort-slide .sort-targets,
+.reveal .safety-order-slide .order-list {
+  /* STUDENT NOTE: Styles elements matched by `max-width: 1050px; margin-left: auto; margin-right: auto; } .safety-sort-slide .sort-bank, .reveal .safety-sort-slide .sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.safety-sort-slide .sort-bank,
+.reveal .safety-sort-slide .sort-bank {
+  /* STUDENT NOTE: Typography/spacing rule for `gap: 0.4rem; padding: 0.45rem; min-height: 86px; max-height: none; } .safety-sort-slide .sort-chip, .safety-order-slide .order-card, .reveal .safety-sort-slide .sort-chip, .reveal .safety-order-slide .order-card`. These values affect readability and vertical space on slides. */
+  gap: 0.4rem;
+  padding: 0.45rem;
+  min-height: 86px;
+  max-height: none;
+}
+
+.safety-sort-slide .sort-chip,
+.safety-order-slide .order-card,
+.reveal .safety-sort-slide .sort-chip,
+.reveal .safety-order-slide .order-card {
+  /* STUDENT NOTE: Styles elements matched by `padding: 0.35rem 0.5rem; font-size: 0.42em; line-height: 1.15; } .safety-sort-slide .sort-targets, .reveal .safety-sort-slide .sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
+  padding: 0.35rem 0.5rem;
+  font-size: 0.42em;
+  line-height: 1.15;
+}
+
+.safety-sort-slide .sort-targets,
+.reveal .safety-sort-slide .sort-targets {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.8rem; margin-top: 0.7rem; } .safety-sort-slide .sort-zone, .reveal .safety-sort-slide .sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
+  gap: 0.8rem;
+  margin-top: 0.7rem;
+}
+
+.safety-sort-slide .sort-zone,
+.reveal .safety-sort-slide .sort-zone {
+  /* STUDENT NOTE: Typography/spacing rule for `min-height: 210px; padding: 0.55rem; } .safety-sort-slide .sort-zone h3, .reveal .safety-sort-slide .sort-zone h3`. These values affect readability and vertical space on slides. */
+  min-height: 210px;
+  padding: 0.55rem;
+}
+
+.safety-sort-slide .sort-zone h3,
+.reveal .safety-sort-slide .sort-zone h3 {
+  /* STUDENT NOTE: Styles elements matched by `font-size: 0.68em; text-align: center; margin: 0 0 0.4rem; } .safety-sort-slide .sort-list, .reveal .safety-sort-slide .sort-list`. Search the HTML for these class/id names before changing a shared rule. */
+  font-size: 0.68em;
+  text-align: center;
+  margin: 0 0 0.4rem;
+}
+
+.safety-sort-slide .sort-list,
+.reveal .safety-sort-slide .sort-list {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.35rem; min-height: 150px; } .activity-controls, .reveal .activity-controls`. Search the HTML for these class/id names before changing a shared rule. */
+  gap: 0.35rem;
+  min-height: 150px;
+}
+
+.activity-controls,
+.reveal .activity-controls {
+  /* STUDENT NOTE: Styles elements matched by `gap: 0.65rem; margin-top: 0.55rem; } .activity-feedback, .reveal .activity-feedback`. Search the HTML for these class/id names before changing a shared rule. */
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.activity-feedback,
+.reveal .activity-feedback {
+  /* STUDENT NOTE: Shared CSS variables. Change these carefully because many pages may reuse these values. */
+  min-width: 240px;
+  font-size: 0.46em;
+}
+
+/* Shared slide width patch
+   Uses the widest recurring content width from the judging/motors/safety modules.
+   Keep this block at the bottom of the file so it overrides earlier module rules. */
+:root {
+  /* STUDENT NOTE: Layout rule for `--shared-slide-width: 1120px; } .reveal .slides section > :is( [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], [class*=""], .quiz-card, .sort-bank, .sort-targets, .troubleshooting-sort, .order-list, .documentation-table, .component-grid, .sensor-grid, .doc-grid, figure, table, ul, ol )`. Grid properties here control columns, gaps, and alignment. */
+  --shared-slide-width: 1120px;
+}
+
+/* Main direct slide content containers */
+.reveal .slides section > :is(
+  [class*="intro"],
+  [class*="grid"],
+  [class*="layout"],
+  [class*="split"],
+  [class*="callout"],
+  [class*="flow"],
+  [class*="chain"],
+  [class*="table"],
+  [class*="wrap"],
+  [class*="panel"],
+  [class*="bank"],
+  [class*="targets"],
+  [class*="process"],
+  [class*="actions"],
+  .quiz-card,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .order-list,
+  .documentation-table,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  figure,
+  table,
+  ul,
+  ol
+) {
+  /* STUDENT NOTE: Layout rule for `max-width: var(--shared-slide-width); } .reveal :is( .elec-grid-2, .elec-grid-3, .elec-grid-4, .component-grid, .sensor-grid, .doc-grid, .power-flow, .can-chain, .sort-bank, .sort-targets, .troubleshooting-sort, .documentation-table-wrap, .judge-grid-2, .judge-grid-3, .judge-grid-4, .judge-photo-split, .dialogue-grid, .response-grid, .judge-sort-bank, .judge-sort-targets, .award-chip-grid, .award-output, .motor-grid-2, .motor-grid-3, .motor-grid-4, .motor-click-grid, .motor-flow, .speed-torque-layout, .safety-grid-2, .safety-grid-3, .safety-grid-4, .safety-source-grid, .safety-tool-grid, .safety-split, .review-grid, .safety-resource-grid, .impact-repair-grid, .three-choice-grid, .maintenance-grid, .weight-card-grid, .weight-do-dont, .wd-layout )`. Grid properties here control columns, gaps, and alignment. */
+  max-width: var(--shared-slide-width);
+}
+
+/* Common module-specific containers that may not be direct children */
+.reveal :is(
+  .elec-grid-2,
+  .elec-grid-3,
+  .elec-grid-4,
+  .component-grid,
+  .sensor-grid,
+  .doc-grid,
+  .power-flow,
+  .can-chain,
+  .sort-bank,
+  .sort-targets,
+  .troubleshooting-sort,
+  .documentation-table-wrap,
+  .judge-grid-2,
+  .judge-grid-3,
+  .judge-grid-4,
+  .judge-photo-split,
+  .dialogue-grid,
+  .response-grid,
+  .judge-sort-bank,
+  .judge-sort-targets,
+  .award-chip-grid,
+  .award-output,
+  .motor-grid-2,
+  .motor-grid-3,
+  .motor-grid-4,
+  .motor-click-grid,
+  .motor-flow,
+  .speed-torque-layout,
+  .safety-grid-2,
+  .safety-grid-3,
+  .safety-grid-4,
+  .safety-source-grid,
+  .safety-tool-grid,
+  .safety-split,
+  .review-grid,
+  .safety-resource-grid,
+  .impact-repair-grid,
+  .three-choice-grid,
+  .maintenance-grid,
+  .weight-card-grid,
+  .weight-do-dont,
+  .wd-layout
+) {
+  max-width: var(--shared-slide-width);
+}

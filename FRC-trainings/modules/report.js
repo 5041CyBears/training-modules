@@ -1,3 +1,34 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB JAVASCRIPT
+
+   This file controls behavior and interactivity. HTML creates the elements and CSS
+   styles them; JavaScript finds those elements and changes them in response to the
+   user.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - document.querySelector(...) finds the first matching HTML element.
+   - document.querySelectorAll(...) finds all matching elements.
+   - element.closest(...) searches upward for a parent element. This is useful for
+     keeping an interaction limited to the current Reveal.js slide.
+   - element.dataset.name reads data-name="..." from HTML.
+   - classList.add/remove/toggle changes CSS classes so the appearance can respond
+     to clicks, correct answers, selected cards, etc.
+   - addEventListener(...) runs code when an event occurs, such as click, input,
+     dragstart, drop, or DOMContentLoaded.
+   - Reveal.on("slidechanged", ...) runs code when the presentation changes slides.
+   - Functions assigned to window (for example window.checkAnswer = checkAnswer)
+     are intentionally made global so HTML onclick="checkAnswer(this)" can call them.
+
+   WHEN BUILDING A NEW INTERACTION
+   1. Give the slide a unique class such as .my-activity-slide.
+   2. Give interactive elements useful classes and data-* attributes in the HTML.
+   3. In JavaScript, start from the clicked element and use closest(...) so one
+      activity does not accidentally change another slide.
+   4. Add/remove CSS state classes such as selected, correct, incorrect, or missed.
+   5. Reset every state your activity creates.
+   6. Test clicks, reset, repeated attempts, slide navigation, and browser refresh.
+   7. Check the Developer Tools Console for errors if nothing happens.
+============================================================================ */
 const config = window.ROAR_APP_CONFIG || {};
 const SCRIPT_URL = config.SCRIPT_URL;
 const APP_TOKEN = config.APP_TOKEN || "";
@@ -15,11 +46,13 @@ const harassmentCountEl = document.querySelector("#harassmentCount");
 const otherCountEl = document.querySelector("#otherCount");
 const reportsList = document.querySelector("#reportsList");
 
+// STUDENT NOTE: UI/state helper `setReportMessage`. It updates page content or control state to match the current application data.
 function setReportMessage(text, type = "") {
   reportMessage.textContent = text;
   reportMessage.className = `message ${type}`.trim();
 }
 
+// STUDENT NOTE: Function `ensureConfigured` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function ensureConfigured() {
   if (!SCRIPT_URL || SCRIPT_URL.includes("PASTE_YOUR")) {
     setReportMessage("Add your Google Apps Script web app URL to config.js first.", "error");
@@ -28,6 +61,7 @@ function ensureConfigured() {
   return true;
 }
 
+// STUDENT NOTE: Function `loadJsonp` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function loadJsonp(url) {
   return new Promise((resolve, reject) => {
     const callbackName = `roarReportsCallback_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
@@ -37,6 +71,7 @@ function loadJsonp(url) {
       reject(new Error("The request timed out."));
     }, 10000);
 
+    // STUDENT NOTE: Function `cleanup` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
     function cleanup() {
       clearTimeout(timeout);
       delete window[callbackName];
@@ -59,12 +94,14 @@ function loadJsonp(url) {
   });
 }
 
+// STUDENT NOTE: Function `toDateInputValue` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function toDateInputValue(date) {
   const copy = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   const offsetDate = new Date(copy.getTime() - copy.getTimezoneOffset() * 60000);
   return offsetDate.toISOString().slice(0, 10);
 }
 
+// STUDENT NOTE: UI/state helper `setDefaultDates`. It updates page content or control state to match the current application data.
 function setDefaultDates() {
   const today = new Date();
   const start = new Date(today);
@@ -73,6 +110,7 @@ function setDefaultDates() {
   endDateEl.value = toDateInputValue(today);
 }
 
+// STUDENT NOTE: Function `loadReports` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 async function loadReports() {
   if (!ensureConfigured()) return;
 
@@ -108,6 +146,7 @@ async function loadReports() {
   }
 }
 
+// STUDENT NOTE: Function `renderReports` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function renderReports(data) {
   const reports = data.reports || [];
   selectedRangeLabel.textContent = `${formatDisplayDate(data.startDate)} – ${formatDisplayDate(data.endDate)}`;
@@ -162,6 +201,7 @@ function renderReports(data) {
   `).join("");
 }
 
+// STUDENT NOTE: Function `formatDisplayDate` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function formatDisplayDate(value) {
   if (!value) return "";
   const parts = String(value).split("-");
@@ -169,6 +209,7 @@ function formatDisplayDate(value) {
   return `${parts[1]}/${parts[2]}/${parts[0]}`;
 }
 
+// STUDENT NOTE: Function `escapeHtml` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -178,11 +219,13 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+// STUDENT NOTE: Event listener for `submit`. The callback below runs whenever that user/browser event occurs.
 reportForm.addEventListener("submit", (event) => {
   event.preventDefault();
   loadReports();
 });
 
+// STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
 refreshReportBtn.addEventListener("click", loadReports);
 
 setDefaultDates();

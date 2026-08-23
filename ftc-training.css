@@ -1,4 +1,36 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB CSS
+
+   This file controls visual styling. HTML supplies the content; CSS decides how
+   that content looks and is arranged.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - A selector such as .dt-card styles every element with class="dt-card".
+   - A selector such as #quizResult targets one unique id="quizResult" element.
+   - More specific selectors can override less specific selectors.
+   - Rules later in a stylesheet can override earlier rules when specificity is
+     equal. This is called the CSS cascade.
+   - CSS variables such as var(--red) come from a shared :root rule. Reuse them
+     instead of hard-coding colors when possible.
+   - !important forces a declaration to win many cascade conflicts. Use it only
+     when necessary; too many !important rules make future editing difficult.
+   - display:grid is used heavily for card layouts. grid-template-columns controls
+     the number and size of columns; gap controls spacing between items.
+   - max-width and margin: 0 auto are commonly used to keep content readable and
+     horizontally centered.
+   - Media queries near the bottom of many files adjust layouts for smaller screens.
+
+   WHEN ADDING NEW STYLES
+   1. Reuse an existing class if it already creates the appearance you need.
+   2. If the style is module-specific, use the module prefix already in this file
+      (for example dt-, judge-, media-, safety-) to avoid accidental conflicts.
+   3. Put related rules together and add a short section comment.
+   4. Test the slide at both large and small browser sizes.
+   5. Avoid changing a shared selector unless you intend to change every page that
+      uses it.
+============================================================================ */
 /* 5041 FTC Training Hub shared styles */
+/* STUDENT NOTE: Shared CSS variables. Change these carefully because many pages may reuse these values. */
 :root {
   --red: #980000;
   --black: #000000;
@@ -10,8 +42,10 @@
   --shared-slide-width: 1120px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `*`. Search the HTML for these class/id names before changing a shared rule. */
 * { box-sizing: border-box; }
 
+/* STUDENT NOTE: Styles elements matched by `body`. Search the HTML for these class/id names before changing a shared rule. */
 body {
   margin: 0;
   font-family: "Droid Serif", Georgia, serif;
@@ -20,6 +54,7 @@ body {
 }
 
 /* Hub pages */
+/* STUDENT NOTE: Styles elements matched by `.hub-body`. Search the HTML for these class/id names before changing a shared rule. */
 .hub-body {
   background:
     linear-gradient(135deg, rgba(152, 0, 0, 0.08), transparent 35%),
@@ -27,6 +62,7 @@ body {
     var(--light);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.site-header`. Search the HTML for these class/id names before changing a shared rule. */
 .site-header {
   background: var(--black);
   color: var(--white);
@@ -34,6 +70,7 @@ body {
   padding: 1.75rem 1.25rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.header-inner, .hub-main, .site-footer`. Search the HTML for these class/id names before changing a shared rule. */
 .header-inner,
 .hub-main,
 .site-footer {
@@ -41,12 +78,14 @@ body {
   margin: 0 auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.brand-row`. Search the HTML for these class/id names before changing a shared rule. */
 .brand-row {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.brand-logo`. Search the HTML for these class/id names before changing a shared rule. */
 .brand-logo {
   width: 86px;
   height: 86px;
@@ -55,6 +94,7 @@ body {
   padding: 6px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.hub-eyebrow, .eyebrow`. Search the HTML for these class/id names before changing a shared rule. */
 .hub-eyebrow,
 .eyebrow {
   display: inline-block;
@@ -66,26 +106,31 @@ body {
   margin-bottom: 0.6rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.site-title, .reveal .cytitle`. Search the HTML for these class/id names before changing a shared rule. */
 .site-title,
 .reveal .cytitle {
   font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
   letter-spacing: .02em;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.site-title`. Search the HTML for these class/id names before changing a shared rule. */
 .site-title {
   margin: 0 0 .4rem;
   font-size: clamp(2.2rem, 5vw, 4.2rem);
   line-height: 1;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.site-header p`. These values affect readability and vertical space on slides. */
 .site-header p {
   max-width: 900px;
   margin: 0;
   line-height: 1.5;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.hub-main`. Search the HTML for these class/id names before changing a shared rule. */
 .hub-main { padding: 2rem 1.25rem; }
 
+/* STUDENT NOTE: Styles elements matched by `.resource-banner, .hub-section-banner, .hub-note`. Search the HTML for these class/id names before changing a shared rule. */
 .resource-banner,
 .hub-section-banner,
 .hub-note {
@@ -96,6 +141,7 @@ body {
   box-shadow: 0 5px 18px rgba(0,0,0,.08);
 }
 
+/* STUDENT NOTE: Styles elements matched by `.hub-section-banner`. Search the HTML for these class/id names before changing a shared rule. */
 .hub-section-banner {
   display: inline-block;
   background: var(--red);
@@ -104,6 +150,7 @@ body {
   box-shadow: none;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.hub-section-banner h2, .resource-banner h2, .hub-note h2`. These values affect readability and vertical space on slides. */
 .hub-section-banner h2,
 .resource-banner h2,
 .hub-note h2 {
@@ -111,12 +158,15 @@ body {
   font-family: "Droid Sans", Arial, sans-serif;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.hub-section-banner p, .resource-banner p, .hub-note p`. These values affect readability and vertical space on slides. */
 .hub-section-banner p,
 .resource-banner p,
 .hub-note p { margin: 0; line-height: 1.5; }
 
+/* STUDENT NOTE: Styles elements matched by `.hub-actions`. Search the HTML for these class/id names before changing a shared rule. */
 .hub-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: .9rem; }
 
+/* STUDENT NOTE: Layout rule for `.module-grid, .resource-grid`. Grid properties here control columns, gaps, and alignment. */
 .module-grid,
 .resource-grid {
   display: grid;
@@ -125,6 +175,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.module-card, .resource-card`. Search the HTML for these class/id names before changing a shared rule. */
 .module-card,
 .resource-card {
   background: var(--white);
@@ -137,6 +188,7 @@ body {
   box-shadow: 0 5px 18px rgba(0,0,0,.08);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.module-card h3, .resource-card h3`. These values affect readability and vertical space on slides. */
 .module-card h3,
 .resource-card h3 {
   margin: 0 0 .5rem;
@@ -144,12 +196,14 @@ body {
   font-size: 1.2rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.module-card p, .resource-card p`. These values affect readability and vertical space on slides. */
 .module-card p,
 .resource-card p {
   margin: 0 0 1rem;
   line-height: 1.45;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.module-meta`. Search the HTML for these class/id names before changing a shared rule. */
 .module-meta {
   font-family: "Droid Sans", Arial, sans-serif;
   color: var(--gray);
@@ -157,6 +211,7 @@ body {
   margin-bottom: 1rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.hub-link, .resource-link, .back-link`. Search the HTML for these class/id names before changing a shared rule. */
 .hub-link,
 .resource-link,
 .back-link {
@@ -170,21 +225,26 @@ body {
   border-radius: 4px;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.hub-link:hover, .hub-link:focus, .resource-link:hover, .resource-link:focus, .back-link:hover, .back-link:focus`. Search the HTML for these class/id names before changing a shared rule. */
 .hub-link:hover,
 .hub-link:focus,
 .resource-link:hover,
 .resource-link:focus,
 .back-link:hover,
 .back-link:focus { background: var(--black); color: var(--white); }
+/* STUDENT NOTE: Styles elements matched by `.back-link.secondary`. Search the HTML for these class/id names before changing a shared rule. */
 .back-link.secondary { background: var(--gray); }
+/* STUDENT NOTE: Styles elements matched by `.site-footer`. Search the HTML for these class/id names before changing a shared rule. */
 .site-footer { padding: 1rem 1.25rem 2rem; color: var(--gray); font-family: "Droid Sans", Arial, sans-serif; }
 
 /* Reveal shared */
+/* STUDENT NOTE: Styles elements matched by `.reveal`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal {
   font-family: "Droid Serif", Georgia, serif;
   color: var(--black);
 }
 
+/* STUDENT NOTE: Button styling for `.reveal h1, .reveal h2, .reveal h3, .reveal .tag, .reveal .quiz-button, .reveal .small, .reveal .result`. Keep hover/selected/correct states visually consistent with the base button. */
 .reveal h1,
 .reveal h2,
 .reveal h3,
@@ -195,17 +255,23 @@ body {
   font-family: "Droid Sans", Arial, sans-serif;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.reveal h1, .reveal .cytitle`. These values affect readability and vertical space on slides. */
 .reveal h1,
 .reveal .cytitle {
   font-family: "Audiowide", "Droid Sans", Arial, sans-serif;
   color: var(--red);
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.reveal h2`. These values affect readability and vertical space on slides. */
 .reveal h2 { font-size: 1.45em; margin-bottom: .45rem; }
+/* STUDENT NOTE: Typography/spacing rule for `.reveal h3`. These values affect readability and vertical space on slides. */
 .reveal h3 { color: var(--black); }
+/* STUDENT NOTE: Styles elements matched by `.reveal ul`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal ul { margin-top: .35rem; }
+/* STUDENT NOTE: Styles elements matched by `.reveal li`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal li { margin-bottom: .15rem; }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .tag`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .tag {
   display: inline-block;
   background: var(--red);
@@ -218,6 +284,7 @@ body {
   text-transform: uppercase;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.reveal .bar, .reveal .stripe`. Search the HTML for these class/id names before changing a shared rule. */
 .reveal .bar,
 .reveal .stripe {
   width: min(920px, 92%);
@@ -226,12 +293,16 @@ body {
   margin: .8rem auto;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.ftc-slide, .ftc-vertical, .ftc-quiz`. Search the HTML for these class/id names before changing a shared rule. */
 .ftc-slide,
 .ftc-vertical,
 .ftc-quiz { width: 100%; }
+/* STUDENT NOTE: Typography/spacing rule for `.ftc-hero h1`. These values affect readability and vertical space on slides. */
 .ftc-hero h1 { max-width: 1100px; margin: 0 auto; }
+/* STUDENT NOTE: Styles elements matched by `.ftc-hero .subtitle`. Search the HTML for these class/id names before changing a shared rule. */
 .ftc-hero .subtitle { font-size: .62em; font-weight: 700; margin-top: .6rem; color: var(--black); }
 
+/* STUDENT NOTE: Layout rule for `.ftc-grid-2, .ftc-grid-3, .ftc-grid-4, .role-grid, .sort-targets`. Grid properties here control columns, gaps, and alignment. */
 .ftc-grid-2,
 .ftc-grid-3,
 .ftc-grid-4,
@@ -242,12 +313,18 @@ body {
   max-width: var(--shared-slide-width, 1120px);
   margin: 0 auto;
 }
+/* STUDENT NOTE: Layout rule for `.ftc-grid-2`. Grid properties here control columns, gaps, and alignment. */
 .ftc-grid-2 { grid-template-columns: 1fr 1fr; }
+/* STUDENT NOTE: Layout rule for `.ftc-grid-3`. Grid properties here control columns, gaps, and alignment. */
 .ftc-grid-3 { grid-template-columns: repeat(3, 1fr); }
+/* STUDENT NOTE: Layout rule for `.ftc-grid-4`. Grid properties here control columns, gaps, and alignment. */
 .ftc-grid-4 { grid-template-columns: repeat(4, 1fr); }
+/* STUDENT NOTE: Layout rule for `.role-grid`. Grid properties here control columns, gaps, and alignment. */
 .role-grid { grid-template-columns: repeat(4, 1fr); }
+/* STUDENT NOTE: Styles elements matched by `.sort-targets`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-targets { grid-template-columns: repeat(4, 1fr); }
 
+/* STUDENT NOTE: Styles elements matched by `.ftc-card, .role-card, .scenario-card, .sort-zone, .practice-card, .resource-mini-card, .rating-card`. Search the HTML for these class/id names before changing a shared rule. */
 .ftc-card,
 .role-card,
 .scenario-card,
@@ -262,22 +339,26 @@ body {
   text-align: left;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.ftc-card.dark, .practice-card.good`. Search the HTML for these class/id names before changing a shared rule. */
 .ftc-card.dark,
 .practice-card.good {
   background: var(--black);
   color: var(--white);
 }
+/* STUDENT NOTE: Typography/spacing rule for `.ftc-card.dark h3, .ftc-card.dark p, .ftc-card.dark li, .practice-card.good h3, .practice-card.good p`. These values affect readability and vertical space on slides. */
 .ftc-card.dark h3,
 .ftc-card.dark p,
 .ftc-card.dark li,
 .practice-card.good h3,
 .practice-card.good p { color: var(--white); }
 
+/* STUDENT NOTE: Styles elements matched by `.practice-card.risk`. Search the HTML for these class/id names before changing a shared rule. */
 .practice-card.risk {
   background: #fdecea;
   border-left-color: #b00020;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.ftc-card h3, .role-card h3, .scenario-card h3, .sort-zone h3, .practice-card h3, .resource-mini-card h3, .rating-card h3`. These values affect readability and vertical space on slides. */
 .ftc-card h3,
 .role-card h3,
 .scenario-card h3,
@@ -289,6 +370,7 @@ body {
   margin: 0 0 .35rem;
 }
 
+/* STUDENT NOTE: Typography/spacing rule for `.ftc-card p, .role-card p, .scenario-card p, .practice-card p, .resource-mini-card p, .rating-card p`. These values affect readability and vertical space on slides. */
 .ftc-card p,
 .role-card p,
 .scenario-card p,
@@ -300,6 +382,7 @@ body {
   line-height: 1.25;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.ftc-card li, .practice-card li, .resource-mini-card li, .rating-card li`. Search the HTML for these class/id names before changing a shared rule. */
 .ftc-card li,
 .practice-card li,
 .resource-mini-card li,
@@ -309,6 +392,7 @@ body {
   margin-bottom: .15rem;
 }
 
+/* STUDENT NOTE: Styles elements matched by `.ftc-callout`. Search the HTML for these class/id names before changing a shared rule. */
 .ftc-callout {
   max-width: var(--shared-slide-width, 1120px);
   margin: .8rem auto 0;
@@ -318,8 +402,10 @@ body {
   border-radius: 8px;
   text-align: left;
 }
+/* STUDENT NOTE: Typography/spacing rule for `.ftc-callout p`. These values affect readability and vertical space on slides. */
 .ftc-callout p { margin: 0; font-size: .52em; line-height: 1.25; }
 
+/* STUDENT NOTE: Styles elements matched by `.role-card`. Search the HTML for these class/id names before changing a shared rule. */
 .role-card {
   appearance: none;
   display: grid;
@@ -334,10 +420,14 @@ body {
   text-align: center;
   cursor: pointer;
 }
+/* STUDENT NOTE: Interaction state for `.role-card.revealed`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .role-card.revealed { background: var(--black); color: var(--white); }
+/* STUDENT NOTE: Styles elements matched by `.role-card.flipping`. Search the HTML for these class/id names before changing a shared rule. */
 .role-card.flipping { animation: ftc-card-flip .42s ease; }
+/* STUDENT NOTE: Animation timeline. Percentage steps inside define how an animated element changes over time. */
 @keyframes ftc-card-flip { 0% {transform: rotateY(0);} 50% {transform: rotateY(90deg);} 100% {transform: rotateY(0);} }
 
+/* STUDENT NOTE: Styles elements matched by `.sort-bank`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-bank {
   display: flex;
   flex-wrap: wrap;
@@ -350,6 +440,7 @@ body {
   border: 3px dashed var(--gray);
   border-radius: 8px;
 }
+/* STUDENT NOTE: Styles elements matched by `.sort-chip`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-chip {
   background: var(--white);
   border: 2px solid var(--red);
@@ -361,15 +452,24 @@ body {
   font-weight: 700;
   cursor: grab;
 }
+/* STUDENT NOTE: Interaction state for `.sort-chip.correct`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .sort-chip.correct { background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; }
+/* STUDENT NOTE: Interaction state for `.sort-chip.correct::after`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .sort-chip.correct::after { content: " ✓"; color: #2e7d32; }
+/* STUDENT NOTE: Interaction state for `.sort-chip.incorrect`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .sort-chip.incorrect { background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; }
+/* STUDENT NOTE: Interaction state for `.sort-chip.incorrect::after`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .sort-chip.incorrect::after { content: " ✕"; color: #b00020; }
+/* STUDENT NOTE: Styles elements matched by `.sort-chip.unplaced`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-chip.unplaced { opacity: .65; outline: 3px dashed var(--gray); outline-offset: 2px; }
+/* STUDENT NOTE: Styles elements matched by `.sort-zone`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-zone { min-height: 165px; max-height: 205px; overflow-y: auto; }
+/* STUDENT NOTE: Typography/spacing rule for `.sort-zone h3`. These values affect readability and vertical space on slides. */
 .sort-zone h3 { font-size: .5em; text-align: center; margin: 0 0 .35rem; }
+/* STUDENT NOTE: Styles elements matched by `.sort-list`. Search the HTML for these class/id names before changing a shared rule. */
 .sort-list { display: flex; flex-direction: column; gap: .25rem; min-height: 100px; }
 
+/* STUDENT NOTE: Styles elements matched by `.activity-controls, .quiz-actions`. Search the HTML for these class/id names before changing a shared rule. */
 .activity-controls,
 .quiz-actions {
   display: flex;
@@ -379,6 +479,7 @@ body {
   flex-wrap: wrap;
   margin-top: .7rem;
 }
+/* STUDENT NOTE: Button styling for `.quiz-button`. Keep hover/selected/correct states visually consistent with the base button. */
 .quiz-button {
   background: var(--red);
   color: var(--white);
@@ -389,13 +490,20 @@ body {
   font-weight: 700;
   cursor: pointer;
 }
+/* STUDENT NOTE: Button styling for `.quiz-button.secondary`. Keep hover/selected/correct states visually consistent with the base button. */
 .quiz-button.secondary { background: var(--black); }
+/* STUDENT NOTE: Button styling for `.quiz-button:hover, .quiz-button:focus, .role-card:hover, .role-card:focus-visible, .scenario-options button:hover, .scenario-options button:focus-visible`. Keep hover/selected/correct states visually consistent with the base button. */
 .quiz-button:hover, .quiz-button:focus, .role-card:hover, .role-card:focus-visible, .scenario-options button:hover, .scenario-options button:focus-visible { outline: 4px solid var(--red); outline-offset: 2px; }
+/* STUDENT NOTE: Styles elements matched by `.feedback`. Search the HTML for these class/id names before changing a shared rule. */
 .feedback { margin: 0; font-size: .42em; font-family: "Droid Sans", Arial, sans-serif; font-weight: 700; }
 
+/* STUDENT NOTE: Styles elements matched by `.scenario-card`. Search the HTML for these class/id names before changing a shared rule. */
 .scenario-card { max-width: 1000px; margin: 0 auto; }
+/* STUDENT NOTE: Typography/spacing rule for `.scenario-card > p`. These values affect readability and vertical space on slides. */
 .scenario-card > p { font-size: .58em; font-weight: 700; }
+/* STUDENT NOTE: Styles elements matched by `.scenario-options`. Search the HTML for these class/id names before changing a shared rule. */
 .scenario-options { display: grid; gap: .45rem; margin-top: .55rem; }
+/* STUDENT NOTE: Button styling for `.scenario-options button`. Keep hover/selected/correct states visually consistent with the base button. */
 .scenario-options button {
   background: var(--white);
   border: 2px solid var(--red);
@@ -409,20 +517,33 @@ body {
   text-align: left;
   cursor: pointer;
 }
+/* STUDENT NOTE: Button styling for `.scenario-options button.correct`. Keep hover/selected/correct states visually consistent with the base button. */
 .scenario-options button.correct { background: #e6f4ea !important; border-color: #2e7d32 !important; border-left-color: #2e7d32 !important; }
+/* STUDENT NOTE: Button styling for `.scenario-options button.incorrect`. Keep hover/selected/correct states visually consistent with the base button. */
 .scenario-options button.incorrect { background: #fdecea !important; border-color: #b00020 !important; border-left-color: #b00020 !important; }
 
+/* STUDENT NOTE: Layout rule for `.rating-grid`. Grid properties here control columns, gaps, and alignment. */
 .rating-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; max-width: 900px; margin: .5rem auto; }
+/* STUDENT NOTE: Styles elements matched by `.rating-card`. Search the HTML for these class/id names before changing a shared rule. */
 .rating-card { text-align: center; min-height: 90px; cursor: pointer; border-left-width: 6px; }
+/* STUDENT NOTE: Interaction state for `.rating-card.selected`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .rating-card.selected { background: var(--black); color: var(--white); }
+/* STUDENT NOTE: Interaction state for `.rating-card.selected h3, .rating-card.selected p`. JavaScript may add/remove this class to provide visual feedback or control access. */
 .rating-card.selected h3, .rating-card.selected p { color: var(--white); }
+/* STUDENT NOTE: Styles elements matched by `.rating-output`. Search the HTML for these class/id names before changing a shared rule. */
 .rating-output { text-align: center; font-size: .42em; font-weight: 700; }
 
+/* STUDENT NOTE: Styles elements matched by `.resource-link-row`. Search the HTML for these class/id names before changing a shared rule. */
 .resource-link-row { display: flex; justify-content: center; flex-wrap: wrap; gap: .45rem; margin-top: .65rem; }
+/* STUDENT NOTE: Styles elements matched by `.resource-pill`. Search the HTML for these class/id names before changing a shared rule. */
 .resource-pill { display: inline-block; background: var(--red); color: var(--white) !important; font-family: "Droid Sans", Arial, sans-serif; font-weight: 700; font-size: .34em; text-decoration: none; padding: .35rem .55rem; border-radius: 6px; }
+/* STUDENT NOTE: Styles elements matched by `.resource-pill:hover, .resource-pill:focus`. Search the HTML for these class/id names before changing a shared rule. */
 .resource-pill:hover, .resource-pill:focus { background: var(--black); }
 
+/* STUDENT NOTE: Responsive breakpoint. Rules inside this block apply only when the screen matches this condition. */
 @media (max-width: 900px) {
+  /* STUDENT NOTE: Layout rule for `.ftc-grid-3, .ftc-grid-4, .role-grid, .sort-targets`. Grid properties here control columns, gaps, and alignment. */
   .ftc-grid-3, .ftc-grid-4, .role-grid, .sort-targets { grid-template-columns: 1fr 1fr; }
+  /* STUDENT NOTE: Layout rule for `.ftc-grid-2`. Grid properties here control columns, gaps, and alignment. */
   .ftc-grid-2 { grid-template-columns: 1fr; }
 }

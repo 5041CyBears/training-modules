@@ -1,3 +1,38 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB JAVASCRIPT
+
+   This file controls behavior and interactivity. HTML creates the elements and CSS
+   styles them; JavaScript finds those elements and changes them in response to the
+   user.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - document.querySelector(...) finds the first matching HTML element.
+   - document.querySelectorAll(...) finds all matching elements.
+   - element.closest(...) searches upward for a parent element. This is useful for
+     keeping an interaction limited to the current Reveal.js slide.
+   - element.dataset.name reads data-name="..." from HTML.
+   - classList.add/remove/toggle changes CSS classes so the appearance can respond
+     to clicks, correct answers, selected cards, etc.
+   - addEventListener(...) runs code when an event occurs, such as click, input,
+     dragstart, drop, or DOMContentLoaded.
+   - Reveal.on("slidechanged", ...) runs code when the presentation changes slides.
+   - Functions assigned to window (for example window.checkAnswer = checkAnswer)
+     are intentionally made global so HTML onclick="checkAnswer(this)" can call them.
+
+   WHEN BUILDING A NEW INTERACTION
+   1. Give the slide a unique class such as .my-activity-slide.
+   2. Give interactive elements useful classes and data-* attributes in the HTML.
+   3. In JavaScript, start from the clicked element and use closest(...) so one
+      activity does not accidentally change another slide.
+   4. Add/remove CSS state classes such as selected, correct, incorrect, or missed.
+   5. Reset every state your activity creates.
+   6. Test clicks, reset, repeated attempts, slide navigation, and browser refresh.
+   7. Check the Developer Tools Console for errors if nothing happens.
+============================================================================ */
+/* 5041 Training Hub script: FRC-trainings/modules/electronics.js
+   Organized during cleanup; functionality preserved. */
+
+// STUDENT NOTE: Reveal.js presentation settings. Width/height define the design canvas; Reveal scales that canvas to the browser window.
 Reveal.initialize({
   hash: true,
   slideNumber: true,
@@ -12,6 +47,7 @@ Reveal.initialize({
 
 });
 
+// STUDENT NOTE: Quiz answer key. The object keys must match the name/id convention used by the quiz inputs in the HTML.
 const electronicsCorrectAnswers = {
   q1: "b",
   q2: "a",
@@ -35,16 +71,19 @@ const electronicsCorrectAnswers = {
   q20: "a",
 };
 
+// STUDENT NOTE: Minimum number of correct answers required to unlock completion/certificate behavior.
 const passingScore = 18;
 let quizPassed = false;
 
 let participantName = "";
 
+// STUDENT NOTE: Helper function `getParticipantName`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getParticipantName() {
   const input = document.getElementById("participantName");
   return input ? input.value.trim() : "";
 }
 
+// STUDENT NOTE: UI/state helper `updateCertificateName`. It updates page content or control state to match the current application data.
 function updateCertificateName() {
   participantName = getParticipantName();
   const certificateName = document.getElementById("certificateName");
@@ -54,6 +93,7 @@ function updateCertificateName() {
   }
 }
 
+// STUDENT NOTE: Answer-checking function `gradeQuiz`. It reads the user state, compares it with the expected answer/data attributes, and updates feedback classes/text.
 function gradeQuiz() {
   let score = 0;
   let unanswered = 0;
@@ -119,9 +159,11 @@ function gradeQuiz() {
 const gradeQuizButton = document.getElementById("gradeQuiz");
 const resetQuizButton = document.getElementById("resetQuiz");
 
+// STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
 if (gradeQuizButton) gradeQuizButton.addEventListener("click", gradeQuiz);
 
 if (resetQuizButton) {
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   resetQuizButton.addEventListener("click", () => {
     Object.keys(electronicsCorrectAnswers).forEach((questionName) => {
       document
@@ -142,6 +184,7 @@ setCertificateDownloadEnabled(false);
   });
 }
 
+// STUDENT NOTE: Reveal.js `slidechanged` hook. Use these hooks when behavior should run as slides open or change.
 Reveal.on("slidechanged", (event) => {
   if (
     event.currentSlide &&
@@ -161,6 +204,7 @@ Reveal.on("slidechanged", (event) => {
   }
 });
 
+// STUDENT NOTE: Initialization function `initCategorySort`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initCategorySort(slideSelector) {
   document.querySelectorAll(slideSelector).forEach((slide) => {
     const bank = slide.querySelector(".sort-bank");
@@ -172,10 +216,12 @@ function initCategorySort(slideSelector) {
     let draggedChip = null;
 
     chips.forEach((chip) => {
+      // STUDENT NOTE: Event listener for `dragstart`. The callback below runs whenever that user/browser event occurs.
       chip.addEventListener("dragstart", () => {
         draggedChip = chip;
         chip.classList.add("dragging");
       });
+      // STUDENT NOTE: Event listener for `dragend`. The callback below runs whenever that user/browser event occurs.
       chip.addEventListener("dragend", () => {
         chip.classList.remove("dragging");
         draggedChip = null;
@@ -183,13 +229,16 @@ function initCategorySort(slideSelector) {
     });
 
     dropAreas.forEach((area) => {
+      // STUDENT NOTE: Event listener for `dragover`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("dragover", (event) => {
         event.preventDefault();
         area.classList.add("drag-over");
       });
+      // STUDENT NOTE: Event listener for `dragleave`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("dragleave", () =>
         area.classList.remove("drag-over"),
       );
+      // STUDENT NOTE: Event listener for `drop`. The callback below runs whenever that user/browser event occurs.
       area.addEventListener("drop", (event) => {
         event.preventDefault();
         area.classList.remove("drag-over");
@@ -203,6 +252,7 @@ function initCategorySort(slideSelector) {
     });
 
     if (checkButton) {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       checkButton.addEventListener("click", () => {
         let allPlaced = true;
         let allCorrect = true;
@@ -237,6 +287,7 @@ function initCategorySort(slideSelector) {
     }
 
     if (resetButton) {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       resetButton.addEventListener("click", () => {
         chips.forEach((chip) => {
           chip.classList.remove("correct", "incorrect");
@@ -248,6 +299,7 @@ function initCategorySort(slideSelector) {
   });
 }
 
+// STUDENT NOTE: Initialization function `initOrderSort`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initOrderSort() {
   document.querySelectorAll(".trouble-order-slide").forEach((slide) => {
     const list = slide.querySelector(".troubleshooting-sort");
@@ -259,16 +311,19 @@ function initOrderSort() {
     let draggedCard = null;
 
     cards.forEach((card) => {
+      // STUDENT NOTE: Event listener for `dragstart`. The callback below runs whenever that user/browser event occurs.
       card.addEventListener("dragstart", () => {
         draggedCard = card;
         card.classList.add("dragging");
       });
+      // STUDENT NOTE: Event listener for `dragend`. The callback below runs whenever that user/browser event occurs.
       card.addEventListener("dragend", () => {
         card.classList.remove("dragging");
         draggedCard = null;
       });
     });
 
+    // STUDENT NOTE: Event listener for `dragover`. The callback below runs whenever that user/browser event occurs.
     list.addEventListener("dragover", (event) => {
       event.preventDefault();
       list.classList.add("drag-over");
@@ -277,11 +332,14 @@ function initOrderSort() {
       else list.insertBefore(draggedCard, afterElement);
     });
 
+    // STUDENT NOTE: Event listener for `dragleave`. The callback below runs whenever that user/browser event occurs.
     list.addEventListener("dragleave", () =>
       list.classList.remove("drag-over"),
     );
+    // STUDENT NOTE: Event listener for `drop`. The callback below runs whenever that user/browser event occurs.
     list.addEventListener("drop", () => list.classList.remove("drag-over"));
 
+    // STUDENT NOTE: Helper function `getDragAfterElement`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
     function getDragAfterElement(container, y) {
       const draggableElements = [
         ...container.querySelectorAll(".trouble-card:not(.dragging)"),
@@ -298,6 +356,7 @@ function initOrderSort() {
       ).element;
     }
 
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     checkButton.addEventListener("click", () => {
       let correct = true;
       [...list.querySelectorAll(".trouble-card")].forEach((card, index) => {
@@ -319,6 +378,7 @@ function initOrderSort() {
       }
     });
 
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     resetButton.addEventListener("click", () => {
       startingOrder.forEach((card) => {
         card.classList.remove("correct", "incorrect");
@@ -332,11 +392,12 @@ function initOrderSort() {
 initCategorySort(".wire-sort-slide");
 initOrderSort();
 
+// STUDENT NOTE: Event listener for `DOMContentLoaded`. The callback below runs whenever that user/browser event occurs.
 document.addEventListener("DOMContentLoaded", () => {
   const componentInfo = {
     battery: {
       title: "Battery",
-      image: "assets/components/battery.jpg",
+      image: "../../shared/assets/Components/battery.jpg",
       alt: "FRC robot battery",
       description: "The battery is the main 12V power source for the robot.",
       checks: [
@@ -351,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mainBreaker: {
       title: "Main Breaker",
-      image: "assets/components/main-breaker.png",
+      image: "../../shared/assets/Components/main-breaker.png",
       alt: "FRC main breaker",
       description: "The main breaker is the robot’s primary power shutoff.",
       checks: [
@@ -366,7 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     powerDistribution: {
       title: "Power Distribution",
-      image: "assets/components/pdps.png",
+      image: "../../shared/assets/Components/pdps.png",
       alt: "FRC power distribution device",
       description:
         "The power distribution device sends battery power to robot circuits through breakers and fuses.",
@@ -382,7 +443,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     roboRio: {
       title: "roboRIO / SystemCore",
-      image: "assets/components/controllers.png",
+      image: "../../shared/assets/Components/controllers.png",
       alt: "FRC robot controller",
       description:
         "The robot controller runs robot code and communicates with motor controllers, sensors, the radio, and the Driver Station.",
@@ -399,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     radio: {
       title: "Radio",
-      image: "assets/components/radio.png",
+      image: "../../shared/assets/Components/radio.png",
       alt: "FRC robot radio",
       description:
         "The radio connects the robot to the field and Driver Station.",
@@ -415,7 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     motorControllers: {
       title: "Motor Controllers",
-      image: "assets/components/motor-controllers.png",
+      image: "../../shared/assets/Components/motor-controllers.png",
       alt: "FRC motor controller",
       description:
         "Motor controllers receive commands from robot code and control motors.",
@@ -431,7 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     canBus: {
       title: "CAN Bus",
-      image: "assets/components/can-connectors.png",
+      image: "../../shared/assets/can-connectors.png",
       alt: "CAN bus wiring",
       description:
         "The CAN bus is a communication network used by many FRC devices. ",
@@ -447,7 +508,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     pneumatics: {
       title: "Pneumatics",
-      image: "assets/components/pneumatics.png",
+      image: "../../shared/assets/Components/pneumatics.png",
       alt: "FRC pneumatics module",
       description:
         "If used, the pneumatics module controls the compressor, pressure switch, and solenoids.",
@@ -463,7 +524,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sensors: {
       title: "Sensors",
-      image: "assets/components/sensors.png",
+      image: "../../shared/assets/Components/sensors.png",
       alt: "FRC robot sensors",
       description:
         "Sensors give the robot information about position, speed, distance, pressure, limits, game pieces, and field targets.",
@@ -493,6 +554,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelectorAll(".component-card[data-component]")
     .forEach((card) => {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       card.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -523,19 +585,23 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+  // STUDENT NOTE: Function `closeModal` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
   function closeModal() {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
   }
 
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   closeButton.addEventListener("click", closeModal);
 
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
       closeModal();
     }
   });
 
+  // STUDENT NOTE: Event listener for `keydown`. The callback below runs whenever that user/browser event occurs.
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && modal.classList.contains("open")) {
       closeModal();
@@ -543,6 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// STUDENT NOTE: Initialization function `initComponentMatchSlides`. It finds the needed HTML elements and attaches behavior/listeners. Call it after the page DOM exists.
 function initComponentMatchSlides() {
   document.querySelectorAll(".component-match-slide").forEach((slide) => {
     if (slide.dataset.matchInit === "true") return;
@@ -558,27 +625,33 @@ function initComponentMatchSlides() {
     let draggedCard = null;
 
     cards.forEach((card) => {
+      // STUDENT NOTE: Event listener for `dragstart`. The callback below runs whenever that user/browser event occurs.
       card.addEventListener("dragstart", () => {
         draggedCard = card;
         card.classList.add("dragging");
       });
 
+      // STUDENT NOTE: Event listener for `dragend`. The callback below runs whenever that user/browser event occurs.
       card.addEventListener("dragend", () => {
         card.classList.remove("dragging");
         draggedCard = null;
       });
     });
 
+    // STUDENT NOTE: Function `makeDropTarget` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
     function makeDropTarget(target) {
+      // STUDENT NOTE: Event listener for `dragover`. The callback below runs whenever that user/browser event occurs.
       target.addEventListener("dragover", (e) => {
         e.preventDefault();
         target.classList.add("over");
       });
 
+      // STUDENT NOTE: Event listener for `dragleave`. The callback below runs whenever that user/browser event occurs.
       target.addEventListener("dragleave", () => {
         target.classList.remove("over");
       });
 
+      // STUDENT NOTE: Event listener for `drop`. The callback below runs whenever that user/browser event occurs.
       target.addEventListener("drop", (e) => {
         e.preventDefault();
         target.classList.remove("over");
@@ -611,6 +684,7 @@ function initComponentMatchSlides() {
     makeDropTarget(bank);
     dropSlots.forEach((slot) => makeDropTarget(slot));
 
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     checkBtn.addEventListener("click", () => {
       let correctCount = 0;
 
@@ -635,6 +709,7 @@ function initComponentMatchSlides() {
       }
     });
 
+    // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
     resetBtn.addEventListener("click", () => {
       const allCards = Array.from(slide.querySelectorAll(".match-card"));
 
@@ -651,13 +726,15 @@ function initComponentMatchSlides() {
   });
 }
 
+// STUDENT NOTE: Event listener for `DOMContentLoaded`. The callback below runs whenever that user/browser event occurs.
 document.addEventListener("DOMContentLoaded", initComponentMatchSlides);
 
+// STUDENT NOTE: Event listener for `DOMContentLoaded`. The callback below runs whenever that user/browser event occurs.
 document.addEventListener("DOMContentLoaded", () => {
   const sensorInfo = {
     limitSwitch: {
       title: "Limit Switch",
-      image: "assets/Sensors/limit-switch.png",
+      image: "../../shared/assets/Sensors/limit-switch.png",
       alt: "Limit switch",
       description:
         "A limit switch detects physical contact. It is usually used to tell the robot that a mechanism has reached a known endpoint.",
@@ -672,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     beamBreak: {
       title: "Beam Break Sensor",
-      image: "assets/Sensors/beam-break.jpg",
+      image: "../../shared/assets/Sensors/beam-break.jpg",
       alt: "Beam break sensor",
       description:
         "A beam break sensor uses a light beam to detect when an object passes through or blocks the beam.",
@@ -687,7 +764,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     relativeEncoder: {
       title: "Relative Encoder",
-      image: "assets/Sensors/relative-encoder.png",
+      image: "../../shared/assets/Sensors/relative-encoder.png",
       alt: "Relative encoder",
       description:
         "A relative encoder measures change in rotation or position from a starting point. It usually needs to be zeroed when the robot powers on.",
@@ -702,7 +779,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     absoluteEncoder: {
       title: "Absolute Encoder",
-      image: "assets/Sensors/absolute-encoder.png",
+      image: "../../shared/assets/Sensors/absolute-encoder.png",
       alt: "Absolute encoder",
       description:
         "An absolute encoder reports the real position of a mechanism, even after the robot has been turned off and back on.",
@@ -717,7 +794,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gyro: {
       title: "Gyro",
-      image: "assets/Sensors/gyro.png",
+      image: "../../shared/assets/Sensors/gyro.png",
       alt: "Gyro sensor",
       description:
         "A gyro measures robot rotation, heading, and orientation. It is often used by autonomous and drivetrain code.",
@@ -732,7 +809,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     camera: {
       title: "Cameras",
-      image: "assets/Sensors/cameras.png",
+      image: "../../shared/assets/Sensors/cameras.png",
       alt: "Robot cameras",
       description:
         "Cameras help the robot or drivers see important targets, field locations, game pieces, or alignment information.",
@@ -747,7 +824,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lidar: {
       title: "Distance / LiDAR Sensor",
-      image: "assets/Sensors/lidar.png",
+      image: "../../shared/assets/Sensors/lidar.png",
       alt: "LiDAR distance sensor",
       description:
         "A distance sensor measures how far away an object or surface is from the robot.",
@@ -761,7 +838,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     accelerometer: {
       title: "Accelerometer",
-      image: "assets/Sensors/accelerometer.jpg",
+      image: "../../shared/assets/Sensors/accelerometer.jpg",
       alt: "Accelerometer sensor",
       description:
         "An accelerometer measures acceleration and changes in motion. It can help detect robot movement, impacts, tilt, vibration, or sudden changes in speed.",
@@ -789,6 +866,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelectorAll(".sensor-click-card[data-sensor]")
     .forEach((card) => {
+      // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
       card.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -820,10 +898,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// STUDENT NOTE: Event listener for `DOMContentLoaded`. The callback below runs whenever that user/browser event occurs.
 document.addEventListener("DOMContentLoaded", () => {
   const nameInput = document.getElementById("participantName");
 
   if (nameInput) {
+    // STUDENT NOTE: Event listener for `input`. The callback below runs whenever that user/browser event occurs.
     nameInput.addEventListener("input", updateCertificateName);
   }
 
@@ -832,9 +912,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 if (downloadCertificateButton) {
   downloadCertificateButton.disabled = true;
+  // STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
   downloadCertificateButton.addEventListener("click", downloadCertificatePdf);
 }
 });
+// STUDENT NOTE: Helper function `getSafeFileName`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getSafeFileName(text) {
   return text
     .toLowerCase()
@@ -842,6 +924,7 @@ function getSafeFileName(text) {
     .replace(/^-+|-+$/g, "") || "certificate";
 }
 
+// STUDENT NOTE: UI/state helper `setCertificateDownloadEnabled`. It updates page content or control state to match the current application data.
 function setCertificateDownloadEnabled(enabled) {
   const button = document.getElementById("downloadCertificate");
 
@@ -850,6 +933,7 @@ function setCertificateDownloadEnabled(enabled) {
   }
 }
 
+// STUDENT NOTE: Download/export function `downloadCertificatePdf`. It converts page content into a downloadable artifact; external libraries used here must load before this function runs.
 async function downloadCertificatePdf() {
   if (!quizPassed) {
     alert("Complete and pass the quiz before downloading the certificate.");

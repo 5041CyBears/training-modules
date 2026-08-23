@@ -1,14 +1,58 @@
+<!-- 5041 Training Hub page: FRC-trainings/modules/roar-admin.html
+     Cleaned export: shared assets/CSS/JS references are centralized where possible. -->
 <!DOCTYPE html>
+<!-- ============================================================================
+STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB
+
+This file is intentionally commented for students who will build, edit, and extend
+training modules and resource pages.
+
+HOW TO READ THIS HTML
+1. HTML controls CONTENT and STRUCTURE: headings, paragraphs, images, buttons,
+   links, forms, and Reveal.js slides.
+2. CSS controls APPEARANCE: colors, spacing, sizing, grids, fonts, and responsive
+   layout. Look at the class="..." values here, then search for those class names
+   in the linked CSS files.
+3. JavaScript controls BEHAVIOR: quizzes, click-to-reveal cards, drag-and-drop,
+   calculators, certificates, form actions, and other interactions. Interactive
+   elements often connect to JavaScript through classes, ids, data-* attributes,
+   or onclick="..." handlers.
+4. In Reveal.js, each <section> is a slide. A <section> nested inside another
+   <section> is a VERTICAL slide. Sibling top-level <section> elements move
+   horizontally.
+5. Relative file paths matter. For example, "../../shared/assets/..." means go up
+   two folders, then enter shared/assets. If a page moves folders, its paths may
+   need to change.
+6. Prefer reusing existing shared classes, scripts, and assets before creating a
+   duplicate. This keeps the training hub consistent and easier to maintain.
+7. When creating a new module, copy a similar working module first, rename its
+   module-specific classes/functions, then change content one section at a time.
+
+SAFE EDITING WORKFLOW
+- Change one thing at a time and refresh/test after each change.
+- Keep closing tags paired with opening tags.
+- Keep class names exactly matched between HTML and CSS/JavaScript.
+- Keep ids unique on a page.
+- Do not remove data-* attributes from interactive elements unless you also update
+  the JavaScript that reads them.
+- Open the browser Developer Tools Console when an interaction stops working.
+============================================================================ -->
 <html lang="en">
+<!-- STUDENT NOTE: <head> contains page metadata and links to CSS/fonts/libraries. It is not visible slide content. -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5041 CyBear Robotics R.O.A.R Reports</title>
-  <link rel="stylesheet" href="roar-styles.css" />
+  <!-- STUDENT NOTE: Loads a stylesheet/font resource: ../../shared/css/roar-styles.css. Link order matters because later CSS can override earlier CSS. -->
+  <link rel="stylesheet" href="../../shared/css/roar-styles.css" />
+  <!-- STUDENT NOTE: Loads a stylesheet/font resource: https://fonts.googleapis.com/css2?family=Audiowide&display=swap. Link order matters because later CSS can override earlier CSS. -->
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 </head>
+<!-- STUDENT NOTE: Visible page content begins in <body>. Reveal.js presentation markup is usually inside .reveal > .slides. -->
 <body>
+  <!-- STUDENT NOTE: <main> marks the primary content of this non-slide page for structure and accessibility. -->
   <main class="app-shell">
+    <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: brand-hero. -->
     <section class="brand-hero" aria-labelledby="pageTitle">
       <div class="brand-angle brand-angle-black" aria-hidden="true"></div>
       <div class="brand-angle brand-angle-red" aria-hidden="true"></div>
@@ -21,7 +65,7 @@
 
         <div class="logo-panel text-logo" aria-label="5041 CyBear Robotics mark">
         <img
-          src="assets/5041teamlogo.png"
+          src="../../shared/assets/5041teamlogo.png"
           alt="5041 CyBear Robotics logo"
           class="team-logo"
         />
@@ -31,13 +75,15 @@
       <div class="hero-action-row">
         <span class="loading-bar" aria-hidden="true"></span>
         <div class="button-row">
-          <a class="button-link secondary" href="index.html">Submit report</a>
+          <a class="button-link secondary" href="roar-report-form.html">Submit report</a>
           <button id="refreshReportBtn" class="secondary" type="button">Refresh reports</button>
         </div>
       </div>
     </section>
 
+    <!-- STUDENT NOTE: Horizontal Reveal.js slide. classes: report-grid compact-report-grid. -->
     <section class="report-grid compact-report-grid">
+      <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: card report-controls-card full-width-card. -->
       <section class="card report-controls-card full-width-card">
         <div class="section-heading">
           <span class="corner-mark" aria-hidden="true"></span>
@@ -47,6 +93,7 @@
           </div>
         </div>
 
+        <!-- STUDENT NOTE: Form container. Input name/id values may be referenced by JavaScript or a backend, so rename them only if you update that code too. -->
         <form id="reportForm" class="report-form">
           <label>
             Admin PIN
@@ -70,6 +117,7 @@
         </form>
       </section>
 
+      <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: card report-summary-card full-width-card. -->
       <section class="card report-summary-card full-width-card">
         <div class="section-heading compact-heading">
           <span class="corner-mark" aria-hidden="true"></span>
@@ -99,6 +147,7 @@
         </div>
       </section>
 
+      <!-- STUDENT NOTE: Vertical Reveal.js sub-slide. classes: card full-width-card. -->
       <section class="card full-width-card">
         <div class="entries-header">
           <div class="section-heading compact-heading">
@@ -117,7 +166,9 @@
     </section>
   </main>
 
-  <script src="config.js"></script>
-  <script src="report.js"></script>
+  <!-- STUDENT NOTE: Loads JavaScript from ../../shared/js/config.js. Scripts near the end of <body> run after most HTML has been parsed. -->
+  <script src="../../shared/js/config.js"></script>
+  <!-- STUDENT NOTE: Loads JavaScript from ../../shared/js/report.js. Scripts near the end of <body> run after most HTML has been parsed. -->
+  <script src="../../shared/js/report.js"></script>
 </body>
 </html>

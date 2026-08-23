@@ -1,3 +1,34 @@
+/* ============================================================================
+   STUDENT DEVELOPER GUIDE — 5041 TRAINING HUB JAVASCRIPT
+
+   This file controls behavior and interactivity. HTML creates the elements and CSS
+   styles them; JavaScript finds those elements and changes them in response to the
+   user.
+
+   IMPORTANT IDEAS FOR STUDENTS
+   - document.querySelector(...) finds the first matching HTML element.
+   - document.querySelectorAll(...) finds all matching elements.
+   - element.closest(...) searches upward for a parent element. This is useful for
+     keeping an interaction limited to the current Reveal.js slide.
+   - element.dataset.name reads data-name="..." from HTML.
+   - classList.add/remove/toggle changes CSS classes so the appearance can respond
+     to clicks, correct answers, selected cards, etc.
+   - addEventListener(...) runs code when an event occurs, such as click, input,
+     dragstart, drop, or DOMContentLoaded.
+   - Reveal.on("slidechanged", ...) runs code when the presentation changes slides.
+   - Functions assigned to window (for example window.checkAnswer = checkAnswer)
+     are intentionally made global so HTML onclick="checkAnswer(this)" can call them.
+
+   WHEN BUILDING A NEW INTERACTION
+   1. Give the slide a unique class such as .my-activity-slide.
+   2. Give interactive elements useful classes and data-* attributes in the HTML.
+   3. In JavaScript, start from the clicked element and use closest(...) so one
+      activity does not accidentally change another slide.
+   4. Add/remove CSS state classes such as selected, correct, incorrect, or missed.
+   5. Reset every state your activity creates.
+   6. Test clicks, reset, repeated attempts, slide navigation, and browser refresh.
+   7. Check the Developer Tools Console for errors if nothing happens.
+============================================================================ */
 const config = window.ROAR_APP_CONFIG || {};
 const SCRIPT_URL = config.SCRIPT_URL;
 const APP_TOKEN = config.APP_TOKEN || "";
@@ -19,11 +50,13 @@ const fields = {
   incidentDescription: document.querySelector("#incidentDescription")
 };
 
+// STUDENT NOTE: UI/state helper `setMessage`. It updates page content or control state to match the current application data.
 function setMessage(text, type = "") {
   formMessage.textContent = text;
   formMessage.className = `message ${type}`.trim();
 }
 
+// STUDENT NOTE: Function `ensureConfigured` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function ensureConfigured() {
   if (!SCRIPT_URL || SCRIPT_URL.includes("PASTE_YOUR")) {
     setMessage("Add your Google Apps Script web app URL to config.js first.", "error");
@@ -32,23 +65,27 @@ function ensureConfigured() {
   return true;
 }
 
+// STUDENT NOTE: UI/state helper `setToday`. It updates page content or control state to match the current application data.
 function setToday() {
   if (fields.reportDate && !fields.reportDate.value) {
     fields.reportDate.valueAsDate = new Date();
   }
 }
 
+// STUDENT NOTE: UI/state helper `updateOtherRequired`. It updates page content or control state to match the current application data.
 function updateOtherRequired() {
   if (!fields.otherToggle || !fields.otherReportType) return;
   fields.otherReportType.required = fields.otherToggle.checked;
 }
 
+// STUDENT NOTE: UI/state helper `updateHarassmentToggle`. It updates page content or control state to match the current application data.
 function updateHarassmentToggle() {
   const subChecks = document.querySelectorAll(".sub-checks input");
   const anyChecked = Array.from(subChecks).some((input) => input.checked);
   if (anyChecked && fields.harassmentToggle) fields.harassmentToggle.checked = true;
 }
 
+// STUDENT NOTE: Function `reportTypeSelected` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function reportTypeSelected() {
   return Boolean(
     form.reportTypeBullying.checked ||
@@ -60,6 +97,7 @@ function reportTypeSelected() {
   );
 }
 
+// STUDENT NOTE: Function `validateForm` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function validateForm() {
   if (!ensureConfigured()) return false;
 
@@ -101,6 +139,7 @@ function validateForm() {
   return true;
 }
 
+// STUDENT NOTE: Function `buildHiddenPostForm` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function buildHiddenPostForm(data) {
   const hiddenForm = document.createElement("form");
   hiddenForm.method = "POST";
@@ -120,11 +159,13 @@ function buildHiddenPostForm(data) {
   return hiddenForm;
 }
 
+// STUDENT NOTE: Helper function `getCheckbox`. It retrieves or derives a value so the rest of the code does not repeat the same logic.
 function getCheckbox(name) {
   const input = form.elements[name];
   return input && input.checked ? "true" : "false";
 }
 
+// STUDENT NOTE: Function `submitReport` groups one reusable behavior. Keep one clear responsibility per function so future students can test and modify it safely.
 function submitReport() {
   if (!validateForm()) return;
 
@@ -169,11 +210,13 @@ function submitReport() {
   }
 }
 
+// STUDENT NOTE: Event listener for `submit`. The callback below runs whenever that user/browser event occurs.
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   submitReport();
 });
 
+// STUDENT NOTE: Event listener for `click`. The callback below runs whenever that user/browser event occurs.
 clearBtn.addEventListener("click", () => {
   form.reset();
   setToday();
@@ -181,8 +224,10 @@ clearBtn.addEventListener("click", () => {
   setMessage("", "");
 });
 
+// STUDENT NOTE: Event listener for `change`. The callback below runs whenever that user/browser event occurs.
 fields.otherToggle.addEventListener("change", updateOtherRequired);
 document.querySelectorAll(".sub-checks input").forEach((input) => {
+  // STUDENT NOTE: Event listener for `change`. The callback below runs whenever that user/browser event occurs.
   input.addEventListener("change", updateHarassmentToggle);
 });
 
